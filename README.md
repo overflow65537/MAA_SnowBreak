@@ -9,7 +9,7 @@ MaaFramework 实践模板。
 1. 完整克隆本项目及子项目（地址请修改为您基于本模板创建的新项目地址）。
 
     ```bash
-    git clone --recursive https://github.com/MaaXYZ/MaaPracticeBoilerplate.git
+    git clone --recursive https://github.com/overflow65537/MAA_SnowBreak.git
     ```
 
     **请注意，一定要完整克隆子项目，不要漏了 `--recursive`，也不要下载 zip 包！**
