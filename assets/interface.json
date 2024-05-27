@@ -1,0 +1,75 @@
+{
+    "controller": [
+        {
+            "name": "安卓端",
+            "type": "Adb"
+        },
+        {
+            "name": "桌面端",
+            "type": "Win32",
+            "win32": {
+                "method": "Search",
+                "class_name": ".*",
+                "window_name": "Visual Studio"
+            }
+        }
+    ],
+    "resource": [
+        {
+            "name": "官服",
+            "path": [
+                "{PROJECT_DIR}/resource/base"
+            ]
+        },
+        {
+            "name": "B 服",
+            "path": [
+                "{PROJECT_DIR}/resource/base",
+                "{PROJECT_DIR}/resource/bilibili"
+            ]
+        }
+    ],
+    "task": [
+        {
+            "name": "普通任务",
+            "entry": "MyTask1"
+        },
+        {
+            "name": "选项任务",
+            "entry": "MyTask2",
+            "option": [
+                "任务选项1"
+            ]
+        },
+        {
+            "name": "参数任务",
+            "entry": "MyTask3",
+            "option": [
+                "任务选项1"
+            ],
+            "param": {}
+        }
+    ],
+    "option": {
+        "任务选项1": {
+            "cases": [
+                {
+                    "name": "文本1",
+                    "param": {
+                        "OcrTask": {
+                            "text": "文本1"
+                        }
+                    }
+                },
+                {
+                    "name": "文本2",
+                    "param": {
+                        "OcrTask": {
+                            "text": "文本2"
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}
