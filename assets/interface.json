@@ -31,45 +31,48 @@
     ],
     "task": [
         {
-            "name": "普通任务",
-            "entry": "MyTask1"
+            "name": "启动",
+            "entry": "启动"
         },
         {
-            "name": "选项任务",
-            "entry": "MyTask2",
-            "option": [
-                "任务选项1"
-            ]
+            "name": "邮件",
+            "entry": "邮件"
         },
         {
-            "name": "参数任务",
-            "entry": "MyTask3",
-            "option": [
-                "任务选项1"
-            ],
-            "param": {}
+            "name": "商店",
+            "entry": "商店"
+        },
+        {
+            "name": "领取体力",
+            "entry": "领取体力"
+        },
+        {
+            "name": "升级枪械",
+            "entry": "升级枪械"
+        },
+        {
+            "name": "战斗",
+            "entry": "战斗"
+        },
+        {
+            "name": "羽蜕恩雅",
+            "entry": "羽蜕恩雅"
+        },
+        {
+            "name": "悖谬琴诺",
+            "entry": "悖谬琴诺"
+        },
+        {
+            "name": "任务",
+            "entry": "任务"
+        },
+        {
+            "name": "凭证",
+            "entry": "凭证"
+        },
+        {
+            "name": "关闭游戏",
+            "entry": "关闭游戏"
         }
-    ],
-    "option": {
-        "任务选项1": {
-            "cases": [
-                {
-                    "name": "文本1",
-                    "param": {
-                        "OcrTask": {
-                            "text": "文本1"
-                        }
-                    }
-                },
-                {
-                    "name": "文本2",
-                    "param": {
-                        "OcrTask": {
-                            "text": "文本2"
-                        }
-                    }
-                }
-            ]
-        }
-    }
+    ]
 }

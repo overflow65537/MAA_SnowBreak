@@ -1,0 +1,44 @@
+{
+    "商店": {
+        "next": [
+            "判断塑料",
+            "打开商店",
+            "返回主菜单"
+        ]
+    },
+    "判断塑料": {
+        "recognition": "TemplateMatch",
+        "template": "商店/塑料_809_496_123_128__759_446_223_228.png",
+        "action": "Click",
+        "next": [
+            "购买塑料"
+        ]
+    },
+    "打开商店": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            1173,
+            660,
+            70,
+            38
+        ],
+        "expected": "商店",
+        "action": "Click"
+    },
+    "购买塑料": {
+        "recognition": "OCR",
+        "roi": [
+            1121,
+            644,
+            83,
+            43
+        ],
+        "expected": "购买",
+        "action": "Click",
+        "next": [
+            "关闭奖励通知",
+            "返回主菜单"
+        ]
+    }
+}

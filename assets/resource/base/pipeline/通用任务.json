@@ -27,5 +27,17 @@
         ],
         "template": "通用任务/主菜单_999_24_49_44__949_0_149_144.png",
         "action": "Click"
+    },
+    "返回主菜单_sub": {
+        "is_sub": true,
+        "recognition": "TemplateMatch",
+        "roi": [
+            970,
+            0,
+            180,
+            80
+        ],
+        "template": "通用任务/主菜单_999_24_49_44__949_0_149_144.png",
+        "action": "Click"
     }
 }
