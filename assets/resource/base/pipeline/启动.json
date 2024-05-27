@@ -1,0 +1,36 @@
+{
+    "启动": {
+        "next": [
+            "检查主界面",
+            "进入游戏",
+            "启动应用"
+        ]
+    },
+    "检查主界面": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            1017,
+            300,
+            78,
+            47
+        ],
+        "template": "启动/战斗_1017_300_78_47__967_250_178_147.png"
+    },
+    "进入游戏": {
+        "is_sub": true,
+        "recognition": "TemplateMatch",
+        "roi": [
+            580,
+            594,
+            128,
+            42
+        ],
+        "template": "启动/开始游戏_580_594_128_42__530_544_228_142.png",
+        "action": "Click"
+    },
+    "启动应用": {
+        "is_sub": true,
+        "action": "StartApp",
+        "package": "com.dragonli.projectsnow.lhm/com.xgsdk.client.api.splash.XGSplashActivity"
+    }
+}

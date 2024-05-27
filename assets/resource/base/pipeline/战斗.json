@@ -1,0 +1,293 @@
+{
+    "战斗": {
+        "next": [
+            "使用体力",
+            "完成战斗",
+            "开始战斗",
+            "速战MAX",
+            "速战",
+            "进入作战",
+            "选择作战2",
+            "选择作战1",
+            "打开战斗"
+        ]
+    },
+    "打开战斗": {
+        "is_sub": true,
+        "recognition": "TemplateMatch",
+        "roi": [
+            1017,
+            300,
+            78,
+            47
+        ],
+        "template": "启动/战斗_1017_300_78_47__967_250_178_147.png",
+        "action": "Click"
+    },
+    "选择作战1": {
+        "is_sub": true,
+        "recognition": "TemplateMatch",
+        "roi": [
+            1048,
+            369,
+            174,
+            58
+        ],
+        "template": "战斗/常规行动_1048_369_174_58__998_319_274_158.png",
+        "action": "Click"
+    },
+    "选择作战2": {
+        "is_sub": true,
+        "recognition": "TemplateMatch",
+        "roi": [
+            261,
+            655,
+            163,
+            45
+        ],
+        "template": "战斗/常规行动2_261_655_163_45__211_575_263_145.png",
+        "action": "Swipe",
+        "begin": [
+            1250,
+            330,
+            0,
+            0
+        ],
+        "end": [
+            40,
+            330,
+            0,
+            0
+        ]
+    },
+    "进入作战": {
+        "is_sub": true,
+        "recognition": "TemplateMatch",
+        "roi": [
+            741,
+            217,
+            200,
+            197
+        ],
+        "template": "战斗/炼心之战_741_217_200_197__691_167_300_297.png",
+        "action": "Click"
+    },
+    "速战": {
+        "is_sub": true,
+        "recognition": "TemplateMatch",
+        "roi": [
+            867,
+            638,
+            112,
+            47
+        ],
+        "template": "战斗/速战_867_638_112_47__817_573_212_147.png",
+        "action": "Click"
+    },
+    "速战MAX": {
+        "is_sub": true,
+        "recognition": "TemplateMatch",
+        "roi": [
+            823,
+            463,
+            68,
+            40
+        ],
+        "template": "战斗/速战MAX_823_463_68_31__773_413_168_131.png",
+        "action": "Click"
+    },
+    "开始战斗": {
+        "is_sub": true,
+        "recognition": "TemplateMatch",
+        "roi": [
+            577,
+            539,
+            134,
+            38
+        ],
+        "template": "战斗/开始作战_577_539_134_38__527_489_234_138.png",
+        "action": "Click"
+    },
+    "完成战斗": {
+        "is_sub": true,
+        "recognition": "TemplateMatch",
+        "roi": [
+            527,
+            645,
+            229,
+            39
+        ],
+        "template": "战斗/完成作战_527_645_229_39__477_581_329_139.png",
+        "action": "Click"
+    },
+    "使用体力": {
+        "post_wait_freezes": 2,
+        "recognition": "OCR",
+        "roi": [
+            813,
+            203,
+            168,
+            60
+        ],
+        "expected": "恢复感知",
+        "action": "Click",
+        "target": [
+            660,
+            560,
+            0,
+            0
+        ],
+        "next": [
+            "体力不足",
+            "关闭奖励通知",
+            "战斗"
+        ]
+    },
+    "体力不足": {
+        "recognition": "OCR",
+        "roi": [
+            585,
+            337,
+            112,
+            44
+        ],
+        "expected": "道具不足",
+        "action": "Click",
+        "target": [
+            1,
+            0,
+            0,
+            0
+        ],
+        "next": [
+            "返回主菜单"
+        ]
+    },
+    "羽蜕恩雅": {
+        "next": [
+            "关卡次数限制",
+            "完成战斗_碎片",
+            "开始战斗",
+            "速战MAX",
+            "速战",
+            "行为02",
+            "刷碎片羽蜕恩雅",
+            "个人故事_滑动",
+            "个人故事",
+            "打开战斗"
+        ]
+    },
+    "悖谬琴诺": {
+        "next": [
+            "关卡次数限制",
+            "完成战斗_碎片",
+            "开始战斗",
+            "速战MAX",
+            "速战",
+            "行为02",
+            "刷碎片悖谬琴诺",
+            "个人故事_滑动",
+            "个人故事",
+            "打开战斗"
+        ]
+    },
+    "完成战斗_碎片": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            527,
+            645,
+            229,
+            39
+        ],
+        "template": "战斗/完成作战_527_645_229_39__477_581_329_139.png",
+        "action": "Click",
+        "next": [
+            "返回主菜单"
+        ]
+    },
+    "个人故事": {
+        "is_sub": true,
+        "recognition": "TemplateMatch",
+        "roi": [
+            482,
+            542,
+            149,
+            46
+        ],
+        "template": "战斗/个人故事_482_542_149_46__432_492_249_146.png",
+        "action": "Click"
+    },
+    "个人故事_滑动": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            719,
+            659,
+            91,
+            35
+        ],
+        "expected": "个人故事",
+        "action": "Swipe",
+        "begin": [
+            1250,
+            330,
+            0,
+            0
+        ],
+        "end": [
+            40,
+            330,
+            0,
+            0
+        ]
+    },
+    "刷碎片羽蜕恩雅": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            21,
+            500,
+            1253,
+            31
+        ],
+        "expected": "羽蜕",
+        "action": "Click"
+    },
+    "刷碎片悖谬琴诺": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            21,
+            500,
+            1253,
+            31
+        ],
+        "expected": [
+            "悖谬",
+            "谬"
+        ],
+        "action": "Click"
+    },
+    "行为02": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "expected": [
+            "行为02",
+            "行为O2"
+        ],
+        "action": "Click"
+    },
+    "关卡次数限制": {
+        "recognition": "OCR",
+        "roi": [
+            557,
+            333,
+            176,
+            51
+        ],
+        "expected": "关卡次数限制",
+        "next": [
+            "返回主菜单"
+        ]
+    }
+}

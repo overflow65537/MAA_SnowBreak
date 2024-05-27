@@ -1,0 +1,31 @@
+{
+    "关闭奖励通知": {
+        "is_sub": true,
+        "recognition": "TemplateMatch",
+        "roi": [
+            538,
+            30,
+            198,
+            69
+        ],
+        "template": "通用任务/获得道具_538_30_198_69__488_0_298_169.png",
+        "action": "Click",
+        "target": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    "返回主菜单": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            970,
+            0,
+            180,
+            80
+        ],
+        "template": "通用任务/主菜单_999_24_49_44__949_0_149_144.png",
+        "action": "Click"
+    }
+}
