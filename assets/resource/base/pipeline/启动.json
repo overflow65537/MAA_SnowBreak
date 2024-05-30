@@ -2,6 +2,9 @@
     "启动": {
         "next": [
             "检查主界面",
+            "关闭奖励通知",
+            "关闭公告",
+            "关闭签到",
             "进入游戏",
             "启动应用"
         ]
@@ -32,5 +35,35 @@
         "is_sub": true,
         "action": "StartApp",
         "package": "com.dragonli.projectsnow.lhm/com.xgsdk.client.api.splash.XGSplashActivity"
+    },
+    "关闭签到": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            142,
+            88,
+            106,
+            32
+        ],
+        "expected": "刷新时间",
+        "action": "Click",
+        "target": [
+            1,
+            0,
+            0,
+            0
+        ]
+    },
+    "关闭公告": {
+        "is_sub": true,
+        "recognition": "TemplateMatch",
+        "roi": [
+            834,
+            40,
+            404,
+            266
+        ],
+        "template": "启动/关闭通知_1203_52_31_33__1149_2_131_133.png",
+        "action": "Click"
     }
 }
