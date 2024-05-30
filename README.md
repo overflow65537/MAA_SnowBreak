@@ -1,12 +1,11 @@
-# MaaPracticeBoilerplate
+# 尘白禁区每日任务自动化
 
-MaaFramework 实践模板。
+基于MaaFramework的尘白禁区每日任务自动化流程
 
-## 如何开发
+## 如何使用
 
-0. 使用右上角 `Use this template` - `Create a new repository` 来基于本模板创建您自己的项目。
 
-1. 完整克隆本项目及子项目（地址请修改为您基于本模板创建的新项目地址）。
+1. 完整克隆本项目及子项目。
 
     ```bash
     git clone --recursive https://github.com/overflow65537/MAA_SnowBreak.git
@@ -22,10 +21,7 @@ MaaFramework 实践模板。
     python ./configure.py
     ```
 
-4. 按需求修改 `assets` 中的资源文件，请参考 MaaFramework 相关文档。
-
-    - 可使用 [MaaDebugger](https://github.com/MaaXYZ/MaaDebugger) 进行调试；
-    - 也可以在本地安装后测试：
+4. 本地安装：
 
         1. 执行安装脚本
 
@@ -35,29 +31,8 @@ MaaFramework 实践模板。
 
         2. 运行 `install/MaaPiCli.exe`
 
-5. 完成开发工作后，上传您的代码并发布版本。
 
-    ```bash
-    # 配置 git 信息（仅第一次需要，后续不用再配置）
-    git config user.name "您的 GitHub 昵称"
-    git config user.email "您的 GitHub 邮箱"
-    
-    # 提交修改
-    git add .
-    git commit -m "XX 新功能"
-    git push origin HEAD -u
-    ```
-
-6. 发布您的版本
-
-    需要先修改仓库设置 `Settings` - `Actions` - `General` - `Read and write permissions` - `Save`
-
-    ```bash
-    # CI 检测到 tag 会自动进行发版
-    git tag v1.0.0
-    git push origin v1.0.0
-    ```
-
+   
 ## 鸣谢
 
 本项目由 **[MaaFramework](https://github.com/MaaXYZ/MaaFramework)** 强力驱动！
