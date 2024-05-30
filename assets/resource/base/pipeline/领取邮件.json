@@ -30,14 +30,14 @@
         "action": "Click"
     },
     "领取邮件": {
-        "recognition": "TemplateMatch",
+        "recognition": "OCR",
         "roi": [
             249,
             640,
             143,
             38
         ],
-        "template": "领取邮件/领取_249_640_143_38__199_582_243_138.png",
+        "expected": "批量领取",
         "action": "Click",
         "next": [
             "关闭奖励通知",
