@@ -64,24 +64,38 @@
         "is_sub": true,
         "recognition": "TemplateMatch",
         "roi": [
-            741,
-            217,
-            200,
-            197
+            [
+                741,
+                217,
+                200,
+                197
+            ],
+            [
+                441,
+                214,
+                200,
+                197
+            ],
+            [
+                141,
+                214,
+                200,
+                197
+            ]
         ],
         "template": "战斗/炼心之战_741_217_200_197__691_167_300_297.png",
         "action": "Click"
     },
     "速战": {
         "is_sub": true,
-        "recognition": "TemplateMatch",
+        "recognition": "OCR",
         "roi": [
             867,
             638,
             112,
             47
         ],
-        "template": "战斗/速战_867_638_112_47__817_573_212_147.png",
+        "expected": "速战",
         "action": "Click"
     },
     "速战MAX": {
@@ -292,5 +306,54 @@
         "next": [
             "返回主菜单"
         ]
+    },
+    "活动战斗": {
+        "next": [
+            "使用体力",
+            "完成战斗",
+            "开始战斗",
+            "速战MAX",
+            "速战",
+            "选择活动作战2",
+            "选择活动作战1",
+            "打开活动战斗"
+        ]
+    },
+    "打开活动战斗": {
+        "post_wait_freezes": 2,
+        "is_sub": true,
+        "recognition": "TemplateMatch",
+        "roi": [
+            914,
+            314,
+            84,
+            72
+        ],
+        "template": "活动/活动入口_914_314_84_72__864_264_184_172.png",
+        "action": "Click"
+    },
+    "选择活动作战1": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            117,
+            495,
+            101,
+            33
+        ],
+        "expected": "升格之路",
+        "action": "Click"
+    },
+    "选择活动作战2": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            901,
+            129,
+            58,
+            33
+        ],
+        "expected": "深渊",
+        "action": "Click"
     }
 }

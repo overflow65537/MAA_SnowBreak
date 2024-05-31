@@ -39,5 +39,23 @@
         ],
         "template": "通用任务/主菜单_999_24_49_44__949_0_149_144.png",
         "action": "Click"
+    },
+    "道具过期提示": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            469,
+            35,
+            340,
+            60
+        ],
+        "expected": "以下道具已经过期",
+        "action": "Click",
+        "target": [
+            1,
+            0,
+            0,
+            0
+        ]
     }
 }
