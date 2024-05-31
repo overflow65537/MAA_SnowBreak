@@ -2,15 +2,98 @@
     "战斗": {
         "next": [
             "使用体力",
+            "不使用体力",
             "完成战斗",
             "开始战斗",
             "速战MAX",
             "速战",
-            "进入作战",
+            "进入作战_角色经验",
+            "进入作战_后勤",
+            "进入作战_武器素材",
+            "进入作战_武器组件",
+            "进入作战_武器经验",
+            "进入作战_活动后勤",
+            "进入作战_神经素材",
+            "进入作战_角色经验",
+            "进入作战_通用银",
             "选择作战2",
             "选择作战1",
             "打开战斗"
         ]
+    },
+    "使用体力": {
+        "enabled": false,
+        "post_wait_freezes": 2,
+        "recognition": "OCR",
+        "roi": [
+            813,
+            203,
+            168,
+            60
+        ],
+        "expected": "恢复感知",
+        "action": "Click",
+        "target": [
+            660,
+            560,
+            0,
+            0
+        ],
+        "next": [
+            "体力不足",
+            "关闭奖励通知",
+            "战斗"
+        ]
+    },
+    "不使用体力": {
+        "enabled": false,
+        "post_wait_freezes": 2,
+        "recognition": "OCR",
+        "roi": [
+            813,
+            203,
+            168,
+            60
+        ],
+        "expected": "恢复感知",
+        "action": "Click",
+        "target": [
+            400,
+            560,
+            0,
+            0
+        ],
+        "next": [
+            "返回主菜单"
+        ]
+    },
+    "速战MAX": {
+        "enabled": false,
+        "is_sub": true,
+        "recognition": "TemplateMatch",
+        "roi": [
+            823,
+            463,
+            68,
+            40
+        ],
+        "template": "战斗/速战MAX_823_463_68_31__773_413_168_131.png",
+        "action": "Click"
+    },
+    "完成战斗": {
+        "runout_next": [
+            "返回主菜单"
+        ],
+        "is_sub": true,
+        "recognition": "TemplateMatch",
+        "roi": [
+            527,
+            645,
+            229,
+            39
+        ],
+        "template": "战斗/完成作战_527_645_229_39__477_581_329_139.png",
+        "action": "Click"
     },
     "打开战斗": {
         "is_sub": true,
@@ -60,30 +143,108 @@
             0
         ]
     },
-    "进入作战": {
+    "进入作战_通用银": {
+        "enabled": false,
         "is_sub": true,
-        "recognition": "TemplateMatch",
+        "recognition": "OCR",
         "roi": [
-            [
-                741,
-                217,
-                200,
-                197
-            ],
-            [
-                441,
-                214,
-                200,
-                197
-            ],
-            [
-                141,
-                214,
-                200,
-                197
-            ]
+            57,
+            530,
+            2328,
+            43
         ],
-        "template": "战斗/炼心之战_741_217_200_197__691_167_300_297.png",
+        "expected": "丰饶之壶",
+        "action": "Click"
+    },
+    "进入作战_角色经验": {
+        "enabled": false,
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            57,
+            530,
+            2328,
+            43
+        ],
+        "expected": "百足之市",
+        "action": "Click"
+    },
+    "进入作战_武器经验": {
+        "enabled": false,
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            57,
+            530,
+            2328,
+            43
+        ],
+        "expected": "止战之人",
+        "action": "Click"
+    },
+    "进入作战_武器素材": {
+        "enabled": false,
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            57,
+            530,
+            2328,
+            43
+        ],
+        "expected": "重铸之炎",
+        "action": "Click"
+    },
+    "进入作战_神经素材": {
+        "enabled": false,
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            57,
+            530,
+            2328,
+            43
+        ],
+        "expected": "永冬之境",
+        "action": "Click"
+    },
+    "进入作战_后勤": {
+        "enabled": false,
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            57,
+            530,
+            2328,
+            43
+        ],
+        "expected": "浴火之战",
+        "action": "Click"
+    },
+    "进入作战_活动后勤": {
+        "enabled": false,
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            57,
+            530,
+            2328,
+            43
+        ],
+        "expected": "炼心之战",
+        "action": "Click"
+    },
+    "进入作战_武器组件": {
+        "enabled": false,
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            57,
+            530,
+            2328,
+            43
+        ],
+        "expected": "聚兵之器",
         "action": "Click"
     },
     "速战": {
@@ -98,18 +259,6 @@
         "expected": "速战",
         "action": "Click"
     },
-    "速战MAX": {
-        "is_sub": true,
-        "recognition": "TemplateMatch",
-        "roi": [
-            823,
-            463,
-            68,
-            40
-        ],
-        "template": "战斗/速战MAX_823_463_68_31__773_413_168_131.png",
-        "action": "Click"
-    },
     "开始战斗": {
         "is_sub": true,
         "recognition": "TemplateMatch",
@@ -121,41 +270,6 @@
         ],
         "template": "战斗/开始作战_577_539_134_38__527_489_234_138.png",
         "action": "Click"
-    },
-    "完成战斗": {
-        "is_sub": true,
-        "recognition": "TemplateMatch",
-        "roi": [
-            527,
-            645,
-            229,
-            39
-        ],
-        "template": "战斗/完成作战_527_645_229_39__477_581_329_139.png",
-        "action": "Click"
-    },
-    "使用体力": {
-        "post_wait_freezes": 2,
-        "recognition": "OCR",
-        "roi": [
-            813,
-            203,
-            168,
-            60
-        ],
-        "expected": "恢复感知",
-        "action": "Click",
-        "target": [
-            660,
-            560,
-            0,
-            0
-        ],
-        "next": [
-            "体力不足",
-            "关闭奖励通知",
-            "战斗"
-        ]
     },
     "体力不足": {
         "recognition": "OCR",
@@ -177,7 +291,7 @@
             "返回主菜单"
         ]
     },
-    "羽蜕恩雅": {
+    "刷天启碎片": {
         "next": [
             "关卡次数限制",
             "完成战斗_碎片",
@@ -185,21 +299,8 @@
             "速战MAX",
             "速战",
             "行为02",
-            "刷碎片羽蜕恩雅",
-            "个人故事_滑动",
-            "个人故事",
-            "打开战斗"
-        ]
-    },
-    "悖谬琴诺": {
-        "next": [
-            "关卡次数限制",
-            "完成战斗_碎片",
-            "开始战斗",
-            "速战MAX",
-            "速战",
-            "行为02",
-            "刷碎片悖谬琴诺",
+            "悖谬琴诺",
+            "羽蜕恩雅",
             "个人故事_滑动",
             "个人故事",
             "打开战斗"
@@ -255,7 +356,8 @@
             0
         ]
     },
-    "刷碎片羽蜕恩雅": {
+    "羽蜕恩雅": {
+        "enabled": false,
         "is_sub": true,
         "recognition": "OCR",
         "roi": [
@@ -267,7 +369,8 @@
         "expected": "羽蜕",
         "action": "Click"
     },
-    "刷碎片悖谬琴诺": {
+    "悖谬琴诺": {
+        "enabled": false,
         "is_sub": true,
         "recognition": "OCR",
         "roi": [

@@ -51,20 +51,22 @@
             "entry": "升级枪械"
         },
         {
-            "name": "战斗",
-            "entry": "战斗"
-        },
-        {
-            "name": "活动战斗",
+            "name": "活动",
             "entry": "活动战斗"
         },
         {
-            "name": "羽蜕恩雅",
-            "entry": "羽蜕恩雅"
+            "name": "常规战斗",
+            "entry": "战斗",
+            "option": [
+                "进入作战",
+                "刷取次数",
+                "是否使用体力药水",
+                "刷完全部体力"
+            ]
         },
         {
-            "name": "悖谬琴诺",
-            "entry": "悖谬琴诺"
+            "name": "刷天启碎片",
+            "entry": "刷碎片"
         },
         {
             "name": "任务",
@@ -82,5 +84,167 @@
             "name": "关闭游戏",
             "entry": "关闭游戏"
         }
-    ]
+    ],
+    "option": {
+        "进入作战": {
+            "cases": [
+                {
+                    "name": "进入作战_角色经验",
+                    "param": {
+                        "进入作战_角色经验": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "进入作战_后勤",
+                    "param": {
+                        "进入作战_后勤": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "进入作战_武器素材",
+                    "param": {
+                        "进入作战_武器素材": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "进入作战_武器组件",
+                    "param": {
+                        "进入作战_武器组件": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "进入作战_武器经验",
+                    "param": {
+                        "进入作战_武器经验": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "进入作战_活动后勤",
+                    "param": {
+                        "进入作战_活动后勤": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "进入作战_神经素材",
+                    "param": {
+                        "进入作战_神经素材": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "进入作战_通用银",
+                    "param": {
+                        "进入作战_通用银": {
+                            "enabled": true
+                        }
+                    }
+                }
+            ]
+        },
+        "刷取次数": {
+            "cases": [
+                {
+                    "name": "1",
+                    "param": {
+                        "完成战斗": {
+                            "times_limit": 1
+                        }
+                    }
+                },
+                {
+                    "name": "2",
+                    "param": {
+                        "完成战斗": {
+                            "times_limit": 2
+                        }
+                    }
+                },
+                {
+                    "name": "3",
+                    "param": {
+                        "完成战斗": {
+                            "times_limit": 3
+                        }
+                    }
+                },
+                {
+                    "name": "4",
+                    "param": {
+                        "完成战斗": {
+                            "times_limit": 4
+                        }
+                    }
+                },
+                {
+                    "name": "5",
+                    "param": {
+                        "完成战斗": {
+                            "times_limit": 5
+                        }
+                    }
+                },
+                {
+                    "name": "6",
+                    "param": {
+                        "完成战斗": {
+                            "times_limit": 6
+                        }
+                    }
+                }
+            ]
+        },
+        "是否使用体力药水": {
+            "cases": [
+                {
+                    "name": "是",
+                    "param": {
+                        "使用体力": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "否",
+                    "param": {
+                        "不使用体力": {
+                            "enabled": true
+                        }
+                    }
+                }
+            ]
+        },
+        "刷完全部体力": {
+            "cases": [
+                {
+                    "name": "是",
+                    "param": {
+                        "速战MAX": {
+                            "enabled": true
+                        }
+                    }
+                },
+                {
+                    "name": "否",
+                    "param": {
+                        "速战MAX": {
+                            "enabled": false
+                        }
+                    }
+                }
+            ]
+        }
+    }
 }
