@@ -2,32 +2,23 @@
     "战斗": {
         "next": [
             "使用体力",
-            "不使用体力",
             "完成战斗",
             "开始战斗",
             "速战MAX",
             "速战",
+            "进入深渊作战",
             "进入作战_角色经验",
-            "进入作战_后勤",
-            "进入作战_武器素材",
-            "进入作战_武器组件",
-            "进入作战_武器经验",
-            "进入作战_活动后勤",
-            "进入作战_神经素材",
-            "进入作战_角色经验",
-            "进入作战_通用银",
-            "作战_滑动",
             "选择作战1",
             "打开战斗"
         ]
     },
     "进入深渊作战": {
+        "is_sub": true,
         "recognition": "OCR",
         "expected": "深渊",
         "action": "Click"
     },
     "常规战斗_滑动": {
-        "is_sub": true,
         "inverse": true,
         "recognition": "OCR",
         "expected": "深渊",
@@ -46,7 +37,6 @@
         ]
     },
     "使用体力": {
-        "enabled": false,
         "post_wait_freezes": 2,
         "recognition": "OCR",
         "roi": [
@@ -70,7 +60,6 @@
         ]
     },
     "不使用体力": {
-        "enabled": false,
         "post_wait_freezes": 2,
         "recognition": "OCR",
         "roi": [
@@ -92,7 +81,6 @@
         ]
     },
     "速战MAX": {
-        "enabled": false,
         "is_sub": true,
         "recognition": "TemplateMatch",
         "roi": [
@@ -168,7 +156,6 @@
         ]
     },
     "进入作战_通用银": {
-        "enabled": false,
         "is_sub": true,
         "recognition": "OCR",
         "roi": [
@@ -181,7 +168,6 @@
         "action": "Click"
     },
     "进入作战_角色经验": {
-        "enabled": false,
         "is_sub": true,
         "recognition": "OCR",
         "roi": [
@@ -193,12 +179,10 @@
         "expected": "百足之市",
         "action": "Click",
         "next": [
-            "进入深渊作战",
             "常规战斗_滑动"
         ]
     },
     "进入作战_武器经验": {
-        "enabled": false,
         "is_sub": true,
         "recognition": "OCR",
         "roi": [
@@ -211,7 +195,6 @@
         "action": "Click"
     },
     "进入作战_武器素材": {
-        "enabled": false,
         "is_sub": true,
         "recognition": "OCR",
         "roi": [
@@ -224,7 +207,6 @@
         "action": "Click"
     },
     "进入作战_神经素材": {
-        "enabled": false,
         "is_sub": true,
         "recognition": "OCR",
         "roi": [
@@ -237,7 +219,6 @@
         "action": "Click"
     },
     "进入作战_后勤": {
-        "enabled": false,
         "is_sub": true,
         "recognition": "OCR",
         "roi": [
@@ -250,7 +231,6 @@
         "action": "Click"
     },
     "进入作战_活动后勤": {
-        "enabled": false,
         "is_sub": true,
         "recognition": "OCR",
         "roi": [
@@ -263,7 +243,6 @@
         "action": "Click"
     },
     "进入作战_武器组件": {
-        "enabled": false,
         "is_sub": true,
         "recognition": "OCR",
         "roi": [
@@ -319,7 +298,7 @@
             "返回主菜单"
         ]
     },
-    "刷天启碎片": {
+    "羽蜕恩雅": {
         "next": [
             "关卡次数限制",
             "完成战斗_碎片",
@@ -327,8 +306,21 @@
             "速战MAX",
             "速战",
             "行为02",
-            "悖谬琴诺",
-            "羽蜕恩雅",
+            "刷碎片羽蜕恩雅",
+            "个人故事_滑动",
+            "个人故事",
+            "打开战斗"
+        ]
+    },
+    "悖谬琴诺": {
+        "next": [
+            "关卡次数限制",
+            "完成战斗_碎片",
+            "开始战斗",
+            "速战MAX",
+            "速战",
+            "行为02",
+            "刷碎片悖谬琴诺",
             "个人故事_滑动",
             "个人故事",
             "打开战斗"
@@ -378,14 +370,13 @@
             0
         ],
         "end": [
-            40,
+            1000,
             330,
             0,
             0
         ]
     },
-    "羽蜕恩雅": {
-        "enabled": false,
+    "刷碎片羽蜕恩雅": {
         "is_sub": true,
         "recognition": "OCR",
         "roi": [
@@ -397,8 +388,7 @@
         "expected": "羽蜕",
         "action": "Click"
     },
-    "悖谬琴诺": {
-        "enabled": false,
+    "刷碎片悖谬琴诺": {
         "is_sub": true,
         "recognition": "OCR",
         "roi": [

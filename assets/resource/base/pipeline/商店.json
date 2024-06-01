@@ -15,7 +15,7 @@
         ]
     },
     "打开商店": {
-        "post_wait_freezes": 2,
+        "post_delay": 1000,
         "is_sub": true,
         "recognition": "OCR",
         "roi": [
