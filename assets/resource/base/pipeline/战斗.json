@@ -16,9 +16,33 @@
             "进入作战_神经素材",
             "进入作战_角色经验",
             "进入作战_通用银",
-            "选择作战2",
+            "作战_滑动",
             "选择作战1",
             "打开战斗"
+        ]
+    },
+    "进入深渊作战": {
+        "recognition": "OCR",
+        "expected": "深渊",
+        "action": "Click"
+    },
+    "常规战斗_滑动": {
+        "is_sub": true,
+        "inverse": true,
+        "recognition": "OCR",
+        "expected": "深渊",
+        "action": "Swipe",
+        "begin": [
+            1250,
+            330,
+            0,
+            0
+        ],
+        "end": [
+            40,
+            330,
+            0,
+            0
         ]
     },
     "使用体力": {
@@ -119,7 +143,7 @@
         "template": "战斗/常规行动_1048_369_174_58__998_319_274_158.png",
         "action": "Click"
     },
-    "选择作战2": {
+    "作战_滑动": {
         "is_sub": true,
         "recognition": "TemplateMatch",
         "roi": [
@@ -167,7 +191,11 @@
             43
         ],
         "expected": "百足之市",
-        "action": "Click"
+        "action": "Click",
+        "next": [
+            "进入深渊作战",
+            "常规战斗_滑动"
+        ]
     },
     "进入作战_武器经验": {
         "enabled": false,
