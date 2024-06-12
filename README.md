@@ -17,7 +17,7 @@
 - 日常作战和活动作战
 - 刷天启碎片
 - 领取凭证和任务奖励
-- 
+
 ## 使用说明
 
 下载地址：<https://github.com/overflow65537/MAA_SnowBreak/releases>
