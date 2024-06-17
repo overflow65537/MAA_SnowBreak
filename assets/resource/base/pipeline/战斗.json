@@ -256,6 +256,7 @@
         "action": "Click"
     },
     "完成战斗_碎片": {
+        "is_sub": true,
         "recognition": "TemplateMatch",
         "roi": [
             527,
@@ -264,10 +265,7 @@
             39
         ],
         "template": "战斗/完成作战_527_645_229_39__477_581_329_139.png",
-        "action": "Click",
-        "next": [
-            "活动战斗"
-        ]
+        "action": "Click"
     },
     "个人故事": {
         "is_sub": true,
