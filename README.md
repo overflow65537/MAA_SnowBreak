@@ -11,6 +11,8 @@
 ## 主要功能
 
 - 启动/关闭游戏
+- 收取赠送感知
+- 升级枪械
 - 领取邮件
 - 商店自动购买芳烃塑料
 - 领取体力
@@ -19,6 +21,8 @@
 - 领取凭证和任务奖励
 
 ## 已知问题
+- 某些模拟器会提示
+```running on emulator is NOT allowed```可以尝试换一个模拟器
 - 两个碎片任务中需要用其他任务隔开,否则后一个任务会识别到前一个任务的失败提示进而直接停止任务
 - 碎片任务使用OCR文字识别,所以有些名字复杂的角色可能会失败.如果失败率过高可以提交问题
 ## 使用说明
@@ -29,7 +33,7 @@
 
 - 对于绝大部分用户，请下载 `MSBA-win-x86_64-vXXX.zip`
 - 若确定自己的电脑是 arm 架构，请下载 `MSBA-win-aarch64-vXXX.zip`
-- 解压后运行 `MaaPiCli.exe` 即可
+- 解压后以***管理员权限***运行 `MaaPiCli.exe` 即可
 
 ### macOS
 
@@ -45,11 +49,109 @@
 ### Linux
 
 ~~用 Linux 的大佬应该不需要我教~~
+## MaaPiCli使用说明
+### A
+- 启动后会出现:
+```
+Welcome to use Maa Project Interface CLI!
+
+Version: v0.0.1
+
+### Select ADB ###
+
+        1. Auto detect
+        2. Manual input
+
+Please input [1-2]:
+```
+- 如无必要，请选择1.Auto detect
+
+```
+### Select ADB ###
+
+        1. Auto detect
+        2. Manual input
+
+Please input [1-2]: 1
+
+Finding device...
+
+## Select Device ##
+
+        1. MuMuPlayer12
+                H:/Program Files/Netease/MuMuPlayer-12.0/shell/adb.exe
+                127.0.0.1:16672
+
+Please input [1-1]: 1
+```
+- 选择 1 后会像上面这样，列出若干个模拟器实例，之后选择你需要进行操控的即可。
+- 如果没有出现选项，请检查模拟器是否正常启动。以及管理员权限启动MaaPiCli。
+###B
+- 选择完模拟器后就会进入到选择资源界面
+```
+### Select resource ###
+
+        1. 官服
+        2. B 服
+
+Please input [1-2]:
+```
+- 请按照自己的服务器类型选择
+### C
+- 在初次启动后，会让你输入启动的任务：
+```
+### Add task ###
+
+        1. 启动
+        2. 赠送感知
+        3. 邮件
+        4. 商店
+        5. 领取体力
+        6. 升级枪械
+        7. 活动
+        8. 常规战斗
+        9. 刷天启碎片
+        10. 任务
+        11. 活动任务
+        12. 凭证
+        13. 关闭游戏
+
+Please input [1-13]:
+```
+- 选择你要执行的任务即可。
+
+### D
+
+- 之后会反复出现：
+```
+Tasks:
+
+<这里会列出你已经增加，等待执行的任务>
+
+### Select action ###
+
+        1. Switch controller
+        2. Switch resource
+        3. Add task
+        4. Move task
+        5. Delete task
+        6. Run tasks
+        7. Exit
+```
+- 其中分别代表：
+1. 调整控制器（也就是adb地址等）
+2. 调整资源（切换官服或者b服）
+3. 新增任务，像**C**中那样
+4. 移动任务
+5. 删除任务
+6. 开始执行任务，在这之后就会自动开始操控。
+7. 退出程序
+
 ## 其他说明
 
-- 添加 `-d` 参数可跳过交互直接运行任务，如 `./MaaPiCli.exe -d`
+- 添加 `-d` 参数可跳过交互直接运行任务，如 `./MaaPiCli.exe -d`，配合Windows计划任务可以实现自动开启任务
 - 反馈问题请附上日志文件 `debug/maa.log`，谢谢！
-- 
+
 ## How to build
 
 **如果你要编译源码才看这节，否则直接 [下载](https://github.com/overflow65537/MAA_SnowBreak/releases) 即可**
@@ -68,6 +170,16 @@
     ```
 
 生成的二进制及相关资源文件在 `install` 目录下
+
+## 开发相关
+
+- [MaaFramework 快速开始](https://github.com/MaaAssistantArknights/MaaFramework/blob/main/docs/zh_cn/1.1-%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B.md)
+
+## Join us
+
+- 开发 QQ 群：980583911
+- MaaFramework 开发交流 QQ 群: 595990173
+
 ## 鸣谢
 
 本项目由 **[MaaFramework](https://github.com/MaaXYZ/MaaFramework)** 强力驱动！
