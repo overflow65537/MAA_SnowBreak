@@ -1,0 +1,5 @@
+{"启动应用": {
+    "is_sub": true,
+    "action": "StartApp",
+    "package": "com.dragonli.projectsnow.bilibili/com.xgsdk.client.api.splash.XGSplashActivity"
+}}
