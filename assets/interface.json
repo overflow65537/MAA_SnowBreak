@@ -46,16 +46,7 @@
             "entry": "升级枪械"
         },
         {
-            "name": "活动",
-            "entry": "活动战斗",
-            "option": [
-                "刷取次数_活动",
-                "刷完全部体力",
-                "使用体力药剂_活动"
-            ]
-        },
-        {
-            "name": "常规战斗",
+            "name": "战斗任务",
             "entry": "战斗",
             "option": [
                 "作战关卡",
@@ -94,8 +85,40 @@
         "作战关卡": {
             "cases": [
                 {
+                    "name": "活动战斗",
+                    "param": {
+                        "打开战斗": {
+                            "enabled": false
+                        },
+                        "选择作战1": {
+                            "enabled": false
+                        },
+                        "作战_滑动": {
+                            "enabled": false
+                        },
+                        "进入作战": {
+                            "enabled": false
+                        },
+                        "进入深渊作战_滑动": {
+                            "enabled": false
+                        },
+                        "进入深渊作战": {
+                            "enabled": false
+                        }
+                    }
+                },
+                {
                     "name": "版本活动武器",
                     "param": {
+                        "选择活动作战1": {
+                            "enabled": false
+                        },
+                        "选择活动作战2": {
+                            "enabled": false
+                        },
+                        "打开活动战斗": {
+                            "enabled": false
+                        },
                         "进入作战": {
                             "expected": "聚兵之器"
                         }
@@ -104,6 +127,15 @@
                 {
                     "name": "版本活动后勤",
                     "param": {
+                        "选择活动作战1": {
+                            "enabled": false
+                        },
+                        "选择活动作战2": {
+                            "enabled": false
+                        },
+                        "打开活动战斗": {
+                            "enabled": false
+                        },
                         "进入作战": {
                             "expected": "练心之战"
                         }
@@ -112,6 +144,15 @@
                 {
                     "name": "通用银",
                     "param": {
+                        "选择活动作战1": {
+                            "enabled": false
+                        },
+                        "选择活动作战2": {
+                            "enabled": false
+                        },
+                        "打开活动战斗": {
+                            "enabled": false
+                        },
                         "进入作战": {
                             "expected": "富饶之壶"
                         }
@@ -120,6 +161,15 @@
                 {
                     "name": "角色经验",
                     "param": {
+                        "选择活动作战1": {
+                            "enabled": false
+                        },
+                        "选择活动作战2": {
+                            "enabled": false
+                        },
+                        "打开活动战斗": {
+                            "enabled": false
+                        },
                         "进入作战": {
                             "expected": "百足之市"
                         }
@@ -128,6 +178,15 @@
                 {
                     "name": "武器经验",
                     "param": {
+                        "选择活动作战1": {
+                            "enabled": false
+                        },
+                        "选择活动作战2": {
+                            "enabled": false
+                        },
+                        "打开活动战斗": {
+                            "enabled": false
+                        },
                         "进入作战": {
                             "expected": "止战之人"
                         }
@@ -136,6 +195,15 @@
                 {
                     "name": "武器材料",
                     "param": {
+                        "选择活动作战1": {
+                            "enabled": false
+                        },
+                        "选择活动作战2": {
+                            "enabled": false
+                        },
+                        "打开活动战斗": {
+                            "enabled": false
+                        },
                         "进入作战": {
                             "expected": "重铸之炎"
                         }
@@ -144,6 +212,15 @@
                 {
                     "name": "神经素材",
                     "param": {
+                        "选择活动作战1": {
+                            "enabled": false
+                        },
+                        "选择活动作战2": {
+                            "enabled": false
+                        },
+                        "打开活动战斗": {
+                            "enabled": false
+                        },
                         "进入作战": {
                             "expected": "永冬之境"
                         }
@@ -152,78 +229,17 @@
                 {
                     "name": "后勤",
                     "param": {
+                        "选择活动作战1": {
+                            "enabled": false
+                        },
+                        "选择活动作战2": {
+                            "enabled": false
+                        },
+                        "打开活动战斗": {
+                            "enabled": false
+                        },
                         "进入作战": {
                             "expected": "浴火之战"
-                        }
-                    }
-                }
-            ]
-        },
-        "刷取次数_活动": {
-            "cases": [
-                {
-                    "name": "1",
-                    "param": {
-                        "战斗次数": {
-                            "expected": "1",
-                            "next": [
-                                "活动战斗"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "name": "2",
-                    "param": {
-                        "战斗次数": {
-                            "expected": "2",
-                            "next": [
-                                "活动战斗"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "name": "3",
-                    "param": {
-                        "战斗次数": {
-                            "expected": "3",
-                            "next": [
-                                "活动战斗"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "name": "4",
-                    "param": {
-                        "战斗次数": {
-                            "expected": "4",
-                            "next": [
-                                "活动战斗"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "name": "5",
-                    "param": {
-                        "战斗次数": {
-                            "expected": "5",
-                            "next": [
-                                "活动战斗"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "name": "6",
-                    "param": {
-                        "战斗次数": {
-                            "expected": "6",
-                            "next": [
-                                "活动战斗"
-                            ]
                         }
                     }
                 }
@@ -314,45 +330,6 @@
                     "param": {
                         "完成战斗": {
                             "next": [
-                                "返回主菜单"
-                            ]
-                        }
-                    }
-                }
-            ]
-        },
-        "使用体力药剂_活动": {
-            "cases": [
-                {
-                    "name": "是",
-                    "param": {
-                        "使用体力": {
-                            "target": [
-                                660,
-                                560,
-                                0,
-                                0
-                            ],
-                            "next": [
-                                "体力不足",
-                                "关闭奖励通知",
-                                "活动战斗"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "name": "否",
-                    "param": {
-                        "使用体力": {
-                            "target": [
-                                400,
-                                560,
-                                0,
-                                0
-                            ],
-                            "next": [
-                                "关闭速战界面",
                                 "返回主菜单"
                             ]
                         }
