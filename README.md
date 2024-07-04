@@ -21,10 +21,17 @@
 - 领取凭证和任务奖励
 
 ## 已知问题
+
 - 某些模拟器会提示
 ```running on emulator is NOT allowed```可以尝试mumu模拟器
 - 两个碎片任务中需要用其他任务隔开,否则后一个任务会识别到前一个任务的失败提示进而直接停止任务
 - 碎片任务使用OCR文字识别,所以有些名字复杂的角色可能会失败.如果失败率过高可以提交问题
+- 
+## 视频教程
+
+- 教程: <https://www.bilibili.com/video/BV1v2hFe8Esv/>
+- 计划任务教程: <https://www.bilibili.com/video/BV1Nuh2eGEwG/>
+- 
 ## 使用说明
 
 下载地址：<https://github.com/overflow65537/MAA_SnowBreak/releases>
@@ -175,10 +182,6 @@ Tasks:
 
 - [MaaFramework 快速开始](https://github.com/MaaAssistantArknights/MaaFramework/blob/main/docs/zh_cn/1.1-%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B.md)
 
-## Join us
-
-- 开发 QQ 群：980583911
-- MaaFramework 开发交流 QQ 群: 595990173
 
 ## 鸣谢
 
