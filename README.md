@@ -157,8 +157,8 @@ Tasks:
 ## 图形化界面
 目前暂无正式版 GUI，但有以下由社区大佬们贡献的 GUI 项目，欢迎使用！
 
-- [M9AWPF](https://github.com/MLAcookie/M9AWPF) 拿 WPF 框架写的一个 M9A 的UI
-- 下载最新releases后替换M9A-Bin内所有文件即可
+- 下载地址:https://github.com/overflow65537/M9AWPF/releases/download/v1.0.0/M9AWPF_MSBA.7z
+- 这是一个拿 [M9AWPF](https://github.com/MLAcookie/M9AWPF) 项目改的一个 MSBA 的UI
   
 ## 其他说明
 
