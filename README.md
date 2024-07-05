@@ -26,12 +26,12 @@
 ```running on emulator is NOT allowed```可以尝试mumu模拟器
 - 两个碎片任务中需要用其他任务隔开,否则后一个任务会识别到前一个任务的失败提示进而直接停止任务
 - 碎片任务使用OCR文字识别,所以有些名字复杂的角色可能会失败.如果失败率过高可以提交问题
-- 
+  
 ## 视频教程
 
 - 教程: <https://www.bilibili.com/video/BV1v2hFe8Esv/>
 - 计划任务教程: <https://www.bilibili.com/video/BV1Nuh2eGEwG/>
-- 
+  
 ## 使用说明
 
 下载地址：<https://github.com/overflow65537/MAA_SnowBreak/releases>
@@ -154,6 +154,12 @@ Tasks:
 6. 开始执行任务，在这之后就会自动开始操控。
 7. 退出程序
 
+## 图形化界面
+目前暂无正式版 GUI，但有以下由社区大佬们贡献的 GUI 项目，欢迎使用！
+
+- [M9AWPF](https://github.com/MLAcookie/M9AWPF) 拿 WPF 框架写的一个 M9A 的UI
+- 下载最新releases后替换M9A-Bin内所有文件即可
+  
 ## 其他说明
 
 - 添加 `-d` 参数可跳过交互直接运行任务，如 `./MaaPiCli.exe -d`，配合Windows计划任务可以实现自动开启任务
