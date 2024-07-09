@@ -120,7 +120,6 @@
         "action": "Click"
     },
     "速战MAX": {
-        "is_sub": true,
         "recognition": "TemplateMatch",
         "roi": [
             823,
@@ -129,7 +128,10 @@
             40
         ],
         "template": "战斗/速战MAX_823_463_68_31__773_413_168_131.png",
-        "action": "Click"
+        "action": "Click",
+        "next": [
+            "战斗"
+        ]
     },
     "完成战斗": {
         "recognition": "TemplateMatch",
@@ -214,6 +216,7 @@
         "action": "Click",
         "next": [
             "使用体力",
+            "速战MAX",
             "战斗次数",
             "增加战斗次数"
         ]
