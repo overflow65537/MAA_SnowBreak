@@ -146,14 +146,14 @@
     },
     "打开战斗": {
         "is_sub": true,
-        "recognition": "TemplateMatch",
+        "recognition": "OCR",
         "roi": [
-            1017,
-            300,
-            78,
-            47
+            957,
+            292,
+            92,
+            59
         ],
-        "template": "启动/战斗_1017_300_78_47__967_250_178_147.png",
+        "expected": "战斗",
         "action": "Click"
     },
     "选择作战1": {
@@ -413,36 +413,36 @@
         "is_sub": true,
         "recognition": "TemplateMatch",
         "roi": [
-            914,
-            314,
-            84,
-            72
+            828,
+            283,
+            125,
+            73
         ],
-        "template": "活动/活动入口_914_314_84_72__864_264_184_172.png",
+        "template": "活动/活动入口_828_283_124_72__778_233_224_172.png",
         "action": "Click"
     },
     "选择活动作战1": {
         "is_sub": true,
-        "recognition": "OCR",
+        "recognition": "TemplateMatch",
         "roi": [
-            117,
-            495,
-            101,
-            33
+            94,
+            267,
+            189,
+            80
         ],
-        "expected": "升格之路",
+        "template": "活动/材料入口_94_267_189_80__44_217_289_180.png",
         "action": "Click"
     },
     "选择活动作战2": {
         "is_sub": true,
-        "recognition": "OCR",
+        "recognition": "TemplateMatch",
         "roi": [
-            901,
-            129,
-            58,
-            33
+            668,
+            114,
+            163,
+            106
         ],
-        "expected": "深渊",
+        "template": "活动/活动深渊_668_114_163_106__618_64_263_206.png",
         "action": "Click"
     }
 }

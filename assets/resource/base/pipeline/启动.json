@@ -10,25 +10,25 @@
         ]
     },
     "检查主界面": {
-        "recognition": "TemplateMatch",
+        "recognition": "OCR",
         "roi": [
-            1017,
-            300,
-            78,
-            47
+            957,
+            292,
+            92,
+            59
         ],
-        "template": "启动/战斗_1017_300_78_47__967_250_178_147.png"
+        "expected": "战斗"
     },
     "进入游戏": {
         "is_sub": true,
-        "recognition": "TemplateMatch",
+        "recognition": "OCR",
         "roi": [
             580,
             594,
             128,
             42
         ],
-        "template": "启动/开始游戏_580_594_128_42__530_544_228_142.png",
+        "expected": "开始游戏",
         "action": "Click"
     },
     "启动应用": {
