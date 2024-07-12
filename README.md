@@ -20,6 +20,14 @@
 - 刷天启碎片
 - 领取凭证和任务奖励
 
+## 图形化界面
+
+### [Tkinter_MAA](https://github.com/overflow65537/Tkinter_MAA-GUI)测试版
+- 基于pythonTkinter编写的GUI,理论上支持所有Maaframework所编写的maapicli程序
+- 下载后解压
+- 将需要启动的MAApicli程序所有内容放入MAA_bin文件夹
+- 启动MAA-GUI.exe
+  
 ## 已知问题
 
 - 某些模拟器会提示
@@ -154,12 +162,6 @@ Tasks:
 6. 开始执行任务，在这之后就会自动开始操控。
 7. 退出程序
 
-## 图形化界面
-目前暂无正式版 GUI，但有以下由社区大佬们贡献的 GUI 项目，欢迎使用！
-
-- [M9AWPF](https://github.com/MLAcookie/M9AWPF) 拿 WPF 框架写的一个 M9A 的UI
-- 下载最新releases后替换M9A-Bin内所有文件即可
-  
 ## 其他说明
 
 - 添加 `-d` 参数可跳过交互直接运行任务，如 `./MaaPiCli.exe -d`，配合Windows计划任务可以实现自动开启任务
