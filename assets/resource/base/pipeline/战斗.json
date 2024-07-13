@@ -340,10 +340,10 @@
     "使用记忆嵌片": {
         "recognition": "TemplateMatch",
         "roi": [
-            557,
-            333,
-            176,
-            51
+            911,
+            492,
+            102,
+            42
         ],
         "template": "战斗/确定_911_492_101_41__861_442_201_141.png",
         "action": "Click",
@@ -461,7 +461,7 @@
         ]
     },
     "打开活动战斗": {
-        "post_wait_freezes": 2,
+        "post_delay": 2000,
         "is_sub": true,
         "recognition": "TemplateMatch",
         "roi": [
