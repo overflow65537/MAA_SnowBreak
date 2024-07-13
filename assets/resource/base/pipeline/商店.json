@@ -17,14 +17,14 @@
     "打开商店": {
         "post_delay": 1000,
         "is_sub": true,
-        "recognition": "OCR",
+        "recognition": "TemplateMatch",
         "roi": [
-            1173,
-            660,
-            70,
-            38
+            1105,
+            665,
+            102,
+            27
         ],
-        "expected": "商店",
+        "template": "商店\\商店_1105_665_102_26__1055_594_202_126.png",
         "action": "Click"
     },
     "购买塑料": {

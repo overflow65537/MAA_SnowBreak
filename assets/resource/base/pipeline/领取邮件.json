@@ -21,10 +21,10 @@
         "is_sub": true,
         "recognition": "TemplateMatch",
         "roi": [
-            55,
-            193,
-            53,
-            43
+            74,
+            281,
+            40,
+            31
         ],
         "template": "领取邮件/邮件_74_281_39_30__24_231_139_130.png",
         "action": "Click"
