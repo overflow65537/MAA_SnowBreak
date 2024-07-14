@@ -302,7 +302,7 @@
         ]
     },
     "记忆嵌片不足": {
-        "is_sub": true
+        "is_sub": true,
         "recognition": "OCR",
         "roi": [
             557,
