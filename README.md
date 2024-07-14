@@ -32,6 +32,7 @@
 
 - 某些模拟器会提示
 ```running on emulator is NOT allowed```可以尝试mumu模拟器
+- 建议使用1280X720分辨率
   
 ## 视频教程
 
