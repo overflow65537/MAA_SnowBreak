@@ -25,7 +25,7 @@
 
 ### [Tkinter_MAA](https://github.com/overflow65537/Tkinter_MAA-GUI)
  基于pythonTkinter编写的GUI,理论上支持所有Maaframework所编写的maapicli程序
-- 下载MSBA-win-x86_64-vXXXX-with_MAA-GUI.zip
+- [下载MSBA-win-x86_64-vXXXX-with_MAA-GUI.zip](https://github.com/overflow65537/MAA_SnowBreak/releases)
 - 解压
 - 启动MAA-GUI.exe
   
