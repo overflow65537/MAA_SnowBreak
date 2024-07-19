@@ -19,13 +19,14 @@
 - 日常作战和活动作战
 - 刷天启碎片
 - 领取凭证和任务奖励
+- 钓鱼(需要进入钓鱼界面)
 
 ## 图形化界面
 
-### [Tkinter_MAA](https://github.com/overflow65537/Tkinter_MAA-GUI)测试版
-- 基于pythonTkinter编写的GUI,理论上支持所有Maaframework所编写的maapicli程序
-- 下载后解压
-- 将需要启动的MAApicli程序所有内容放入MAA_bin文件夹
+### [Tkinter_MAA](https://github.com/overflow65537/Tkinter_MAA-GUI)
+ 基于pythonTkinter编写的GUI,理论上支持所有Maaframework所编写的maapicli程序
+- 下载MSBA-win-x86_64-vXXXX-with_MAA-GUI.zip
+- 解压
 - 启动MAA-GUI.exe
   
 ## 已知问题
