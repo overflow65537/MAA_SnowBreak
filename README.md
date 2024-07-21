@@ -190,6 +190,10 @@ Tasks:
 
 - [MaaFramework 快速开始](https://github.com/MaaAssistantArknights/MaaFramework/blob/main/docs/zh_cn/1.1-%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B.md)
 
+## Join us
+
+- 交流反馈 QQ 群：980583911
+- MaaFramework 开发交流 QQ 群: 595990173
 
 ## 鸣谢
 
