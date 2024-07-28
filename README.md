@@ -19,20 +19,21 @@
 - 日常作战和活动作战
 - 刷天启碎片
 - 领取凭证和任务奖励
+- 钓鱼(需要进入钓鱼界面)(如果发现对不上轴可以去MAA-GUI\MAA_bin\resource\base\pipeline\钓鱼.json中的 收杆 任务块,更改"pre_delay",数字调大为降低点击频率,调小为加速点击频率)
 
 ## 图形化界面
 
-### [Tkinter_MAA](https://github.com/overflow65537/Tkinter_MAA-GUI)测试版
-- 基于pythonTkinter编写的GUI,理论上支持所有Maaframework所编写的maapicli程序
-- 下载后解压
-- 将需要启动的MAApicli程序所有内容放入MAA_bin文件夹
+### [Tkinter_MAA](https://github.com/overflow65537/Tkinter_MAA-GUI)
+ 基于pythonTkinter编写的GUI,理论上支持所有Maaframework所编写的maapicli程序
+- [下载MSBA-win-x86_64-vXXXX-with_MAA-GUI.zip](https://github.com/overflow65537/MAA_SnowBreak/releases)
+- 解压
 - 启动MAA-GUI.exe
   
 ## 已知问题
 
 - 某些模拟器会提示
 ```running on emulator is NOT allowed```可以尝试mumu模拟器
-- 建议使用1280X720分辨率
+- ***建议使用1280X720分辨率***
   
 ## 视频教程
 
@@ -189,6 +190,10 @@ Tasks:
 
 - [MaaFramework 快速开始](https://github.com/MaaAssistantArknights/MaaFramework/blob/main/docs/zh_cn/1.1-%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B.md)
 
+## Join us
+
+- 交流反馈 QQ 群：980583911
+- MaaFramework 开发交流 QQ 群: 595990173
 
 ## 鸣谢
 
