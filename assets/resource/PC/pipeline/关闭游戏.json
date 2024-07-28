@@ -1,0 +1,14 @@
+{
+    "关闭游戏": {
+        "action": "key",
+        "key": 27,
+        "next": [
+            "确定退出"
+        ]
+    },
+    "确定退出": {
+        "recognition": "OCR",
+        "expected": "确定",
+        "action": "Click"
+    }
+}

@@ -12,33 +12,35 @@
         "roi": [
             1123,
             585,
-            74,
-            68
+            120,
+            120
         ],
-        "template": "钓鱼/甩杆_1131_589_51_57__1081_539_151_157.png",
-        "action": "Click"
+        "template": "钓鱼/甩杆.png",
+        "action": "Key",
+        "key": 32
     },
     "钓鱼中": {
         "is_sub": true,
         "recognition": "TemplateMatch",
         "roi": [
-            1132,
-            590,
-            55,
-            63
+            1123,
+            585,
+            120,
+            120
         ],
-        "template": "钓鱼/钓鱼中_1132_590_54_62__1082_540_154_162.png"
+        "template": "钓鱼/钓鱼中.png"
     },
     "鱼上钩": {
         "recognition": "TemplateMatch",
         "roi": [
-            1118,
-            567,
-            87,
-            95
+            1123,
+            585,
+            120,
+            120
         ],
-        "template": "钓鱼/鱼上钩_1130_576_61_79__1080_526_161_179.png",
-        "action": "Click",
+        "template": "钓鱼/鱼上钩.png",
+        "action": "Key",
+        "key": 32,
         "next": [
             "收杆",
             "成功",
@@ -50,13 +52,14 @@
         "is_sub": true,
         "recognition": "TemplateMatch",
         "roi": [
-            1110,
-            574,
-            94,
-            88
+            1123,
+            585,
+            120,
+            120
         ],
-        "template": "钓鱼/收杆_1120_588_79_62__1070_538_179_162.png",
-        "action": "Click"
+        "template": "钓鱼/收杆.png",
+        "action": "Key",
+        "key": 32
     },
     "成功": {
         "post_delay": 5000,
