@@ -7,8 +7,11 @@
         ]
     },
     "判断塑料": {
-        "recognition": "TemplateMatch",
-        "template": "商店/塑料_809_496_123_128__759_446_223_228.png",
+        "recognition": "OCR",
+        "expected": [
+            "初级职级认证",
+            "芳烃塑料"
+        ],
         "action": "Click",
         "next": [
             "购买塑料"
@@ -21,21 +24,27 @@
         "roi": [
             1105,
             665,
-            102,
-            27
+            152,
+            100
         ],
-        "template": "商店\\商店_1105_665_102_26__1055_594_202_126.png",
+        "template": [
+            "商店\\商店_1105_665_102_26__1055_594_202_126.png",
+            "商店\\商店_PC.png"
+        ],
         "action": "Click"
     },
     "购买塑料": {
-        "recognition": "OCR",
+        "recognition": "TemplateMatch",
         "roi": [
-            1121,
-            644,
-            83,
-            43
+            953,
+            565,
+            327,
+            155
         ],
-        "expected": "购买",
+        "template": [
+            "商店\\购买_1013_637_227_55__953_565_327_155.png",
+            "商店\\购买_PC.png"
+        ],
         "action": "Click",
         "next": [
             "关闭奖励通知",

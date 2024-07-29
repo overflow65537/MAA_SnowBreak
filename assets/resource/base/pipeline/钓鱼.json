@@ -7,37 +7,40 @@
         ]
     },
     "甩杆": {
+        "green_mask": true,
         "is_sub": true,
-        "recognition": "TemplateMatch",
-        "roi": [
-            1123,
-            585,
-            74,
-            68
-        ],
-        "template": "钓鱼/甩杆_1131_589_51_57__1081_539_151_157.png",
-        "action": "Click"
-    },
-    "钓鱼中": {
-        "is_sub": true,
-        "recognition": "TemplateMatch",
-        "roi": [
-            1132,
-            590,
-            55,
-            63
-        ],
-        "template": "钓鱼/钓鱼中_1132_590_54_62__1082_540_154_162.png"
-    },
-    "鱼上钩": {
         "recognition": "TemplateMatch",
         "roi": [
             1118,
             567,
-            87,
-            95
+            200,
+            200
         ],
-        "template": "钓鱼/鱼上钩_1130_576_61_79__1080_526_161_179.png",
+        "template": "钓鱼\\甩杆_1123_585_73_67__1073_535_173_167.png",
+        "action": "Click"
+    },
+    "钓鱼中": {
+        "is_sub": true,
+        "green_mask": true,
+        "recognition": "TemplateMatch",
+        "roi": [
+            1118,
+            567,
+            200,
+            200
+        ],
+        "template": "钓鱼\\钓鱼中_1114_580_90_84__1064_530_190_184.png"
+    },
+    "鱼上钩": {
+        "recognition": "TemplateMatch",
+        "green_mask": true,
+        "roi": [
+            1118,
+            567,
+            200,
+            200
+        ],
+        "template": "钓鱼\\鱼上钩_1118_567_87_95__1068_517_187_195.png",
         "action": "Click",
         "next": [
             "收杆",
@@ -47,27 +50,31 @@
     },
     "收杆": {
         "pre_delay": 1600,
+        "green_mask": true,
         "is_sub": true,
         "recognition": "TemplateMatch",
         "roi": [
-            1110,
-            574,
-            94,
-            88
+            1118,
+            567,
+            200,
+            200
         ],
-        "template": "钓鱼/收杆_1120_588_79_62__1070_538_179_162.png",
+        "template": "钓鱼\\收杆_1110_574_94_88__1060_524_194_188.png",
         "action": "Click"
     },
     "成功": {
         "post_delay": 5000,
         "recognition": "OCR",
-        "roi": [
-            392,
-            43,
-            503,
-            260
+        "expected": [
+            "本次获得"
         ],
-        "expected": "捕获成功",
+        "action": "Click",
+        "target": [
+            100,
+            0,
+            0,
+            0
+        ],
         "next": [
             "钓鱼"
         ]

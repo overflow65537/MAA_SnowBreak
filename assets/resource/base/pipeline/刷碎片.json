@@ -167,8 +167,8 @@
         "roi": [
             867,
             638,
-            112,
-            47
+            212,
+            147
         ],
         "expected": "速战",
         "action": "Click"
@@ -202,9 +202,9 @@
         "is_sub": true,
         "recognition": "OCR",
         "roi": [
-            719,
+            500,
             659,
-            91,
+            291,
             35
         ],
         "expected": "个人故事",

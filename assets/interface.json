@@ -22,13 +22,6 @@
             ]
         },
         {
-            "name": "B 服",
-            "path": [
-                "{PROJECT_DIR}/resource/base",
-                "{PROJECT_DIR}/resource/bilibili"
-            ]
-        },
-        {
             "name": "PC端",
             "path": [
                 "{PROJECT_DIR}/resource/base",
@@ -442,7 +435,11 @@
                     "name": "羽蜕恩雅",
                     "param": {
                         "选择人物": {
-                            "expected": "羽蜕"
+                            "expected": [
+                                "羽蜕",
+                                "羽帜",
+                                "羽锐"
+                            ]
                         }
                     }
                 },

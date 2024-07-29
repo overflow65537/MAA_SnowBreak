@@ -1,6 +1,6 @@
 {
     "关闭游戏": {
-        "action": "key",
+        "action": "Key",
         "key": 27,
         "next": [
             "确定退出"
