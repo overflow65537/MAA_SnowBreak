@@ -38,6 +38,7 @@
     },
     "关闭签到": {
         "is_sub": true,
+        "threshold": 0.8,
         "recognition": "OCR",
         "roi": [
             142,
@@ -56,6 +57,7 @@
     },
     "关闭公告": {
         "is_sub": true,
+        "threshold": 0.8,
         "recognition": "TemplateMatch",
         "roi": [
             834,
