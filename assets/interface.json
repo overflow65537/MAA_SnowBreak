@@ -435,11 +435,9 @@
                     "name": "羽蜕恩雅",
                     "param": {
                         "选择人物": {
-                            "expected": [
-                                "羽蜕",
-                                "羽帜",
-                                "羽锐"
-                            ]
+                            "green_mask": true,
+                            "recognition": "TemplateMatch",
+                            "template": "刷碎片\\恩雅羽蜕.png"
                         }
                     }
                 },
@@ -447,13 +445,9 @@
                     "name": "悖谬琴诺",
                     "param": {
                         "选择人物": {
-                            "expected": [
-                                "悖谬",
-                                "谬",
-                                "专送",
-                                "传送",
-                                "读谬"
-                            ]
+                            "green_mask": true,
+                            "recognition": "TemplateMatch",
+                            "template": "刷碎片\\琴诺悖谬.png"
                         }
                     }
                 },
@@ -461,10 +455,9 @@
                     "name": "咎冠芬妮",
                     "param": {
                         "选择人物": {
-                            "expected": [
-                                "咎冠",
-                                "答冠"
-                            ]
+                            "green_mask": true,
+                            "recognition": "TemplateMatch",
+                            "template": "刷碎片\\咎冠芬妮.png"
                         }
                     }
                 },
@@ -472,10 +465,9 @@
                     "name": "缄默芙提雅",
                     "param": {
                         "选择人物": {
-                            "expected": [
-                                "缄默",
-                                "默"
-                            ]
+                            "green_mask": true,
+                            "recognition": "TemplateMatch",
+                            "template": "刷碎片\\缄默芙提雅.png"
                         }
                     }
                 },
@@ -483,6 +475,7 @@
                     "name": "辉夜安卡希雅",
                     "param": {
                         "选择人物": {
+                            "recognition": "OCR",
                             "expected": [
                                 "辉夜"
                             ]
@@ -493,9 +486,9 @@
                     "name": "狂猎里芙",
                     "param": {
                         "选择人物": {
-                            "expected": [
-                                "狂猎"
-                            ]
+                            "green_mask": true,
+                            "recognition": "TemplateMatch",
+                            "template": "刷碎片\\狂猎里芙.png"
                         }
                     }
                 },
@@ -503,9 +496,9 @@
                     "name": "雨燕茉莉安",
                     "param": {
                         "选择人物": {
-                            "expected": [
-                                "雨燕"
-                            ]
+                            "green_mask": true,
+                            "recognition": "TemplateMatch",
+                            "template": "刷碎片\\雨燕茉莉安.png"
                         }
                     }
                 },
@@ -513,6 +506,7 @@
                     "name": "藏锋晴",
                     "param": {
                         "选择人物": {
+                            "recognition": "OCR",
                             "expected": [
                                 "藏锋"
                             ]
@@ -523,6 +517,7 @@
                     "name": "冬至肴",
                     "param": {
                         "选择人物": {
+                            "recognition": "OCR",
                             "expected": [
                                 "冬至"
                             ]
@@ -533,6 +528,7 @@
                     "name": "溯影猫汐尔",
                     "param": {
                         "选择人物": {
+                            "recognition": "OCR",
                             "expected": [
                                 "溯影"
                             ]
@@ -543,6 +539,7 @@
                     "name": "瞬刻瑟瑞斯",
                     "param": {
                         "选择人物": {
+                            "recognition": "OCR",
                             "expected": [
                                 "瞬刻"
                             ]
@@ -553,6 +550,7 @@
                     "name": "云篆晨星",
                     "param": {
                         "选择人物": {
+                            "recognition": "OCR",
                             "expected": [
                                 "云篆"
                             ]
@@ -563,6 +561,7 @@
                     "name": "蓝闪凯西娅",
                     "param": {
                         "选择人物": {
+                            "recognition": "OCR",
                             "expected": [
                                 "蓝闪"
                             ]
@@ -573,6 +572,7 @@
                     "name": "豹豹伊切尔",
                     "param": {
                         "选择人物": {
+                            "recognition": "OCR",
                             "expected": [
                                 "豹豹"
                             ]
@@ -583,6 +583,7 @@
                     "name": "魔术师苔丝",
                     "param": {
                         "选择人物": {
+                            "recognition": "OCR",
                             "expected": [
                                 "魔术师"
                             ]
@@ -593,9 +594,9 @@
                     "name": "无限之视里芙",
                     "param": {
                         "选择人物": {
-                            "expected": [
-                                "无限之视"
-                            ]
+                            "green_mask": true,
+                            "recognition": "TemplateMatch",
+                            "template": "刷碎片\\无限之视里芙.png"
                         }
                     }
                 },
@@ -603,9 +604,9 @@
                     "name": "辉耀芬妮",
                     "param": {
                         "选择人物": {
-                            "expected": [
-                                "辉耀"
-                            ]
+                            "green_mask": true,
+                            "recognition": "TemplateMatch",
+                            "template": "刷碎片\\辉耀芬妮.png"
                         }
                     }
                 }
