@@ -7,14 +7,17 @@
         ]
     },
     "一键收赠": {
-        "recognition": "OCR",
+        "recognition": "TemplateMatch",
         "roi": [
             1017,
             602,
             254,
-            100
+            150
         ],
-        "expected": "一键收赠",
+        "template": [
+            "赠送感知\\一键收赠_1107_664_132_34__1048_586_232_134.png",
+            "赠送感知\\一键收赠_PC.png"
+        ],
         "action": "Click",
         "next": [
             "关闭奖励通知",
