@@ -22,6 +22,10 @@
 - 基地疗愈任务（需要进入疗愈界面）
 - 钓鱼(需要进入钓鱼界面）
 
+## 注意事项
+- 安卓模拟器必须为mumu模拟器，且分辨率为1280X720
+- PC端分辨率为1920X1080无边框窗口
+
 ## 图形化界面
 
 ### [Tkinter_MAA](https://github.com/overflow65537/Tkinter_MAA-GUI)
@@ -29,13 +33,6 @@
 - [下载MSBA-win-x86_64-vXXXX-with_MAA-GUI.zip](https://github.com/overflow65537/MAA_SnowBreak/releases)
 - 解压
 - 启动MAA-GUI.exe
-  
-## 已知问题
-
-- 某些模拟器会提示
-```running on emulator is NOT allowed```可以尝试mumu模拟器
-- 模拟器***建议使用1280X720分辨率***
-- PC版***建议使用1920X1080分辨率***
   
 ## 视频教程
 
