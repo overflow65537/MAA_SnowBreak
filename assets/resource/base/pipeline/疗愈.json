@@ -1,0 +1,120 @@
+{
+    "开始疗愈": {
+        "green_mask": true,
+        "timeout": 20000,
+        "timeout_next": [
+            "重开"
+        ],
+        "recognition": "TemplateMatch",
+        "template": [
+            "疗愈\\红点_987_426_30_32__937_376_130_132.png",
+            "疗愈\\黄点_902_392_31_32__852_342_131_132.png",
+            "疗愈\\黑点_824_384_34_32__774_334_134_132.png"
+        ],
+        "next": [
+            "清理红点",
+            "清理黄点",
+            "清理黑点",
+            "再来一次"
+        ]
+    },
+    "重开": {
+        "green_mask": true,
+        "recognition": "TemplateMatch",
+        "post_delay": 5000,
+        "times_limit": 5,
+        "runout_next": [
+            "开始疗愈"
+        ],
+        "template": [
+            "疗愈\\开始疗愈_1130_626_70_48__1080_572_170_148.png"
+        ],
+        "action": "Click",
+        "next": [
+            "重开"
+        ]
+    },
+    "再来一次": {
+        "recognition": "OCR",
+        "roi": [
+            1026,
+            500,
+            222,
+            146
+        ],
+        "expected": "再来一次",
+        "action": "Click",
+        "next": [
+            "开始疗愈"
+        ]
+    },
+    "清理红点": {
+        "green_mask": true,
+        "recognition": "TemplateMatch",
+        "template": "疗愈\\红点_987_426_30_32__937_376_130_132.png",
+        "action": "Click",
+        "next": [
+            "切换锤",
+            "开始疗愈_游戏内"
+        ]
+    },
+    "切换锤": {
+        "is_sub": true,
+        "recognition": "TemplateMatch",
+        "roi": [
+            6,
+            561,
+            163,
+            159
+        ],
+        "template": "疗愈\\切换锤_56_611_63_59__6_561_163_159.png",
+        "action": "Click"
+    },
+    "清理黄点": {
+        "green_mask": true,
+        "recognition": "TemplateMatch",
+        "template": "疗愈\\黄点_902_392_31_32__852_342_131_132.png",
+        "action": "Click",
+        "next": [
+            "切换捏",
+            "开始疗愈_游戏内"
+        ]
+    },
+    "切换捏": {
+        "is_sub": true,
+        "recognition": "TemplateMatch",
+        "roi": [
+            141,
+            561,
+            162,
+            157
+        ],
+        "template": "疗愈\\切换捏_191_611_62_57__141_561_162_157.png",
+        "action": "Click"
+    },
+    "清理黑点": {
+        "threshold": 0.85,
+        "green_mask": true,
+        "recognition": "TemplateMatch",
+        "template": "疗愈\\黑点_824_384_34_32__774_334_134_132.png",
+        "action": "Click",
+        "next": [
+            "开始疗愈_游戏内"
+        ]
+    },
+    "开始疗愈_游戏内": {
+        "post_delay": 10000,
+        "recognition": "TemplateMatch",
+        "template": "疗愈\\开始疗愈_1130_626_70_48__1080_572_170_148.png",
+        "roi": [
+            1080,
+            572,
+            170,
+            148
+        ],
+        "action": "Click",
+        "next": [
+            "开始疗愈"
+        ]
+    }
+}
