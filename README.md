@@ -33,6 +33,8 @@
 - [下载MSBA-win-x86_64-vXXXX-with_MAA-GUI.zip](https://github.com/overflow65537/MAA_SnowBreak/releases)
 - 解压
 - 启动MAA-GUI.exe
+> [!WARNING]  
+> 目前GUI程序无法运行PC版的Maapicli，如有需要请手动打开
   
 ## 视频教程
 
