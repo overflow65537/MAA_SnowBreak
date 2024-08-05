@@ -25,16 +25,13 @@
         "green_mask": true,
         "recognition": "TemplateMatch",
         "post_delay": 5000,
-        "times_limit": 5,
-        "runout_next": [
-            "开始疗愈"
-        ],
         "template": [
             "疗愈\\开始疗愈_1130_626_70_48__1080_572_170_148.png",
             "疗愈\\开始疗愈_PC.png"
         ],
         "action": "Click",
         "next": [
+            "再来一次",
             "重开"
         ]
     },
@@ -111,7 +108,7 @@
         "action": "Click"
     },
     "清理黑点": {
-        "threshold": 0.80,
+        "threshold": 0.85,
         "green_mask": true,
         "recognition": "TemplateMatch",
         "template": [
