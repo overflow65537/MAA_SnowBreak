@@ -2,11 +2,5 @@
     "关闭游戏": {
         "action": "StopApp",
         "package": "com.dragonli.projectsnow.lhm"
-    },
-    "OCR": {
-        "recognition": "OCR",
-        "expected": [
-            "a"
-        ]
     }
 }

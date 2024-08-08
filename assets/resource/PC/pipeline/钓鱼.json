@@ -1,0 +1,18 @@
+{
+    "甩杆": {
+        "action": "Key",
+        "key": 32
+    },
+    "鱼上钩": {
+        "action": "Key",
+        "key": 32
+    },
+    "收杆": {
+        "action": "Key",
+        "key": 32
+    },
+    "成功": {
+        "action": "Key",
+        "key": 27
+    }
+}

@@ -34,21 +34,6 @@
         ],
         "action": "Click"
     },
-    "返回主菜单_sub": {
-        "is_sub": true,
-        "recognition": "TemplateMatch",
-        "roi": [
-            970,
-            0,
-            180,
-            80
-        ],
-        "template": [
-            "通用任务\\主菜单_999_24_49_44__949_0_149_144.png",
-            "通用任务\\主菜单_PC.png"
-        ],
-        "action": "Click"
-    },
     "道具过期提示": {
         "is_sub": true,
         "recognition": "OCR",
@@ -63,6 +48,24 @@
         "target": [
             1,
             0,
+            0,
+            0
+        ]
+    },
+    "账号等级提升": {
+        "is_sub": true,
+        "recognition": "OCR",
+        "roi": [
+            406,
+            111,
+            506,
+            341
+        ],
+        "expected": "等级提升",
+        "action": "Click",
+        "target": [
+            100,
+            100,
             0,
             0
         ]
