@@ -189,10 +189,10 @@
         "is_sub": true,
         "recognition": "TemplateMatch",
         "roi": [
-            482,
-            542,
-            149,
-            46
+            432,
+            492,
+            249,
+            146
         ],
         "template": "战斗\\个人故事_482_542_149_46__432_492_249_146.png",
         "action": "Click"

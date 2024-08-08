@@ -122,10 +122,10 @@
     "速战MAX": {
         "recognition": "TemplateMatch",
         "roi": [
-            823,
-            463,
-            68,
-            40
+            800,
+            440,
+            100,
+            80
         ],
         "template": "战斗/速战MAX_823_463_68_31__773_413_168_131.png",
         "action": "Click",
