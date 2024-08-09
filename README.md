@@ -23,15 +23,16 @@
 - 钓鱼(需要进入钓鱼界面）
 
 ## 注意事项
-- 安卓模拟器必须为mumu模拟器
+- 安卓模拟器必须为mumu模拟器,如果出现部分任务无法完成,请切换1280*720(240DPI)
+- 桌面端显示器必须为标准16:9显示器,且游戏必须为无边框窗口
 
 ## 图形化界面
 
+### [MFAWPF](https://github.com/SweetSmellFox/MFAWPF)
+ 由社区大佬编写的基于WPF的GUI,通过内置的MAAframework来直接控制任务流程
+
 ### [Tkinter_MAA](https://github.com/overflow65537/Tkinter_MAA-GUI)
- 基于pythonTkinter编写的GUI,理论上支持所有Maaframework所编写的maapicli程序
-- [下载MSBA-win-x86_64-vXXXX-with_MAA-GUI.zip](https://github.com/overflow65537/MAA_SnowBreak/releases)
-- 解压
-- 启动MAA-GUI.exe
+ 基于pythonTkinter编写的GUI,通过操作config文件来间接控制MAApicli
 > [!WARNING]  
 > 目前GUI程序无法运行PC版的Maapicli，如有需要请手动打开
   

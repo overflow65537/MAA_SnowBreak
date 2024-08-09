@@ -446,3 +446,4 @@ install
 
 # Tools
 tools/ImageCropper/**/*.png
+assets/config/maa_pi_config.json

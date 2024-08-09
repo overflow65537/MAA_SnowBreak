@@ -56,10 +56,10 @@
         "is_sub": true,
         "recognition": "OCR",
         "roi": [
-            406,
-            111,
-            506,
-            341
+            663,
+            178,
+            283,
+            172
         ],
         "expected": "等级提升",
         "action": "Click",
