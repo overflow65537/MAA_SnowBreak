@@ -30,11 +30,7 @@
 
 ### [MFAWPF](https://github.com/SweetSmellFox/MFAWPF)
  由社区大佬编写的基于WPF的GUI,通过内置的MAAframework来直接控制任务流程
-
-### [Tkinter_MAA](https://github.com/overflow65537/Tkinter_MAA-GUI)
- 基于pythonTkinter编写的GUI,通过操作config文件来间接控制MAApicli
-> [!WARNING]  
-> 目前GUI程序无法运行PC版的Maapicli，如有需要请手动打开
+ -下载`MSBA-macos-x86_64-vXXX-with-GUI.zip`
   
 ## 视频教程
 
