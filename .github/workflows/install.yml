@@ -144,6 +144,46 @@ jobs:
         with:
           name: MSBA-macos-${{ matrix.arch }}
           path: "install"
+  GUI:
+    needs: meta
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+
+      - name: Download GUI
+        uses: robinraju/release-downloader@v1.8
+        with:
+          repository: SweetSmellFox/MFAWPF
+          fileName: "MFAWPF-*.zip"
+          latest: true
+          out-file-path: "GUI"
+          extract: true
+
+      - name: move file
+        shell: bash
+        run: |
+          cp ./assets/resource/* ./GUI/resource
+          cp ./assets/interface.json ./GUI/resource 
+
+      - name: zip
+        shell: bash
+        run: |
+          cd ./GUI
+          zip -r ../MSBA-win-x86_64-${{ github.ref_name }}_with_GUI.zip * 
+      
+        - name: Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          tag_name: ${{ github.ref_name }}
+          files: |
+            /home/runner/work/MAA_SnowBreak/*.zip
+
 
   release:
     if: ${{ needs.meta.outputs.is_release == 'true' }}
