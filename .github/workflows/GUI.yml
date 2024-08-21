@@ -10,16 +10,16 @@ jobs:
     steps:
     - uses: actions/checkout@v3
         with:
-        submodules: true
+          submodules: true
 
     - name: Download GUI
         uses: robinraju/release-downloader@v1.8
         with:
-        repository: SweetSmellFox/MFAWPF
-        fileName: "MFAWPF-*.zip"
-        latest: true
-        out-file-path: "GUI"
-        extract: true
+           repository: SweetSmellFox/MFAWPF
+           fileName: "MFAWPF-*.zip"
+           latest: true
+           out-file-path: "GUI"
+           extract: true
 
     - name: move file
         shell: bash
@@ -37,6 +37,6 @@ jobs:
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
-        tag_name: ${{ github.ref_name }}
-        files: |
+           tag_name: ${{ github.ref_name }}
+           files: |
             /home/runner/work/MAA_SnowBreak/*.zip
