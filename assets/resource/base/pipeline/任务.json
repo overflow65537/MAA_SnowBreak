@@ -83,14 +83,14 @@
         "is_sub": true,
         "recognition": "OCR",
         "roi": [
-            200,
-            633,
-            200,
-            138
+            308,
+            580,
+            171,
+            140
         ],
         "expected": [
             "任务",
-            "云中行走"
+            "幕后逸闻"
         ],
         "action": "Click"
     }
