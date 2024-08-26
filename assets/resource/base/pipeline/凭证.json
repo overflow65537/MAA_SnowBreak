@@ -140,7 +140,7 @@
             200,
             120
         ],
-        "expected": "息风凭证",
+        "expected": "星辉凭证",
         "action": "Click"
     }
 }

@@ -28,6 +28,7 @@
         "expected": "每日物资配给箱",
         "action": "Click",
         "next": [
+            "领取体力",
             "购买体力"
         ]
     },
@@ -62,23 +63,22 @@
         ],
         "action": "Click",
         "next": [
+            "打开供应站补给箱",
             "体力"
         ]
     },
     "购买体力": {
-        "recognition": "TemplateMatch",
+        "recognition": "OCR",
         "roi": [
             828,
             476,
-            287,
-            151
+            100,
+            50
         ],
-        "template": [
-            "体力\\购买_878_526_187_51__828_476_287_151.png",
-            "体力\\购买_PC.png"
-        ],
+        "expected": "购买",
         "action": "Click",
         "next": [
+            "购买体力",
             "关闭奖励通知",
             "返回主菜单"
         ]

@@ -49,6 +49,36 @@ jobs:
       tag: ${{ steps.set_tag.outputs.tag }}
       is_release: ${{ steps.set_tag.outputs.is_release }}
 
+  gui:
+    needs: meta
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+      - name: Download Latest MFAWPF  
+        uses: robinraju/release-downloader@v1.8  
+        with:  
+             repository: SweetSmellFox/MFAWPF  
+             latest: true  
+             out-file-path: gui  
+             extract: true  
+  
+      - name: gui resources          
+        shell: bash
+        run: |  
+           rm -f ./gui/*.zip
+           cp -r ./assets/resource/* ./gui/Resource/
+           jq --arg version_name "尘白禁区" --arg version ${{ needs.meta.outputs.tag }} '. + {"version": {"name": $version_name, "version": $version}}' ./assets/interface.json > ./gui/Resource/interface.json
+          
+      - uses: actions/upload-artifact@v3
+        with:
+          name: MSBA-win-x86_64-with-gui
+          path: "gui"
+
   windows:
     needs: meta
     runs-on: windows-latest
@@ -147,7 +177,7 @@ jobs:
 
   release:
     if: ${{ needs.meta.outputs.is_release == 'true' }}
-    needs: [meta, windows, ubuntu, macos]
+    needs: [meta, windows, ubuntu, macos,gui]
     runs-on: ubuntu-latest
     permissions:
       contents: write
