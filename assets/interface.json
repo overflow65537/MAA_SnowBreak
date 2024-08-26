@@ -622,6 +622,17 @@
                             "template": "刷碎片\\辉耀芬妮.png"
                         }
                     }
+                },
+                {
+                    "name": "龙舌兰薇蒂雅",
+                    "param": {
+                        "选择人物": {
+                            "recognition": "OCR",
+                            "expected": [
+                                "龙舌兰"
+                            ]
+                        }
+                    }
                 }
             ]
         },
