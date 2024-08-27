@@ -18,7 +18,6 @@
         ]
     },
     "进入深渊作战_滑动": {
-        "is_sub": true,
         "recognition": "TemplateMatch",
         "roi": [
             630,
@@ -39,48 +38,18 @@
             330,
             0,
             0
-        ]
-    },
-    "关闭速战界面": {
-        "is_sub": true,
-        "recognition": "OCR",
-        "roi": [
-            566,
-            154,
-            139,
-            49
         ],
-        "expected": "快速作战",
-        "action": "Click",
-        "target": [
-            0,
-            1,
-            0,
-            0
+        "next": [
+            "战斗"
         ]
     },
     "进入深渊作战": {
         "is_sub": true,
         "recognition": "OCR",
         "expected": "深渊",
-        "action": "Click"
-    },
-    "常规战斗_滑动": {
-        "inverse": true,
-        "recognition": "OCR",
-        "expected": "深渊",
-        "action": "Swipe",
-        "begin": [
-            1250,
-            330,
-            0,
-            0
-        ],
-        "end": [
-            40,
-            330,
-            0,
-            0
+        "action": "Click",
+        "next": [
+            "战斗"
         ]
     },
     "使用体力_限时高级": {
@@ -105,11 +74,12 @@
             0
         ],
         "next": [
+            "使用体力_限时高级",
             "使用体力"
         ]
     },
     "使用体力": {
-        "post_wait_freezes": 2,
+        "post_wait_freezes": 200,
         "recognition": "TemplateMatch",
         "roi": [
             812,
@@ -295,17 +265,14 @@
     "打开活动战斗": {
         "post_delay": 2000,
         "is_sub": true,
-        "recognition": "TemplateMatch",
+        "recognition": "OCR",
         "roi": [
             800,
             233,
             224,
             172
         ],
-        "template": [
-            "活动/活动入口_828_283_124_72__778_233_224_172.png",
-            "活动/活动入口.png"
-        ],
+        "expected": "极夜行动",
         "action": "Click"
     },
     "选择活动作战1": {

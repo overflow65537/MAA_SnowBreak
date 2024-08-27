@@ -132,7 +132,6 @@
     },
     "打开凭证": {
         "post_delay": 2000,
-        "is_sub": true,
         "recognition": "OCR",
         "roi": [
             149,
@@ -141,6 +140,9 @@
             120
         ],
         "expected": "星辉凭证",
-        "action": "Click"
+        "action": "Click",
+        "next": [
+            "凭证"
+        ]
     }
 }
