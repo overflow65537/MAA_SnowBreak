@@ -44,7 +44,6 @@
         ]
     },
     "进入深渊作战": {
-        "is_sub": true,
         "recognition": "OCR",
         "expected": "深渊",
         "action": "Click",
@@ -74,20 +73,27 @@
             0
         ],
         "next": [
-            "使用体力_限时高级",
-            "使用体力"
+            "使用体力",
+            "使用体力_限时高级"
         ]
     },
     "使用体力": {
         "post_wait_freezes": 200,
-        "recognition": "TemplateMatch",
+        "recognition": "OCR",
         "roi": [
-            812,
-            259,
-            108,
-            106
+            [
+                282,
+                471,
+                222,
+                176
+            ],
+            [
+                789,
+                476,
+                207,
+                171
+            ]
         ],
-        "template": "战斗/恢复感知_812_259_108_106__762_209_208_206.png",
         "action": "Click"
     },
     "速战MAX": {
@@ -128,7 +134,6 @@
         "action": "Click"
     },
     "选择作战1": {
-        "is_sub": true,
         "recognition": "TemplateMatch",
         "roi": [
             1048,
@@ -137,10 +142,12 @@
             58
         ],
         "template": "战斗/常规行动_1048_369_174_58__998_319_274_158.png",
-        "action": "Click"
+        "action": "Click",
+        "next": [
+            "战斗"
+        ]
     },
     "作战_滑动": {
-        "is_sub": true,
         "recognition": "TemplateMatch",
         "roi": [
             161,
@@ -164,11 +171,13 @@
             330,
             0,
             0
+        ],
+        "next": [
+            "战斗"
         ]
     },
     "进入作战": {
         "pre_wait_freezes": 500,
-        "is_sub": true,
         "recognition": "OCR",
         "roi": [
             57,
@@ -176,7 +185,10 @@
             2328,
             43
         ],
-        "action": "Click"
+        "action": "Click",
+        "next": [
+            "战斗"
+        ]
     },
     "速战": {
         "recognition": "OCR",
@@ -206,7 +218,6 @@
         ]
     },
     "增加战斗次数": {
-        "is_sub": true,
         "recognition": "TemplateMatch",
         "template": "战斗/增加作战次数_748_460_62_37__698_410_162_137.png",
         "roi": [
@@ -215,7 +226,10 @@
             62,
             37
         ],
-        "action": "Click"
+        "action": "Click",
+        "next": [
+            "速战"
+        ]
     },
     "开始战斗": {
         "is_sub": true,
@@ -264,7 +278,6 @@
     },
     "打开活动战斗": {
         "post_delay": 2000,
-        "is_sub": true,
         "recognition": "OCR",
         "roi": [
             800,
@@ -273,10 +286,12 @@
             172
         ],
         "expected": "极夜行动",
-        "action": "Click"
+        "action": "Click",
+        "next": [
+            "战斗"
+        ]
     },
     "选择活动作战1": {
-        "is_sub": true,
         "recognition": "OCR",
         "roi": [
             0,
@@ -288,10 +303,12 @@
             "光隙留影",
             "材料"
         ],
-        "action": "Click"
+        "action": "Click",
+        "next": [
+            "战斗"
+        ]
     },
     "选择活动作战2": {
-        "is_sub": true,
         "recognition": "TemplateMatch",
         "roi": [
             987,
@@ -300,9 +317,11 @@
             233
         ],
         "template": [
-            "活动/活动深渊_668_114_163_106__618_64_263_206.png",
             "活动/活动深渊.png"
         ],
-        "action": "Click"
+        "action": "Click",
+        "next": [
+            "战斗"
+        ]
     }
 }

@@ -60,10 +60,24 @@
         "expected": "再来一次",
         "action": "Click",
         "next": [
+            "再来一次",
             "开始疗愈"
         ]
     },
     "清理红点": {
+        "threshold": 0.80,
+        "green_mask": true,
+        "recognition": "TemplateMatch",
+        "template": [
+            "疗愈\\红点_PC.png",
+            "疗愈\\红点_987_426_30_32__937_376_130_132.png"
+        ],
+        "action": "Click",
+        "next": [
+            "清理红点_aging"
+        ]
+    },
+    "清理红点_aging": {
         "threshold": 0.80,
         "green_mask": true,
         "recognition": "TemplateMatch",
@@ -103,6 +117,19 @@
         ],
         "action": "Click",
         "next": [
+            "清理黄点_aging"
+        ]
+    },
+    "清理黄点_aging": {
+        "threshold": 0.80,
+        "green_mask": true,
+        "recognition": "TemplateMatch",
+        "template": [
+            "疗愈\\黄点_902_392_31_32__852_342_131_132.png",
+            "疗愈\\黄点_PC.png"
+        ],
+        "action": "Click",
+        "next": [
             "切换捏",
             "开始疗愈_游戏内",
             "再来一次"
@@ -124,6 +151,19 @@
         "action": "Click"
     },
     "清理黑点": {
+        "threshold": 0.85,
+        "green_mask": true,
+        "recognition": "TemplateMatch",
+        "template": [
+            "疗愈\\黑点_824_384_34_32__774_334_134_132.png",
+            "疗愈\\黑点_PC.png"
+        ],
+        "action": "Click",
+        "next": [
+            "清理黑点_aging"
+        ]
+    },
+    "清理黑点_aging": {
         "threshold": 0.85,
         "green_mask": true,
         "recognition": "TemplateMatch",
