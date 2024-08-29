@@ -43,6 +43,26 @@
             "战斗"
         ]
     },
+    "关闭速战界面": {
+        "recognition": "OCR",
+        "roi": [
+            566,
+            154,
+            139,
+            49
+        ],
+        "expected": "快速作战",
+        "action": "Click",
+        "target": [
+            0,
+            1,
+            0,
+            0
+        ],
+        "next": [
+            "使用体力"
+        ]
+    },
     "进入深渊作战": {
         "recognition": "OCR",
         "expected": "深渊",
