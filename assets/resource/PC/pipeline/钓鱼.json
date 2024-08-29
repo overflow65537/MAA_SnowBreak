@@ -1,4 +1,8 @@
 {
+    "钓鱼": {
+        "action": "Key",
+        "key": 32
+    },
     "甩杆": {
         "action": "Key",
         "key": 32
