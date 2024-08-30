@@ -72,7 +72,7 @@ jobs:
         run: |  
            rm -f ./gui/*.zip
            cp -r ./assets/resource/* ./gui/Resource/
-           jq --arg version_name "尘白禁区" --arg version ${{ needs.meta.outputs.tag }} '. + {"version": {"name": $version_name, "version": $version}}' ./assets/interface.json > ./gui/Resource/interface.json
+           jq --arg version_name "尘白禁区" --arg version ${{ needs.meta.outputs.tag }} '. + {"version": {"name": $version_name, "version": $version}}' ./assets/interface.json > ./gui/interface.json
           
       - uses: actions/upload-artifact@v3
         with:
