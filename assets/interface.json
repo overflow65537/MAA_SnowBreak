@@ -271,10 +271,8 @@
                     "name": "1",
                     "param": {
                         "战斗次数": {
-                            "expected": "1",
-                            "next": [
-                                "战斗"
-                            ]
+                            "recognition": "TemplateMatch",
+                            "template": "战斗\\战斗次数1_594_467_25_25__544_417_125_125.png"
                         },
                         "速战MAX": {
                             "enabled": false
@@ -292,10 +290,8 @@
                     "name": "2",
                     "param": {
                         "战斗次数": {
-                            "expected": "2",
-                            "next": [
-                                "战斗"
-                            ]
+                            "recognition": "OCR",
+                            "expected": "2"
                         },
                         "速战MAX": {
                             "enabled": false
@@ -313,10 +309,8 @@
                     "name": "3",
                     "param": {
                         "战斗次数": {
-                            "expected": "3",
-                            "next": [
-                                "战斗"
-                            ]
+                            "recognition": "OCR",
+                            "expected": "3"
                         },
                         "速战MAX": {
                             "enabled": false
@@ -334,10 +328,8 @@
                     "name": "4",
                     "param": {
                         "战斗次数": {
-                            "expected": "4",
-                            "next": [
-                                "战斗"
-                            ]
+                            "recognition": "TemplateMatch",
+                            "template": "战斗\\战斗次数4_596_467_23_24__546_417_123_124.png"
                         },
                         "速战MAX": {
                             "enabled": false
@@ -355,10 +347,8 @@
                     "name": "5",
                     "param": {
                         "战斗次数": {
-                            "expected": "5",
-                            "next": [
-                                "战斗"
-                            ]
+                            "recognition": "OCR",
+                            "expected": "5"
                         },
                         "速战MAX": {
                             "enabled": false
@@ -376,10 +366,8 @@
                     "name": "6",
                     "param": {
                         "战斗次数": {
-                            "expected": "6",
-                            "next": [
-                                "战斗"
-                            ]
+                            "recognition": "OCR",
+                            "expected": "6"
                         },
                         "速战MAX": {
                             "enabled": false
