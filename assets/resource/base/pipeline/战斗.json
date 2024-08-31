@@ -217,6 +217,7 @@
         ]
     },
     "速战": {
+        "threshold": 0.9,
         "recognition": "OCR",
         "roi": [
             867,
