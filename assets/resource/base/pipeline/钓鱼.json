@@ -1,5 +1,6 @@
 {
     "钓鱼": {
+        "post_delay": 1000,
         "green_mask": true,
         "recognition": "TemplateMatch",
         "roi": [
@@ -20,6 +21,7 @@
         ]
     },
     "甩杆": {
+        "post_delay": 1000,
         "green_mask": true,
         "is_sub": true,
         "recognition": "TemplateMatch",
@@ -36,6 +38,7 @@
         "action": "Click"
     },
     "钓鱼中": {
+        "post_delay": 1000,
         "is_sub": true,
         "green_mask": true,
         "recognition": "TemplateMatch",
@@ -51,6 +54,7 @@
         ]
     },
     "鱼上钩": {
+        "post_delay": 1000,
         "recognition": "TemplateMatch",
         "green_mask": true,
         "roi": [
