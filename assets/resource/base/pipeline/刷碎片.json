@@ -186,6 +186,7 @@
         "action": "Click"
     },
     "个人故事": {
+        "post_wait_freezes": 500,
         "is_sub": true,
         "recognition": "TemplateMatch",
         "roi": [
@@ -216,7 +217,7 @@
             0
         ],
         "end": [
-            250,
+            450,
             330,
             0,
             0
