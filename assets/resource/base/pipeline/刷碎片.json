@@ -95,6 +95,7 @@
         ]
     },
     "检查次数大于0_二次检测": {
+        "post_delay": 1500,
         "recognition": "OCR",
         "expected": [
             "2/2",
