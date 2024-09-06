@@ -16,13 +16,13 @@
     ],
     "resource": [
         {
-            "name": "官服",
+            "name": "安卓端",
             "path": [
                 "{PROJECT_DIR}/resource/base"
             ]
         },
         {
-            "name": "PC端",
+            "name": "桌面端",
             "path": [
                 "{PROJECT_DIR}/resource/base",
                 "{PROJECT_DIR}/resource/PC"
