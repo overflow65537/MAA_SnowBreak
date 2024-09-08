@@ -23,7 +23,6 @@
     "甩杆": {
         "post_delay": 1000,
         "green_mask": true,
-        "is_sub": true,
         "recognition": "TemplateMatch",
         "roi": [
             1000,
@@ -35,11 +34,13 @@
             "钓鱼\\甩杆_1123_585_73_67__1073_535_173_167.png",
             "钓鱼\\甩杆_PC.png"
         ],
-        "action": "Click"
+        "action": "Click",
+        "next": [
+            "钓鱼"
+        ]
     },
     "钓鱼中": {
         "post_delay": 1000,
-        "is_sub": true,
         "green_mask": true,
         "recognition": "TemplateMatch",
         "roi": [
@@ -51,6 +52,9 @@
         "template": [
             "钓鱼\\钓鱼中_1114_580_90_84__1064_530_190_184.png",
             "钓鱼\\钓鱼中_PC.png"
+        ],
+        "next": [
+            "钓鱼"
         ]
     },
     "鱼上钩": {
@@ -77,7 +81,6 @@
     "收杆": {
         "pre_delay": 1750,
         "green_mask": true,
-        "is_sub": true,
         "recognition": "TemplateMatch",
         "roi": [
             1000,
@@ -89,7 +92,10 @@
             "钓鱼\\收杆_1110_574_94_88__1060_524_194_188.png",
             "钓鱼\\收杆_PC.png"
         ],
-        "action": "Click"
+        "action": "Click",
+        "next": [
+            "鱼上钩"
+        ]
     },
     "成功": {
         "post_delay": 5000,
