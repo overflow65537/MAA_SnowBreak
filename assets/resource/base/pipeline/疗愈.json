@@ -93,7 +93,6 @@
         ]
     },
     "切换锤": {
-        "is_sub": true,
         "recognition": "TemplateMatch",
         "roi": [
             6,
@@ -105,7 +104,10 @@
             "疗愈\\切换锤_56_611_63_59__6_561_163_159.png",
             "疗愈\\切换锤_PC.png"
         ],
-        "action": "Click"
+        "action": "Click",
+        "next": [
+            "清理红点_aging"
+        ]
     },
     "清理黄点": {
         "threshold": 0.80,
@@ -136,7 +138,6 @@
         ]
     },
     "切换捏": {
-        "is_sub": true,
         "recognition": "TemplateMatch",
         "roi": [
             141,
@@ -148,7 +149,10 @@
             "疗愈\\切换捏_191_611_62_57__141_561_162_157.png",
             "疗愈\\切换捏_PC.png"
         ],
-        "action": "Click"
+        "action": "Click",
+        "next": [
+            "清理黄点_aging"
+        ]
     },
     "清理黑点": {
         "threshold": 0.85,

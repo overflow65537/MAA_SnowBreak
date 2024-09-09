@@ -1,7 +1,6 @@
 {
     "战斗": {
         "next": [
-            "账号等级提升",
             "使用体力",
             "完成战斗",
             "开始战斗",
@@ -15,6 +14,9 @@
             "选择活动作战2",
             "选择活动作战1",
             "打开活动战斗"
+        ],
+        "interrupt": [
+            "账号等级提升"
         ]
     },
     "进入深渊作战_滑动": {
@@ -44,7 +46,6 @@
         ]
     },
     "关闭速战界面": {
-        "is_sub": true,
         "recognition": "OCR",
         "roi": [
             [
@@ -67,6 +68,9 @@
             1,
             0,
             0
+        ],
+        "next": [
+            "体力不足_next"
         ]
     },
     "进入深渊作战": {
@@ -148,7 +152,6 @@
         "action": "Click"
     },
     "打开战斗": {
-        "is_sub": true,
         "recognition": "OCR",
         "roi": [
             950,
@@ -157,7 +160,10 @@
             130
         ],
         "expected": "战斗",
-        "action": "Click"
+        "action": "Click",
+        "next": [
+            "战斗"
+        ]
     },
     "选择作战1": {
         "recognition": "TemplateMatch",
@@ -229,6 +235,11 @@
         "expected": "速战",
         "action": "Click",
         "next": [
+            "速战_next"
+        ]
+    },
+    "速战_next": {
+        "next": [
             "使用体力",
             "速战MAX",
             "战斗次数",
@@ -248,7 +259,6 @@
         ]
     },
     "增加战斗次数": {
-        "is_sub": true,
         "recognition": "TemplateMatch",
         "template": "战斗/增加作战次数_748_460_62_37__698_410_162_137.png",
         "roi": [
@@ -257,10 +267,12 @@
             62,
             37
         ],
-        "action": "Click"
+        "action": "Click",
+        "next": [
+            "速战_next"
+        ]
     },
     "开始战斗": {
-        "is_sub": true,
         "recognition": "TemplateMatch",
         "roi": [
             577,
@@ -269,7 +281,10 @@
             38
         ],
         "template": "战斗/开始作战_577_539_134_38__527_489_234_138.png",
-        "action": "Click"
+        "action": "Click",
+        "next": [
+            "战斗"
+        ]
     },
     "体力不足": {
         "recognition": "OCR",
@@ -281,6 +296,11 @@
         ],
         "expected": "道具不足",
         "next": [
+            "体力不足_next"
+        ]
+    },
+    "体力不足_next": {
+        "next": [
             "使用体力_限时高级",
             "关闭体力界面",
             "关闭速战界面",
@@ -288,7 +308,6 @@
         ]
     },
     "关闭体力界面": {
-        "is_sub": true,
         "recognition": "OCR",
         "roi": [
             821,
@@ -303,10 +322,12 @@
             0,
             0,
             0
+        ],
+        "next": [
+            "体力不足_next"
         ]
     },
     "打开活动战斗": {
-        "is_sub": true,
         "post_delay": 2000,
         "recognition": "OCR",
         "roi": [
@@ -316,7 +337,10 @@
             172
         ],
         "expected": "极夜行动",
-        "action": "Click"
+        "action": "Click",
+        "next": [
+            "战斗"
+        ]
     },
     "选择活动作战1": {
         "recognition": "OCR",

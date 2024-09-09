@@ -1,6 +1,5 @@
 {
     "关闭奖励通知": {
-        "is_sub": true,
         "recognition": "TemplateMatch",
         "roi": [
             488,
@@ -40,7 +39,6 @@
         ]
     },
     "道具过期提示": {
-        "is_sub": true,
         "recognition": "OCR",
         "roi": [
             469,
@@ -58,7 +56,6 @@
         ]
     },
     "账号等级提升": {
-        "is_sub": true,
         "recognition": "OCR",
         "roi": [
             663,

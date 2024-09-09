@@ -5,7 +5,21 @@
             "选择人物",
             "个人故事_滑动",
             "个人故事",
-            "打开战斗"
+            "打开战斗_碎片"
+        ]
+    },
+    "打开战斗_碎片": {
+        "recognition": "OCR",
+        "roi": [
+            950,
+            260,
+            180,
+            130
+        ],
+        "expected": "战斗",
+        "action": "Click",
+        "next": [
+            "刷碎片"
         ]
     },
     "行为01": {
@@ -39,6 +53,11 @@
             "2/2",
             "1/2"
         ],
+        "next": [
+            "检查次数大于0_next"
+        ]
+    },
+    "检查次数大于0_next": {
         "next": [
             "关卡次数限制",
             "记忆嵌片不足",
@@ -157,13 +176,14 @@
         "template": "战斗\\确定_911_492_101_41__861_442_201_141.png",
         "action": "Click",
         "next": [
-            "关闭奖励通知",
             "确认使用记忆嵌片包",
             "刷碎片"
+        ],
+        "interrupt": [
+            "关闭奖励通知"
         ]
     },
     "速战_碎片": {
-        "is_sub": true,
         "recognition": "OCR",
         "roi": [
             867,
@@ -172,10 +192,12 @@
             147
         ],
         "expected": "速战",
-        "action": "Click"
+        "action": "Click",
+        "next": [
+            "检查次数大于0_next"
+        ]
     },
     "完成战斗_碎片": {
-        "is_sub": true,
         "recognition": "TemplateMatch",
         "roi": [
             527,
@@ -184,11 +206,13 @@
             39
         ],
         "template": "战斗\\完成作战_527_645_229_39__477_581_329_139.png",
-        "action": "Click"
+        "action": "Click",
+        "next": [
+            "检查次数大于0_next"
+        ]
     },
     "个人故事": {
         "post_wait_freezes": 500,
-        "is_sub": true,
         "recognition": "TemplateMatch",
         "roi": [
             432,
@@ -197,11 +221,13 @@
             146
         ],
         "template": "战斗\\个人故事_482_542_149_46__432_492_249_146.png",
-        "action": "Click"
+        "action": "Click",
+        "next": [
+            "刷碎片"
+        ]
     },
     "个人故事_滑动": {
         "post_wait_freezes": 500,
-        "is_sub": true,
         "recognition": "OCR",
         "roi": [
             500,
@@ -222,6 +248,9 @@
             330,
             0,
             0
+        ],
+        "next": [
+            "刷碎片"
         ]
     },
     "选择人物": {
@@ -235,13 +264,15 @@
         "action": "Click"
     },
     "行为02": {
-        "is_sub": true,
         "recognition": "OCR",
         "expected": [
             "行为02",
             "行为O2"
         ],
-        "action": "Click"
+        "action": "Click",
+        "next": [
+            "刷碎片"
+        ]
     },
     "关卡次数限制": {
         "post_delay": 5000,

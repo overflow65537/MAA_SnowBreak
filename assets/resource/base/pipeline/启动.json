@@ -2,12 +2,14 @@
     "启动": {
         "next": [
             "检查主界面",
-            "关闭奖励通知",
-            "账号等级提升",
             "关闭公告",
             "关闭签到",
             "进入游戏",
             "启动应用"
+        ],
+        "interrupt": [
+            "关闭奖励通知",
+            "账号等级提升"
         ]
     },
     "检查主界面": {
@@ -21,7 +23,6 @@
         "expected": "战斗"
     },
     "进入游戏": {
-        "is_sub": true,
         "recognition": "OCR",
         "expected": "开始游戏",
         "roi": [
@@ -30,15 +31,19 @@
             204,
             137
         ],
-        "action": "Click"
+        "action": "Click",
+        "next": [
+            "启动"
+        ]
     },
     "启动应用": {
-        "is_sub": true,
         "action": "StartApp",
-        "package": "com.dragonli.projectsnow.lhm/com.xgsdk.client.api.splash.XGSplashActivity"
+        "package": "com.dragonli.projectsnow.lhm/com.xgsdk.client.api.splash.XGSplashActivity",
+        "next": [
+            "启动"
+        ]
     },
     "关闭签到": {
-        "is_sub": true,
         "threshold": 0.8,
         "recognition": "OCR",
         "roi": [
@@ -54,10 +59,12 @@
             0,
             0,
             0
+        ],
+        "next": [
+            "启动"
         ]
     },
     "关闭公告": {
-        "is_sub": true,
         "threshold": 0.8,
         "recognition": "TemplateMatch",
         "roi": [
@@ -72,6 +79,9 @@
             "启动\\关闭公告2_1080_142_31_29__1030_92_131_129.png",
             "启动\\关闭公告3_1192_88_33_33__1142_38_133_133.png"
         ],
-        "action": "Click"
+        "action": "Click",
+        "next": [
+            "启动"
+        ]
     }
 }
