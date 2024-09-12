@@ -2,16 +2,24 @@
     "商店": {
         "next": [
             "判断物品",
-            "向下滑动",
             "打开商店",
+            "翻到底了"
+        ],
+        "interrupt": [
+            "向下滑动",
             "返回主菜单"
         ]
     },
+    "翻到底了": {
+        "inverse": true,
+        "recognition": "OCR",
+        "expected": "提取物",
+        "next": [
+            "返回主菜单",
+            "商店"
+        ]
+    },
     "向下滑动": {
-        "times_limit": 3,
-        "runout_next": [
-            "返回主菜单"
-        ],
         "recognition": "OCR",
         "roi": [
             0,
@@ -136,9 +144,11 @@
         "action": "Click",
         "next": [
             "资金不足",
-            "关闭奖励通知",
             "返回主菜单",
             "购买物品"
+        ],
+        "interrupt": [
+            "关闭奖励通知"
         ]
     }
 }
