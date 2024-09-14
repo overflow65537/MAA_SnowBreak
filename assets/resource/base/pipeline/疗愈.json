@@ -1,18 +1,11 @@
 {
     "开始疗愈": {
         "green_mask": true,
-        "timeout": 20000,
-        "timeout_next": [
-            "重开"
-        ],
         "recognition": "TemplateMatch",
         "template": [
             "疗愈\\红点_987_426_30_32__937_376_130_132.png",
             "疗愈\\黄点_902_392_31_32__852_342_131_132.png",
-            "疗愈\\黑点_824_384_34_32__774_334_134_132.png",
-            "疗愈\\红点_PC.png",
-            "疗愈\\黄点_PC.png",
-            "疗愈\\黑点_PC.png"
+            "疗愈\\黑点_824_384_34_32__774_334_134_132.png"
         ],
         "action": "Swipe",
         "begin": [
@@ -33,6 +26,9 @@
             "清理黄点",
             "清理黑点",
             "再来一次"
+        ],
+        "on_error": [
+            "重开"
         ]
     },
     "重开": {
@@ -40,8 +36,7 @@
         "recognition": "TemplateMatch",
         "post_delay": 5000,
         "template": [
-            "疗愈\\开始疗愈_1130_626_70_48__1080_572_170_148.png",
-            "疗愈\\开始疗愈_PC.png"
+            "疗愈\\开始疗愈_1130_626_70_48__1080_572_170_148.png"
         ],
         "action": "Click",
         "next": [
@@ -60,7 +55,6 @@
         "expected": "再来一次",
         "action": "Click",
         "next": [
-            "再来一次",
             "开始疗愈"
         ]
     },
@@ -69,20 +63,6 @@
         "green_mask": true,
         "recognition": "TemplateMatch",
         "template": [
-            "疗愈\\红点_PC.png",
-            "疗愈\\红点_987_426_30_32__937_376_130_132.png"
-        ],
-        "action": "Click",
-        "next": [
-            "清理红点_aging"
-        ]
-    },
-    "清理红点_aging": {
-        "threshold": 0.80,
-        "green_mask": true,
-        "recognition": "TemplateMatch",
-        "template": [
-            "疗愈\\红点_PC.png",
             "疗愈\\红点_987_426_30_32__937_376_130_132.png"
         ],
         "action": "Click",
@@ -101,12 +81,11 @@
             159
         ],
         "template": [
-            "疗愈\\切换锤_56_611_63_59__6_561_163_159.png",
-            "疗愈\\切换锤_PC.png"
+            "疗愈\\切换锤_56_611_63_59__6_561_163_159.png"
         ],
         "action": "Click",
         "next": [
-            "清理红点_aging"
+            "清理红点"
         ]
     },
     "清理黄点": {
@@ -114,21 +93,7 @@
         "green_mask": true,
         "recognition": "TemplateMatch",
         "template": [
-            "疗愈\\黄点_902_392_31_32__852_342_131_132.png",
-            "疗愈\\黄点_PC.png"
-        ],
-        "action": "Click",
-        "next": [
-            "清理黄点_aging"
-        ]
-    },
-    "清理黄点_aging": {
-        "threshold": 0.80,
-        "green_mask": true,
-        "recognition": "TemplateMatch",
-        "template": [
-            "疗愈\\黄点_902_392_31_32__852_342_131_132.png",
-            "疗愈\\黄点_PC.png"
+            "疗愈\\黄点_902_392_31_32__852_342_131_132.png"
         ],
         "action": "Click",
         "next": [
@@ -146,12 +111,11 @@
             157
         ],
         "template": [
-            "疗愈\\切换捏_191_611_62_57__141_561_162_157.png",
-            "疗愈\\切换捏_PC.png"
+            "疗愈\\切换捏_191_611_62_57__141_561_162_157.png"
         ],
         "action": "Click",
         "next": [
-            "清理黄点_aging"
+            "清理黄点"
         ]
     },
     "清理黑点": {
@@ -159,21 +123,7 @@
         "green_mask": true,
         "recognition": "TemplateMatch",
         "template": [
-            "疗愈\\黑点_824_384_34_32__774_334_134_132.png",
-            "疗愈\\黑点_PC.png"
-        ],
-        "action": "Click",
-        "next": [
-            "清理黑点_aging"
-        ]
-    },
-    "清理黑点_aging": {
-        "threshold": 0.85,
-        "green_mask": true,
-        "recognition": "TemplateMatch",
-        "template": [
-            "疗愈\\黑点_824_384_34_32__774_334_134_132.png",
-            "疗愈\\黑点_PC.png"
+            "疗愈\\黑点_824_384_34_32__774_334_134_132.png"
         ],
         "action": "Click",
         "next": [
@@ -185,8 +135,7 @@
         "post_delay": 10000,
         "recognition": "TemplateMatch",
         "template": [
-            "疗愈\\开始疗愈_1130_626_70_48__1080_572_170_148.png",
-            "疗愈\\开始疗愈_PC.png"
+            "疗愈\\开始疗愈_1130_626_70_48__1080_572_170_148.png"
         ],
         "roi": [
             1080,
