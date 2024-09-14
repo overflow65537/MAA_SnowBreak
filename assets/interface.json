@@ -3,15 +3,6 @@
         {
             "name": "安卓端",
             "type": "Adb"
-        },
-        {
-            "name": "桌面端",
-            "type": "Win32",
-            "win32": {
-                "method": "Search",
-                "class_name": ".*",
-                "window_name": "尘白禁区"
-            }
         }
     ],
     "resource": [
@@ -19,13 +10,6 @@
             "name": "安卓端",
             "path": [
                 "{PROJECT_DIR}/resource/base"
-            ]
-        },
-        {
-            "name": "桌面端",
-            "path": [
-                "{PROJECT_DIR}/resource/base",
-                "{PROJECT_DIR}/resource/PC"
             ]
         }
     ],
@@ -106,7 +90,7 @@
             "cases": [
                 {
                     "name": "活动战斗",
-                    "param": {
+                    "pipeline_override": {
                         "打开战斗": {
                             "enabled": false
                         },
@@ -129,7 +113,7 @@
                 },
                 {
                     "name": "版本活动武器",
-                    "param": {
+                    "pipeline_override": {
                         "选择活动作战1": {
                             "enabled": false
                         },
@@ -146,7 +130,7 @@
                 },
                 {
                     "name": "版本活动后勤",
-                    "param": {
+                    "pipeline_override": {
                         "选择活动作战1": {
                             "enabled": false
                         },
@@ -163,7 +147,7 @@
                 },
                 {
                     "name": "通用银",
-                    "param": {
+                    "pipeline_override": {
                         "选择活动作战1": {
                             "enabled": false
                         },
@@ -180,7 +164,7 @@
                 },
                 {
                     "name": "角色经验",
-                    "param": {
+                    "pipeline_override": {
                         "选择活动作战1": {
                             "enabled": false
                         },
@@ -197,7 +181,7 @@
                 },
                 {
                     "name": "武器经验",
-                    "param": {
+                    "pipeline_override": {
                         "选择活动作战1": {
                             "enabled": false
                         },
@@ -214,7 +198,7 @@
                 },
                 {
                     "name": "武器材料",
-                    "param": {
+                    "pipeline_override": {
                         "选择活动作战1": {
                             "enabled": false
                         },
@@ -231,7 +215,7 @@
                 },
                 {
                     "name": "神经素材",
-                    "param": {
+                    "pipeline_override": {
                         "选择活动作战1": {
                             "enabled": false
                         },
@@ -248,7 +232,7 @@
                 },
                 {
                     "name": "后勤",
-                    "param": {
+                    "pipeline_override": {
                         "选择活动作战1": {
                             "enabled": false
                         },
@@ -269,8 +253,14 @@
             "cases": [
                 {
                     "name": "1",
-                    "param": {
+                    "pipeline_override": {
                         "战斗次数": {
+                            "roi": [
+                                587,
+                                463,
+                                42,
+                                30
+                            ],
                             "recognition": "TemplateMatch",
                             "template": "战斗\\战斗次数1_594_467_25_25__544_417_125_125.png"
                         },
@@ -288,8 +278,14 @@
                 },
                 {
                     "name": "2",
-                    "param": {
+                    "pipeline_override": {
                         "战斗次数": {
+                            "roi": [
+                                587,
+                                463,
+                                42,
+                                30
+                            ],
                             "recognition": "OCR",
                             "expected": "2"
                         },
@@ -307,8 +303,14 @@
                 },
                 {
                     "name": "3",
-                    "param": {
+                    "pipeline_override": {
                         "战斗次数": {
+                            "roi": [
+                                587,
+                                463,
+                                42,
+                                30
+                            ],
                             "recognition": "OCR",
                             "expected": "3"
                         },
@@ -326,8 +328,14 @@
                 },
                 {
                     "name": "4",
-                    "param": {
+                    "pipeline_override": {
                         "战斗次数": {
+                            "roi": [
+                                587,
+                                463,
+                                42,
+                                30
+                            ],
                             "recognition": "TemplateMatch",
                             "template": "战斗\\战斗次数4_596_467_23_24__546_417_123_124.png"
                         },
@@ -345,8 +353,14 @@
                 },
                 {
                     "name": "5",
-                    "param": {
+                    "pipeline_override": {
                         "战斗次数": {
+                            "roi": [
+                                587,
+                                463,
+                                42,
+                                30
+                            ],
                             "recognition": "OCR",
                             "expected": "5"
                         },
@@ -364,8 +378,14 @@
                 },
                 {
                     "name": "6",
-                    "param": {
+                    "pipeline_override": {
                         "战斗次数": {
+                            "roi": [
+                                587,
+                                463,
+                                42,
+                                30
+                            ],
                             "recognition": "OCR",
                             "expected": "6"
                         },
@@ -383,7 +403,7 @@
                 },
                 {
                     "name": "刷完全部体力",
-                    "param": {
+                    "pipeline_override": {
                         "战斗次数": {
                             "enabled": false
                         },
@@ -403,7 +423,7 @@
             "cases": [
                 {
                     "name": "是",
-                    "param": {
+                    "pipeline_override": {
                         "使用体力": {
                             "expected": "确定",
                             "next": [
@@ -417,7 +437,7 @@
                 },
                 {
                     "name": "否",
-                    "param": {
+                    "pipeline_override": {
                         "使用体力": {
                             "expected": "取消",
                             "next": [
@@ -434,7 +454,7 @@
             "cases": [
                 {
                     "name": "羽蜕恩雅",
-                    "param": {
+                    "pipeline_override": {
                         "选择人物": {
                             "green_mask": true,
                             "recognition": "TemplateMatch",
@@ -444,7 +464,7 @@
                 },
                 {
                     "name": "悖谬琴诺",
-                    "param": {
+                    "pipeline_override": {
                         "选择人物": {
                             "green_mask": true,
                             "recognition": "TemplateMatch",
@@ -454,7 +474,7 @@
                 },
                 {
                     "name": "咎冠芬妮",
-                    "param": {
+                    "pipeline_override": {
                         "选择人物": {
                             "green_mask": true,
                             "recognition": "TemplateMatch",
@@ -464,7 +484,7 @@
                 },
                 {
                     "name": "缄默芙提雅",
-                    "param": {
+                    "pipeline_override": {
                         "选择人物": {
                             "green_mask": true,
                             "recognition": "TemplateMatch",
@@ -474,7 +494,7 @@
                 },
                 {
                     "name": "辉夜安卡希雅",
-                    "param": {
+                    "pipeline_override": {
                         "选择人物": {
                             "recognition": "OCR",
                             "expected": [
@@ -485,7 +505,7 @@
                 },
                 {
                     "name": "狂猎里芙",
-                    "param": {
+                    "pipeline_override": {
                         "选择人物": {
                             "green_mask": true,
                             "recognition": "TemplateMatch",
@@ -495,7 +515,7 @@
                 },
                 {
                     "name": "雨燕茉莉安",
-                    "param": {
+                    "pipeline_override": {
                         "选择人物": {
                             "green_mask": true,
                             "recognition": "TemplateMatch",
@@ -505,7 +525,7 @@
                 },
                 {
                     "name": "藏锋晴",
-                    "param": {
+                    "pipeline_override": {
                         "选择人物": {
                             "recognition": "OCR",
                             "expected": [
@@ -516,7 +536,7 @@
                 },
                 {
                     "name": "冬至肴",
-                    "param": {
+                    "pipeline_override": {
                         "选择人物": {
                             "recognition": "OCR",
                             "expected": [
@@ -527,7 +547,7 @@
                 },
                 {
                     "name": "溯影猫汐尔",
-                    "param": {
+                    "pipeline_override": {
                         "选择人物": {
                             "recognition": "OCR",
                             "expected": [
@@ -538,7 +558,7 @@
                 },
                 {
                     "name": "瞬刻瑟瑞斯",
-                    "param": {
+                    "pipeline_override": {
                         "选择人物": {
                             "recognition": "OCR",
                             "expected": [
@@ -549,7 +569,7 @@
                 },
                 {
                     "name": "云篆晨星",
-                    "param": {
+                    "pipeline_override": {
                         "选择人物": {
                             "recognition": "OCR",
                             "expected": [
@@ -560,7 +580,7 @@
                 },
                 {
                     "name": "蓝闪凯西娅",
-                    "param": {
+                    "pipeline_override": {
                         "选择人物": {
                             "recognition": "OCR",
                             "expected": [
@@ -571,7 +591,7 @@
                 },
                 {
                     "name": "豹豹伊切尔",
-                    "param": {
+                    "pipeline_override": {
                         "选择人物": {
                             "recognition": "OCR",
                             "expected": [
@@ -582,7 +602,7 @@
                 },
                 {
                     "name": "魔术师苔丝",
-                    "param": {
+                    "pipeline_override": {
                         "选择人物": {
                             "recognition": "OCR",
                             "expected": [
@@ -593,7 +613,7 @@
                 },
                 {
                     "name": "无限之视里芙",
-                    "param": {
+                    "pipeline_override": {
                         "选择人物": {
                             "green_mask": true,
                             "recognition": "TemplateMatch",
@@ -603,7 +623,7 @@
                 },
                 {
                     "name": "辉耀芬妮",
-                    "param": {
+                    "pipeline_override": {
                         "选择人物": {
                             "green_mask": true,
                             "recognition": "TemplateMatch",
@@ -613,7 +633,7 @@
                 },
                 {
                     "name": "龙舌兰薇蒂雅",
-                    "param": {
+                    "pipeline_override": {
                         "选择人物": {
                             "recognition": "OCR",
                             "expected": [
@@ -628,7 +648,7 @@
             "cases": [
                 {
                     "name": "是",
-                    "param": {
+                    "pipeline_override": {
                         "关卡次数限制": {
                             "expected": [
                                 "关卡次数限制"
@@ -638,7 +658,7 @@
                 },
                 {
                     "name": "否",
-                    "param": {
+                    "pipeline_override": {
                         "记忆嵌片不足": {
                             "enabled": false
                         },
@@ -656,13 +676,12 @@
             "cases": [
                 {
                     "name": "最便宜的(除了这个选项只买一个,其余选项都是买满)",
-                    "param": {
+                    "pipeline_override": {
                         "判断物品": {
                             "expected": [
                                 "合成颗粒",
                                 "初级职级认证",
                                 "新手战斗记录"
-
                             ]
                         },
                         "买满": {
@@ -672,7 +691,7 @@
                 },
                 {
                     "name": "辅助武器",
-                    "param": {
+                    "pipeline_override": {
                         "判断物品": {
                             "expected": [
                                 "军舰鸟",
@@ -687,7 +706,7 @@
                 },
                 {
                     "name": "芳烃塑料",
-                    "param": {
+                    "pipeline_override": {
                         "判断物品": {
                             "expected": [
                                 "芳烃塑料"
@@ -697,7 +716,7 @@
                 },
                 {
                     "name": "人物碎片",
-                    "param": {
+                    "pipeline_override": {
                         "判断物品": {
                             "expected": [
                                 "提取物"
@@ -707,7 +726,7 @@
                 },
                 {
                     "name": "单极纤维",
-                    "param": {
+                    "pipeline_override": {
                         "判断物品": {
                             "expected": [
                                 "单极纤维"
@@ -717,7 +736,7 @@
                 },
                 {
                     "name": "光纤轴突",
-                    "param": {
+                    "pipeline_override": {
                         "判断物品": {
                             "expected": [
                                 "光纤轴突"
