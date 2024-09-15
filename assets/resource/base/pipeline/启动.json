@@ -1,15 +1,15 @@
 {
     "启动": {
         "next": [
-            "检查主界面",
+            "检查主界面"
+        ],
+        "interrupt": [
             "关闭公告",
             "关闭签到",
             "进入游戏",
-            "启动应用"
-        ],
-        "interrupt": [
             "关闭奖励通知",
-            "账号等级提升"
+            "账号等级提升",
+            "启动应用"
         ]
     },
     "检查主界面": {
@@ -31,17 +31,11 @@
             204,
             137
         ],
-        "action": "Click",
-        "next": [
-            "启动"
-        ]
+        "action": "Click"
     },
     "启动应用": {
         "action": "StartApp",
-        "package": "com.dragonli.projectsnow.lhm/com.xgsdk.client.api.splash.XGSplashActivity",
-        "next": [
-            "启动"
-        ]
+        "package": "com.dragonli.projectsnow.lhm/com.xgsdk.client.api.splash.XGSplashActivity"
     },
     "关闭签到": {
         "threshold": 0.8,
@@ -59,9 +53,6 @@
             0,
             0,
             0
-        ],
-        "next": [
-            "启动"
         ]
     },
     "关闭公告": {
@@ -79,9 +70,6 @@
             "启动\\关闭公告2_1080_142_31_29__1030_92_131_129.png",
             "启动\\关闭公告3_1192_88_33_33__1142_38_133_133.png"
         ],
-        "action": "Click",
-        "next": [
-            "启动"
-        ]
+        "action": "Click"
     }
 }
