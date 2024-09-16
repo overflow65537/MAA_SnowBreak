@@ -20,7 +20,7 @@
         ]
     },
     "返回主菜单": {
-        "post_delay": 1000,
+        "post_wait_freezes": 1000,
         "recognition": "TemplateMatch",
         "roi": [
             970,
