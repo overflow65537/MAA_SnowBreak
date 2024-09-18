@@ -2,8 +2,32 @@
     "任务": {
         "next": [
             "切换到日常任务",
-            "一键领取",
-            "打开任务",
+            "一键领取_日常",
+            "领取定期任务"
+        ],
+        "interrupt": [
+            "账号等级提升",
+            "关闭奖励通知",
+            "打开任务"
+        ]
+    },
+    "领取定期任务": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            0,
+            136,
+            283,
+            155
+        ],
+        "template": "任务\\切换定期任务_1_186_183_55__0_136_283_155.png",
+        "action": "Click",
+        "next": [
+            "领取定期任务_next"
+        ]
+    },
+    "领取定期任务_next": {
+        "next": [
+            "一键领取_定期",
             "返回主菜单"
         ],
         "interrupt": [
@@ -11,7 +35,8 @@
             "关闭奖励通知"
         ]
     },
-    "一键领取": {
+    "一键领取_日常": {
+        "post_wait_freezes": 1000,
         "recognition": "TemplateMatch",
         "roi": [
             0,
@@ -27,6 +52,23 @@
             "任务"
         ]
     },
+    "一键领取_定期": {
+        "post_wait_freezes": 1000,
+        "recognition": "TemplateMatch",
+        "roi": [
+            0,
+            574,
+            258,
+            146
+        ],
+        "template": [
+            "通用任务\\一键领取_29_630_158_46__0_574_258_146.png"
+        ],
+        "action": "Click",
+        "next": [
+            "领取定期任务_next"
+        ]
+    },
     "打开任务": {
         "recognition": "OCR",
         "roi": [
@@ -36,10 +78,7 @@
             130
         ],
         "expected": "任务",
-        "action": "Click",
-        "next": [
-            "任务"
-        ]
+        "action": "Click"
     },
     "切换到日常任务": {
         "threshold": 0.9,
@@ -61,30 +100,16 @@
     "活动任务": {
         "next": [
             "一键领取活动任务",
-            "打开活动任务",
-            "打开活动战斗_任务",
             "返回主菜单"
         ],
         "interrupt": [
-            "关闭奖励通知"
-        ]
-    },
-    "打开活动战斗_任务": {
-        "post_delay": 2000,
-        "recognition": "OCR",
-        "roi": [
-            800,
-            233,
-            224,
-            172
-        ],
-        "expected": "极夜行动",
-        "action": "Click",
-        "next": [
-            "活动任务"
+            "关闭奖励通知",
+            "打开活动任务",
+            "打开活动战斗"
         ]
     },
     "一键领取活动任务": {
+        "post_wait_freezes": 1000,
         "recognition": "OCR",
         "roi": [
             14,
@@ -102,6 +127,7 @@
         ]
     },
     "打开活动任务": {
+        "post_wait_freezes": 1000,
         "recognition": "OCR",
         "roi": [
             308,
@@ -113,9 +139,6 @@
             "任务",
             "幕后逸闻"
         ],
-        "action": "Click",
-        "next": [
-            "活动任务"
-        ]
+        "action": "Click"
     }
 }
