@@ -3,6 +3,15 @@
         {
             "name": "安卓端",
             "type": "Adb"
+        },
+        {
+            "name": "桌面端",
+            "type": "Win32",
+            "win32": {
+                "method": "Search",
+                "class_name": ".*",
+                "window_name": "尘白禁区"
+            }
         }
     ],
     "resource": [
@@ -10,6 +19,13 @@
             "name": "安卓端",
             "path": [
                 "{PROJECT_DIR}/resource/base"
+            ]
+        },
+        {
+            "name": "桌面端",
+            "path": [
+                "{PROJECT_DIR}/resource/base",
+                "{PROJECT_DIR}/resource/PC"
             ]
         }
     ],

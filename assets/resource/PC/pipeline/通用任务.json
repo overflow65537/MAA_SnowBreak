@@ -1,6 +1,10 @@
 {
     "关闭奖励通知": {
+        "template": "通用任务\\获得道具_PC.png",
         "action": "Key",
         "key": 27
+    },
+    "返回主菜单": {
+        "template": "通用任务\\主菜单_PC.png"
     }
 }

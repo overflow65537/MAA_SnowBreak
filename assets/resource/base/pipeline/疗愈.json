@@ -35,6 +35,12 @@
         "green_mask": true,
         "recognition": "TemplateMatch",
         "post_delay": 5000,
+        "roi": [
+            1080,
+            572,
+            170,
+            148
+        ],
         "template": [
             "疗愈\\开始疗愈_1130_626_70_48__1080_572_170_148.png"
         ],
