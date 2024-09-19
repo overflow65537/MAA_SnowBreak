@@ -205,7 +205,7 @@ jobs:
 
       - uses: actions/upload-artifact@v3
         with:
-          name: MPA-android-${{ matrix.arch }}
+          name: MSBA-android-${{ matrix.arch }}
           path: "install"
           
   release:
