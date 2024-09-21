@@ -8,9 +8,8 @@
             "name": "桌面端",
             "type": "Win32",
             "win32": {
-                "method": "Search",
-                "class_name": ".*",
-                "window_name": "尘白禁区"
+                "class_regex": ".*",
+                "window_regex": "尘白禁区"
             }
         }
     ],
