@@ -111,15 +111,15 @@
         ]
     },
     "买满": {
-        "recognition": "TemplateMatch",
+        "recognition": "OCR",
         "roi": [
             1130,
             506,
             150,
             125
         ],
-        "template": [
-            "战斗\\速战MAX_823_463_68_31__773_413_168_131.png"
+        "expected": [
+            "最大"
         ],
         "action": "Click",
         "next": [
@@ -128,29 +128,29 @@
     },
     "打开商店": {
         "post_delay": 1000,
-        "recognition": "TemplateMatch",
+        "recognition": "OCR",
         "roi": [
             1105,
             665,
             152,
             100
         ],
-        "template": [
-            "商店\\商店_1105_665_102_26__1055_594_202_126.png"
+        "expected": [
+            "商店"
         ],
         "action": "Click"
     },
     "购买物品": {
         "post_wait_freezes": 500,
-        "recognition": "TemplateMatch",
+        "recognition": "OCR",
         "roi": [
             953,
             565,
             327,
             155
         ],
-        "template": [
-            "商店\\购买_1013_637_227_55__953_565_327_155.png"
+        "expected": [
+            "购买"
         ],
         "action": "Click",
         "next": [

@@ -1,14 +1,14 @@
 {
     "关闭奖励通知": {
-        "recognition": "TemplateMatch",
+        "recognition": "OCR",
         "roi": [
             488,
             0,
             298,
             169
         ],
-        "template": [
-            "通用任务\\获得道具_538_30_198_69__488_0_298_169.png"
+        "expected": [
+            "获得道具"
         ],
         "action": "Click",
         "target": [
@@ -68,6 +68,24 @@
             100,
             0,
             0
+        ]
+    },
+    "返回主菜单_err": {
+        "post_wait_freezes": 1000,
+        "recognition": "TemplateMatch",
+        "roi": [
+            970,
+            0,
+            180,
+            80
+        ],
+        "template": [
+            "通用任务\\主菜单_999_24_49_44__949_0_149_144.png"
+        ],
+        "action": "Click",
+        "next": [
+            "检查主界面",
+            "返回主菜单"
         ]
     }
 }

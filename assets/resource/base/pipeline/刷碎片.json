@@ -32,7 +32,6 @@
         "expected": [
             "行为01",
             "行为O1"
-            
         ],
         "action": "Swipe",
         "begin": [
@@ -161,7 +160,7 @@
             64
         ],
         "template": [
-            "刷体力\\记忆嵌片包_820_30_32_32__770_0_132_132.png"
+            "刷碎片\\记忆嵌片包_820_30_32_32__770_0_132_132.png"
         ],
         "action": "Click",
         "target_offset": [
@@ -177,14 +176,16 @@
         ]
     },
     "确认使用记忆嵌片包": {
-        "recognition": "TemplateMatch",
+        "recognition": "OCR",
         "roi": [
             911,
             492,
             102,
             42
         ],
-        "template": "战斗\\确定_911_492_101_41__861_442_201_141.png",
+        "expected": [
+            "确定"
+        ],
         "action": "Click",
         "next": [
             "确认使用记忆嵌片包",
@@ -207,14 +208,16 @@
         "action": "Click"
     },
     "完成战斗_碎片": {
-        "recognition": "TemplateMatch",
+        "recognition": "OCR",
         "roi": [
             527,
             645,
             229,
             39
         ],
-        "template": "战斗\\完成作战_527_645_229_39__477_581_329_139.png",
+        "expected": [
+            "完成"
+        ],
         "action": "Click",
         "next": [
             "刷碎片"
@@ -222,14 +225,16 @@
     },
     "个人故事": {
         "post_wait_freezes": 500,
-        "recognition": "TemplateMatch",
+        "recognition": "OCR",
         "roi": [
             432,
             492,
             249,
             146
         ],
-        "template": "战斗\\个人故事_482_542_149_46__432_492_249_146.png",
+        "expected": [
+            "个人故事"
+        ],
         "action": "Click"
     },
     "个人故事_滑动": {

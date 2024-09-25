@@ -48,15 +48,15 @@
         ]
     },
     "打开供应站": {
-        "recognition": "TemplateMatch",
+        "recognition": "OCR",
         "roi": [
             71,
             325,
             167,
             131
         ],
-        "template": [
-            "体力\\供应站_121_375_67_31__71_325_167_131.png"
+        "expected": [
+            "供应站"
         ],
         "action": "Click"
     },

@@ -7,7 +7,7 @@
             400,
             64
         ],
-        "template": "刷体力/记忆嵌片包.png",
+        "template": "刷碎片\\记忆嵌片包.png",
         "action": "Click",
         "target_offset": [
             120,

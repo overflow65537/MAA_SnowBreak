@@ -37,15 +37,16 @@
     },
     "一键领取_日常": {
         "post_wait_freezes": 1000,
-        "recognition": "TemplateMatch",
+        "recognition": "OCR",
         "roi": [
             0,
             574,
             258,
             146
         ],
-        "template": [
-            "通用任务\\一键领取_29_630_158_46__0_574_258_146.png"
+        "expected": [
+            "一键领取",
+            "键领取"
         ],
         "action": "Click",
         "next": [
@@ -54,15 +55,16 @@
     },
     "一键领取_定期": {
         "post_wait_freezes": 1000,
-        "recognition": "TemplateMatch",
+        "recognition": "OCR",
         "roi": [
             0,
             574,
             258,
             146
         ],
-        "template": [
-            "通用任务\\一键领取_29_630_158_46__0_574_258_146.png"
+        "expected": [
+            "一键领取",
+            "键领取"
         ],
         "action": "Click",
         "next": [

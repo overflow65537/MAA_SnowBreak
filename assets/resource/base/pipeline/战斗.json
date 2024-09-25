@@ -53,14 +53,16 @@
         ]
     },
     "进入深渊作战_滑动": {
-        "recognition": "TemplateMatch",
+        "recognition": "OCR",
         "roi": [
             630,
             300,
             100,
             60
         ],
-        "template": "战斗/进入深渊作战_643_315_80_35__593_265_180_135.png",
+        "expected": [
+            "困难"
+        ],
         "action": "Swipe",
         "begin": [
             500,
@@ -112,26 +114,30 @@
         "action": "Click"
     },
     "速战MAX": {
-        "recognition": "TemplateMatch",
+        "recognition": "OCR",
         "roi": [
             800,
             440,
             100,
             80
         ],
-        "template": "战斗/速战MAX_823_463_68_31__773_413_168_131.png",
+        "expected": [
+            "最大"
+        ],
         "action": "Click"
     },
     "完成战斗": {
         "post_wait_freezes": 1000,
-        "recognition": "TemplateMatch",
+        "recognition": "OCR",
         "roi": [
             527,
             645,
             229,
             39
         ],
-        "template": "战斗/完成作战_527_645_229_39__477_581_329_139.png",
+        "expected": [
+            "完成"
+        ],
         "action": "Click"
     },
     "打开战斗": {
@@ -146,27 +152,28 @@
         "action": "Click"
     },
     "选择作战1": {
-        "recognition": "TemplateMatch",
+        "recognition": "OCR",
         "roi": [
             1048,
             369,
             174,
             58
         ],
-        "template": "战斗/常规行动_1048_369_174_58__998_319_274_158.png",
+        "expected": [
+            "常规行动"
+        ],
         "action": "Click"
     },
     "作战_滑动": {
-        "recognition": "TemplateMatch",
+        "recognition": "OCR",
         "roi": [
             161,
             575,
             263,
             195
         ],
-        "template": [
-            "战斗/常规行动2_261_655_163_45__211_575_263_145.png",
-            "战斗/常规行动.png"
+        "expected": [
+            "常规行动"
         ],
         "action": "Swipe",
         "begin": [
@@ -220,14 +227,16 @@
         ]
     },
     "意外点击_速战": {
-        "recognition": "TemplateMatch",
+        "recognition": "OCR",
         "roi": [
             527,
             645,
             229,
             39
         ],
-        "template": "战斗/完成作战_527_645_229_39__477_581_329_139.png"
+        "expected": [
+            "完成"
+        ]
     },
     "使用体力界面": {
         "recognition": "OCR",
@@ -255,14 +264,16 @@
         ]
     },
     "开始战斗": {
-        "recognition": "TemplateMatch",
+        "recognition": "OCR",
         "roi": [
             577,
             539,
             134,
             38
         ],
-        "template": "战斗/开始作战_577_539_134_38__527_489_234_138.png",
+        "expected": [
+            "开始作战"
+        ],
         "action": "Click"
     },
     "体力不足": {
@@ -332,15 +343,15 @@
         "action": "Click"
     },
     "选择活动作战2": {
-        "recognition": "TemplateMatch",
+        "recognition": "OCR",
         "roi": [
             987,
             109,
             224,
             233
         ],
-        "template": [
-            "活动/活动深渊.png"
+        "expected": [
+            "深渊"
         ],
         "action": "Click"
     }

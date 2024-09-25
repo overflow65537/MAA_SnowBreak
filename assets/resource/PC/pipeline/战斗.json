@@ -1,0 +1,20 @@
+{
+    "速战MAX": {
+        "next": [
+            "速战MAX_2"
+        ]
+    },
+    "速战MAX_2": {
+        "recognition": "OCR",
+        "roi": [
+            800,
+            440,
+            100,
+            80
+        ],
+        "expected": [
+            "最大"
+        ],
+        "action": "Click"
+    }
+}
