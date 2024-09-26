@@ -132,14 +132,13 @@
         "post_wait_freezes": 1000,
         "recognition": "OCR",
         "roi": [
-            308,
-            580,
-            271,
-            140
+            312,
+            649,
+            121,
+            55
         ],
         "expected": [
-            "任务",
-            "幕后逸闻"
+            "游园清单"
         ],
         "action": "Click",
         "next": [

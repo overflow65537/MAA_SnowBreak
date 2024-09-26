@@ -171,7 +171,7 @@
             200,
             120
         ],
-        "expected": "星辉凭证",
+        "expected": "星海凭证",
         "action": "Click",
         "next": [
             "凭证"

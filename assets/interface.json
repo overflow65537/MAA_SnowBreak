@@ -483,6 +483,69 @@
         "选择人物": {
             "cases": [
                 {
+                    "name": "幽潮茉莉安",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": "OCR",
+                            "expected": [
+                                "幽潮"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "朝翼凯西娅",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "green_mask": true,
+                            "recognition": "TemplateMatch",
+                            "template": "刷碎片\\朝翼凯西娅.png"
+                        }
+                    }
+                },
+                {
+                    "name": "龙舌兰薇蒂雅",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": "OCR",
+                            "expected": [
+                                "龙舌兰"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "辉耀芬妮",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "green_mask": true,
+                            "recognition": "TemplateMatch",
+                            "template": "刷碎片\\辉耀芬妮.png"
+                        }
+                    }
+                },
+                {
+                    "name": "无限之视里芙",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "green_mask": true,
+                            "recognition": "TemplateMatch",
+                            "template": "刷碎片\\无限之视里芙.png"
+                        }
+                    }
+                },
+                {
+                    "name": "瞬刻瑟瑞斯",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": "OCR",
+                            "expected": [
+                                "瞬刻"
+                            ]
+                        }
+                    }
+                },
+                {
                     "name": "羽蜕恩雅",
                     "pipeline_override": {
                         "选择人物": {
@@ -499,6 +562,83 @@
                             "green_mask": true,
                             "recognition": "TemplateMatch",
                             "template": "刷碎片\\琴诺悖谬.png"
+                        }
+                    }
+                },
+                {
+                    "name": "豹豹伊切尔",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": "OCR",
+                            "expected": [
+                                "豹豹"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "蓝闪凯西娅",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": "OCR",
+                            "expected": [
+                                "蓝闪"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "魔术师苔丝",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": "OCR",
+                            "expected": [
+                                "魔术师"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "溯影猫汐尔",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": "OCR",
+                            "expected": [
+                                "溯影"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "藏锋晴",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": "OCR",
+                            "expected": [
+                                "藏锋"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "云篆晨星",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": "OCR",
+                            "expected": [
+                                "云篆"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "辉夜安卡希雅",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": "OCR",
+                            "expected": [
+                                "辉夜"
+                            ]
                         }
                     }
                 },
@@ -523,17 +663,6 @@
                     }
                 },
                 {
-                    "name": "辉夜安卡希雅",
-                    "pipeline_override": {
-                        "选择人物": {
-                            "recognition": "OCR",
-                            "expected": [
-                                "辉夜"
-                            ]
-                        }
-                    }
-                },
-                {
                     "name": "狂猎里芙",
                     "pipeline_override": {
                         "选择人物": {
@@ -554,120 +683,12 @@
                     }
                 },
                 {
-                    "name": "藏锋晴",
-                    "pipeline_override": {
-                        "选择人物": {
-                            "recognition": "OCR",
-                            "expected": [
-                                "藏锋"
-                            ]
-                        }
-                    }
-                },
-                {
                     "name": "冬至肴",
                     "pipeline_override": {
                         "选择人物": {
                             "recognition": "OCR",
                             "expected": [
                                 "冬至"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "name": "溯影猫汐尔",
-                    "pipeline_override": {
-                        "选择人物": {
-                            "recognition": "OCR",
-                            "expected": [
-                                "溯影"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "name": "瞬刻瑟瑞斯",
-                    "pipeline_override": {
-                        "选择人物": {
-                            "recognition": "OCR",
-                            "expected": [
-                                "瞬刻"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "name": "云篆晨星",
-                    "pipeline_override": {
-                        "选择人物": {
-                            "recognition": "OCR",
-                            "expected": [
-                                "云篆"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "name": "蓝闪凯西娅",
-                    "pipeline_override": {
-                        "选择人物": {
-                            "recognition": "OCR",
-                            "expected": [
-                                "蓝闪"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "name": "豹豹伊切尔",
-                    "pipeline_override": {
-                        "选择人物": {
-                            "recognition": "OCR",
-                            "expected": [
-                                "豹豹"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "name": "魔术师苔丝",
-                    "pipeline_override": {
-                        "选择人物": {
-                            "recognition": "OCR",
-                            "expected": [
-                                "魔术师"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "name": "无限之视里芙",
-                    "pipeline_override": {
-                        "选择人物": {
-                            "green_mask": true,
-                            "recognition": "TemplateMatch",
-                            "template": "刷碎片\\无限之视里芙.png"
-                        }
-                    }
-                },
-                {
-                    "name": "辉耀芬妮",
-                    "pipeline_override": {
-                        "选择人物": {
-                            "green_mask": true,
-                            "recognition": "TemplateMatch",
-                            "template": "刷碎片\\辉耀芬妮.png"
-                        }
-                    }
-                },
-                {
-                    "name": "龙舌兰薇蒂雅",
-                    "pipeline_override": {
-                        "选择人物": {
-                            "recognition": "OCR",
-                            "expected": [
-                                "龙舌兰"
                             ]
                         }
                     }
