@@ -9,7 +9,9 @@
             "type": "Win32",
             "win32": {
                 "class_regex": ".*",
-                "window_regex": "尘白禁区"
+                "window_regex": "尘白禁区",
+                "input": 2,
+                "screencap": 1
             }
         }
     ],
@@ -569,10 +571,9 @@
                     "name": "豹豹伊切尔",
                     "pipeline_override": {
                         "选择人物": {
-                            "recognition": "OCR",
-                            "expected": [
-                                "豹豹"
-                            ]
+                            "green_mask": true,
+                            "recognition": "TemplateMatch",
+                            "template": "刷碎片\\豹豹伊切尔.png"
                         }
                     }
                 },
@@ -580,9 +581,14 @@
                     "name": "蓝闪凯西娅",
                     "pipeline_override": {
                         "选择人物": {
-                            "recognition": "OCR",
-                            "expected": [
-                                "蓝闪"
+                            "green_mask": true,
+                            "recognition": "TemplateMatch",
+                            "template": "刷碎片\\蓝闪凯西娅.png"
+                        },
+                        "行为02": {
+                            "recognition": "TemplateMatch",
+                            "template": [
+                                "刷碎片\\蓝闪行为02.png"
                             ]
                         }
                     }
