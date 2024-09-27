@@ -76,7 +76,7 @@ jobs:
           
       - uses: actions/upload-artifact@v3
         with:
-          name: MPA-win-x86_64-with-gui
+          name: MSBA-win-x86_64-with-gui
           path: "gui"
 
 
