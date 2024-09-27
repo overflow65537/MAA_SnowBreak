@@ -9,9 +9,7 @@
             "type": "Win32",
             "win32": {
                 "class_regex": ".*",
-                "window_regex": "尘白禁区",
-                "input": 2,
-                "screencap": 1
+                "window_regex": "尘白禁区"
             }
         }
     ],
