@@ -42,13 +42,14 @@
         "key": 32
     },
     "收杆": {
+        "pre_delay": 1800,
         "roi": [
             1000,
             500,
             300,
             250
         ],
-        "template": "钓鱼\\甩杆_PC.png",
+        "template": "钓鱼\\收杆_PC.png",
         "action": "Key",
         "key": 32
     },

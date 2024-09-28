@@ -74,28 +74,34 @@
         ]
     },
     "检查测评等级": {
-        "recognition": "OCR",
+        "green_mask": true,
+        "recognition": "TemplateMatch",
         "roi": [
-            1032,
-            272,
-            204,
-            69
+            1147,
+            310,
+            70,
+            70
         ],
-        "expected": "当前难度：5",
+        "template": [
+            "精神拟境\\难度5.png"
+        ],
         "next": [
             "精神拟境_第二栏",
             "返回主菜单"
         ]
     },
     "检查测评等级_第二栏": {
-        "recognition": "OCR",
+        "green_mask": true,
+        "recognition": "TemplateMatch",
         "roi": [
-            1032,
-            272,
-            204,
-            69
+            1147,
+            310,
+            70,
+            70
         ],
-        "expected": "当前难度：5",
+        "template": [
+            "精神拟境\\难度5.png"
+        ],
         "next": [
             "返回主菜单"
         ]
