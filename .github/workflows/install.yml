@@ -23,7 +23,7 @@ jobs:
   meta:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - id: set_tag
@@ -49,37 +49,6 @@ jobs:
       tag: ${{ steps.set_tag.outputs.tag }}
       is_release: ${{ steps.set_tag.outputs.is_release }}
 
-  gui:
-    needs: meta
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          submodules: true
-      - name: Download Latest MFAWPF  
-        uses: robinraju/release-downloader@v1.8  
-        with:  
-             repository: SweetSmellFox/MFAWPF  
-             latest: true  
-             out-file-path: gui  
-             extract: true  
-  
-      - name: gui resources          
-        shell: bash
-        run: |  
-           rm -f ./gui/*.zip
-           cp -r ./assets/resource/* ./gui/Resource/
-           jq --arg version_name "战双:帕尼什" --arg version ${{ needs.meta.outputs.tag }} '. + {"version": {"name": $version_name, "version": $version}}' ./assets/interface.json > ./gui/interface.json
-          
-      - uses: actions/upload-artifact@v3
-        with:
-          name: MSBA-win-x86_64-with-gui
-          path: "gui"
-
-
   windows:
     needs: meta
     runs-on: windows-latest
@@ -89,12 +58,12 @@ jobs:
       fail-fast: false
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           submodules: true
 
       - name: Download MaaFramework
-        uses: robinraju/release-downloader@v1.8
+        uses: robinraju/release-downloader@v1
         with:
           repository: MaaXYZ/MaaFramework
           fileName: "MAA-win-${{ matrix.arch }}*"
@@ -107,7 +76,7 @@ jobs:
         run: |
           python ./install.py ${{ needs.meta.outputs.tag }}
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: MSBA-win-${{ matrix.arch }}
           path: "install"
@@ -121,12 +90,12 @@ jobs:
       fail-fast: false
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           submodules: true
 
       - name: Download MaaFramework
-        uses: robinraju/release-downloader@v1.8
+        uses: robinraju/release-downloader@v1
         with:
           repository: MaaXYZ/MaaFramework
           fileName: "MAA-linux-${{ matrix.arch }}*"
@@ -139,7 +108,7 @@ jobs:
         run: |
           python ./install.py ${{ needs.meta.outputs.tag }}
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: MSBA-linux-${{ matrix.arch }}
           path: "install"
@@ -153,12 +122,12 @@ jobs:
       fail-fast: false
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           submodules: true
 
       - name: Download MaaFramework
-        uses: robinraju/release-downloader@v1.8
+        uses: robinraju/release-downloader@v1
         with:
           repository: MaaXYZ/MaaFramework
           fileName: "MAA-macos-${{ matrix.arch }}*"
@@ -171,7 +140,7 @@ jobs:
         run: |
           python ./install.py ${{ needs.meta.outputs.tag }}
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: MSBA-macos-${{ matrix.arch }}
           path: "install"
@@ -185,16 +154,17 @@ jobs:
       fail-fast: false
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           submodules: true
 
       - name: Download MaaFramework
-        uses: robinraju/release-downloader@v1.8
+        uses: robinraju/release-downloader@v1
         with:
           repository: MaaXYZ/MaaFramework
           fileName: "MAA-android-${{ matrix.arch }}*"
           latest: true
+          
           out-file-path: "deps"
           extract: true
 
@@ -203,19 +173,17 @@ jobs:
         run: |
           python ./install.py ${{ needs.meta.outputs.tag }}
 
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: MSBA-android-${{ matrix.arch }}
           path: "install"
-          
+
   release:
     if: ${{ needs.meta.outputs.is_release == 'true' }}
-    needs: [meta, windows, ubuntu, macos, android, gui]
+    needs: [meta, windows, ubuntu, macos, android]
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           path: assets
 
@@ -224,7 +192,7 @@ jobs:
           for f in *; do
             (cd $f && zip -r ../$f-${{ needs.meta.outputs.tag }}.zip .)
           done
-      - uses: softprops/action-gh-release@v1
+      - uses: softprops/action-gh-release@v2
         with:
           files: assets/*
           tag_name: ${{ needs.meta.outputs.tag }}
