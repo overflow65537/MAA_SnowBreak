@@ -49,6 +49,36 @@ jobs:
       tag: ${{ steps.set_tag.outputs.tag }}
       is_release: ${{ steps.set_tag.outputs.is_release }}
 
+ gui:
+    needs: meta
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+      - name: Download Latest MFAWPF  
+        uses: robinraju/release-downloader@v1  
+        with:  
+             repository: SweetSmellFox/MFAWPF  
+             latest: true  
+             out-file-path: gui  
+             extract: true  
+  
+      - name: gui resources          
+        shell: bash
+        run: |  
+           rm -f ./gui/*.zip
+           cp -r ./assets/resource/* ./gui/Resource/
+           jq --arg version_name "尘白禁区" --arg version ${{ needs.meta.outputs.tag }} '. + {"version": {"name": $version_name, "version": $version}}' ./assets/interface.json > ./gui/interface.json
+          
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MSBA-win-x86_64-with-gui
+          path: "gui"
+
   windows:
     needs: meta
     runs-on: windows-latest
@@ -78,7 +108,7 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: MSBA-win-${{ matrix.arch }}
+          name: MAAxxx-win-${{ matrix.arch }}
           path: "install"
 
   ubuntu:
@@ -110,7 +140,7 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: MSBA-linux-${{ matrix.arch }}
+          name: MAAxxx-linux-${{ matrix.arch }}
           path: "install"
 
   macos:
@@ -142,7 +172,7 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: MSBA-macos-${{ matrix.arch }}
+          name: MAAxxx-macos-${{ matrix.arch }}
           path: "install"
 
   android:
@@ -175,7 +205,7 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: MSBA-android-${{ matrix.arch }}
+          name: MAAxxx-android-${{ matrix.arch }}
           path: "install"
 
   release:
