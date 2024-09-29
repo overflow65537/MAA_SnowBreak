@@ -56,13 +56,11 @@ jobs:
       fail-fast: false
       
     steps:
-      - uses: actions/checkout@v4
-        with:
-          submodules: true
       - name: Download Latest MFAWPF  
         uses: robinraju/release-downloader@v1  
         with:  
              repository: SweetSmellFox/MFAWPF  
+             filename: MFAWPF*
              latest: true  
              out-file-path: gui  
              extract: true  
