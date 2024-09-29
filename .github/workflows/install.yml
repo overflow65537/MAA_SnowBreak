@@ -49,7 +49,7 @@ jobs:
       tag: ${{ steps.set_tag.outputs.tag }}
       is_release: ${{ steps.set_tag.outputs.is_release }}
 
- gui:
+  gui:
     needs: meta
     runs-on: ubuntu-latest
     strategy:
