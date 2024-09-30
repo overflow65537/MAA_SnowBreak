@@ -110,7 +110,7 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: MAAxxx-win-${{ matrix.arch }}
+          name: MSBA-win-${{ matrix.arch }}
           path: "install"
 
   ubuntu:
@@ -142,7 +142,7 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: MAAxxx-linux-${{ matrix.arch }}
+          name: MSBA-linux-${{ matrix.arch }}
           path: "install"
 
   macos:
@@ -174,7 +174,7 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: MAAxxx-macos-${{ matrix.arch }}
+          name: MSBA-macos-${{ matrix.arch }}
           path: "install"
 
   android:
@@ -207,7 +207,7 @@ jobs:
 
       - uses: actions/upload-artifact@v4
         with:
-          name: MAAxxx-android-${{ matrix.arch }}
+          name: MSBA-android-${{ matrix.arch }}
           path: "install"
 
   release:
