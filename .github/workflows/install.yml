@@ -97,7 +97,7 @@ jobs:
         run: |  
            rm -f ./gui/*.zip
            cp -r ./assets/resource/* ./gui/Resource/
-           jq --arg version_name "尘白禁区" --arg url "https://api.github.com/repos/overflow65537/MAA_SnowBreak/releases" --arg version ${{ needs.meta.outputs.tag }} '. + {"name": $version_name, "url": $url,"version": $version}' ./assets/interface.json > ./gui/interface.json
+           jq --arg version_name "尘白禁区" --arg url ""https://github.com/overflow65537/MAA_SnowBreak"" --arg version ${{ needs.meta.outputs.tag }} '. + {"name": $version_name, "url": $url,"version": $version}' ./assets/interface.json > ./gui/interface.json
 
       - uses: actions/upload-artifact@v4
         with:
