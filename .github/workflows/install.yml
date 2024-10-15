@@ -83,14 +83,7 @@ jobs:
         with:
           submodules: true
           
-      - name: Download Latest MFAWPF  
-        uses: robinraju/release-downloader@v1  
-        with:  
-             repository: SweetSmellFox/MFAWPF  
-             filename: MFAWPF*
-             latest: true  
-             out-file-path: gui  
-             extract: true  
+
   
       - name: gui resources          
         shell: bash
@@ -126,10 +119,22 @@ jobs:
           out-file-path: "deps"
           extract: true
 
+      - name: Download Latest MFAWPF  
+        uses: robinraju/release-downloader@v1  
+        with:  
+              repository: SweetSmellFox/MFAWPF  
+              filename: MFAWPF*
+              latest: true  
+              out-file-path: MFA  
+              extract: true  
+
       - name: Install
         shell: bash
         run: |
           python ./install.py ${{ needs.meta.outputs.tag }}
+          cp ./MFA/MFAWPF.exe ./install
+          jq --arg version_name "尘白禁区" --arg url "https://github.com/overflow65537/MAA_SnowBreak" --arg version ${{ needs.meta.outputs.tag }} '. + {"name": $version_name, "url": $url,"version": $version}' ./assets/interface.json > ./install/interface.json
+
 
       - uses: actions/upload-artifact@v4
         with:
