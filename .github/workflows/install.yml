@@ -72,31 +72,6 @@ jobs:
           name: update
           path: "update"
 
-  gui:
-    needs: meta
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          submodules: true
-          
-
-  
-      - name: gui resources          
-        shell: bash
-        run: |  
-           rm -f ./gui/*.zip
-           cp -r ./assets/resource/* ./gui/Resource/
-           jq --arg version_name "尘白禁区" --arg url ""https://github.com/overflow65537/MAA_SnowBreak"" --arg version ${{ needs.meta.outputs.tag }} '. + {"name": $version_name, "url": $url,"version": $version}' ./assets/interface.json > ./gui/interface.json
-
-      - uses: actions/upload-artifact@v4
-        with:
-          name: MSBA-win-x86_64-with-gui
-          path: "gui"
-
   windows:
     needs: meta
     runs-on: windows-latest
@@ -240,7 +215,7 @@ jobs:
 
   release:
     if: ${{ needs.meta.outputs.is_release == 'true' }}
-    needs: [meta, windows, ubuntu, macos, android, gui]
+    needs: [meta, windows, ubuntu, macos, android]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@v4
