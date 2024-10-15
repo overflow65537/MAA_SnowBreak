@@ -32,7 +32,8 @@
 
 ### [MFAWPF](https://github.com/SweetSmellFox/MFAWPF)
  由社区大佬[SweetSmellFox](https://github.com/SweetSmellFox)编写的基于WPF的GUI,通过内置的MAAframework来直接控制任务流程
- - 下载`MSBA-win-x86_64-with-GUI-vXXX.zip`
+ - 下载`MSBA-win-x86_64-vXXX.zip`
+ - 运行MFAWPF.exe
   
 ## 视频教程
 
