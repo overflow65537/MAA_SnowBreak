@@ -14,9 +14,9 @@
             "作战_滑动",
             "选择作战1",
             "打开战斗",
+            "检查是否在主界面",
             "选择活动作战2",
             "选择活动作战1",
-            "打开活动战斗",
             "账号等级提升",
             "关闭奖励通知"
         ]
@@ -143,7 +143,7 @@
         "action": "Click"
     },
     "完成战斗": {
-        "post_wait_freezes": 1000,
+        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
             527,
@@ -206,7 +206,7 @@
         ]
     },
     "进入作战": {
-        "pre_wait_freezes": 500,
+        "pre_wait_freezes": 200,
         "recognition": "OCR",
         "roi": [
             57,
@@ -332,39 +332,39 @@
             "体力不足_next"
         ]
     },
-    "打开活动战斗": {
-        "post_delay": 2000,
-        "recognition": "TemplateMatch",
+    "检查是否在主界面": {
+        "recognition": "OCR",
         "roi": [
-            800,
-            233,
-            224,
-            172
+            950,
+            260,
+            180,
+            130
         ],
-        "template": "活动\\活动入口.png",
+        "expected": "战斗",
+        "next": [
+            "打开活动战斗"
+        ]
+    },
+    "打开活动战斗": {
+        "recognition": "OCR",
+        "roi": [
+            826,
+            286,
+            129,
+            80
+        ],
+        "expected": ".*",
         "action": "Click"
     },
     "选择活动作战1": {
         "recognition": "OCR",
-        "roi": [
-            9,
-            283,
-            261,
-            99
-        ],
         "expected": [
-            "水上乐园"
+            "材料"
         ],
         "action": "Click"
     },
     "选择活动作战2": {
         "recognition": "OCR",
-        "roi": [
-            1142,
-            318,
-            109,
-            75
-        ],
         "expected": [
             "深渊"
         ],

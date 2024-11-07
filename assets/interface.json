@@ -1,21 +1,21 @@
 {
     "controller": [
         {
-            "name": "安卓端",
+            "name": "Adb控制器",
             "type": "Adb"
         },
         {
-            "name": "桌面端",
+            "name": "Win32控制器",
             "type": "Win32",
             "win32": {
                 "class_regex": ".*",
-                "window_regex": "尘白禁区"
+                "window_regex": "^尘白禁区$"
             }
         }
     ],
     "resource": [
         {
-            "name": "安卓端",
+            "name": "移动端",
             "path": [
                 "{PROJECT_DIR}/resource/base"
             ]
@@ -482,6 +482,16 @@
         },
         "选择人物": {
             "cases": [
+                {
+                    "name": "烈兔芙提雅",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "green_mask": true,
+                            "recognition": "TemplateMatch",
+                            "template": "刷碎片\\烈兔芙提雅.png"
+                        }
+                    }
+                },
                 {
                     "name": "幽潮茉莉安",
                     "pipeline_override": {

@@ -124,7 +124,7 @@
         ]
     },
     "凭证奖励": {
-        "threshold": 0.9,
+        "threshold": 0.8,
         "recognition": "TemplateMatch",
         "roi": [
             422,
@@ -171,7 +171,7 @@
             200,
             120
         ],
-        "expected": "星海凭证",
+        "expected": "凭证",
         "action": "Click",
         "next": [
             "凭证"
