@@ -25,14 +25,15 @@
 
 ## 注意事项
 - 安卓端：模拟器必须为mumu模拟器,如果出现部分任务无法完成,请切换1280*720(240DPI)
-- 桌面端：显示器必须为标准16:9显示器,且游戏必须为无边框窗口，***不推荐使用GUI***
+- 桌面端：显示器必须为标准16:9显示器,且游戏必须为无边框窗口，***使用管理员权限打开***,***不推荐使用GUI***
 - 反馈 QQ 群：980583911
 
 ## 图形化界面
 
 ### [MFAWPF](https://github.com/SweetSmellFox/MFAWPF)
  由社区大佬[SweetSmellFox](https://github.com/SweetSmellFox)编写的基于WPF的GUI,通过内置的MAAframework来直接控制任务流程
- -下载`MSBA-win-x86_64-with-GUI-vXXX.zip`
+ - 下载`MSBA-win-x86_64-vXXX.zip`
+ - 运行MFAWPF.exe
   
 ## 视频教程
 
