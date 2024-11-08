@@ -341,9 +341,13 @@
             130
         ],
         "expected": "战斗",
-        "next": [
-            "打开活动战斗"
-        ]
+        "target": [
+            890,
+            320,
+            0,
+            0
+        ],
+        "action": "Click"
     },
     "打开活动战斗": {
         "recognition": "OCR",
