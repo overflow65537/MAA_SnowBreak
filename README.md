@@ -26,6 +26,7 @@
 ## 注意事项
 - 安卓端：模拟器必须为mumu模拟器,如果出现部分任务无法完成,请切换1280*720(240DPI)
 - 桌面端：显示器必须为标准16:9显示器,且游戏必须为无边框窗口，***使用管理员权限打开***,***不推荐使用GUI***
+- 打开无法运行首先尝试安装运行库 https://learn.microsoft.com/zh-cn/cpp/windows/latest-supported-vc-redist?view=msvc-170
 - 反馈 QQ 群：980583911
 
 ## 图形化界面
