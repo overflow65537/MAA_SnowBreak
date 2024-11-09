@@ -1,4 +1,5 @@
 {
+    "lock_controller": true
     "controller": [
         {
             "name": "Adb控制器",
