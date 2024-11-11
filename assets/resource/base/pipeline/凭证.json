@@ -8,6 +8,7 @@
     },
     "每日任务": {
         "threshold": 0.9,
+        "post_delay": 1000,
         "recognition": "TemplateMatch",
         "roi": [
             630,
@@ -47,6 +48,7 @@
     },
     "每周任务": {
         "threshold": 0.9,
+        "post_delay": 1000,
         "recognition": "TemplateMatch",
         "roi": [
             834,
@@ -86,6 +88,7 @@
     },
     "限定任务": {
         "threshold": 0.9,
+        "post_delay": 1000,
         "recognition": "TemplateMatch",
         "roi": [
             1043,
@@ -125,6 +128,7 @@
     },
     "凭证奖励": {
         "threshold": 0.8,
+        "post_delay": 1000,
         "recognition": "TemplateMatch",
         "roi": [
             422,

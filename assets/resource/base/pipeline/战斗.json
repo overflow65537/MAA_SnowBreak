@@ -341,23 +341,12 @@
             130
         ],
         "expected": "战斗",
-        "target": [
-            890,
-            320,
+        "target_offset": [
+            -100,
+            0,
             0,
             0
         ],
-        "action": "Click"
-    },
-    "打开活动战斗": {
-        "recognition": "OCR",
-        "roi": [
-            826,
-            286,
-            129,
-            80
-        ],
-        "expected": ".*",
         "action": "Click"
     },
     "选择活动作战1": {
