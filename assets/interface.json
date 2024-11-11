@@ -483,12 +483,12 @@
         "选择人物": {
             "cases": [
                 {
-                    "name": "烈兔芙提雅",
+                    "name": "驰掣芙提雅",
                     "pipeline_override": {
                         "选择人物": {
                             "green_mask": true,
                             "recognition": "TemplateMatch",
-                            "template": "刷碎片\\烈兔芙提雅.png"
+                            "template": "刷碎片\\驰掣芙提雅.png"
                         }
                     }
                 },
