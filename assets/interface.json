@@ -73,8 +73,7 @@
             "name": "刷天启碎片",
             "entry": "刷碎片",
             "option": [
-                "选择人物",
-                "使用记忆嵌片包"
+                "选择人物"
             ]
         },
         {
@@ -703,34 +702,6 @@
                             "recognition": "OCR",
                             "expected": [
                                 "冬至"
-                            ]
-                        }
-                    }
-                }
-            ]
-        },
-        "使用记忆嵌片包": {
-            "cases": [
-                {
-                    "name": "是",
-                    "pipeline_override": {
-                        "关卡次数限制": {
-                            "expected": [
-                                "关卡次数限制"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "name": "否",
-                    "pipeline_override": {
-                        "记忆嵌片不足": {
-                            "enabled": false
-                        },
-                        "关卡次数限制": {
-                            "expected": [
-                                "关卡次数限制",
-                                "记忆嵌片不足"
                             ]
                         }
                     }
