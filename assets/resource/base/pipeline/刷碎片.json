@@ -38,8 +38,8 @@
     "行为01_点击": {
         "recognition": "OCR",
         "expected": [
-            "行为01",
-            "行为O1"
+            "行为-1",
+            "行为"
         ],
         "action": "Click",
         "target": [
@@ -55,8 +55,8 @@
     "行为01": {
         "recognition": "OCR",
         "expected": [
-            "行为01",
-            "行为O1"
+            "行为-1",
+            "行为"
         ],
         "action": "Swipe",
         "begin": [
@@ -130,8 +130,8 @@
     "行为01_二次检测": {
         "recognition": "OCR",
         "expected": [
-            "行为01",
-            "行为O1"
+            "行为-1",
+            "行为"
         ],
         "action": "Click",
         "target": [
@@ -296,8 +296,7 @@
     "行为02": {
         "recognition": "OCR",
         "expected": [
-            "行为02",
-            "行为O2"
+            "行为-2"
         ],
         "action": "Click"
     },
