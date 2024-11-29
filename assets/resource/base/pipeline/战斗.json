@@ -333,6 +333,7 @@
         ]
     },
     "检查是否在主界面": {
+        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
             950,
