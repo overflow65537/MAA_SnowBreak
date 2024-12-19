@@ -16,24 +16,5 @@
             "最大"
         ],
         "action": "Click"
-    },
-    "选择活动作战2": {
-        "recognition": "OCR",
-        "roi": [
-            550,
-            23,
-            200,
-            60
-        ],
-        "expected": [
-            "狂暴之"
-        ],
-        "action": "Click",
-        "target": [
-            913,
-            242,
-            0,
-            0
-        ]
     }
 }

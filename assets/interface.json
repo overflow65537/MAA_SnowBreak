@@ -482,6 +482,17 @@
         "选择人物": {
             "cases": [
                 {
+                    "name": "小天师卜卜",
+                    "pipeline_override": {
+                        "选择任务": {
+                            "recognition": "OCR",
+                            "expected": [
+                                "小天师"
+                            ]
+                        }
+                    }
+                },
+                {
                     "name": "驰掣芙提雅",
                     "pipeline_override": {
                         "选择人物": {
