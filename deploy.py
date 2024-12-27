@@ -51,8 +51,7 @@ shutil.copytree(
     source_path,
     destination_path,
     dirs_exist_ok=True,
-    ignore=shutil.ignore_patterns("MaaCommonAssets"),
-    ignore=shutil.ignore_patterns("config"),
+    ignore=shutil.ignore_patterns("MaaCommonAssets")
 )
 
 pi_config = {
