@@ -37,7 +37,7 @@ jobs:
             fi
             tag=$(date "+$tag-%y%m%d-$(git rev-parse --short HEAD)")
           fi
-          if ! $($is_release) ; then
+          if ! $is_release ; then
             prefix=${tag%-*-*}
             suffix=${tag#$prefix-}
             tag="$prefix-ci.$suffix"
@@ -48,29 +48,6 @@ jobs:
     outputs:
       tag: ${{ steps.set_tag.outputs.tag }}
       is_release: ${{ steps.set_tag.outputs.is_release }}
-
-  update:
-    needs: meta
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-    
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          submodules: true
-
-      - name: update
-        shell: bash
-        run: |
-          mkdir -p ./update
-          rsync -av --exclude='MaaCommonAssets' ./assets/ ./update/
-
-
-      - uses: actions/upload-artifact@v4
-        with:
-          name: update
-          path: "update"
 
   windows:
     needs: meta
@@ -94,25 +71,38 @@ jobs:
           out-file-path: "deps"
           extract: true
 
-      - name: Download Latest MFAWPF  
-        uses: robinraju/release-downloader@v1  
-        with:  
-              repository: SweetSmellFox/MFAWPF  
-              filename: MFAWPF*
-              latest: true  
-              out-file-path: MFAWPF
-              extract: true  
-
       - name: Install
         shell: bash
         run: |
           python ./install.py ${{ needs.meta.outputs.tag }}
-          cp ./MFAWPF/MFAWPF.exe ./install/
 
       - uses: actions/upload-artifact@v4
         with:
           name: MSBA-win-${{ matrix.arch }}
           path: "install"
+
+      - name: Download MFW
+        uses: robinraju/release-downloader@v1
+        if: matrix.arch == 'x86_64'
+        with:
+          repository: overflow65537/MFW-PyQt6
+          fileName: "MFW-PyQt6-win-x86_64*"
+          latest: true
+          out-file-path: "MFW"
+          extract: true
+
+      - name: Install MFW
+        if: matrix.arch == 'x86_64'
+        shell: bash
+        run: |
+          rm MFW/MFW-PyQt6-win-x86_64* 
+          python ./deploy.py
+
+      - uses: actions/upload-artifact@v4
+        if: matrix.arch == 'x86_64'
+        with:
+          name: MSBA-win-x86_64_MFW-${{ matrix.arch }}
+          path: "MFW"
 
   ubuntu:
     needs: meta
@@ -146,6 +136,29 @@ jobs:
           name: MSBA-linux-${{ matrix.arch }}
           path: "install"
 
+      - name: Download MFW
+        uses: robinraju/release-downloader@v1
+        if: matrix.arch == 'x86_64'
+        with:
+          repository: overflow65537/MFW-PyQt6
+          fileName: "MFW-PyQt6-linux-x86_64*"
+          latest: true
+          out-file-path: "MFW"
+          extract: true
+
+      - name: Install MFW
+        if: matrix.arch == 'x86_64'
+        shell: bash
+        run: |
+          rm MFW/MFW-PyQt6-linux-x86_64* 
+          python ./deploy.py
+
+      - uses: actions/upload-artifact@v4
+        if: matrix.arch == 'x86_64'
+        with:
+          name: MSBA-linux-${{ matrix.arch }}_MFW-${{ matrix.arch }}
+          path: "MFW"
+
   macos:
     needs: meta
     runs-on: macos-latest
@@ -178,10 +191,35 @@ jobs:
           name: MSBA-macos-${{ matrix.arch }}
           path: "install"
 
+      - name: Download MFW
+        uses: robinraju/release-downloader@v1
+        if: matrix.arch == 'x86_64'
+        with:
+          repository: overflow65537/MFW-PyQt6
+          fileName: "MFW-PyQt6-macos-x86_64*"
+          latest: true
+          out-file-path: "MFW"
+          extract: true
+
+      - name: Install MFW
+        if: matrix.arch == 'x86_64'
+        shell: bash
+        run: |
+          rm MFW/MFW-PyQt6-macos-x86_64*
+          python ./deploy.py
+
+      - uses: actions/upload-artifact@v4
+        if: matrix.arch == 'x86_64'
+        with:
+          name: MSBA-macos-${{ matrix.arch }}_MFW-${{ matrix.arch }}
+          path: "MFW"
+
   release:
     if: ${{ needs.meta.outputs.is_release == 'true' }}
     needs: [meta, windows, ubuntu, macos]
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/download-artifact@v4
         with:
