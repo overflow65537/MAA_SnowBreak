@@ -101,7 +101,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: matrix.arch == 'x86_64'
         with:
-          name: MSBA-win-x86_64_MFW-${{ matrix.arch }}
+          name: MSBA-win-x86_64-${{ matrix.arch }}_MFW-PyQt
           path: "MFW"
 
   ubuntu:
@@ -156,7 +156,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: matrix.arch == 'x86_64'
         with:
-          name: MSBA-linux-${{ matrix.arch }}_MFW-${{ matrix.arch }}
+          name: MSBA-linux-x86_64-${{ matrix.arch }}_MFW-PyQt
           path: "MFW"
 
   macos:
@@ -211,7 +211,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: matrix.arch == 'x86_64'
         with:
-          name: MSBA-macos-${{ matrix.arch }}_MFW-${{ matrix.arch }}
+          name: MSBA-macos-x86_64-${{ matrix.arch }}_MFW-PyQt
           path: "MFW"
 
   release:
