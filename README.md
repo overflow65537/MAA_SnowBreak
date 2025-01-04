@@ -35,6 +35,11 @@
  由社区大佬[SweetSmellFox](https://github.com/SweetSmellFox)编写的基于WPF的GUI,通过内置的MAAframework来直接控制任务流程
  - 下载`MSBA-win-x86_64-vXXX.zip`
  - 运行MFAWPF.exe
+
+### [MFW-PyQt6](https://github.com/overflow65537/MFW-PyQt6)
+ 一个基于PyQt6的MAAFramework图形化操作界面
+ - 下载对应系统架构,后缀带有MFW-PyQt的压缩包,比如`MSBA-win-x86_64-MFW-PyQt-vXXX.zip`
+ - 解压后运行main.exe或者MFW.exe
   
 ## 视频教程
 

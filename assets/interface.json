@@ -486,7 +486,7 @@
                 {
                     "name": "小天师卜卜",
                     "pipeline_override": {
-                        "选择任务": {
+                        "选择人物": {
                             "recognition": "OCR",
                             "expected": [
                                 "小天师"
