@@ -491,6 +491,12 @@
                             "expected": [
                                 "小天师"
                             ]
+                        },
+                        "行为02": {
+                            "recognition": "TemplateMatch",
+                            "template": [
+                                "刷碎片\\小天师行为02.png"
+                            ]
                         }
                     }
                 },
