@@ -549,6 +549,12 @@
                             "green_mask": true,
                             "recognition": "TemplateMatch",
                             "template": "刷碎片\\辉耀芬妮.png"
+                        },
+                        "行为02": {
+                            "recognition": "TemplateMatch",
+                            "template": [
+                                "刷碎片\\辉耀行为02.png"
+                            ]
                         }
                     }
                 },
