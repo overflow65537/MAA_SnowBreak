@@ -10,6 +10,7 @@
         "threshold": 0.9,
         "post_delay": 1000,
         "recognition": "TemplateMatch",
+        "green_mask": true,
         "roi": [
             630,
             588,
@@ -50,6 +51,7 @@
         "threshold": 0.9,
         "post_delay": 1000,
         "recognition": "TemplateMatch",
+        "green_mask": true,
         "roi": [
             834,
             583,
@@ -90,6 +92,7 @@
         "threshold": 0.9,
         "post_delay": 1000,
         "recognition": "TemplateMatch",
+        "green_mask": true,
         "roi": [
             1043,
             584,
@@ -130,6 +133,7 @@
         "threshold": 0.8,
         "post_delay": 1000,
         "recognition": "TemplateMatch",
+        "green_mask": true,
         "roi": [
             422,
             585,
