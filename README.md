@@ -1,3 +1,8 @@
+<!-- markdownlint-disable MD033 MD041 -->
+<p align="center">
+  <img alt="LOGO" src="logo.png" width="256" height="256" />
+</p>
+
 <div align="center">
 
 # MAA_SnowBreak
@@ -5,8 +10,14 @@
 基于全新架构的 尘白禁区 小助手。图像技术 + 模拟控制，解放双手！  
 由 [MaaFramework](https://github.com/MaaXYZ/MaaFramework) 强力驱动！
 
-
 </div>
+
+<p align="center">
+  <img alt="license" src="https://img.shields.io/github/license/overflow65537/MAA_SnowBreak">
+  <img alt="Python" src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white">
+  <img alt="platform" src="https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-blueviolet">
+  <img alt="commit" src="https://img.shields.io/github/commit-activity/m/overflow65537/MAA_SnowBreak">
+</p>
 
 ## 主要功能
 
@@ -24,22 +35,27 @@
 - 钓鱼(需要进入钓鱼界面）
 
 ## 注意事项
+
 - 安卓端：模拟器必须为mumu模拟器,如果出现部分任务无法完成,请切换1280*720(240DPI)
 - 桌面端：显示器必须为标准16:9显示器,且游戏必须为无边框窗口，***使用管理员权限打开***,***不推荐使用GUI***
-- 打开后无法运行首先尝试安装运行库 https://learn.microsoft.com/zh-cn/cpp/windows/latest-supported-vc-redist?view=msvc-170
+- 打开后无法运行首先尝试安装运行库 <https://learn.microsoft.com/zh-cn/cpp/windows/latest-supported-vc-redist?view=msvc-170>
 - 反馈 QQ 群：980583911
 
 ## 图形化界面
 
 ### [MFAWPF](https://github.com/SweetSmellFox/MFAWPF)
+
  由社区大佬[SweetSmellFox](https://github.com/SweetSmellFox)编写的基于WPF的GUI,通过内置的MAAframework来直接控制任务流程
- - 下载`MSBA-win-x86_64-vXXX.zip`
- - 运行MFAWPF.exe
+
+- 下载`MSBA-win-x86_64-vXXX.zip`
+- 运行MFAWPF.exe
 
 ### [MFW-PyQt6](https://github.com/overflow65537/MFW-PyQt6)
+
  一个基于PyQt6的MAAFramework图形化操作界面
- - 下载对应系统架构,后缀带有MFW-PyQt的压缩包,比如`MSBA-win-x86_64-MFW-PyQt-vXXX.zip`
- - 解压后运行main.exe或者MFW.exe
+
+- 下载对应系统架构,后缀带有MFW-PyQt的压缩包,比如`MSBA-win-x86_64-MFW-PyQt-vXXX.zip`
+- 解压后运行main.exe或者MFW.exe
   
 ## 视频教程
 
@@ -70,10 +86,14 @@
 ### Linux
 
 ~~用 Linux 的大佬应该不需要我教~~
+
 ## MaaPiCli使用说明
+
 ### A
+
 - 启动后会出现:
-```
+
+```base
 Welcome to use Maa Project Interface CLI!
 
 Version: v0.0.1
@@ -85,9 +105,10 @@ Version: v0.0.1
 
 Please input [1-2]:
 ```
+
 - 如无必要，请选择1.Auto detect
 
-```
+```base
 ### Select ADB ###
 
         1. Auto detect
@@ -105,11 +126,15 @@ Finding device...
 
 Please input [1-1]: 1
 ```
+
 - 选择 1 后会像上面这样，列出若干个模拟器实例，之后选择你需要进行操控的即可。
 - 如果没有出现选项，请检查模拟器是否正常启动。以及管理员权限启动MaaPiCli。
+
 ### B
+
 - 选择完模拟器后就会进入到选择资源界面
-```
+
+```base
 ### Select resource ###
 
         1. 官服
@@ -117,10 +142,14 @@ Please input [1-1]: 1
 
 Please input [1-2]:
 ```
+
 - 请按照自己的服务器类型选择
+
 ### C
+
 - 在初次启动后，会让你输入启动的任务：
-```
+
+```base
 ### Add task ###
 
         1. 启动
@@ -139,12 +168,14 @@ Please input [1-2]:
 
 Please input [1-13]:
 ```
+
 - 选择你要执行的任务即可。
 
 ### D
 
 - 之后会反复出现：
-```
+
+```base
 Tasks:
 
 <这里会列出你已经增加，等待执行的任务>
@@ -159,7 +190,9 @@ Tasks:
         6. Run tasks
         7. Exit
 ```
+
 - 其中分别代表：
+
 1. 调整控制器（也就是adb地址等）
 2. 调整资源（切换官服或者b服）
 3. 新增任务，像**C**中那样
@@ -204,6 +237,7 @@ Tasks:
 ## 鸣谢
 
 ### 开源库
+
 - [MaaFramework](https://github.com/MaaXYZ/MaaFramework)
   基于图像识别的自动化黑盒测试框架 | An automation black-box testing framework based on image recognition
 - [MFAWPF](https://github.com/SweetSmellFox/MFAWPF)
@@ -214,6 +248,5 @@ Tasks:
 感谢以下开发者对 MAA_SnowBreak 作出的贡献：
 
 <a href="https://github.com/overflow65537/MAA_SnowBreak/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=overflow65537/MAA_SnowBreak&max=1000" />
+  <img src="https://contrib.rocks/image?repo=overflow65537/MAA_SnowBreak&max=1000" alt="Contributors to MAA_SnowBreak"/>
 </a>
-
