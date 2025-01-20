@@ -79,7 +79,7 @@
             150,
             130
         ],
-        "expected": "任务",
+        "expected": "^任务$",
         "action": "Click"
     },
     "切换到日常任务": {
