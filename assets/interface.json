@@ -484,6 +484,17 @@
         "选择人物": {
             "cases": [
                 {
+                    "name": "琼弦晨星",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": "OCR",
+                            "expected": [
+                                "琼弦"
+                            ]
+                        }
+                    }
+                },
+                {
                     "name": "小天师卜卜",
                     "pipeline_override": {
                         "选择人物": {
