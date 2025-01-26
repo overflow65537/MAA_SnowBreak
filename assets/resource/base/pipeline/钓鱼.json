@@ -1,17 +1,5 @@
 {
     "钓鱼": {
-        "green_mask": true,
-        "recognition": "TemplateMatch",
-        "roi": [
-            1080,
-            550,
-            150,
-            150
-        ],
-        "template": [
-            "钓鱼\\甩杆_1123_585_73_67__1073_535_173_167.png"
-        ],
-        "action": "Click",
         "next": [
             "鱼上钩"
         ],
@@ -21,66 +9,143 @@
         ]
     },
     "甩杆": {
-        "green_mask": true,
-        "recognition": "TemplateMatch",
+        "recognition": "ColorMatch",
         "roi": [
-            1080,
-            550,
-            150,
-            150
+            1069,
+            538,
+            178,
+            166
         ],
-        "template": [
-            "钓鱼\\甩杆_1123_585_73_67__1073_535_173_167.png"
+        "lower": [
+            180,
+            220,
+            70
+        ],
+        "upper": [
+            210,
+            250,
+            100
         ],
         "action": "Click"
     },
     "钓鱼中": {
-        "green_mask": true,
-        "recognition": "TemplateMatch",
-        "roi": [
-            1080,
-            550,
-            150,
-            150
+        "recognition": "ColorMatch",
+        "upper": [
+            255,
+            255,
+            102
         ],
-        "template": [
-            "钓鱼\\钓鱼中_1114_580_90_84__1064_530_190_184.png"
-        ]
+        "lower": [
+            242,
+            250,
+            88
+        ],
+        "roi": [
+            1050,
+            525,
+            202,
+            184
+        ],
+        "connected": true
     },
     "鱼上钩": {
-        "recognition": "TemplateMatch",
-        "green_mask": true,
+        "recognition": "OCR",
         "roi": [
-            1080,
-            550,
-            150,
-            150
+            487,
+            56,
+            319,
+            210
         ],
-        "template": [
-            "钓鱼\\鱼上钩_1118_567_87_95__1068_517_187_195.png"
-        ],
+        "expected": "有鱼儿上钩了",
         "action": "Click",
+        "target": [
+            1159,
+            612,
+            1,
+            1
+        ],
         "next": [
-            "成功"
+            "成功",
+            "失败"
         ],
         "interrupt": [
+            "点击提示",
             "收杆"
+        ],
+        "on_error": [
+            "钓鱼"
+        ]
+    },
+    "失败": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            503,
+            102,
+            274,
+            131
+        ],
+        "expected": "鱼跑掉了",
+        "next": [
+            "钓鱼"
+        ]
+    },
+    "点击提示": {
+        "recognition": "OCR",
+        "roi": [
+            868,
+            184,
+            148,
+            62
+        ],
+        "only_rec": true,
+        "expected": [
+            "很好",
+            "失败",
+            "成功",
+            "完美"
         ]
     },
     "收杆": {
-        "pre_delay": 1600,
-        "green_mask": true,
-        "recognition": "TemplateMatch",
+        "post_delay": 1000,
+        "recognition": "ColorMatch",
         "roi": [
-            1000,
-            500,
-            300,
-            250
+            766,
+            95,
+            347,
+            325
         ],
-        "template": [
-            "钓鱼\\收杆_1110_574_94_88__1060_524_194_188.png"
+        "upper": [
+            255,
+            195,
+            5
         ],
-        "action": "Click"
+        "lower": [
+            250,
+            185,
+            0
+        ],
+        "action": "Custom",
+        "custom_action": "Fishing"
+    },
+    "检查黄色块数量": {
+        "recognition": "ColorMatch",
+        "roi": [
+            766,
+            95,
+            347,
+            325
+        ],
+        "upper": [
+            255,
+            195,
+            5
+        ],
+        "lower": [
+            250,
+            185,
+            0
+        ]
     },
     "成功": {
         "post_delay": 5000,
