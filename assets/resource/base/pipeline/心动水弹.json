@@ -1,0 +1,267 @@
+{
+    "心动水弹": {
+        "timeout": 300000,
+        "next": [
+            "再来!"
+        ],
+        "interrupt": [
+            "开始心动水弹",
+            "我的回合",
+            "对方回合",
+            "收下道具"
+        ]
+    },
+    "再来!": {
+        "recognition": "OCR",
+        "roi": [
+            1031,
+            593,
+            176,
+            78
+        ],
+        "expected": [
+            "重新开始",
+            "再来一次"
+        ],
+        "action": "Click",
+        "next": [
+            "心动水弹"
+        ]
+    },
+    "收下道具": {
+        "recognition": "OCR",
+        "roi": [
+            551,
+            554,
+            172,
+            50
+        ],
+        "expected": "点击屏幕继续",
+        "action": "Click",
+        "target": [
+            10,
+            10,
+            0,
+            0
+        ]
+    },
+    "开始心动水弹": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            581,
+            439,
+            236,
+            209
+        ],
+        "template": "心动水弹\\GO.png",
+        "action": "Click"
+    },
+    "对方回合": {
+        "post_delay": 1000,
+        "green_mask": true,
+        "recognition": "TemplateMatch",
+        "roi": [
+            874,
+            42,
+            185,
+            67
+        ],
+        "template": "心动水弹\\对方回合.png"
+    },
+    "我的回合": {
+        "post_delay": 1000,
+        "green_mask": true,
+        "recognition": "TemplateMatch",
+        "roi": [
+            236,
+            30,
+            246,
+            97
+        ],
+        "template": "心动水弹\\我的回合.png",
+        "next": [
+            "检查水弹",
+            "展开道具",
+            "检查墨镜",
+            "向对方开枪_custom"
+        ]
+    },
+    "检查墨镜": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            97,
+            448,
+            464,
+            93
+        ],
+        "template": "心动水弹\\墨镜.png",
+        "action": "Click",
+        "next": [
+            "判断射击目标_自己",
+            "判断射击目标_对方"
+        ],
+        "interrupt": [
+            "使用道具"
+        ]
+    },
+    "判断射击目标_自己": {
+        "recognition": "OCR",
+        "roi": [
+            521,
+            621,
+            348,
+            56
+        ],
+        "expected": "看破！下一发子弹是空弹",
+        "next": [
+            "向自己开枪"
+        ]
+    },
+    "生命值缺失": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            457,
+            104,
+            142,
+            60
+        ],
+        "template": "心动水弹\\生命值.png"
+    },
+    "检查活力宝石": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            87,
+            450,
+            465,
+            82
+        ],
+        "template": "心动水弹\\活力宝石.png"
+    },
+    "检查手铐": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            87,
+            450,
+            465,
+            82
+        ],
+        "template": "心动水弹\\手铐.png"
+    },
+    "检查枪管": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            87,
+            450,
+            465,
+            82
+        ],
+        "template": "心动水弹\\枪管.png"
+    },
+    "判断射击目标_对方": {
+        "recognition": "OCR",
+        "roi": [
+            521,
+            621,
+            348,
+            56
+        ],
+        "expected": "看破！下一发子弹是水弹",
+        "next": [
+            "向对方开枪_custom"
+        ]
+    },
+    "向对方开枪_custom": {
+        "action": "Custom",
+        "custom_action": "ShotTarget"
+    },
+    "使用道具": {
+        "recognition": "OCR",
+        "roi": [
+            394,
+            391,
+            108,
+            51
+        ],
+        "expected": "使用",
+        "action": "Click"
+    },
+    "检查手铐状态": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            625,
+            18,
+            326,
+            130
+        ],
+        "template": "心动水弹\\拘束中.png"
+    },
+    "展开道具": {
+        "threshold": 0.95,
+        "recognition": "TemplateMatch",
+        "roi": [
+            173,
+            624,
+            79,
+            63
+        ],
+        "template": "心动水弹\\展开道具.png",
+        "action": "Click",
+        "next": [
+            "我的回合"
+        ]
+    },
+    "检查水弹": {
+        "recognition": "OCR",
+        "roi": [
+            1029,
+            653,
+            22,
+            37
+        ],
+        "expected": "^0$",
+        "next": [
+            "向自己开枪"
+        ]
+    },
+    "向自己开枪": {
+        "post_delay": 8000,
+        "green_mask": true,
+        "recognition": "TemplateMatch",
+        "roi": [
+            968,
+            487,
+            305,
+            227
+        ],
+        "template": "心动水弹\\向自己开枪.png",
+        "action": "Click"
+    },
+    "向对方开枪": {
+        "green_mask": true,
+        "threshold": 0.8,
+        "recognition": "TemplateMatch",
+        "roi": [
+            968,
+            487,
+            305,
+            227
+        ],
+        "template": "心动水弹\\向对方开枪.png",
+        "action": "Click",
+        "next": [
+            "开枪!"
+        ]
+    },
+    "开枪!": {
+        "post_delay": 8000,
+        "recognition": "TemplateMatch",
+        "roi": [
+            1028,
+            514,
+            151,
+            150
+        ],
+        "template": "心动水弹\\开枪!.png",
+        "action": "Click"
+    }
+}
