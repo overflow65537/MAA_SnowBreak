@@ -151,7 +151,8 @@
         "post_wait_freezes": 1000,
         "recognition": "OCR",
         "expected": [
-            "^任务$"
+            "^任务$",
+            "^/任务$"
         ],
         "action": "Click",
         "next": [
