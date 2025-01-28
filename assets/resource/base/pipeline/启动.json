@@ -28,6 +28,21 @@
         "action": "Click"
     },
     "检查主界面": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            950,
+            260,
+            180,
+            130
+        ],
+        "expected": "战斗",
+        "next": [
+            "二次检测主界面",
+            "启动"
+        ]
+    },
+    "二次检测主界面": {
         "recognition": "OCR",
         "roi": [
             950,
@@ -38,6 +53,7 @@
         "expected": "战斗"
     },
     "进入游戏": {
+        "post_delay": 1000,
         "recognition": "OCR",
         "expected": "开始游戏",
         "roi": [
@@ -49,10 +65,12 @@
         "action": "Click"
     },
     "启动应用": {
+        "post_delay": 1000,
         "action": "StartApp",
         "package": "com.dragonli.projectsnow.lhm/com.xgsdk.client.api.splash.XGSplashActivity"
     },
     "关闭签到": {
+        "post_delay": 1000,
         "threshold": 0.8,
         "recognition": "OCR",
         "roi": [
