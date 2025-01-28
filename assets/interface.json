@@ -18,16 +18,9 @@
     ],
     "resource": [
         {
-            "name": "移动端",
+            "name": "移动端官服",
             "path": [
                 "{PROJECT_DIR}/resource/base"
-            ]
-        },
-        {
-            "name": "桌面端",
-            "path": [
-                "{PROJECT_DIR}/resource/base",
-                "{PROJECT_DIR}/resource/PC"
             ]
         }
     ],
@@ -96,12 +89,16 @@
             "entry": "关闭游戏"
         },
         {
-            "name": "疗愈(需进入疗愈界面)",
+            "name": "疗愈",
             "entry": "疗愈"
         },
         {
-            "name": "钓鱼_测试版(需进入钓鱼界面)",
+            "name": "钓鱼",
             "entry": "钓鱼"
+        },
+        {
+            "name": "心动水弹",
+            "entry": "心动水弹"
         }
     ],
     "recognizer": {},
