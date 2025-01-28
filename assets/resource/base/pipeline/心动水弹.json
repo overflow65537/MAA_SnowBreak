@@ -1,5 +1,6 @@
 {
     "心动水弹": {
+        "on_error": [],
         "timeout": 300000,
         "next": [
             "再来!"
@@ -12,6 +13,8 @@
         ]
     },
     "再来!": {
+        "on_error": [],
+        "timeout": 300000,
         "recognition": "OCR",
         "roi": [
             1031,
@@ -29,6 +32,8 @@
         ]
     },
     "收下道具": {
+        "on_error": [],
+        "timeout": 300000,
         "recognition": "OCR",
         "roi": [
             551,
@@ -46,6 +51,7 @@
         ]
     },
     "开始心动水弹": {
+        "on_error": [],
         "recognition": "TemplateMatch",
         "roi": [
             581,
@@ -57,6 +63,8 @@
         "action": "Click"
     },
     "对方回合": {
+        "on_error": [],
+        "timeout": 300000,
         "post_delay": 1000,
         "green_mask": true,
         "recognition": "TemplateMatch",
@@ -69,6 +77,8 @@
         "template": "心动水弹\\对方回合.png"
     },
     "我的回合": {
+        "on_error": [],
+        "timeout": 300000,
         "post_delay": 1000,
         "green_mask": true,
         "recognition": "TemplateMatch",
@@ -87,6 +97,8 @@
         ]
     },
     "检查墨镜": {
+        "on_error": [],
+        "timeout": 300000,
         "recognition": "TemplateMatch",
         "roi": [
             97,
@@ -105,6 +117,8 @@
         ]
     },
     "判断射击目标_自己": {
+        "on_error": [],
+        "timeout": 300000,
         "recognition": "OCR",
         "roi": [
             521,
@@ -118,6 +132,8 @@
         ]
     },
     "生命值缺失": {
+        "on_error": [],
+        "timeout": 300000,
         "recognition": "TemplateMatch",
         "roi": [
             457,
@@ -128,6 +144,8 @@
         "template": "心动水弹\\生命值.png"
     },
     "检查活力宝石": {
+        "on_error": [],
+        "timeout": 300000,
         "recognition": "TemplateMatch",
         "roi": [
             87,
@@ -138,6 +156,8 @@
         "template": "心动水弹\\活力宝石.png"
     },
     "检查手铐": {
+        "on_error": [],
+        "timeout": 300000,
         "recognition": "TemplateMatch",
         "roi": [
             87,
@@ -148,6 +168,8 @@
         "template": "心动水弹\\手铐.png"
     },
     "检查枪管": {
+        "on_error": [],
+        "timeout": 300000,
         "recognition": "TemplateMatch",
         "roi": [
             87,
@@ -158,6 +180,8 @@
         "template": "心动水弹\\枪管.png"
     },
     "判断射击目标_对方": {
+        "on_error": [],
+        "timeout": 300000,
         "recognition": "OCR",
         "roi": [
             521,
@@ -171,10 +195,14 @@
         ]
     },
     "向对方开枪_custom": {
+        "on_error": [],
+        "timeout": 300000,
         "action": "Custom",
         "custom_action": "ShotTarget"
     },
     "使用道具": {
+        "on_error": [],
+        "timeout": 300000,
         "recognition": "OCR",
         "roi": [
             394,
@@ -186,6 +214,8 @@
         "action": "Click"
     },
     "检查手铐状态": {
+        "on_error": [],
+        "timeout": 300000,
         "recognition": "TemplateMatch",
         "roi": [
             625,
@@ -196,6 +226,8 @@
         "template": "心动水弹\\拘束中.png"
     },
     "展开道具": {
+        "on_error": [],
+        "timeout": 300000,
         "threshold": 0.95,
         "recognition": "TemplateMatch",
         "roi": [
@@ -211,6 +243,8 @@
         ]
     },
     "检查水弹": {
+        "on_error": [],
+        "timeout": 300000,
         "recognition": "OCR",
         "roi": [
             1029,
@@ -224,6 +258,8 @@
         ]
     },
     "向自己开枪": {
+        "on_error": [],
+        "timeout": 300000,
         "post_delay": 10000,
         "green_mask": true,
         "recognition": "TemplateMatch",
@@ -237,6 +273,8 @@
         "action": "Click"
     },
     "向对方开枪": {
+        "on_error": [],
+        "timeout": 300000,
         "green_mask": true,
         "threshold": 0.8,
         "recognition": "TemplateMatch",
@@ -253,6 +291,8 @@
         ]
     },
     "开枪!": {
+        "on_error": [],
+        "timeout": 300000,
         "post_delay": 8000,
         "recognition": "TemplateMatch",
         "roi": [
