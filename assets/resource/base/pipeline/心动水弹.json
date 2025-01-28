@@ -224,7 +224,7 @@
         ]
     },
     "向自己开枪": {
-        "post_delay": 8000,
+        "post_delay": 10000,
         "green_mask": true,
         "recognition": "TemplateMatch",
         "roi": [
