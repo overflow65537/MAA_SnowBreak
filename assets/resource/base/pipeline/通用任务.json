@@ -71,18 +71,8 @@
         ]
     },
     "返回主菜单_err": {
-        "post_wait_freezes": 1000,
-        "recognition": "TemplateMatch",
-        "roi": [
-            970,
-            0,
-            180,
-            80
-        ],
-        "template": [
-            "通用任务\\主菜单_999_24_49_44__949_0_149_144.png"
-        ],
-        "action": "Click",
+        "action": "Custom",
+        "custom_action": "ScreenShot",
         "next": [
             "检查主界面",
             "返回主菜单"

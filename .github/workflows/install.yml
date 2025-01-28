@@ -86,35 +86,17 @@ jobs:
         with:
           submodules: true
 
-      - name: Download MaaFramework
-        uses: robinraju/release-downloader@v1
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
-          repository: MaaXYZ/MaaFramework
-          fileName: "MAA-win-${{ matrix.arch }}*"
-          latest: true
-          out-file-path: "deps"
-          extract: true
-      - name: Download MFA
-        uses: robinraju/release-downloader@v1
-        if: matrix.arch == 'x86_64'
-        with:
-          repository: SweetSmellFox/MFAWPF
-          fileName: "MFAWPF-*"
+          python-version: '3.12'
 
-          latest: true
-          out-file-path: "MFA"
-          extract: true
-        
       - name: Install
         shell: bash
         run: |
+          pip install pyinstaller
+          pip install -r requirements.txt
           python ./install.py ${{ needs.meta.outputs.tag }}
-          
-      - name: Install MFA
-        if: matrix.arch == 'x86_64'
-        shell: bash
-        run: |
-          cp ./MFA/MFAWPF.exe ./install/MFAWPF.exe
         
       - uses: actions/upload-artifact@v4
         with:
@@ -157,18 +139,16 @@ jobs:
         with:
           submodules: true
 
-      - name: Download MaaFramework
-        uses: robinraju/release-downloader@v1
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
-          repository: MaaXYZ/MaaFramework
-          fileName: "MAA-linux-${{ matrix.arch }}*"
-          latest: true
-          out-file-path: "deps"
-          extract: true
-
+          python-version: '3.12'
+          
       - name: Install
         shell: bash
         run: |
+          pip install pyinstaller
+          pip install -r requirements.txt
           python ./install.py ${{ needs.meta.outputs.tag }}
 
       - uses: actions/upload-artifact@v4
@@ -212,18 +192,16 @@ jobs:
         with:
           submodules: true
 
-      - name: Download MaaFramework
-        uses: robinraju/release-downloader@v1
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
-          repository: MaaXYZ/MaaFramework
-          fileName: "MAA-macos-${{ matrix.arch }}*"
-          latest: true
-          out-file-path: "deps"
-          extract: true
-
+          python-version: '3.12'
+  
       - name: Install
         shell: bash
         run: |
+          pip install pyinstaller
+          pip install -r requirements.txt
           python ./install.py ${{ needs.meta.outputs.tag }}
 
       - uses: actions/upload-artifact@v4
@@ -263,6 +241,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           submodules: true
+
       - name: Download MaaFramework
         uses: robinraju/release-downloader@v1
         with:
@@ -271,17 +250,26 @@ jobs:
           latest: true
           out-file-path: "deps"
           extract: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+  
       - name: Install
         shell: bash
         run: |
+          pip install pyinstaller
+          pip install -r requirements.txt
           python ./install.py ${{ needs.meta.outputs.tag }}
+
       - name: MirrorChyan Package
         id: zip
         run: |
           rm -rf install/resource/base/model/ocr
         
           mkdir MirrorChyan
-          zip -r MirrorChyan/${{ github.event.repository.name }}.zip install/resource install/interface.json
+          zip -r MirrorChyan/${{ github.event.repository.name }}.zip install/resource install/custom install/interface.json
           
       - uses: actions/upload-artifact@v4
         with:
@@ -305,7 +293,6 @@ jobs:
             --header 'Authorization:${{ secrets.MirrorChyanUploadToken }}' \
             --form 'name="${{ needs.meta.outputs.tag }}"' \
             --form 'file=@"assets/MirrorChyanRes/${{ github.event.repository.name }}.zip"'
-
           rm -rf assets/MirrorChyanRes
 
       - run: |

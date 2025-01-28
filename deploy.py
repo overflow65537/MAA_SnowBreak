@@ -1,6 +1,8 @@
 import os
 import json
 import shutil
+import subprocess
+import sys
 
 # 这些需要自己设置
 title = "MFW-PyQt6"  # 标题栏
@@ -12,7 +14,7 @@ url = "https://github.com/overflow65537/MAA_SnowBreak"  # 你的項目地址
 config_name = "default"
 resource_path = os.path.join(".", "bundles", resource_name)
 config_path = os.path.join(
-    ".", "config", resource_name, config_name, "maa_pi_config.json"
+    ".", "config", resource_name, "config", config_name, "maa_pi_config.json"
 )
 print(f"title: {title}")
 print(f"resource_name: {resource_name}")
@@ -51,7 +53,7 @@ shutil.copytree(
     source_path,
     destination_path,
     dirs_exist_ok=True,
-    ignore=shutil.ignore_patterns("MaaCommonAssets")
+    ignore=shutil.ignore_patterns("MaaCommonAssets"),
 )
 
 pi_config = {
@@ -83,7 +85,7 @@ pi_config = {
     "exe_parameter": "",
 }
 install_config_path = os.path.join(
-    ".", "MFW", "config", resource_name, config_name, "maa_pi_config.json"
+    ".", "MFW", "config", resource_name, "config", config_name, "maa_pi_config.json"
 )
 os.makedirs(os.path.dirname(install_config_path), exist_ok=True)
 
@@ -100,9 +102,43 @@ interface_json_path = os.path.join(
 print(f"interface_json_path: {interface_json_path}")
 
 with open(interface_json_path, "r", encoding="utf-8") as f:
-    interface_data = json.load(f)
+    interface_data: dict = json.load(f)
 
 interface_data.update(new_data)
 
 with open(interface_json_path, "w", encoding="utf-8") as f:
     json.dump(interface_data, f, ensure_ascii=False, indent=4)
+
+
+# 安装自定义内容所需要的库
+
+if sys.platform == "linux":
+    target_path = os.path.join(".", "MFW")
+    process = subprocess.Popen(
+        [
+            "python",
+            "-m",
+            "pip",
+            "install",
+            "pillow",
+            "--target",
+            target_path,
+        ]
+    )
+    process.wait()
+
+
+else:
+    target_path = os.path.join(".", "MFW", "_internal")
+    process = subprocess.Popen(
+        [
+            "python",
+            "-m",
+            "pip",
+            "install",
+            "pillow",
+            "--target",
+            target_path,
+        ]
+    )
+    process.wait()

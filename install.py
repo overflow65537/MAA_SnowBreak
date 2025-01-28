@@ -1,4 +1,7 @@
 from pathlib import Path
+import PyInstaller.__main__
+import site
+import os
 
 import shutil
 import sys
@@ -12,28 +15,48 @@ install_path = working_dir / Path("install")
 version = len(sys.argv) > 1 and sys.argv[1] or "v0.0.1"
 
 
-def install_deps():
-    if not (working_dir / "deps" / "bin").exists():
-        print("Please download the MaaFramework to \"deps\" first.")
-        print("请先下载 MaaFramework 到 \"deps\"。")
-        sys.exit(1)
+def bulid():
+    # 获取 site-packages 目录列表
+    site_packages_paths = site.getsitepackages()
 
-    shutil.copytree(
-        working_dir / "deps" / "bin",
-        install_path,
-        ignore=shutil.ignore_patterns(
-            "*MaaDbgControlUnit*",
-            "*MaaThriftControlUnit*",
-            "*MaaRpc*",
-            "*MaaHttp*",
-        ),
-        dirs_exist_ok=True,
-    )
-    shutil.copytree(
-        working_dir / "deps" / "share" / "MaaAgentBinary",
-        install_path / "MaaAgentBinary",
-        dirs_exist_ok=True,
-    )
+    # 查找包含 maa/bin 的路径
+    maa_bin_path = None
+    for path in site_packages_paths:
+        potential_path = os.path.join(path, "maa", "bin")
+        if os.path.exists(potential_path):
+            maa_bin_path = potential_path
+            break
+
+    if maa_bin_path is None:
+        raise FileNotFoundError("not found maa/bin")
+
+    # 构建 --add-data 参数
+    add_data_param = f"{maa_bin_path}{os.pathsep}maa/bin"
+
+    # 查找包含 MaaAgentBinary 的路径
+    maa_bin_path2 = None
+    for path in site_packages_paths:
+        potential_path = os.path.join(path, "MaaAgentBinary")
+        if os.path.exists(potential_path):
+            maa_bin_path2 = potential_path
+            break
+
+    if maa_bin_path2 is None:
+        raise FileNotFoundError("not found MaaAgentBinary")
+
+    # 构建 --add-data 参数
+    add_data_param2 = f"{maa_bin_path2}{os.pathsep}MaaAgentBinary"
+
+    command = [
+        "run_cli.py",
+        "--name=maapicli",
+        f"--add-data={add_data_param}",
+        f"--add-data={add_data_param2}",
+        f"--distpath={install_path}",
+        "--onefile",
+        "--clean",
+    ]
+    PyInstaller.__main__.run(command)
 
 
 def install_resource():
@@ -71,8 +94,6 @@ def install_chores():
 
 
 if __name__ == "__main__":
-    install_deps()
+    bulid()
     install_resource()
     install_chores()
-
-    print(f"Install to {install_path} successfully.")
