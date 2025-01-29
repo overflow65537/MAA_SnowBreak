@@ -118,7 +118,7 @@ jobs:
         shell: bash
         run: |
           rm MFW/MFW-PyQt6-win-x86_64* 
-          python ./deploy.py
+          python ./deploy.py ${{ needs.meta.outputs.tag }}
 
       - uses: actions/upload-artifact@v4
         if: matrix.arch == 'x86_64'
@@ -171,7 +171,7 @@ jobs:
         shell: bash
         run: |
           rm MFW/MFW-PyQt6-linux-x86_64* 
-          python ./deploy.py
+          python ./deploy.py ${{ needs.meta.outputs.tag }}
 
       - uses: actions/upload-artifact@v4
         if: matrix.arch == 'x86_64'
@@ -224,7 +224,7 @@ jobs:
         shell: bash
         run: |
           rm MFW/MFW-PyQt6-macos-x86_64*
-          python ./deploy.py
+           python ./deploy.py ${{ needs.meta.outputs.tag }}
 
       - uses: actions/upload-artifact@v4
         if: matrix.arch == 'x86_64'

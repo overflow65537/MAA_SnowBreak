@@ -8,6 +8,7 @@ import sys
 title = "MFW-PyQt6"  # 标题栏
 resource_name = "MSBA"  # 你的資源名称
 url = "https://github.com/overflow65537/MAA_SnowBreak"  # 你的項目地址
+version = len(sys.argv) > 1 and sys.argv[1] or "v0.0.1"
 
 # 这些不需要修改
 
@@ -94,7 +95,7 @@ with open(install_config_path, "w", encoding="utf-8") as f:
     json.dump(pi_config, f, ensure_ascii=False, indent=4)
 
 # interface 部分
-new_data = {"url": url, "name": resource_name}
+new_data = {"url": url, "name": resource_name, "version": version}
 interface_json_path = os.path.join(
     ".", "MFW", "bundles", resource_name, "interface.json"
 )
