@@ -109,37 +109,3 @@ interface_data.update(new_data)
 
 with open(interface_json_path, "w", encoding="utf-8") as f:
     json.dump(interface_data, f, ensure_ascii=False, indent=4)
-
-
-# 安装自定义内容所需要的库
-
-if sys.platform == "linux":
-    target_path = os.path.join(".", "MFW")
-    process = subprocess.Popen(
-        [
-            "python",
-            "-m",
-            "pip",
-            "install",
-            "pillow",
-            "--target",
-            target_path,
-        ]
-    )
-    process.wait()
-
-
-else:
-    target_path = os.path.join(".", "MFW", "_internal")
-    process = subprocess.Popen(
-        [
-            "python",
-            "-m",
-            "pip",
-            "install",
-            "pillow",
-            "--target",
-            target_path,
-        ]
-    )
-    process.wait()
