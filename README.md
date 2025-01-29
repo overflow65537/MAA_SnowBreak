@@ -43,13 +43,6 @@
 
 ## 图形化界面
 
-### [MFAWPF](https://github.com/SweetSmellFox/MFAWPF)
-
- 由社区大佬[SweetSmellFox](https://github.com/SweetSmellFox)编写的基于WPF的GUI,通过内置的MAAframework来直接控制任务流程
-
-- 下载`MSBA-win-x86_64-vXXX.zip`
-- 运行MFAWPF.exe
-
 ### [MFW-PyQt6](https://github.com/overflow65537/MFW-PyQt6)
 
  一个基于PyQt6的MAAFramework图形化操作界面
@@ -240,8 +233,8 @@ Tasks:
 
 - [MaaFramework](https://github.com/MaaXYZ/MaaFramework)
   基于图像识别的自动化黑盒测试框架 | An automation black-box testing framework based on image recognition
-- [MFAWPF](https://github.com/SweetSmellFox/MFAWPF)
-  本项目是一个基于WPF框架开发的用户界面，旨在提供类似于MaaPiCli的功能
+- ~~[MFAWPF](https://github.com/SweetSmellFox/MFAWPF)~~
+  ~~本项目是一个基于WPF框架开发的用户界面，旨在提供类似于MaaPiCli的功能~~
 
 ### 开发者
 
