@@ -151,8 +151,7 @@
         "post_wait_freezes": 1000,
         "recognition": "OCR",
         "expected": [
-            "^任务$",
-            "^/任务$"
+            "任务(?!完成|完)"
         ],
         "action": "Click",
         "next": [

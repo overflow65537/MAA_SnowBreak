@@ -8,10 +8,10 @@
     "无体力补给包": {
         "recognition": "TemplateMatch",
         "roi": [
-            141,
-            446,
-            219,
-            59
+            113,
+            443,
+            135,
+            65
         ],
         "template": "体力\\无体力补给包_PC.png",
         "next": [

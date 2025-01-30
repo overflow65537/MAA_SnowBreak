@@ -216,6 +216,7 @@
     "检查手铐状态": {
         "on_error": [],
         "timeout": 300000,
+        "green_mask": true,
         "recognition": "TemplateMatch",
         "roi": [
             625,

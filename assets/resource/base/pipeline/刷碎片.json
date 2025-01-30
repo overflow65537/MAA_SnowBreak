@@ -296,7 +296,7 @@
     "行为02": {
         "recognition": "OCR",
         "expected": [
-            "行为-2"
+            "行为-(?!1)"
         ],
         "action": "Click"
     },
