@@ -93,7 +93,8 @@
             "检查水弹",
             "展开道具",
             "检查墨镜",
-            "向对方开枪_custom"
+            "向对方开枪_custom",
+            "收下道具"
         ]
     },
     "检查墨镜": {
@@ -197,6 +198,16 @@
     "向对方开枪_custom": {
         "on_error": [],
         "timeout": 300000,
+        "green_mask": true,
+        "threshold": 0.8,
+        "recognition": "TemplateMatch",
+        "roi": [
+            968,
+            487,
+            305,
+            227
+        ],
+        "template": "心动水弹\\向对方开枪.png",
         "action": "Custom",
         "custom_action": "ShotTarget"
     },
