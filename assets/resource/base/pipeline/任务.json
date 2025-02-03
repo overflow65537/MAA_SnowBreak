@@ -72,6 +72,7 @@
         ]
     },
     "打开任务": {
+        "post_wait_freezes": 1000,
         "recognition": "OCR",
         "roi": [
             900,
@@ -83,6 +84,7 @@
         "action": "Click"
     },
     "切换到日常任务": {
+        "post_wait_freezes": 1000,
         "threshold": 0.9,
         "recognition": "TemplateMatch",
         "roi": [
