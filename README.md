@@ -211,8 +211,7 @@ Tasks:
     git clone --recursive https://github.com/overflow65537/MAA_SnowBreak.git
     ```
 
-1. 下载 MaaFramework 的 [Release 包](https://github.com/MaaXYZ/MaaFramework/releases)，解压到 `deps` 文件夹中
-2. 安装
+1. 安装
 
     ```python
     python ./install.py
