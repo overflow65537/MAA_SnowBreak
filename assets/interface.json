@@ -75,6 +75,26 @@
         {
             "name": "刷天启碎片",
             "entry": "刷碎片",
+            "pipeline_override": {
+                "速战MAX": {
+                    "next": [
+                        "开始战斗"
+                    ]
+                },
+                "选择人物": {
+                    "roi": [
+                        30,
+                        87,
+                        975,
+                        525
+                    ]
+                },
+                "完成战斗": {
+                    "next": [
+                        "选择人物"
+                    ]
+                }
+            },
             "option": [
                 "选择人物"
             ]
@@ -523,6 +543,14 @@
                             "green_mask": true,
                             "recognition": "TemplateMatch",
                             "template": "刷碎片\\驰掣芙提雅.png"
+                        },
+                        "次数不足": {
+                            "roi_offset": [
+                                100,
+                                0,
+                                100,
+                                -375
+                            ]
                         }
                     }
                 },
@@ -544,6 +572,14 @@
                             "green_mask": true,
                             "recognition": "TemplateMatch",
                             "template": "刷碎片\\朝翼凯西娅.png"
+                        },
+                        "次数不足": {
+                            "roi_offset": [
+                                100,
+                                0,
+                                100,
+                                -375
+                            ]
                         }
                     }
                 },
@@ -571,6 +607,14 @@
                             "template": [
                                 "刷碎片\\辉耀行为02.png"
                             ]
+                        },
+                        "次数不足": {
+                            "roi_offset": [
+                                100,
+                                0,
+                                100,
+                                -375
+                            ]
                         }
                     }
                 },
@@ -581,6 +625,14 @@
                             "green_mask": true,
                             "recognition": "TemplateMatch",
                             "template": "刷碎片\\无限之视里芙.png"
+                        },
+                        "次数不足": {
+                            "roi_offset": [
+                                100,
+                                0,
+                                100,
+                                -375
+                            ]
                         }
                     }
                 },
@@ -602,6 +654,14 @@
                             "green_mask": true,
                             "recognition": "TemplateMatch",
                             "template": "刷碎片\\恩雅羽蜕.png"
+                        },
+                        "次数不足": {
+                            "roi_offset": [
+                                100,
+                                0,
+                                100,
+                                -375
+                            ]
                         }
                     }
                 },
@@ -612,6 +672,14 @@
                             "green_mask": true,
                             "recognition": "TemplateMatch",
                             "template": "刷碎片\\琴诺悖谬.png"
+                        },
+                        "次数不足": {
+                            "roi_offset": [
+                                100,
+                                0,
+                                100,
+                                -375
+                            ]
                         }
                     }
                 },
@@ -622,6 +690,14 @@
                             "green_mask": true,
                             "recognition": "TemplateMatch",
                             "template": "刷碎片\\豹豹伊切尔.png"
+                        },
+                        "次数不足": {
+                            "roi_offset": [
+                                100,
+                                0,
+                                100,
+                                -375
+                            ]
                         }
                     }
                 },
@@ -637,6 +713,14 @@
                             "recognition": "TemplateMatch",
                             "template": [
                                 "刷碎片\\蓝闪行为02.png"
+                            ]
+                        },
+                        "次数不足": {
+                            "roi_offset": [
+                                100,
+                                0,
+                                100,
+                                -375
                             ]
                         }
                     }
@@ -703,6 +787,14 @@
                             "green_mask": true,
                             "recognition": "TemplateMatch",
                             "template": "刷碎片\\咎冠芬妮.png"
+                        },
+                        "次数不足": {
+                            "roi_offset": [
+                                100,
+                                0,
+                                100,
+                                -375
+                            ]
                         }
                     }
                 },
@@ -713,6 +805,14 @@
                             "green_mask": true,
                             "recognition": "TemplateMatch",
                             "template": "刷碎片\\缄默芙提雅.png"
+                        },
+                        "次数不足": {
+                            "roi_offset": [
+                                100,
+                                0,
+                                100,
+                                -375
+                            ]
                         }
                     }
                 },
@@ -723,6 +823,14 @@
                             "green_mask": true,
                             "recognition": "TemplateMatch",
                             "template": "刷碎片\\狂猎里芙.png"
+                        },
+                        "次数不足": {
+                            "roi_offset": [
+                                100,
+                                0,
+                                100,
+                                -375
+                            ]
                         }
                     }
                 },
@@ -733,6 +841,14 @@
                             "green_mask": true,
                             "recognition": "TemplateMatch",
                             "template": "刷碎片\\雨燕茉莉安.png"
+                        },
+                        "次数不足": {
+                            "roi_offset": [
+                                100,
+                                0,
+                                100,
+                                -375
+                            ]
                         }
                     }
                 },

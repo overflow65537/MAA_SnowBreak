@@ -280,6 +280,7 @@
         ]
     },
     "开始战斗": {
+        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
             577,
