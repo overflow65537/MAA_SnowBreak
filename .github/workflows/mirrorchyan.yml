@@ -1,0 +1,25 @@
+name: mirrorchyan
+
+on:
+  workflow_dispatch:
+  release:
+    types: [published]
+
+jobs:
+  mirrorchyan:
+    runs-on: macos-latest
+    steps:
+      - id: uploading
+        uses: MirrorChyan/uploading-action@v1
+        with:
+          filetype: latest-release
+          filename: "MSBA-win-x86_64-MFW*.zip"
+          working-directory: bundles/MSBA/
+          pick_files: '["resource", "interface.json"]'
+          exclude_files: '["*model/ocr/**"]'
+          mirrorchyan_rid: MAA_SnowBreak
+
+          owner: overflow65537
+          repo: MAA_SnowBreak
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          upload_token: ${{ secrets.MirrorChyanUploadToken }}
