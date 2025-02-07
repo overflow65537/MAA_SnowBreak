@@ -1,0 +1,83 @@
+{
+    "增益试炼":{
+        "next":"进入试炼"
+    },
+    "进入试炼":{
+        "recognition":"OCR",
+        "roi":[1011, 92, 244, 95],
+        "expected":"厄险",
+        "action":"Click",
+        "post_delay":1000,
+        "next":"进入试炼战斗"
+    },
+    "进入试炼战斗":{
+        "recognition":"OCR",
+        "roi":[1105, 600, 151, 95],
+        "expected":"开始作战",
+        "action":"Click",
+        "post_delay":1000,
+        "next":"在试炼中"
+    },
+    "在试炼中":{
+        "recognition":"TemplateMatch",
+        "roi":[0, 0, 100, 100],
+        "template":"增益试炼\\暂停.png",
+        "next":"退出试炼",
+        "interrupt":[
+            "选择增益",
+            "使用技能"
+        ]
+    },
+    "选择增益":{
+        "recognition":"OCR",
+        "roi":[528, 35, 231, 59],
+        "expected":"选择增益",
+        "action":"Click",
+        "target":[640, 360,1,1],
+        "post_delay":500,
+        "next":[
+            "确认增益"
+        ]
+    },
+    "确认增益":{
+        "recognition":"OCR",
+        "roi":[452, 577, 388, 136],
+        "expected":"确认",
+        "action":"Click",
+        "post_delay":500,
+        "next":[
+            "不为单体增益",
+            "丢弃单体增益"
+        ]
+    },
+    "不为单体增益":{
+        "recognition":"TemplateMatch",
+        "roi":[0, 0, 100, 100],
+        "template":"增益试炼\\暂停.png"
+    },
+    "丢弃单体增益":{
+        "recognition":"OCR",
+        "roi":[115, 598, 304, 91],
+        "expected":"丢弃",
+        "action":"Click",
+        "next":"确认丢弃"
+    },
+    "确认丢弃":{
+        "recognition":"OCR",
+        "roi":[861, 462, 212, 96],
+        "expected":"确定",
+        "action":"Click"
+    },
+    "使用技能":{
+        "action":"Click",
+        "target":[1068, 354, 1, 1]
+    },
+    "退出试炼":{
+        "recognition":"OCR",
+        "roi":[452, 577, 388, 136],
+        "expected":"退出",
+        "action":"Click",
+        "post_delay":2000,
+        "next":"增益试炼"
+    }
+}

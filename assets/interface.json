@@ -18,7 +18,7 @@
     ],
     "resource": [
         {
-            "name": "移动端官服",
+            "name": "移动端",
             "path": [
                 "{PROJECT_DIR}/resource/base"
             ]
@@ -75,26 +75,6 @@
         {
             "name": "刷天启碎片",
             "entry": "刷碎片",
-            "pipeline_override": {
-                "速战MAX": {
-                    "next": [
-                        "开始战斗"
-                    ]
-                },
-                "选择人物": {
-                    "roi": [
-                        30,
-                        87,
-                        975,
-                        525
-                    ]
-                },
-                "完成战斗": {
-                    "next": [
-                        "选择人物"
-                    ]
-                }
-            },
             "option": [
                 "选择人物"
             ]
@@ -116,6 +96,10 @@
             "entry": "关闭游戏"
         },
         {
+            "name":"新星开拓任务",
+            "entry":"新星开拓任务"
+        },
+        {
             "name": "疗愈",
             "entry": "疗愈"
         },
@@ -126,6 +110,10 @@
         {
             "name": "心动水弹",
             "entry": "心动水弹"
+        },
+        {
+            "name":"增益试炼",
+            "entry":"增益试炼"
         }
     ],
     "recognizer": {},
@@ -543,14 +531,6 @@
                             "green_mask": true,
                             "recognition": "TemplateMatch",
                             "template": "刷碎片\\驰掣芙提雅.png"
-                        },
-                        "次数不足": {
-                            "roi_offset": [
-                                100,
-                                0,
-                                100,
-                                -375
-                            ]
                         }
                     }
                 },
@@ -572,14 +552,6 @@
                             "green_mask": true,
                             "recognition": "TemplateMatch",
                             "template": "刷碎片\\朝翼凯西娅.png"
-                        },
-                        "次数不足": {
-                            "roi_offset": [
-                                100,
-                                0,
-                                100,
-                                -375
-                            ]
                         }
                     }
                 },
@@ -607,14 +579,6 @@
                             "template": [
                                 "刷碎片\\辉耀行为02.png"
                             ]
-                        },
-                        "次数不足": {
-                            "roi_offset": [
-                                100,
-                                0,
-                                100,
-                                -375
-                            ]
                         }
                     }
                 },
@@ -625,14 +589,6 @@
                             "green_mask": true,
                             "recognition": "TemplateMatch",
                             "template": "刷碎片\\无限之视里芙.png"
-                        },
-                        "次数不足": {
-                            "roi_offset": [
-                                100,
-                                0,
-                                100,
-                                -375
-                            ]
                         }
                     }
                 },
@@ -654,14 +610,6 @@
                             "green_mask": true,
                             "recognition": "TemplateMatch",
                             "template": "刷碎片\\恩雅羽蜕.png"
-                        },
-                        "次数不足": {
-                            "roi_offset": [
-                                100,
-                                0,
-                                100,
-                                -375
-                            ]
                         }
                     }
                 },
@@ -672,14 +620,6 @@
                             "green_mask": true,
                             "recognition": "TemplateMatch",
                             "template": "刷碎片\\琴诺悖谬.png"
-                        },
-                        "次数不足": {
-                            "roi_offset": [
-                                100,
-                                0,
-                                100,
-                                -375
-                            ]
                         }
                     }
                 },
@@ -690,14 +630,6 @@
                             "green_mask": true,
                             "recognition": "TemplateMatch",
                             "template": "刷碎片\\豹豹伊切尔.png"
-                        },
-                        "次数不足": {
-                            "roi_offset": [
-                                100,
-                                0,
-                                100,
-                                -375
-                            ]
                         }
                     }
                 },
@@ -713,14 +645,6 @@
                             "recognition": "TemplateMatch",
                             "template": [
                                 "刷碎片\\蓝闪行为02.png"
-                            ]
-                        },
-                        "次数不足": {
-                            "roi_offset": [
-                                100,
-                                0,
-                                100,
-                                -375
                             ]
                         }
                     }
@@ -787,14 +711,6 @@
                             "green_mask": true,
                             "recognition": "TemplateMatch",
                             "template": "刷碎片\\咎冠芬妮.png"
-                        },
-                        "次数不足": {
-                            "roi_offset": [
-                                100,
-                                0,
-                                100,
-                                -375
-                            ]
                         }
                     }
                 },
@@ -805,14 +721,6 @@
                             "green_mask": true,
                             "recognition": "TemplateMatch",
                             "template": "刷碎片\\缄默芙提雅.png"
-                        },
-                        "次数不足": {
-                            "roi_offset": [
-                                100,
-                                0,
-                                100,
-                                -375
-                            ]
                         }
                     }
                 },
@@ -823,14 +731,6 @@
                             "green_mask": true,
                             "recognition": "TemplateMatch",
                             "template": "刷碎片\\狂猎里芙.png"
-                        },
-                        "次数不足": {
-                            "roi_offset": [
-                                100,
-                                0,
-                                100,
-                                -375
-                            ]
                         }
                     }
                 },
@@ -841,14 +741,6 @@
                             "green_mask": true,
                             "recognition": "TemplateMatch",
                             "template": "刷碎片\\雨燕茉莉安.png"
-                        },
-                        "次数不足": {
-                            "roi_offset": [
-                                100,
-                                0,
-                                100,
-                                -375
-                            ]
                         }
                     }
                 },
@@ -859,6 +751,17 @@
                             "recognition": "OCR",
                             "expected": [
                                 "冬至"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "夜天光肴",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": "OCR",
+                            "expected": [
+                                "夜天光"
                             ]
                         }
                     }
@@ -879,6 +782,123 @@
                         },
                         "买满": {
                             "enabled": false
+                        }
+                    }
+                },
+                {
+                    "name":"碳原子板",
+                    "pipeline_override":{
+                        "判断物品":{
+                            "expected":"碳原子板"
+                        },
+                        "切换商店1":{
+                            "enabled":true,
+                            "expected":"活动兑换"
+                        },
+                        "切换商店2":{
+                            "expected":"地下清理"
+                        },
+                        "翻到底了":{
+                            "expected":"特级职级认证"
+                        }
+                    }
+                },
+                {
+                    "name":"量子胞体(拟境)",
+                    "pipeline_override":{
+                        "判断物品":{
+                            "expected":"量子胞体"
+                        },
+                        "切换商店1":{
+                            "enabled":true,
+                            "expected":"活动兑换"
+                        },
+                        "切换商店2":{
+                            "expected":"精神拟境"
+                        },
+                        "翻到底了":{
+                            "expected":"光纤轴突"
+                        }
+                    }
+                },
+                {
+                    "name":"量子胞体(配给)",
+                    "pipeline_override":{
+                        "判断物品":{
+                            "expected":"量子胞体"
+                        },
+                        "切换商店1":{
+                            "enabled":true,
+                            "expected":"循环中心"
+                        },
+                        "切换商店2":{
+                            "expected":"优质配给"
+                        },
+                        "翻到底了":{
+                            "expected":"通用银"
+                        }
+                    }
+                },
+                {
+                    "name":"抽卡券",
+                    "pipeline_override":{
+                        "判断物品":{
+                            "expected":[
+                                "天启者共鸣誓约",
+                                "天启者共鸣凭证",
+                                "武器定制合约",
+                                "武器申请书"
+                            ]
+                        },
+                        "切换商店1":{
+                            "enabled":true,
+                            "expected":"循环中心"
+                        },
+                        "切换商店2":{
+                            "expected":"优质配给"
+                        },
+                        "翻到底了":{
+                            "expected":"通用银"
+                        }
+                    }
+                },
+                {
+                    "name":"重修申请",
+                    "pipeline_override":{
+                        "判断物品":{
+                            "expected":"重修申请"
+                        },
+                        "切换商店1":{
+                            "enabled":true,
+                            "expected":"循环中心"
+                        },
+                        "切换商店2":{
+                            "expected":"优质配给"
+                        },
+                        "翻到底了":{
+                            "expected":"通用银"
+                        }
+                    }
+                },
+                {
+                    "name":"重修额度",
+                    "pipeline_override":{
+                        "判断物品":{
+                            "expected":"重修额度"
+                        },
+                        "切换商店1":{
+                            "enabled":true,
+                            "expected":"循环中心"
+                        },
+                        "切换商店2":{
+                            "expected":"后勤人事",
+                            "index":1
+                        },
+                        "购买物品":{
+                            "expected":"聘调"
+                        },
+                        "翻到底了":{
+                            "expected":"伊甸"
                         }
                     }
                 },
@@ -1021,5 +1041,6 @@
                 }
             ]
         }
-    }
+    },
+    "version": "v1.5.4"
 }
