@@ -1,6 +1,56 @@
 {
     "增益试炼":{
-        "next":"进入试炼"
+        "next":"进入试炼",
+        "interrupt":[
+            "进入增益试炼",
+            "进入验证战场",
+            "进入悖论迷宫_增益试炼",
+            "进入战斗界面_增益试炼"
+        ]
+    },
+    "进入战斗界面_增益试炼":{
+        "recognition":"OCR",
+        "expected":"战斗",
+        "roi":[
+            962,
+            247,
+            179,
+            125
+        ],
+        "action":"Click"
+    },
+    "进入悖论迷宫_增益试炼":{
+        "recognition":"OCR",
+        "expected":"迷宫",
+        "roi":[
+            981, 
+            120, 
+            219, 
+            101
+        ],
+        "action":"Click"
+    },
+    "进入验证战场":{
+        "recognition":"OCR",
+        "expected":"验证战场",
+        "roi":[
+            21, 
+            82, 
+            203, 
+            77
+        ],
+        "action":"Click"
+    },
+    "进入增益试炼":{
+        "recognition":"OCR",
+        "expected":"增益试炼",
+        "roi":[
+            1008, 
+            600, 
+            149, 
+            79
+        ],
+        "action":"Click"
     },
     "进入试炼":{
         "recognition":"OCR",
@@ -8,7 +58,16 @@
         "expected":"厄险",
         "action":"Click",
         "post_delay":1000,
-        "next":"进入试炼战斗"
+        "next":[
+            "达到上限",
+            "进入试炼战斗"
+        ]
+    },
+    "达到上限":{
+        "recognition":"OCR",
+        "expected":"上限",
+        "post_delay":500,
+        "next":"返回主菜单"
     },
     "进入试炼战斗":{
         "recognition":"OCR",

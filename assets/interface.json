@@ -105,7 +105,10 @@
         },
         {
             "name": "钓鱼",
-            "entry": "钓鱼"
+            "entry": "钓鱼",
+            "option":[
+                "选择地图"
+            ]
         },
         {
             "name": "心动水弹",
@@ -119,6 +122,26 @@
     "recognizer": {},
     "action": {},
     "option": {
+        "选择地图":{
+            "cases":[
+                {
+                    "name":"伙伴岛",
+                    "pipeline_override":{
+                        "判断新星开拓1":{
+                            "expected":"伙伴岛"
+                        }
+                    }
+                },
+                {
+                    "name":"探险岛",
+                    "pipeline_override":{
+                        "判断新星开拓1":{
+                            "expected":"探险岛"
+                        }
+                    }
+                }
+            ]
+        },
         "作战关卡": {
             "cases": [
                 {
@@ -799,6 +822,7 @@
                             "expected":"地下清理"
                         },
                         "翻到底了":{
+                            "inverse":false,
                             "expected":"特级职级认证"
                         }
                     }
@@ -817,6 +841,7 @@
                             "expected":"精神拟境"
                         },
                         "翻到底了":{
+                            "inverse":false,
                             "expected":"光纤轴突"
                         }
                     }
@@ -835,6 +860,7 @@
                             "expected":"优质配给"
                         },
                         "翻到底了":{
+                            "inverse":false,
                             "expected":"通用银"
                         }
                     }
@@ -857,7 +883,14 @@
                         "切换商店2":{
                             "expected":"优质配给"
                         },
+                        "购买物品":{
+                            "next": [
+                                "资金不足",
+                                "商店"
+                            ]
+                        },
                         "翻到底了":{
+                            "inverse":false,
                             "expected":"通用银"
                         }
                     }
@@ -876,6 +909,7 @@
                             "expected":"优质配给"
                         },
                         "翻到底了":{
+                            "inverse":false,
                             "expected":"通用银"
                         }
                     }
@@ -898,6 +932,7 @@
                             "expected":"聘调"
                         },
                         "翻到底了":{
+                            "inverse":false,
                             "expected":"伊甸"
                         }
                     }
