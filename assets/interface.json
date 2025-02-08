@@ -81,17 +81,9 @@
                         "开始战斗"
                     ]
                 },
-                "选择人物": {
-                    "roi": [
-                        30,
-                        87,
-                        975,
-                        525
-                    ]
-                },
                 "完成战斗": {
                     "next": [
-                        "选择人物"
+                        "返回第一页"
                     ]
                 }
             },
@@ -515,6 +507,12 @@
                             "recognition": "OCR",
                             "expected": [
                                 "琼弦"
+                            ],
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
                             ]
                         }
                     }
@@ -526,12 +524,12 @@
                             "recognition": "OCR",
                             "expected": [
                                 "小天师"
-                            ]
-                        },
-                        "行为02": {
-                            "recognition": "TemplateMatch",
-                            "template": [
-                                "刷碎片\\小天师行为02.png"
+                            ],
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
                             ]
                         }
                     }
@@ -542,7 +540,13 @@
                         "选择人物": {
                             "green_mask": true,
                             "recognition": "TemplateMatch",
-                            "template": "刷碎片\\驰掣芙提雅.png"
+                            "template": "刷碎片\\驰掣芙提雅.png",
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
+                            ]
                         },
                         "次数不足": {
                             "roi_offset": [
@@ -561,6 +565,12 @@
                             "recognition": "OCR",
                             "expected": [
                                 "幽潮"
+                            ],
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
                             ]
                         }
                     }
@@ -571,7 +581,13 @@
                         "选择人物": {
                             "green_mask": true,
                             "recognition": "TemplateMatch",
-                            "template": "刷碎片\\朝翼凯西娅.png"
+                            "template": "刷碎片\\朝翼凯西娅.png",
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
+                            ]
                         },
                         "次数不足": {
                             "roi_offset": [
@@ -590,6 +606,12 @@
                             "recognition": "OCR",
                             "expected": [
                                 "龙舌兰"
+                            ],
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
                             ]
                         }
                     }
@@ -600,7 +622,13 @@
                         "选择人物": {
                             "green_mask": true,
                             "recognition": "TemplateMatch",
-                            "template": "刷碎片\\辉耀芬妮.png"
+                            "template": "刷碎片\\辉耀芬妮.png",
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
+                            ]
                         },
                         "行为02": {
                             "recognition": "TemplateMatch",
@@ -624,7 +652,13 @@
                         "选择人物": {
                             "green_mask": true,
                             "recognition": "TemplateMatch",
-                            "template": "刷碎片\\无限之视里芙.png"
+                            "template": "刷碎片\\无限之视里芙.png",
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
+                            ]
                         },
                         "次数不足": {
                             "roi_offset": [
@@ -643,6 +677,12 @@
                             "recognition": "OCR",
                             "expected": [
                                 "瞬刻"
+                            ],
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
                             ]
                         }
                     }
@@ -653,7 +693,13 @@
                         "选择人物": {
                             "green_mask": true,
                             "recognition": "TemplateMatch",
-                            "template": "刷碎片\\恩雅羽蜕.png"
+                            "template": "刷碎片\\恩雅羽蜕.png",
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
+                            ]
                         },
                         "次数不足": {
                             "roi_offset": [
@@ -671,7 +717,13 @@
                         "选择人物": {
                             "green_mask": true,
                             "recognition": "TemplateMatch",
-                            "template": "刷碎片\\琴诺悖谬.png"
+                            "template": "刷碎片\\琴诺悖谬.png",
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
+                            ]
                         },
                         "次数不足": {
                             "roi_offset": [
@@ -689,7 +741,13 @@
                         "选择人物": {
                             "green_mask": true,
                             "recognition": "TemplateMatch",
-                            "template": "刷碎片\\豹豹伊切尔.png"
+                            "template": "刷碎片\\豹豹伊切尔.png",
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
+                            ]
                         },
                         "次数不足": {
                             "roi_offset": [
@@ -707,7 +765,13 @@
                         "选择人物": {
                             "green_mask": true,
                             "recognition": "TemplateMatch",
-                            "template": "刷碎片\\蓝闪凯西娅.png"
+                            "template": "刷碎片\\蓝闪凯西娅.png",
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
+                            ]
                         },
                         "行为02": {
                             "recognition": "TemplateMatch",
@@ -732,6 +796,12 @@
                             "recognition": "OCR",
                             "expected": [
                                 "魔术师"
+                            ],
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
                             ]
                         }
                     }
@@ -743,6 +813,12 @@
                             "recognition": "OCR",
                             "expected": [
                                 "溯影"
+                            ],
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
                             ]
                         }
                     }
@@ -754,6 +830,12 @@
                             "recognition": "OCR",
                             "expected": [
                                 "藏锋"
+                            ],
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
                             ]
                         }
                     }
@@ -765,6 +847,12 @@
                             "recognition": "OCR",
                             "expected": [
                                 "云篆"
+                            ],
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
                             ]
                         }
                     }
@@ -776,6 +864,12 @@
                             "recognition": "OCR",
                             "expected": [
                                 "辉夜"
+                            ],
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
                             ]
                         }
                     }
@@ -786,7 +880,13 @@
                         "选择人物": {
                             "green_mask": true,
                             "recognition": "TemplateMatch",
-                            "template": "刷碎片\\咎冠芬妮.png"
+                            "template": "刷碎片\\咎冠芬妮.png",
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
+                            ]
                         },
                         "次数不足": {
                             "roi_offset": [
@@ -804,7 +904,13 @@
                         "选择人物": {
                             "green_mask": true,
                             "recognition": "TemplateMatch",
-                            "template": "刷碎片\\缄默芙提雅.png"
+                            "template": "刷碎片\\缄默芙提雅.png",
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
+                            ]
                         },
                         "次数不足": {
                             "roi_offset": [
@@ -822,7 +928,13 @@
                         "选择人物": {
                             "green_mask": true,
                             "recognition": "TemplateMatch",
-                            "template": "刷碎片\\狂猎里芙.png"
+                            "template": "刷碎片\\狂猎里芙.png",
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
+                            ]
                         },
                         "次数不足": {
                             "roi_offset": [
@@ -840,7 +952,13 @@
                         "选择人物": {
                             "green_mask": true,
                             "recognition": "TemplateMatch",
-                            "template": "刷碎片\\雨燕茉莉安.png"
+                            "template": "刷碎片\\雨燕茉莉安.png",
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
+                            ]
                         },
                         "次数不足": {
                             "roi_offset": [
@@ -859,6 +977,12 @@
                             "recognition": "OCR",
                             "expected": [
                                 "冬至"
+                            ],
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
                             ]
                         }
                     }
