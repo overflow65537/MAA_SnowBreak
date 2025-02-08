@@ -13,9 +13,6 @@
         ]
     },
     "再来!": {
-        "on_error": [
-            "心动水弹"
-        ],
         "recognition": "OCR",
         "post_delay": 1000,
         "roi": [
