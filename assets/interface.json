@@ -18,7 +18,7 @@
     ],
     "resource": [
         {
-            "name": "移动端官服",
+            "name": "移动端",
             "path": [
                 "{PROJECT_DIR}/resource/base"
             ]
@@ -75,6 +75,7 @@
         {
             "name": "刷天启碎片",
             "entry": "刷碎片",
+
             "pipeline_override": {
                 "速战MAX": {
                     "next": [
@@ -108,21 +109,52 @@
             "entry": "关闭游戏"
         },
         {
+            "name":"新星开拓任务",
+            "entry":"新星开拓任务"
+        },
+        {
             "name": "疗愈",
             "entry": "疗愈"
         },
         {
             "name": "钓鱼",
-            "entry": "钓鱼"
+            "entry": "钓鱼",
+            "option":[
+                "选择地图"
+            ]
         },
         {
             "name": "心动水弹",
             "entry": "心动水弹"
+        },
+        {
+            "name":"增益试炼",
+            "entry":"增益试炼"
         }
     ],
     "recognizer": {},
     "action": {},
     "option": {
+        "选择地图":{
+            "cases":[
+                {
+                    "name":"伙伴岛",
+                    "pipeline_override":{
+                        "判断新星开拓1":{
+                            "expected":"伙伴岛"
+                        }
+                    }
+                },
+                {
+                    "name":"探险岛",
+                    "pipeline_override":{
+                        "判断新星开拓1":{
+                            "expected":"探险岛"
+                        }
+                    }
+                }
+            ]
+        },
         "作战关卡": {
             "cases": [
                 {
@@ -540,6 +572,7 @@
                         "选择人物": {
                             "green_mask": true,
                             "recognition": "TemplateMatch",
+
                             "template": "刷碎片\\驰掣芙提雅.png",
                             "roi": [
                                 30,
@@ -635,14 +668,6 @@
                             "template": [
                                 "刷碎片\\辉耀行为02.png"
                             ]
-                        },
-                        "次数不足": {
-                            "roi_offset": [
-                                100,
-                                0,
-                                100,
-                                -375
-                            ]
                         }
                     }
                 },
@@ -667,6 +692,7 @@
                                 100,
                                 -375
                             ]
+
                         }
                     }
                 },
@@ -777,14 +803,6 @@
                             "recognition": "TemplateMatch",
                             "template": [
                                 "刷碎片\\蓝闪行为02.png"
-                            ]
-                        },
-                        "次数不足": {
-                            "roi_offset": [
-                                100,
-                                0,
-                                100,
-                                -375
                             ]
                         }
                     }
@@ -986,6 +1004,17 @@
                             ]
                         }
                     }
+                },
+                {
+                    "name": "夜天光肴",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": "OCR",
+                            "expected": [
+                                "夜天光"
+                            ]
+                        }
+                    }
                 }
             ]
         },
@@ -1003,6 +1032,135 @@
                         },
                         "买满": {
                             "enabled": false
+                        }
+                    }
+                },
+                {
+                    "name":"碳原子板",
+                    "pipeline_override":{
+                        "判断物品":{
+                            "expected":"碳原子板"
+                        },
+                        "切换商店1":{
+                            "enabled":true,
+                            "expected":"活动兑换"
+                        },
+                        "切换商店2":{
+                            "expected":"地下清理"
+                        },
+                        "翻到底了":{
+                            "inverse":false,
+                            "expected":"特级职级认证"
+                        }
+                    }
+                },
+                {
+                    "name":"量子胞体(拟境)",
+                    "pipeline_override":{
+                        "判断物品":{
+                            "expected":"量子胞体"
+                        },
+                        "切换商店1":{
+                            "enabled":true,
+                            "expected":"活动兑换"
+                        },
+                        "切换商店2":{
+                            "expected":"精神拟境"
+                        },
+                        "翻到底了":{
+                            "inverse":false,
+                            "expected":"光纤轴突"
+                        }
+                    }
+                },
+                {
+                    "name":"量子胞体(配给)",
+                    "pipeline_override":{
+                        "判断物品":{
+                            "expected":"量子胞体"
+                        },
+                        "切换商店1":{
+                            "enabled":true,
+                            "expected":"循环中心"
+                        },
+                        "切换商店2":{
+                            "expected":"优质配给"
+                        },
+                        "翻到底了":{
+                            "inverse":false,
+                            "expected":"通用银"
+                        }
+                    }
+                },
+                {
+                    "name":"抽卡券",
+                    "pipeline_override":{
+                        "判断物品":{
+                            "expected":[
+                                "天启者共鸣誓约",
+                                "天启者共鸣凭证",
+                                "武器定制合约",
+                                "武器申请书"
+                            ]
+                        },
+                        "切换商店1":{
+                            "enabled":true,
+                            "expected":"循环中心"
+                        },
+                        "切换商店2":{
+                            "expected":"优质配给"
+                        },
+                        "购买物品":{
+                            "next": [
+                                "资金不足",
+                                "商店"
+                            ]
+                        },
+                        "翻到底了":{
+                            "inverse":false,
+                            "expected":"通用银"
+                        }
+                    }
+                },
+                {
+                    "name":"重修申请",
+                    "pipeline_override":{
+                        "判断物品":{
+                            "expected":"重修申请"
+                        },
+                        "切换商店1":{
+                            "enabled":true,
+                            "expected":"循环中心"
+                        },
+                        "切换商店2":{
+                            "expected":"优质配给"
+                        },
+                        "翻到底了":{
+                            "inverse":false,
+                            "expected":"通用银"
+                        }
+                    }
+                },
+                {
+                    "name":"重修额度",
+                    "pipeline_override":{
+                        "判断物品":{
+                            "expected":"重修额度"
+                        },
+                        "切换商店1":{
+                            "enabled":true,
+                            "expected":"循环中心"
+                        },
+                        "切换商店2":{
+                            "expected":"后勤人事",
+                            "index":1
+                        },
+                        "购买物品":{
+                            "expected":"聘调"
+                        },
+                        "翻到底了":{
+                            "inverse":false,
+                            "expected":"伊甸"
                         }
                     }
                 },
@@ -1145,5 +1303,6 @@
                 }
             ]
         }
-    }
+    },
+    "version": "v1.5.4"
 }
