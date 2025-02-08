@@ -131,1181 +131,1180 @@
                         "心动水弹"
                     ]
                 }
-            },
-            {
-                "name": "增益试炼",
-                "entry": "增益试炼"
-            }
-        ],
-        "recognizer": {},
-        "action": {},
-        "option": {
-            "选择地图": {
-                "cases": [
-                    {
-                        "name": "伙伴岛",
-                        "pipeline_override": {
-                            "判断新星开拓1": {
-                                "expected": "伙伴岛"
-                            }
-                        }
-                    },
-                    {
-                        "name": "探险岛",
-                        "pipeline_override": {
-                            "判断新星开拓1": {
-                                "expected": "探险岛"
-                            }
-                        }
-                    }
-                ]
-            },
-            "作战关卡": {
-                "cases": [
-                    {
-                        "name": "活动战斗",
-                        "pipeline_override": {
-                            "打开战斗": {
-                                "enabled": false
-                            },
-                            "选择作战1": {
-                                "enabled": false
-                            },
-                            "作战_滑动": {
-                                "enabled": false
-                            },
-                            "进入作战": {
-                                "enabled": false
-                            },
-                            "进入深渊作战_滑动": {
-                                "enabled": false
-                            },
-                            "进入深渊作战": {
-                                "enabled": false
-                            }
-                        }
-                    },
-                    {
-                        "name": "活动武器",
-                        "pipeline_override": {
-                            "选择活动作战1": {
-                                "enabled": false
-                            },
-                            "选择活动作战2": {
-                                "enabled": false
-                            },
-                            "打开活动战斗": {
-                                "enabled": false
-                            },
-                            "进入作战": {
-                                "expected": "聚兵之器"
-                            }
-                        }
-                    },
-                    {
-                        "name": "活动后勤",
-                        "pipeline_override": {
-                            "选择活动作战1": {
-                                "enabled": false
-                            },
-                            "选择活动作战2": {
-                                "enabled": false
-                            },
-                            "打开活动战斗": {
-                                "enabled": false
-                            },
-                            "进入作战": {
-                                "expected": "练心之战"
-                            }
-                        }
-                    },
-                    {
-                        "name": "通用银",
-                        "pipeline_override": {
-                            "选择活动作战1": {
-                                "enabled": false
-                            },
-                            "选择活动作战2": {
-                                "enabled": false
-                            },
-                            "打开活动战斗": {
-                                "enabled": false
-                            },
-                            "进入作战": {
-                                "expected": "富饶之壶"
-                            }
-                        }
-                    },
-                    {
-                        "name": "角色经验",
-                        "pipeline_override": {
-                            "选择活动作战1": {
-                                "enabled": false
-                            },
-                            "选择活动作战2": {
-                                "enabled": false
-                            },
-                            "打开活动战斗": {
-                                "enabled": false
-                            },
-                            "进入作战": {
-                                "expected": "百足之市"
-                            }
-                        }
-                    },
-                    {
-                        "name": "武器经验",
-                        "pipeline_override": {
-                            "选择活动作战1": {
-                                "enabled": false
-                            },
-                            "选择活动作战2": {
-                                "enabled": false
-                            },
-                            "打开活动战斗": {
-                                "enabled": false
-                            },
-                            "进入作战": {
-                                "expected": "止战之人"
-                            }
-                        }
-                    },
-                    {
-                        "name": "武器材料",
-                        "pipeline_override": {
-                            "选择活动作战1": {
-                                "enabled": false
-                            },
-                            "选择活动作战2": {
-                                "enabled": false
-                            },
-                            "打开活动战斗": {
-                                "enabled": false
-                            },
-                            "进入作战": {
-                                "expected": "重铸之炎"
-                            }
-                        }
-                    },
-                    {
-                        "name": "神经素材",
-                        "pipeline_override": {
-                            "选择活动作战1": {
-                                "enabled": false
-                            },
-                            "选择活动作战2": {
-                                "enabled": false
-                            },
-                            "打开活动战斗": {
-                                "enabled": false
-                            },
-                            "进入作战": {
-                                "expected": "永冬之境"
-                            }
-                        }
-                    },
-                    {
-                        "name": "后勤",
-                        "pipeline_override": {
-                            "选择活动作战1": {
-                                "enabled": false
-                            },
-                            "选择活动作战2": {
-                                "enabled": false
-                            },
-                            "打开活动战斗": {
-                                "enabled": false
-                            },
-                            "进入作战": {
-                                "expected": "浴火之战"
-                            }
-                        }
-                    }
-                ]
-            },
-            "刷取次数": {
-                "cases": [
-                    {
-                        "name": "1",
-                        "pipeline_override": {
-                            "战斗次数": {
-                                "roi": [
-                                    587,
-                                    463,
-                                    42,
-                                    30
-                                ],
-                                "recognition": "TemplateMatch",
-                                "template": "战斗\\战斗次数1_594_467_25_25__544_417_125_125.png"
-                            },
-                            "速战MAX": {
-                                "enabled": false
-                            },
-                            "完成战斗": {
-                                "next": [
-                                    "完成战斗",
-                                    "返回主菜单"
-                                ],
-                                "interrupt": [
-                                    "账号等级提升"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "name": "2",
-                        "pipeline_override": {
-                            "战斗次数": {
-                                "roi": [
-                                    587,
-                                    463,
-                                    42,
-                                    30
-                                ],
-                                "recognition": "OCR",
-                                "expected": "2"
-                            },
-                            "速战MAX": {
-                                "enabled": false
-                            },
-                            "完成战斗": {
-                                "next": [
-                                    "完成战斗",
-                                    "返回主菜单"
-                                ],
-                                "interrupt": [
-                                    "账号等级提升"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "name": "3",
-                        "pipeline_override": {
-                            "战斗次数": {
-                                "roi": [
-                                    587,
-                                    463,
-                                    42,
-                                    30
-                                ],
-                                "recognition": "OCR",
-                                "expected": "3"
-                            },
-                            "速战MAX": {
-                                "enabled": false
-                            },
-                            "完成战斗": {
-                                "next": [
-                                    "完成战斗",
-                                    "返回主菜单"
-                                ],
-                                "interrupt": [
-                                    "账号等级提升"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "name": "4",
-                        "pipeline_override": {
-                            "战斗次数": {
-                                "roi": [
-                                    587,
-                                    463,
-                                    42,
-                                    30
-                                ],
-                                "recognition": "TemplateMatch",
-                                "template": "战斗\\战斗次数4_596_467_23_24__546_417_123_124.png"
-                            },
-                            "速战MAX": {
-                                "enabled": false
-                            },
-                            "完成战斗": {
-                                "next": [
-                                    "完成战斗",
-                                    "返回主菜单"
-                                ],
-                                "interrupt": [
-                                    "账号等级提升"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "name": "5",
-                        "pipeline_override": {
-                            "战斗次数": {
-                                "roi": [
-                                    587,
-                                    463,
-                                    42,
-                                    30
-                                ],
-                                "recognition": "OCR",
-                                "expected": "5"
-                            },
-                            "速战MAX": {
-                                "enabled": false
-                            },
-                            "完成战斗": {
-                                "next": [
-                                    "完成战斗",
-                                    "返回主菜单"
-                                ],
-                                "interrupt": [
-                                    "账号等级提升"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "name": "6",
-                        "pipeline_override": {
-                            "战斗次数": {
-                                "roi": [
-                                    587,
-                                    463,
-                                    42,
-                                    30
-                                ],
-                                "recognition": "OCR",
-                                "expected": "6"
-                            },
-                            "速战MAX": {
-                                "enabled": false
-                            },
-                            "完成战斗": {
-                                "next": [
-                                    "完成战斗",
-                                    "返回主菜单"
-                                ],
-                                "interrupt": [
-                                    "账号等级提升"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "name": "刷完全部体力",
-                        "pipeline_override": {
-                            "战斗次数": {
-                                "enabled": false
-                            },
-                            "增加战斗次数": {
-                                "enabled": false
-                            },
-                            "完成战斗": {
-                                "next": [
-                                    "战斗"
-                                ]
-                            }
-                        }
-                    }
-                ]
-            },
-            "使用临期体力": {
-                "cases": [
-                    {
-                        "name": "是",
-                        "pipeline_override": {
-                            "确认/取消使用体力": {
-                                "expected": "确定",
-                                "next": [
-                                    "体力不足",
-                                    "确认/取消使用体力",
-                                    "战斗"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "name": "否",
-                        "pipeline_override": {
-                            "确认/取消使用体力": {
-                                "expected": "取消",
-                                "next": [
-                                    "确认/取消使用体力",
-                                    "关闭速战界面",
-                                    "返回主菜单"
-                                ]
-                            }
-                        }
-                    }
-                ]
-            },
-            "选择人物": {
-                "cases": [
-                    {
-                        "name": "琼弦晨星",
-                        "pipeline_override": {
-                            "选择人物": {
-                                "recognition": "OCR",
-                                "expected": [
-                                    "琼弦"
-                                ],
-                                "roi": [
-                                    30,
-                                    87,
-                                    975,
-                                    525
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "name": "小天师卜卜",
-                        "pipeline_override": {
-                            "选择人物": {
-                                "recognition": "OCR",
-                                "expected": [
-                                    "小天师"
-                                ],
-                                "roi": [
-                                    30,
-                                    87,
-                                    975,
-                                    525
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "name": "驰掣芙提雅",
-                        "pipeline_override": {
-                            "选择人物": {
-                                "green_mask": true,
-                                "recognition": "TemplateMatch",
-                                "template": "刷碎片\\驰掣芙提雅.png",
-                                "roi": [
-                                    30,
-                                    87,
-                                    975,
-                                    525
-                                ]
-                            },
-                            "次数不足": {
-                                "roi_offset": [
-                                    100,
-                                    0,
-                                    100,
-                                    -375
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "name": "幽潮茉莉安",
-                        "pipeline_override": {
-                            "选择人物": {
-                                "recognition": "OCR",
-                                "expected": [
-                                    "幽潮"
-                                ],
-                                "roi": [
-                                    30,
-                                    87,
-                                    975,
-                                    525
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "name": "朝翼凯西娅",
-                        "pipeline_override": {
-                            "选择人物": {
-                                "green_mask": true,
-                                "recognition": "TemplateMatch",
-                                "template": "刷碎片\\朝翼凯西娅.png",
-                                "roi": [
-                                    30,
-                                    87,
-                                    975,
-                                    525
-                                ]
-                            },
-                            "次数不足": {
-                                "roi_offset": [
-                                    100,
-                                    0,
-                                    100,
-                                    -375
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "name": "龙舌兰薇蒂雅",
-                        "pipeline_override": {
-                            "选择人物": {
-                                "recognition": "OCR",
-                                "expected": [
-                                    "龙舌兰"
-                                ],
-                                "roi": [
-                                    30,
-                                    87,
-                                    975,
-                                    525
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "name": "辉耀芬妮",
-                        "pipeline_override": {
-                            "选择人物": {
-                                "green_mask": true,
-                                "recognition": "TemplateMatch",
-                                "template": "刷碎片\\辉耀芬妮.png",
-                                "roi": [
-                                    30,
-                                    87,
-                                    975,
-                                    525
-                                ]
-                            },
-                            "行为02": {
-                                "recognition": "TemplateMatch",
-                                "template": [
-                                    "刷碎片\\辉耀行为02.png"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "name": "无限之视里芙",
-                        "pipeline_override": {
-                            "选择人物": {
-                                "green_mask": true,
-                                "recognition": "TemplateMatch",
-                                "template": "刷碎片\\无限之视里芙.png",
-                                "roi": [
-                                    30,
-                                    87,
-                                    975,
-                                    525
-                                ]
-                            },
-                            "次数不足": {
-                                "roi_offset": [
-                                    100,
-                                    0,
-                                    100,
-                                    -375
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "name": "瞬刻瑟瑞斯",
-                        "pipeline_override": {
-                            "选择人物": {
-                                "recognition": "OCR",
-                                "expected": [
-                                    "瞬刻"
-                                ],
-                                "roi": [
-                                    30,
-                                    87,
-                                    975,
-                                    525
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "name": "羽蜕恩雅",
-                        "pipeline_override": {
-                            "选择人物": {
-                                "green_mask": true,
-                                "recognition": "TemplateMatch",
-                                "template": "刷碎片\\恩雅羽蜕.png",
-                                "roi": [
-                                    30,
-                                    87,
-                                    975,
-                                    525
-                                ]
-                            },
-                            "次数不足": {
-                                "roi_offset": [
-                                    100,
-                                    0,
-                                    100,
-                                    -375
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "name": "悖谬琴诺",
-                        "pipeline_override": {
-                            "选择人物": {
-                                "green_mask": true,
-                                "recognition": "TemplateMatch",
-                                "template": "刷碎片\\琴诺悖谬.png",
-                                "roi": [
-                                    30,
-                                    87,
-                                    975,
-                                    525
-                                ]
-                            },
-                            "次数不足": {
-                                "roi_offset": [
-                                    100,
-                                    0,
-                                    100,
-                                    -375
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "name": "豹豹伊切尔",
-                        "pipeline_override": {
-                            "选择人物": {
-                                "green_mask": true,
-                                "recognition": "TemplateMatch",
-                                "template": "刷碎片\\豹豹伊切尔.png",
-                                "roi": [
-                                    30,
-                                    87,
-                                    975,
-                                    525
-                                ]
-                            },
-                            "次数不足": {
-                                "roi_offset": [
-                                    100,
-                                    0,
-                                    100,
-                                    -375
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "name": "蓝闪凯西娅",
-                        "pipeline_override": {
-                            "选择人物": {
-                                "green_mask": true,
-                                "recognition": "TemplateMatch",
-                                "template": "刷碎片\\蓝闪凯西娅.png",
-                                "roi": [
-                                    30,
-                                    87,
-                                    975,
-                                    525
-                                ]
-                            },
-                            "行为02": {
-                                "recognition": "TemplateMatch",
-                                "template": [
-                                    "刷碎片\\蓝闪行为02.png"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "name": "魔术师苔丝",
-                        "pipeline_override": {
-                            "选择人物": {
-                                "recognition": "OCR",
-                                "expected": [
-                                    "魔术师"
-                                ],
-                                "roi": [
-                                    30,
-                                    87,
-                                    975,
-                                    525
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "name": "溯影猫汐尔",
-                        "pipeline_override": {
-                            "选择人物": {
-                                "recognition": "OCR",
-                                "expected": [
-                                    "溯影"
-                                ],
-                                "roi": [
-                                    30,
-                                    87,
-                                    975,
-                                    525
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "name": "藏锋晴",
-                        "pipeline_override": {
-                            "选择人物": {
-                                "recognition": "OCR",
-                                "expected": [
-                                    "藏锋"
-                                ],
-                                "roi": [
-                                    30,
-                                    87,
-                                    975,
-                                    525
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "name": "云篆晨星",
-                        "pipeline_override": {
-                            "选择人物": {
-                                "recognition": "OCR",
-                                "expected": [
-                                    "云篆"
-                                ],
-                                "roi": [
-                                    30,
-                                    87,
-                                    975,
-                                    525
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "name": "辉夜安卡希雅",
-                        "pipeline_override": {
-                            "选择人物": {
-                                "recognition": "OCR",
-                                "expected": [
-                                    "辉夜"
-                                ],
-                                "roi": [
-                                    30,
-                                    87,
-                                    975,
-                                    525
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "name": "咎冠芬妮",
-                        "pipeline_override": {
-                            "选择人物": {
-                                "green_mask": true,
-                                "recognition": "TemplateMatch",
-                                "template": "刷碎片\\咎冠芬妮.png",
-                                "roi": [
-                                    30,
-                                    87,
-                                    975,
-                                    525
-                                ]
-                            },
-                            "次数不足": {
-                                "roi_offset": [
-                                    100,
-                                    0,
-                                    100,
-                                    -375
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "name": "缄默芙提雅",
-                        "pipeline_override": {
-                            "选择人物": {
-                                "green_mask": true,
-                                "recognition": "TemplateMatch",
-                                "template": "刷碎片\\缄默芙提雅.png",
-                                "roi": [
-                                    30,
-                                    87,
-                                    975,
-                                    525
-                                ]
-                            },
-                            "次数不足": {
-                                "roi_offset": [
-                                    100,
-                                    0,
-                                    100,
-                                    -375
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "name": "狂猎里芙",
-                        "pipeline_override": {
-                            "选择人物": {
-                                "green_mask": true,
-                                "recognition": "TemplateMatch",
-                                "template": "刷碎片\\狂猎里芙.png",
-                                "roi": [
-                                    30,
-                                    87,
-                                    975,
-                                    525
-                                ]
-                            },
-                            "次数不足": {
-                                "roi_offset": [
-                                    100,
-                                    0,
-                                    100,
-                                    -375
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "name": "雨燕茉莉安",
-                        "pipeline_override": {
-                            "选择人物": {
-                                "green_mask": true,
-                                "recognition": "TemplateMatch",
-                                "template": "刷碎片\\雨燕茉莉安.png",
-                                "roi": [
-                                    30,
-                                    87,
-                                    975,
-                                    525
-                                ]
-                            },
-                            "次数不足": {
-                                "roi_offset": [
-                                    100,
-                                    0,
-                                    100,
-                                    -375
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "name": "冬至肴",
-                        "pipeline_override": {
-                            "选择人物": {
-                                "recognition": "OCR",
-                                "expected": [
-                                    "冬至"
-                                ],
-                                "roi": [
-                                    30,
-                                    87,
-                                    975,
-                                    525
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "name": "夜天光肴",
-                        "pipeline_override": {
-                            "选择人物": {
-                                "recognition": "OCR",
-                                "expected": [
-                                    "夜天光"
-                                ]
-                            }
-                        }
-                    }
-                ]
-            },
-            "购买物品": {
-                "cases": [
-                    {
-                        "name": "最便宜的",
-                        "pipeline_override": {
-                            "判断物品": {
-                                "expected": [
-                                    "通用强化套件",
-                                    "初级职级认证",
-                                    "新手战斗记录"
-                                ]
-                            },
-                            "买满": {
-                                "enabled": false
-                            }
-                        }
-                    },
-                    {
-                        "name": "碳原子板",
-                        "pipeline_override": {
-                            "判断物品": {
-                                "expected": "碳原子板"
-                            },
-                            "切换商店1": {
-                                "enabled": true,
-                                "expected": "活动兑换"
-                            },
-                            "切换商店2": {
-                                "expected": "地下清理"
-                            },
-                            "翻到底了": {
-                                "inverse": false,
-                                "expected": "特级职级认证"
-                            }
-                        }
-                    },
-                    {
-                        "name": "量子胞体(拟境)",
-                        "pipeline_override": {
-                            "判断物品": {
-                                "expected": "量子胞体"
-                            },
-                            "切换商店1": {
-                                "enabled": true,
-                                "expected": "活动兑换"
-                            },
-                            "切换商店2": {
-                                "expected": "精神拟境"
-                            },
-                            "翻到底了": {
-                                "inverse": false,
-                                "expected": "光纤轴突"
-                            }
-                        }
-                    },
-                    {
-                        "name": "量子胞体(配给)",
-                        "pipeline_override": {
-                            "判断物品": {
-                                "expected": "量子胞体"
-                            },
-                            "切换商店1": {
-                                "enabled": true,
-                                "expected": "循环中心"
-                            },
-                            "切换商店2": {
-                                "expected": "优质配给"
-                            },
-                            "翻到底了": {
-                                "inverse": false,
-                                "expected": "通用银"
-                            }
-                        }
-                    },
-                    {
-                        "name": "抽卡券",
-                        "pipeline_override": {
-                            "判断物品": {
-                                "expected": [
-                                    "天启者共鸣誓约",
-                                    "天启者共鸣凭证",
-                                    "武器定制合约",
-                                    "武器申请书"
-                                ]
-                            },
-                            "切换商店1": {
-                                "enabled": true,
-                                "expected": "循环中心"
-                            },
-                            "切换商店2": {
-                                "expected": "优质配给"
-                            },
-                            "购买物品": {
-                                "next": [
-                                    "资金不足",
-                                    "商店"
-                                ]
-                            },
-                            "翻到底了": {
-                                "inverse": false,
-                                "expected": "通用银"
-                            }
-                        }
-                    },
-                    {
-                        "name": "重修申请",
-                        "pipeline_override": {
-                            "判断物品": {
-                                "expected": "重修申请"
-                            },
-                            "切换商店1": {
-                                "enabled": true,
-                                "expected": "循环中心"
-                            },
-                            "切换商店2": {
-                                "expected": "优质配给"
-                            },
-                            "翻到底了": {
-                                "inverse": false,
-                                "expected": "通用银"
-                            }
-                        }
-                    },
-                    {
-                        "name": "重修额度",
-                        "pipeline_override": {
-                            "判断物品": {
-                                "expected": "重修额度"
-                            },
-                            "切换商店1": {
-                                "enabled": true,
-                                "expected": "循环中心"
-                            },
-                            "切换商店2": {
-                                "expected": "后勤人事",
-                                "index": 1
-                            },
-                            "购买物品": {
-                                "expected": "聘调"
-                            },
-                            "翻到底了": {
-                                "inverse": false,
-                                "expected": "伊甸"
-                            }
-                        }
-                    },
-                    {
-                        "name": "辅助武器",
-                        "pipeline_override": {
-                            "判断物品": {
-                                "expected": [
-                                    "军舰鸟",
-                                    "彩虹打火机",
-                                    "深海呼唤",
-                                    "草莓蛋糕",
-                                    "楼道怪猫",
-                                    "青金石"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "name": "角色经验",
-                        "pipeline_override": {
-                            "判断物品": {
-                                "expected": [
-                                    "新手战斗记录"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "name": "后勤经验",
-                        "pipeline_override": {
-                            "判断物品": {
-                                "expected": [
-                                    "初级职级认证"
-                                ]
-                            },
-                            "判断物品2": {
-                                "expected": [
-                                    "中级职级认证"
-                                ]
-                            },
-                            "判断物品3": {
-                                "expected": [
-                                    "高级职级认证"
-                                ]
-                            },
-                            "购买物品": {
-                                "next": [
-                                    "资金不足",
-                                    "返回主菜单2"
-                                ]
-                            },
-                            "售罄": {
-                                "next": [
-                                    "返回主菜单2"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "name": "武器经验",
-                        "pipeline_override": {
-                            "判断物品": {
-                                "expected": [
-                                    "通用强化套件"
-                                ]
-                            },
-                            "判断物品2": {
-                                "expected": [
-                                    "优选强化套件"
-                                ]
-                            },
-                            "判断物品3": {
-                                "expected": [
-                                    "精致强化套件"
-                                ]
-                            },
-                            "购买物品": {
-                                "next": [
-                                    "资金不足",
-                                    "返回主菜单2"
-                                ]
-                            },
-                            "售罄": {
-                                "next": [
-                                    "返回主菜单2"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "name": "芳烃塑料",
-                        "pipeline_override": {
-                            "判断物品": {
-                                "expected": [
-                                    "芳烃塑料"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "name": "合成颗粒",
-                        "pipeline_override": {
-                            "判断物品": {
-                                "expected": [
-                                    "合成颗粒"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "name": "人物碎片",
-                        "pipeline_override": {
-                            "判断物品": {
-                                "expected": [
-                                    "提取物"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "name": "单极纤维",
-                        "pipeline_override": {
-                            "判断物品": {
-                                "expected": [
-                                    "单极纤维"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "name": "光纤轴突",
-                        "pipeline_override": {
-                            "判断物品": {
-                                "expected": [
-                                    "光纤轴突"
-                                ]
-                            }
-                        }
-                    }
-                ]
             }
         },
-        "version": "v1.5.4"
-    }
+        {
+            "name": "增益试炼",
+            "entry": "增益试炼"
+        }
+    ],
+    "option": {
+        "选择地图": {
+            "cases": [
+                {
+                    "name": "伙伴岛",
+                    "pipeline_override": {
+                        "判断新星开拓1": {
+                            "expected": "伙伴岛"
+                        }
+                    }
+                },
+                {
+                    "name": "探险岛",
+                    "pipeline_override": {
+                        "判断新星开拓1": {
+                            "expected": "探险岛"
+                        }
+                    }
+                }
+            ]
+        },
+        "作战关卡": {
+            "cases": [
+                {
+                    "name": "活动战斗",
+                    "pipeline_override": {
+                        "打开战斗": {
+                            "enabled": false
+                        },
+                        "选择作战1": {
+                            "enabled": false
+                        },
+                        "作战_滑动": {
+                            "enabled": false
+                        },
+                        "进入作战": {
+                            "enabled": false
+                        },
+                        "进入深渊作战_滑动": {
+                            "enabled": false
+                        },
+                        "进入深渊作战": {
+                            "enabled": false
+                        }
+                    }
+                },
+                {
+                    "name": "活动武器",
+                    "pipeline_override": {
+                        "选择活动作战1": {
+                            "enabled": false
+                        },
+                        "选择活动作战2": {
+                            "enabled": false
+                        },
+                        "打开活动战斗": {
+                            "enabled": false
+                        },
+                        "进入作战": {
+                            "expected": "聚兵之器"
+                        }
+                    }
+                },
+                {
+                    "name": "活动后勤",
+                    "pipeline_override": {
+                        "选择活动作战1": {
+                            "enabled": false
+                        },
+                        "选择活动作战2": {
+                            "enabled": false
+                        },
+                        "打开活动战斗": {
+                            "enabled": false
+                        },
+                        "进入作战": {
+                            "expected": "练心之战"
+                        }
+                    }
+                },
+                {
+                    "name": "通用银",
+                    "pipeline_override": {
+                        "选择活动作战1": {
+                            "enabled": false
+                        },
+                        "选择活动作战2": {
+                            "enabled": false
+                        },
+                        "打开活动战斗": {
+                            "enabled": false
+                        },
+                        "进入作战": {
+                            "expected": "富饶之壶"
+                        }
+                    }
+                },
+                {
+                    "name": "角色经验",
+                    "pipeline_override": {
+                        "选择活动作战1": {
+                            "enabled": false
+                        },
+                        "选择活动作战2": {
+                            "enabled": false
+                        },
+                        "打开活动战斗": {
+                            "enabled": false
+                        },
+                        "进入作战": {
+                            "expected": "百足之市"
+                        }
+                    }
+                },
+                {
+                    "name": "武器经验",
+                    "pipeline_override": {
+                        "选择活动作战1": {
+                            "enabled": false
+                        },
+                        "选择活动作战2": {
+                            "enabled": false
+                        },
+                        "打开活动战斗": {
+                            "enabled": false
+                        },
+                        "进入作战": {
+                            "expected": "止战之人"
+                        }
+                    }
+                },
+                {
+                    "name": "武器材料",
+                    "pipeline_override": {
+                        "选择活动作战1": {
+                            "enabled": false
+                        },
+                        "选择活动作战2": {
+                            "enabled": false
+                        },
+                        "打开活动战斗": {
+                            "enabled": false
+                        },
+                        "进入作战": {
+                            "expected": "重铸之炎"
+                        }
+                    }
+                },
+                {
+                    "name": "神经素材",
+                    "pipeline_override": {
+                        "选择活动作战1": {
+                            "enabled": false
+                        },
+                        "选择活动作战2": {
+                            "enabled": false
+                        },
+                        "打开活动战斗": {
+                            "enabled": false
+                        },
+                        "进入作战": {
+                            "expected": "永冬之境"
+                        }
+                    }
+                },
+                {
+                    "name": "后勤",
+                    "pipeline_override": {
+                        "选择活动作战1": {
+                            "enabled": false
+                        },
+                        "选择活动作战2": {
+                            "enabled": false
+                        },
+                        "打开活动战斗": {
+                            "enabled": false
+                        },
+                        "进入作战": {
+                            "expected": "浴火之战"
+                        }
+                    }
+                }
+            ]
+        },
+        "刷取次数": {
+            "cases": [
+                {
+                    "name": "1",
+                    "pipeline_override": {
+                        "战斗次数": {
+                            "roi": [
+                                587,
+                                463,
+                                42,
+                                30
+                            ],
+                            "recognition": "TemplateMatch",
+                            "template": "战斗\\战斗次数1_594_467_25_25__544_417_125_125.png"
+                        },
+                        "速战MAX": {
+                            "enabled": false
+                        },
+                        "完成战斗": {
+                            "next": [
+                                "完成战斗",
+                                "返回主菜单"
+                            ],
+                            "interrupt": [
+                                "账号等级提升"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "2",
+                    "pipeline_override": {
+                        "战斗次数": {
+                            "roi": [
+                                587,
+                                463,
+                                42,
+                                30
+                            ],
+                            "recognition": "OCR",
+                            "expected": "2"
+                        },
+                        "速战MAX": {
+                            "enabled": false
+                        },
+                        "完成战斗": {
+                            "next": [
+                                "完成战斗",
+                                "返回主菜单"
+                            ],
+                            "interrupt": [
+                                "账号等级提升"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "3",
+                    "pipeline_override": {
+                        "战斗次数": {
+                            "roi": [
+                                587,
+                                463,
+                                42,
+                                30
+                            ],
+                            "recognition": "OCR",
+                            "expected": "3"
+                        },
+                        "速战MAX": {
+                            "enabled": false
+                        },
+                        "完成战斗": {
+                            "next": [
+                                "完成战斗",
+                                "返回主菜单"
+                            ],
+                            "interrupt": [
+                                "账号等级提升"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "4",
+                    "pipeline_override": {
+                        "战斗次数": {
+                            "roi": [
+                                587,
+                                463,
+                                42,
+                                30
+                            ],
+                            "recognition": "TemplateMatch",
+                            "template": "战斗\\战斗次数4_596_467_23_24__546_417_123_124.png"
+                        },
+                        "速战MAX": {
+                            "enabled": false
+                        },
+                        "完成战斗": {
+                            "next": [
+                                "完成战斗",
+                                "返回主菜单"
+                            ],
+                            "interrupt": [
+                                "账号等级提升"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "5",
+                    "pipeline_override": {
+                        "战斗次数": {
+                            "roi": [
+                                587,
+                                463,
+                                42,
+                                30
+                            ],
+                            "recognition": "OCR",
+                            "expected": "5"
+                        },
+                        "速战MAX": {
+                            "enabled": false
+                        },
+                        "完成战斗": {
+                            "next": [
+                                "完成战斗",
+                                "返回主菜单"
+                            ],
+                            "interrupt": [
+                                "账号等级提升"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "6",
+                    "pipeline_override": {
+                        "战斗次数": {
+                            "roi": [
+                                587,
+                                463,
+                                42,
+                                30
+                            ],
+                            "recognition": "OCR",
+                            "expected": "6"
+                        },
+                        "速战MAX": {
+                            "enabled": false
+                        },
+                        "完成战斗": {
+                            "next": [
+                                "完成战斗",
+                                "返回主菜单"
+                            ],
+                            "interrupt": [
+                                "账号等级提升"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "刷完全部体力",
+                    "pipeline_override": {
+                        "战斗次数": {
+                            "enabled": false
+                        },
+                        "增加战斗次数": {
+                            "enabled": false
+                        },
+                        "完成战斗": {
+                            "next": [
+                                "战斗"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "使用临期体力": {
+            "cases": [
+                {
+                    "name": "是",
+                    "pipeline_override": {
+                        "确认/取消使用体力": {
+                            "expected": "确定",
+                            "next": [
+                                "体力不足",
+                                "确认/取消使用体力",
+                                "战斗"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "否",
+                    "pipeline_override": {
+                        "确认/取消使用体力": {
+                            "expected": "取消",
+                            "next": [
+                                "确认/取消使用体力",
+                                "关闭速战界面",
+                                "返回主菜单"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "选择人物": {
+            "cases": [
+                {
+                    "name": "琼弦晨星",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": "OCR",
+                            "expected": [
+                                "琼弦"
+                            ],
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "小天师卜卜",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": "OCR",
+                            "expected": [
+                                "小天师"
+                            ],
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "驰掣芙提雅",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "green_mask": true,
+                            "recognition": "TemplateMatch",
+                            "template": "刷碎片\\驰掣芙提雅.png",
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
+                            ]
+                        },
+                        "次数不足": {
+                            "roi_offset": [
+                                100,
+                                0,
+                                100,
+                                -375
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "幽潮茉莉安",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": "OCR",
+                            "expected": [
+                                "幽潮"
+                            ],
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "朝翼凯西娅",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "green_mask": true,
+                            "recognition": "TemplateMatch",
+                            "template": "刷碎片\\朝翼凯西娅.png",
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
+                            ]
+                        },
+                        "次数不足": {
+                            "roi_offset": [
+                                100,
+                                0,
+                                100,
+                                -375
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "龙舌兰薇蒂雅",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": "OCR",
+                            "expected": [
+                                "龙舌兰"
+                            ],
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "辉耀芬妮",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "green_mask": true,
+                            "recognition": "TemplateMatch",
+                            "template": "刷碎片\\辉耀芬妮.png",
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
+                            ]
+                        },
+                        "行为02": {
+                            "recognition": "TemplateMatch",
+                            "template": [
+                                "刷碎片\\辉耀行为02.png"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "无限之视里芙",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "green_mask": true,
+                            "recognition": "TemplateMatch",
+                            "template": "刷碎片\\无限之视里芙.png",
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
+                            ]
+                        },
+                        "次数不足": {
+                            "roi_offset": [
+                                100,
+                                0,
+                                100,
+                                -375
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "瞬刻瑟瑞斯",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": "OCR",
+                            "expected": [
+                                "瞬刻"
+                            ],
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "羽蜕恩雅",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "green_mask": true,
+                            "recognition": "TemplateMatch",
+                            "template": "刷碎片\\恩雅羽蜕.png",
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
+                            ]
+                        },
+                        "次数不足": {
+                            "roi_offset": [
+                                100,
+                                0,
+                                100,
+                                -375
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "悖谬琴诺",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "green_mask": true,
+                            "recognition": "TemplateMatch",
+                            "template": "刷碎片\\琴诺悖谬.png",
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
+                            ]
+                        },
+                        "次数不足": {
+                            "roi_offset": [
+                                100,
+                                0,
+                                100,
+                                -375
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "豹豹伊切尔",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "green_mask": true,
+                            "recognition": "TemplateMatch",
+                            "template": "刷碎片\\豹豹伊切尔.png",
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
+                            ]
+                        },
+                        "次数不足": {
+                            "roi_offset": [
+                                100,
+                                0,
+                                100,
+                                -375
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "蓝闪凯西娅",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "green_mask": true,
+                            "recognition": "TemplateMatch",
+                            "template": "刷碎片\\蓝闪凯西娅.png",
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
+                            ]
+                        },
+                        "行为02": {
+                            "recognition": "TemplateMatch",
+                            "template": [
+                                "刷碎片\\蓝闪行为02.png"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "魔术师苔丝",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": "OCR",
+                            "expected": [
+                                "魔术师"
+                            ],
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "溯影猫汐尔",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": "OCR",
+                            "expected": [
+                                "溯影"
+                            ],
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "藏锋晴",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": "OCR",
+                            "expected": [
+                                "藏锋"
+                            ],
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "云篆晨星",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": "OCR",
+                            "expected": [
+                                "云篆"
+                            ],
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "辉夜安卡希雅",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": "OCR",
+                            "expected": [
+                                "辉夜"
+                            ],
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "咎冠芬妮",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "green_mask": true,
+                            "recognition": "TemplateMatch",
+                            "template": "刷碎片\\咎冠芬妮.png",
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
+                            ]
+                        },
+                        "次数不足": {
+                            "roi_offset": [
+                                100,
+                                0,
+                                100,
+                                -375
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "缄默芙提雅",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "green_mask": true,
+                            "recognition": "TemplateMatch",
+                            "template": "刷碎片\\缄默芙提雅.png",
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
+                            ]
+                        },
+                        "次数不足": {
+                            "roi_offset": [
+                                100,
+                                0,
+                                100,
+                                -375
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "狂猎里芙",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "green_mask": true,
+                            "recognition": "TemplateMatch",
+                            "template": "刷碎片\\狂猎里芙.png",
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
+                            ]
+                        },
+                        "次数不足": {
+                            "roi_offset": [
+                                100,
+                                0,
+                                100,
+                                -375
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "雨燕茉莉安",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "green_mask": true,
+                            "recognition": "TemplateMatch",
+                            "template": "刷碎片\\雨燕茉莉安.png",
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
+                            ]
+                        },
+                        "次数不足": {
+                            "roi_offset": [
+                                100,
+                                0,
+                                100,
+                                -375
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "冬至肴",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": "OCR",
+                            "expected": [
+                                "冬至"
+                            ],
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "夜天光肴",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": "OCR",
+                            "expected": [
+                                "夜天光"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "购买物品": {
+            "cases": [
+                {
+                    "name": "最便宜的",
+                    "pipeline_override": {
+                        "判断物品": {
+                            "expected": [
+                                "通用强化套件",
+                                "初级职级认证",
+                                "新手战斗记录"
+                            ]
+                        },
+                        "买满": {
+                            "enabled": false
+                        }
+                    }
+                },
+                {
+                    "name": "碳原子板",
+                    "pipeline_override": {
+                        "判断物品": {
+                            "expected": "碳原子板"
+                        },
+                        "切换商店1": {
+                            "enabled": true,
+                            "expected": "活动兑换"
+                        },
+                        "切换商店2": {
+                            "expected": "地下清理"
+                        },
+                        "翻到底了": {
+                            "inverse": false,
+                            "expected": "特级职级认证"
+                        }
+                    }
+                },
+                {
+                    "name": "量子胞体(拟境)",
+                    "pipeline_override": {
+                        "判断物品": {
+                            "expected": "量子胞体"
+                        },
+                        "切换商店1": {
+                            "enabled": true,
+                            "expected": "活动兑换"
+                        },
+                        "切换商店2": {
+                            "expected": "精神拟境"
+                        },
+                        "翻到底了": {
+                            "inverse": false,
+                            "expected": "光纤轴突"
+                        }
+                    }
+                },
+                {
+                    "name": "量子胞体(配给)",
+                    "pipeline_override": {
+                        "判断物品": {
+                            "expected": "量子胞体"
+                        },
+                        "切换商店1": {
+                            "enabled": true,
+                            "expected": "循环中心"
+                        },
+                        "切换商店2": {
+                            "expected": "优质配给"
+                        },
+                        "翻到底了": {
+                            "inverse": false,
+                            "expected": "通用银"
+                        }
+                    }
+                },
+                {
+                    "name": "抽卡券",
+                    "pipeline_override": {
+                        "判断物品": {
+                            "expected": [
+                                "天启者共鸣誓约",
+                                "天启者共鸣凭证",
+                                "武器定制合约",
+                                "武器申请书"
+                            ]
+                        },
+                        "切换商店1": {
+                            "enabled": true,
+                            "expected": "循环中心"
+                        },
+                        "切换商店2": {
+                            "expected": "优质配给"
+                        },
+                        "购买物品": {
+                            "next": [
+                                "资金不足",
+                                "商店"
+                            ]
+                        },
+                        "翻到底了": {
+                            "inverse": false,
+                            "expected": "通用银"
+                        }
+                    }
+                },
+                {
+                    "name": "重修申请",
+                    "pipeline_override": {
+                        "判断物品": {
+                            "expected": "重修申请"
+                        },
+                        "切换商店1": {
+                            "enabled": true,
+                            "expected": "循环中心"
+                        },
+                        "切换商店2": {
+                            "expected": "优质配给"
+                        },
+                        "翻到底了": {
+                            "inverse": false,
+                            "expected": "通用银"
+                        }
+                    }
+                },
+                {
+                    "name": "重修额度",
+                    "pipeline_override": {
+                        "判断物品": {
+                            "expected": "重修额度"
+                        },
+                        "切换商店1": {
+                            "enabled": true,
+                            "expected": "循环中心"
+                        },
+                        "切换商店2": {
+                            "expected": "后勤人事",
+                            "index": 1
+                        },
+                        "购买物品": {
+                            "expected": "聘调"
+                        },
+                        "翻到底了": {
+                            "inverse": false,
+                            "expected": "伊甸"
+                        }
+                    }
+                },
+                {
+                    "name": "辅助武器",
+                    "pipeline_override": {
+                        "判断物品": {
+                            "expected": [
+                                "军舰鸟",
+                                "彩虹打火机",
+                                "深海呼唤",
+                                "草莓蛋糕",
+                                "楼道怪猫",
+                                "青金石"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "角色经验",
+                    "pipeline_override": {
+                        "判断物品": {
+                            "expected": [
+                                "新手战斗记录"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "后勤经验",
+                    "pipeline_override": {
+                        "判断物品": {
+                            "expected": [
+                                "初级职级认证"
+                            ]
+                        },
+                        "判断物品2": {
+                            "expected": [
+                                "中级职级认证"
+                            ]
+                        },
+                        "判断物品3": {
+                            "expected": [
+                                "高级职级认证"
+                            ]
+                        },
+                        "购买物品": {
+                            "next": [
+                                "资金不足",
+                                "返回主菜单2"
+                            ]
+                        },
+                        "售罄": {
+                            "next": [
+                                "返回主菜单2"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "武器经验",
+                    "pipeline_override": {
+                        "判断物品": {
+                            "expected": [
+                                "通用强化套件"
+                            ]
+                        },
+                        "判断物品2": {
+                            "expected": [
+                                "优选强化套件"
+                            ]
+                        },
+                        "判断物品3": {
+                            "expected": [
+                                "精致强化套件"
+                            ]
+                        },
+                        "购买物品": {
+                            "next": [
+                                "资金不足",
+                                "返回主菜单2"
+                            ]
+                        },
+                        "售罄": {
+                            "next": [
+                                "返回主菜单2"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "芳烃塑料",
+                    "pipeline_override": {
+                        "判断物品": {
+                            "expected": [
+                                "芳烃塑料"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "合成颗粒",
+                    "pipeline_override": {
+                        "判断物品": {
+                            "expected": [
+                                "合成颗粒"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "人物碎片",
+                    "pipeline_override": {
+                        "判断物品": {
+                            "expected": [
+                                "提取物"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "单极纤维",
+                    "pipeline_override": {
+                        "判断物品": {
+                            "expected": [
+                                "单极纤维"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "光纤轴突",
+                    "pipeline_override": {
+                        "判断物品": {
+                            "expected": [
+                                "光纤轴突"
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "version": "v1.5.4"
+}
