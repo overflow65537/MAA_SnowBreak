@@ -21,6 +21,8 @@ class Fishing(CustomAction):
 
             image = context.tasker.controller.post_screencap().wait().get()
             result = context.run_recognition("检查黄色块数量", image)
+            if not result:
+                return CustomAction.RunResult(success=True)
             yellow_count = result.best_result.count
 
         context.tasker.controller.post_click(1171, 618).wait()

@@ -1,9 +1,9 @@
 {
-    "钓鱼":{
-        "next":[
+    "钓鱼": {
+        "next": [
             "使用钓鱼功能"
         ],
-        "interrupt":[
+        "interrupt": [
             "进入地图",
             "判断新星开拓1",
             "判断派遣1",
@@ -11,72 +11,72 @@
             "判断主界面1"
         ]
     },
-    "使用钓鱼功能":{
-        "recognition":"OCR",
-        "expected":"使用",
-        "roi":[
-            667, 
-            455, 
-            67, 
+    "使用钓鱼功能": {
+        "recognition": "OCR",
+        "expected": "使用",
+        "roi": [
+            667,
+            455,
+            67,
             57
         ],
-        "action":"Click",
-        "next":"钓鱼进程"
+        "action": "Click",
+        "next": "钓鱼进程"
     },
-    "进入地图":{
-        "recognition":"OCR",
-        "expected":"开始作战",
-        "roi":[
-            1110, 
-            600, 
-            151, 
+    "进入地图": {
+        "recognition": "OCR",
+        "expected": "开始作战",
+        "roi": [
+            1110,
+            600,
+            151,
             96
         ],
-        "action":"Click"
+        "action": "Click"
     },
-    "判断新星开拓1":{
-        "recognition":"OCR",
-        "expected":"伙伴岛",
-        "roi":[
-            495, 
-            348, 
-            186, 
+    "判断新星开拓1": {
+        "recognition": "OCR",
+        "expected": "伙伴岛",
+        "roi": [
+            495,
+            348,
+            186,
             98
         ],
-        "action":"Click"
+        "action": "Click"
     },
-    "判断派遣1":{
-        "recognition":"OCR",
-        "expected":"新星开拓",
-        "roi":[
+    "判断派遣1": {
+        "recognition": "OCR",
+        "expected": "新星开拓",
+        "roi": [
             993,
             547,
-            276, 
+            276,
             62
         ],
-        "action":"Click"
+        "action": "Click"
     },
-    "判断战斗界面1":{
-        "recognition":"OCR",
-        "expected":"特别派遣",
-        "roi":[
+    "判断战斗界面1": {
+        "recognition": "OCR",
+        "expected": "特别派遣",
+        "roi": [
             25,
             269,
             307,
             137
         ],
-        "action":"Click"
+        "action": "Click"
     },
-    "判断主界面1":{
-        "recognition":"OCR",
-        "expected":"战斗",
-        "roi":[
+    "判断主界面1": {
+        "recognition": "OCR",
+        "expected": "战斗",
+        "roi": [
             962,
             247,
             179,
             125
         ],
-        "action":"Click"
+        "action": "Click"
     },
     "钓鱼进程": {
         "next": [
@@ -89,6 +89,7 @@
     },
     "甩杆": {
         "recognition": "ColorMatch",
+        "count": 500,
         "roi": [
             1069,
             538,
@@ -96,15 +97,16 @@
             166
         ],
         "lower": [
-            180,
-            220,
-            70
+            170,
+            210,
+            60
         ],
         "upper": [
-            210,
-            250,
-            100
+            220,
+            260,
+            110
         ],
+        "connected": true,
         "action": "Click"
     },
     "钓鱼中": {
@@ -152,7 +154,7 @@
             "收杆"
         ],
         "on_error": [
-            "钓鱼"
+            "钓鱼进程"
         ]
     },
     "失败": {
@@ -166,7 +168,7 @@
         ],
         "expected": "鱼跑掉了",
         "next": [
-            "钓鱼"
+            "钓鱼进程"
         ]
     },
     "点击提示": {
@@ -224,7 +226,8 @@
             250,
             185,
             0
-        ]
+        ],
+        "connected": true
     },
     "成功": {
         "post_delay": 5000,
@@ -240,7 +243,7 @@
             0
         ],
         "next": [
-            "钓鱼"
+            "钓鱼进程"
         ]
     }
 }
