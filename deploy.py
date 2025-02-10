@@ -1,7 +1,6 @@
 import os
 import json
 import shutil
-import subprocess
 import sys
 
 # 这些需要自己设置
@@ -13,7 +12,7 @@ version = len(sys.argv) > 1 and sys.argv[1] or "v0.0.1"
 # 这些不需要修改
 
 config_name = "default"
-resource_path = os.path.join(".", "bundles", resource_name)
+resource_path = os.path.join(".")
 config_path = os.path.join(
     ".", "config", resource_name, "config", config_name, "maa_pi_config.json"
 )
@@ -39,16 +38,16 @@ config_data = {
 }
 
 
-mfw_config_path = os.path.join(".", "MFW", "config", "config.json")
+mfw_config_path = os.path.join(".", "install", "config", "config.json")
 print(f"mfw_config_path: {mfw_config_path}")
 os.makedirs(os.path.dirname(mfw_config_path), exist_ok=True)
 with open(mfw_config_path, "w", encoding="utf-8") as f:
     json.dump(config_data, f, ensure_ascii=False, indent=4)
 
 
-# 移动資源文件到 bundles 目录
+# 移动資源文件到根目录
 source_path = os.path.join(".", "assets")
-destination_path = os.path.join(".", "MFW", "bundles", resource_name)
+destination_path = os.path.join(".", "install")
 print(f"Copying from {source_path} to {destination_path}")
 shutil.copytree(
     source_path,
@@ -86,7 +85,7 @@ pi_config = {
     "exe_parameter": "",
 }
 install_config_path = os.path.join(
-    ".", "MFW", "config", resource_name, "config", config_name, "maa_pi_config.json"
+    ".", "install", "config", resource_name, "config", config_name, "maa_pi_config.json"
 )
 os.makedirs(os.path.dirname(install_config_path), exist_ok=True)
 
@@ -97,13 +96,13 @@ with open(install_config_path, "w", encoding="utf-8") as f:
 # interface 部分
 new_data = {"url": url, "name": resource_name, "version": version}
 interface_json_path = os.path.join(
-    ".", "MFW", "bundles", resource_name, "interface.json"
+    ".", "install", "interface.json"
 )
 # 打印 interface_json_path 以调试
 print(f"interface_json_path: {interface_json_path}")
 
 with open(interface_json_path, "r", encoding="utf-8") as f:
-    interface_data: dict = json.load(f)
+    interface_data:dict = json.load(f)
 
 interface_data.update(new_data)
 

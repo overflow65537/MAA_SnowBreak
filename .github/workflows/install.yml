@@ -97,34 +97,26 @@ jobs:
           pip install pyinstaller
           pip install -r requirements.txt
           python ./install.py ${{ needs.meta.outputs.tag }}
-        
+          
+      - name: Download MFW
+        uses: robinraju/release-downloader@v1
+        with:
+          repository: overflow65537/MFW-PyQt6
+          fileName: "MFW-PyQt6-win-${{ matrix.arch }}*"
+          latest: true
+          out-file-path: "install"
+          extract: true
+
+      - name: Install MFW
+        shell: bash
+        run: |
+          rm install/MFW-PyQt6-win-${{ matrix.arch }}* 
+          python ./deploy.py ${{ needs.meta.outputs.tag }}
+      
       - uses: actions/upload-artifact@v4
         with:
           name: MSBA-win-${{ matrix.arch }}
           path: "install"
-
-      - name: Download MFW
-        uses: robinraju/release-downloader@v1
-        if: matrix.arch == 'x86_64'
-        with:
-          repository: overflow65537/MFW-PyQt6
-          fileName: "MFW-PyQt6-win-x86_64*"
-          latest: true
-          out-file-path: "MFW"
-          extract: true
-
-      - name: Install MFW
-        if: matrix.arch == 'x86_64'
-        shell: bash
-        run: |
-          rm MFW/MFW-PyQt6-win-x86_64* 
-          python ./deploy.py ${{ needs.meta.outputs.tag }}
-
-      - uses: actions/upload-artifact@v4
-        if: matrix.arch == 'x86_64'
-        with:
-          name: MSBA-win-${{ matrix.arch }}-MFW-PyQt
-          path: "MFW"
 
   ubuntu:
     needs: meta
@@ -151,33 +143,25 @@ jobs:
           pip install -r requirements.txt
           python ./install.py ${{ needs.meta.outputs.tag }}
 
+      - name: Download MFW
+        uses: robinraju/release-downloader@v1
+        with:
+          repository: overflow65537/MFW-PyQt6
+          fileName: "MFW-PyQt6-linux-${{ matrix.arch }}*"
+          latest: true
+          out-file-path: "install"
+          extract: true
+
+      - name: Install MFW
+        shell: bash
+        run: |
+          rm install/MFW-PyQt6-linux-${{ matrix.arch }}* 
+          python ./deploy.py ${{ needs.meta.outputs.tag }}
+
       - uses: actions/upload-artifact@v4
         with:
           name: MSBA-linux-${{ matrix.arch }}
           path: "install"
-
-      - name: Download MFW
-        uses: robinraju/release-downloader@v1
-        if: matrix.arch == 'x86_64'
-        with:
-          repository: overflow65537/MFW-PyQt6
-          fileName: "MFW-PyQt6-linux-x86_64*"
-          latest: true
-          out-file-path: "MFW"
-          extract: true
-
-      - name: Install MFW
-        if: matrix.arch == 'x86_64'
-        shell: bash
-        run: |
-          rm MFW/MFW-PyQt6-linux-x86_64* 
-          python ./deploy.py ${{ needs.meta.outputs.tag }}
-
-      - uses: actions/upload-artifact@v4
-        if: matrix.arch == 'x86_64'
-        with:
-          name: MSBA-linux-${{ matrix.arch }}-MFW-PyQt
-          path: "MFW"
 
   macos:
     needs: meta
@@ -204,33 +188,25 @@ jobs:
           pip install -r requirements.txt
           python ./install.py ${{ needs.meta.outputs.tag }}
 
+      - name: Download MFW
+        uses: robinraju/release-downloader@v1
+        with:
+          repository: overflow65537/MFW-PyQt6
+          fileName: "MFW-PyQt6-macos-${{ matrix.arch }}*"
+          latest: true
+          out-file-path: "install"
+          extract: true
+
+      - name: Install MFW
+        shell: bash
+        run: |
+          rm install/MFW-PyQt6-macos-${{ matrix.arch }}*
+          python ./deploy.py ${{ needs.meta.outputs.tag }}
+
       - uses: actions/upload-artifact@v4
         with:
           name: MSBA-macos-${{ matrix.arch }}
           path: "install"
-
-      - name: Download MFW
-        uses: robinraju/release-downloader@v1
-        if: matrix.arch == 'x86_64'
-        with:
-          repository: overflow65537/MFW-PyQt6
-          fileName: "MFW-PyQt6-macos-x86_64*"
-          latest: true
-          out-file-path: "MFW"
-          extract: true
-
-      - name: Install MFW
-        if: matrix.arch == 'x86_64'
-        shell: bash
-        run: |
-          rm MFW/MFW-PyQt6-macos-x86_64*
-           python ./deploy.py ${{ needs.meta.outputs.tag }}
-
-      - uses: actions/upload-artifact@v4
-        if: matrix.arch == 'x86_64'
-        with:
-          name: MSBA-macos-${{ matrix.arch }}-MFW-PyQt
-          path: "MFW"
 
   release:
     if: ${{ needs.meta.outputs.is_release == 'true' }}
