@@ -2,13 +2,13 @@
     "疗愈": {
         "action": "Swipe",
         "begin": [
-            50,
+            100,
             200,
             0,
             0
         ],
         "end": [
-            50,
+            0,
             400,
             0,
             0
@@ -18,6 +18,33 @@
             "清理黄点",
             "清理黑点",
             "再来一次"
+        ],
+        "on_error": [
+            "疗愈"
+        ]
+    },
+    "意外点击_黑点": {
+        "recognition": "ColorMatch",
+        "upper": [
+            123,
+            111,
+            106
+        ],
+        "lower": [
+            120,
+            108,
+            101
+        ],
+        "roi": [
+            43,
+            597,
+            221,
+            86
+        ],
+        "connected": true,
+        "count": 1000,
+        "next": [
+            "疗愈"
         ]
     },
     "再来一次": {
@@ -36,7 +63,7 @@
         ]
     },
     "清理红点": {
-        "threshold": 0.80,
+        "threshold": 0.8,
         "green_mask": true,
         "recognition": "TemplateMatch",
         "template": [
@@ -44,6 +71,7 @@
         ],
         "action": "Click",
         "next": [
+            "意外点击_黑点",
             "切换锤",
             "开始疗愈_游戏内"
         ]
@@ -65,7 +93,7 @@
         ]
     },
     "清理黄点": {
-        "threshold": 0.80,
+        "threshold": 0.8,
         "green_mask": true,
         "recognition": "TemplateMatch",
         "template": [
@@ -73,6 +101,7 @@
         ],
         "action": "Click",
         "next": [
+            "意外点击_黑点",
             "切换捏",
             "开始疗愈_游戏内"
         ]
