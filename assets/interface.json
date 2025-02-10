@@ -313,14 +313,27 @@
                     "name": "1",
                     "pipeline_override": {
                         "战斗次数": {
-                            "roi": [
-                                587,
-                                463,
-                                42,
-                                30
+                            "expected": [
+                                "1"
                             ],
-                            "recognition": "TemplateMatch",
-                            "template": "战斗\\战斗次数1_594_467_25_25__544_417_125_125.png"
+                            "replace": [
+                                [
+                                    "i",
+                                    "1"
+                                ],
+                                [
+                                    "I",
+                                    "1"
+                                ],
+                                [
+                                    "l",
+                                    "1"
+                                ],
+                                [
+                                    "L",
+                                    "1"
+                                ]
+                            ]
                         },
                         "速战MAX": {
                             "enabled": false
@@ -340,13 +353,6 @@
                     "name": "2",
                     "pipeline_override": {
                         "战斗次数": {
-                            "roi": [
-                                587,
-                                463,
-                                42,
-                                30
-                            ],
-                            "recognition": "OCR",
                             "expected": "2"
                         },
                         "速战MAX": {
@@ -367,13 +373,6 @@
                     "name": "3",
                     "pipeline_override": {
                         "战斗次数": {
-                            "roi": [
-                                587,
-                                463,
-                                42,
-                                30
-                            ],
-                            "recognition": "OCR",
                             "expected": "3"
                         },
                         "速战MAX": {
@@ -394,14 +393,7 @@
                     "name": "4",
                     "pipeline_override": {
                         "战斗次数": {
-                            "roi": [
-                                587,
-                                463,
-                                42,
-                                30
-                            ],
-                            "recognition": "TemplateMatch",
-                            "template": "战斗\\战斗次数4_596_467_23_24__546_417_123_124.png"
+                            "expected": "4"
                         },
                         "速战MAX": {
                             "enabled": false
@@ -420,41 +412,25 @@
                 {
                     "name": "5",
                     "pipeline_override": {
-                        "战斗次数": {
-                            "roi": [
-                                587,
-                                463,
-                                42,
-                                30
-                            ],
-                            "recognition": "OCR",
-                            "expected": "5"
-                        },
-                        "速战MAX": {
-                            "enabled": false
-                        },
-                        "完成战斗": {
-                            "next": [
-                                "完成战斗",
-                                "返回主菜单"
-                            ],
-                            "interrupt": [
-                                "账号等级提升"
-                            ]
-                        }
+                        "expected": "5"
+                    },
+                    "速战MAX": {
+                        "enabled": false
+                    },
+                    "完成战斗": {
+                        "next": [
+                            "完成战斗",
+                            "返回主菜单"
+                        ],
+                        "interrupt": [
+                            "账号等级提升"
+                        ]
                     }
                 },
                 {
                     "name": "6",
                     "pipeline_override": {
                         "战斗次数": {
-                            "roi": [
-                                587,
-                                463,
-                                42,
-                                30
-                            ],
-                            "recognition": "OCR",
                             "expected": "6"
                         },
                         "速战MAX": {

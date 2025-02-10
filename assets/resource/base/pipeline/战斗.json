@@ -264,7 +264,16 @@
         ],
         "expected": "恢复感知"
     },
-    "战斗次数": {},
+    "战斗次数": {
+        "only_rec": true,
+        "roi": [
+            587,
+            463,
+            42,
+            30
+        ],
+        "recognition": "OCR"
+    },
     "增加战斗次数": {
         "recognition": "TemplateMatch",
         "template": "战斗/增加作战次数_748_460_62_37__698_410_162_137.png",
