@@ -19,9 +19,6 @@ on:
       - "**.py"
   workflow_dispatch:
 
-permissions:
-  contents: write  
-
 jobs:
   changelog:
     name: Generate changelog
@@ -212,8 +209,6 @@ jobs:
     if: ${{ needs.meta.outputs.is_release == 'true' }}
     needs: [meta, windows, ubuntu, macos, changelog]
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - uses: actions/download-artifact@v4
         with:
