@@ -11,8 +11,7 @@ jobs:
         uses: MirrorChyan/uploading-action@v1
         with:
           filetype: latest-release
-          filename: "MSBA-win-x86_64-MFW*.zip"
-          working-directory: bundles/MSBA/
+          filename: "MSBA-win-x86_64-v*.zip"
           pick_files: '["resource", "interface.json"]'
           exclude_files: '["*model/ocr/**"]'
           mirrorchyan_rid: MAA_SnowBreak
