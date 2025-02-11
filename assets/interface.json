@@ -498,6 +498,23 @@
         "选择人物": {
             "cases": [
                 {
+                    "name": "夜天光肴",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": "OCR",
+                            "expected": [
+                                "夜天光"
+                            ],
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
+                            ]
+                        }
+                    }
+                },
+                {
                     "name": "琼弦晨星",
                     "pipeline_override": {
                         "选择人物": {
@@ -626,12 +643,6 @@
                                 975,
                                 525
                             ]
-                        },
-                        "行为02": {
-                            "recognition": "TemplateMatch",
-                            "template": [
-                                "刷碎片\\辉耀行为02.png"
-                            ]
                         }
                     }
                 },
@@ -728,22 +739,15 @@
                     "name": "豹豹伊切尔",
                     "pipeline_override": {
                         "选择人物": {
-                            "green_mask": true,
-                            "recognition": "TemplateMatch",
-                            "template": "刷碎片\\豹豹伊切尔.png",
+                            "recognition": "OCR",
+                            "expected": [
+                                "豹豹"
+                            ],
                             "roi": [
                                 30,
                                 87,
                                 975,
                                 525
-                            ]
-                        },
-                        "次数不足": {
-                            "roi_offset": [
-                                100,
-                                0,
-                                100,
-                                -375
                             ]
                         }
                     }
@@ -762,10 +766,12 @@
                                 525
                             ]
                         },
-                        "行为02": {
-                            "recognition": "TemplateMatch",
-                            "template": [
-                                "刷碎片\\蓝闪行为02.png"
+                        "次数不足": {
+                            "roi_offset": [
+                                100,
+                                0,
+                                100,
+                                -375
                             ]
                         }
                     }
@@ -964,17 +970,6 @@
                                 87,
                                 975,
                                 525
-                            ]
-                        }
-                    }
-                },
-                {
-                    "name": "夜天光肴",
-                    "pipeline_override": {
-                        "选择人物": {
-                            "recognition": "OCR",
-                            "expected": [
-                                "夜天光"
                             ]
                         }
                     }
@@ -1267,5 +1262,5 @@
             ]
         }
     },
-    "version": "v1.5.4"
+    "version": "v1.6.8"
 }
