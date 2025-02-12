@@ -28,7 +28,10 @@ class ShotTarget(CustomAction):
 
         has_eject = bool(eject)
         is_not_shot_chance_true = argv.custom_action_param!='{"shot_chance":true}'
-        has_bullets = int(water.best_result.text) != 0 and int(empty.best_result.text) != 0
+        if water and empty:
+            has_bullets = int(water.best_result.text) != 0 and int(empty.best_result.text) != 0
+        else:
+            has_bullets = False
 
         if has_eject and is_not_shot_chance_true and has_bullets:
             eject_count = len(eject.filterd_results)
@@ -114,8 +117,6 @@ class ShotTarget(CustomAction):
             time.sleep(0.5)
             image = context.tasker.controller.post_screencap().wait().get()
         barrel = context.run_recognition("检查枪管", image)
-        print(argv.custom_action_param=='{"shot_chance":true}')
-        print(argv.custom_action_param)
         if barrel and argv.custom_action_param=='{"shot_chance":true}':
             x, y = (
                 barrel.best_result.box[0] + barrel.best_result.box[2] // 2,
