@@ -53,6 +53,7 @@
         ]
     },
     "开始心动水弹": {
+        "post_delay": 2000,
         "on_error": [
             "心动水弹"
         ],
@@ -96,11 +97,85 @@
         ],
         "template": "心动水弹\\我的回合.png",
         "next": [
-            "检查水弹",
+            "检查水弹是否为0",
+            "检查空弹是否为0",
             "展开道具",
             "检查墨镜",
+            "检查怪盗之手",
             "向对方开枪_custom",
             "收下道具"
+        ]
+    },
+    "检查怪盗之手": {
+        "on_error": [
+            "心动水弹"
+        ],
+        "recognition": "TemplateMatch",
+        "roi": [
+            97,
+            448,
+            464,
+            93
+        ],
+        "template": "心动水弹\\怪盗之手.png",
+        "action": "Click",
+        "next": [
+            "偷道具"
+        ],
+        "interrupt": [
+            "使用道具"
+        ]
+    },
+    "偷道具": {
+        "post_delay": 1000,
+        "recognition": "TemplateMatch",
+        "roi": [
+            285,
+            221,
+            784,
+            316
+        ],
+        "template": [
+            "心动水弹\\墨镜_偷.png",
+            "心动水弹\\枪管_偷.png",
+            "心动水弹\\活力宝石_偷.png",
+            "心动水弹\\手铐_偷.png",
+            "心动水弹\\怪盗之手_偷.png",
+            "心动水弹\\退弹布偶_偷.png",
+            "心动水弹\\逆转魔术_偷.png"
+        ],
+        "action": "Click",
+        "next": [
+            "确定偷窃道具"
+        ]
+    },
+    "确定偷窃道具": {
+        "recognition": "OCR",
+        "roi": [
+            577,
+            540,
+            82,
+            42
+        ],
+        "expected": "确定",
+        "action": "Click",
+        "next": [
+            "点击丢失_偷窃道具",
+            "我的回合"
+        ]
+    },
+    "点击丢失_偷窃道具": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            502,
+            334,
+            277,
+            48
+        ],
+        "expected": "请选择进行获取的道具",
+        "next": [
+            "偷道具"
         ]
     },
     "检查墨镜": {
@@ -124,6 +199,58 @@
             "使用道具"
         ]
     },
+    "检查逆转魔术": {
+        "on_error": [
+            "心动水弹"
+        ],
+        "recognition": "TemplateMatch",
+        "roi": [
+            97,
+            448,
+            464,
+            93
+        ],
+        "template": "心动水弹\\逆转魔术.png"
+    },
+    "检查退弹布偶": {
+        "on_error": [
+            "心动水弹"
+        ],
+        "recognition": "TemplateMatch",
+        "roi": [
+            97,
+            448,
+            464,
+            93
+        ],
+        "template": "心动水弹\\退弹布偶.png"
+    },
+    "检查退弹布偶_偷": {
+        "on_error": [
+            "心动水弹"
+        ],
+        "recognition": "TemplateMatch",
+        "roi": [
+            97,
+            448,
+            464,
+            93
+        ],
+        "template": "心动水弹\\退弹布偶_偷.png"
+    },
+    "检查重置之锤": {
+        "on_error": [
+            "心动水弹"
+        ],
+        "recognition": "TemplateMatch",
+        "roi": [
+            97,
+            448,
+            464,
+            93
+        ],
+        "template": "心动水弹\\重置之锤.png"
+    },
     "判断射击目标_自己": {
         "on_error": [
             "心动水弹"
@@ -137,7 +264,7 @@
         ],
         "expected": "看破！下一发子弹是空弹",
         "next": [
-            "向自己开枪"
+            "向自己开枪_custom"
         ]
     },
     "生命值缺失": {
@@ -206,15 +333,35 @@
         ],
         "expected": "看破！下一发子弹是水弹",
         "next": [
-            "向对方开枪_custom"
+            "向对方开枪_custom_100"
         ]
     },
-    "向对方开枪_custom": {
+    "向对方开枪_custom_100": {
+        "_doc": "下一发肯定是水弹",
         "on_error": [
             "心动水弹"
         ],
         "green_mask": true,
-        "threshold": 0.8,
+        "recognition": "TemplateMatch",
+        "roi": [
+            968,
+            487,
+            305,
+            227
+        ],
+        "template": "心动水弹\\向对方开枪.png",
+        "action": "Custom",
+        "custom_action": "ShotTarget",
+        "custom_action_param": {
+            "shot_chance": true
+        }
+    },
+    "向对方开枪_custom": {
+        "_doc": "下一发不一定是什么",
+        "on_error": [
+            "心动水弹"
+        ],
+        "green_mask": true,
         "recognition": "TemplateMatch",
         "roi": [
             968,
@@ -225,6 +372,23 @@
         "template": "心动水弹\\向对方开枪.png",
         "action": "Custom",
         "custom_action": "ShotTarget"
+    },
+    "向自己开枪_custom": {
+        "_doc": "下一发肯定是空弹",
+        "on_error": [
+            "心动水弹"
+        ],
+        "green_mask": true,
+        "recognition": "TemplateMatch",
+        "roi": [
+            968,
+            487,
+            305,
+            227
+        ],
+        "template": "心动水弹\\向自己开枪.png",
+        "action": "Custom",
+        "custom_action": "ShotSelf"
     },
     "使用道具": {
         "on_error": [
@@ -272,7 +436,8 @@
             "我的回合"
         ]
     },
-    "检查水弹": {
+    "检查水弹是否为0": {
+        "_doc": "检查水弹是否为0",
         "on_error": [
             "心动水弹"
         ],
@@ -285,13 +450,36 @@
         ],
         "expected": "^0$",
         "next": [
-            "向自己开枪"
+            "向自己开枪_custom"
         ]
+    },
+    "检查空弹是否为0": {
+        "_doc": "检查空弹是否为0",
+        "on_error": [
+            "心动水弹"
+        ],
+        "recognition": "OCR",
+        "roi": [
+            1107,
+            653,
+            24,
+            33
+        ],
+        "expected": "^0$",
+        "next": [
+            "向对方开枪_custom_100"
+        ]
+    },
+    "检查子弹_custom": {
+        "recognition": "OCR",
+        "only_rec": true,
+        "expected": "\\d+"
     },
     "向自己开枪": {
         "on_error": [
             "心动水弹"
         ],
+        "pre_delay": 2000,
         "post_delay": 10000,
         "green_mask": true,
         "recognition": "TemplateMatch",
