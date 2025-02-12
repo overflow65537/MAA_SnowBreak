@@ -27,7 +27,7 @@ class ShotTarget(CustomAction):
         empty = context.run_recognition("检查子弹_custom", image,{"检查子弹_custom":{"roi":[988,652,25,34]}})
 
         has_eject = bool(eject)
-        is_not_shot_chance_true = argv.custom_action_param=='{"shot_chance":true}'
+        is_not_shot_chance_true = argv.custom_action_param!='{"shot_chance":true}'
         has_bullets = int(water.best_result.text) != 0 and int(empty.best_result.text) != 0
 
         if has_eject and is_not_shot_chance_true and has_bullets:
