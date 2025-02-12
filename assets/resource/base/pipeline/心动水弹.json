@@ -6,11 +6,26 @@
             "再来!"
         ],
         "interrupt": [
+            "切换倍数",
             "开始心动水弹",
             "我的回合",
             "对方回合",
             "收下道具"
         ]
+    },
+    "切换倍数": {
+        "recognition": "OCR",
+        "roi": [
+            1107,
+            41,
+            48,
+            44
+        ],
+        "expected": [
+            "x1",
+            "x2"
+        ],
+        "action": "Click"
     },
     "再来!": {
         "recognition": "OCR",
@@ -97,8 +112,8 @@
         ],
         "template": "心动水弹\\我的回合.png",
         "next": [
-            "检查水弹是否为0",
-            "检查空弹是否为0",
+            "检查下一发是否是水弹",
+            "检查下一发是否是空弹",
             "展开道具",
             "检查墨镜",
             "检查怪盗之手",
@@ -344,10 +359,10 @@
         "green_mask": true,
         "recognition": "TemplateMatch",
         "roi": [
-            968,
-            487,
-            305,
-            227
+            1002,
+            511,
+            270,
+            162
         ],
         "template": "心动水弹\\向对方开枪.png",
         "action": "Custom",
@@ -364,10 +379,10 @@
         "green_mask": true,
         "recognition": "TemplateMatch",
         "roi": [
-            968,
-            487,
-            305,
-            227
+            1002,
+            511,
+            270,
+            162
         ],
         "template": "心动水弹\\向对方开枪.png",
         "action": "Custom",
@@ -381,10 +396,10 @@
         "green_mask": true,
         "recognition": "TemplateMatch",
         "roi": [
-            968,
-            487,
-            305,
-            227
+            901,
+            443,
+            256,
+            163
         ],
         "template": "心动水弹\\向自己开枪.png",
         "action": "Custom",
@@ -436,35 +451,35 @@
             "我的回合"
         ]
     },
-    "检查水弹是否为0": {
-        "_doc": "检查水弹是否为0",
+    "检查下一发是否是水弹": {
+        "_doc": "检查空弹区域,如果为0代表下一发必是水弹",
         "on_error": [
             "心动水弹"
         ],
         "recognition": "OCR",
         "roi": [
-            1029,
-            653,
-            22,
-            37
+            988,
+            652,
+            25,
+            34
         ],
         "expected": "^0$",
         "next": [
             "向自己开枪_custom"
         ]
     },
-    "检查空弹是否为0": {
-        "_doc": "检查空弹是否为0",
+    "检查下一发是否是空弹": {
+        "_doc": "检查水弹区域,如果为0代表下一发必是空弹",
         "on_error": [
             "心动水弹"
         ],
-        "recognition": "OCR",
         "roi": [
-            1107,
-            653,
-            24,
+            1067,
+            651,
+            25,
             33
         ],
+        "recognition": "OCR",
         "expected": "^0$",
         "next": [
             "向对方开枪_custom_100"
@@ -484,10 +499,10 @@
         "green_mask": true,
         "recognition": "TemplateMatch",
         "roi": [
-            968,
-            487,
-            305,
-            227
+            901,
+            443,
+            256,
+            163
         ],
         "template": "心动水弹\\向自己开枪.png",
         "action": "Click"
@@ -500,10 +515,10 @@
         "threshold": 0.8,
         "recognition": "TemplateMatch",
         "roi": [
-            968,
-            487,
-            305,
-            227
+            1002,
+            511,
+            270,
+            162
         ],
         "template": "心动水弹\\向对方开枪.png",
         "action": "Click",
