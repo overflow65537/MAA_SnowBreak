@@ -19,8 +19,26 @@
             "清理黑点",
             "再来一次"
         ],
+        "interrupt": [
+            "未找到目标"
+        ],
         "on_error": [
             "疗愈"
+        ]
+    },
+    "未找到目标": {
+        "action": "Swipe",
+        "begin": [
+            100,
+            200,
+            0,
+            0
+        ],
+        "end": [
+            0,
+            400,
+            0,
+            0
         ]
     },
     "意外点击_黑点": {
@@ -63,12 +81,19 @@
         ]
     },
     "清理红点": {
-        "threshold": 0.8,
-        "green_mask": true,
-        "recognition": "TemplateMatch",
-        "template": [
-            "疗愈\\红点_987_426_30_32__937_376_130_132.png"
+        "recognition": "ColorMatch",
+        "upper": [
+            223,
+            76,
+            96
         ],
+        "lower": [
+            215,
+            41,
+            71
+        ],
+        "connected": true,
+        "count": 5,
         "action": "Click",
         "next": [
             "意外点击_黑点",
