@@ -1,6 +1,7 @@
 from assets.custom.action.Fishing.main import Fishing
 from assets.custom.action.ShotTarget.main import ShotTarget
 from assets.custom.action.ScreenShot.main import ScreenShot
+from assets.custom.action.ShotSelf.main import ShotSelf
 
 from maa.toolkit import Toolkit
 
@@ -12,6 +13,7 @@ def main():
     Toolkit.pi_register_custom_action("Fishing", Fishing())
     Toolkit.pi_register_custom_action("ShotTarget", ShotTarget())
     Toolkit.pi_register_custom_action("ScreenShot", ScreenShot())
+    Toolkit.pi_register_custom_action("ShotSelf", ShotSelf())
 
     # 注册自定义识别
 
