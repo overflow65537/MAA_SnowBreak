@@ -9,8 +9,10 @@
         ]
     },
     "甩杆": {
-        "recognition": "ColorMatch",
+        "post_delay": 1000,
         "count": 500,
+        "recognition": "ColorMatch",
+        "method": 4,
         "roi": [
             1069,
             538,
@@ -18,9 +20,9 @@
             166
         ],
         "lower": [
-            170,
-            210,
-            60
+            150,
+            190,
+            40
         ],
         "upper": [
             220,
@@ -31,6 +33,7 @@
         "action": "Click"
     },
     "钓鱼中": {
+        "count": 500,
         "recognition": "ColorMatch",
         "upper": [
             255,
@@ -38,9 +41,9 @@
             102
         ],
         "lower": [
-            242,
-            250,
-            88
+            200,
+            210,
+            40
         ],
         "roi": [
             1050,
@@ -58,7 +61,16 @@
             319,
             210
         ],
-        "expected": "有鱼儿上钩了",
+        "expected": [
+            "鱼儿",
+            "上钩"
+        ],
+        "replace": [
+            [
+                "钩",
+                "钓"
+            ]
+        ],
         "action": "Click",
         "target": [
             1159,
