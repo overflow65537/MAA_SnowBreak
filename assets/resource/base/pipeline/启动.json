@@ -67,7 +67,7 @@
     "启动应用": {
         "post_delay": 1000,
         "action": "StartApp",
-        "package": "com.dragonli.projectsnow.lhm/com.xgsdk.client.api.splash.XGSplashActivity"
+        "package": "com.dragonli.projectsnow.lhm"
     },
     "关闭签到": {
         "post_delay": 1000,
