@@ -1,7 +1,22 @@
 {
-    "心动水弹": {
+    "心动水弹_err": {
         "on_error": [],
-        "timeout": 300000,
+        "action": "Click",
+        "target": [
+            100,
+            100,
+            0,
+            0
+        ],
+        "next": [
+            "心动水弹"
+        ]
+    },
+    "心动水弹": {
+        "on_error": [
+            "心动水弹_err"
+        ],
+        "timeout": 60000,
         "next": [
             "再来!"
         ],
@@ -49,7 +64,7 @@
     },
     "收下道具": {
         "on_error": [
-            "心动水弹"
+            "心动水弹_err"
         ],
         "recognition": "OCR",
         "roi": [
@@ -70,7 +85,7 @@
     "开始心动水弹": {
         "post_delay": 2000,
         "on_error": [
-            "心动水弹"
+            "心动水弹_err"
         ],
         "recognition": "TemplateMatch",
         "roi": [
@@ -84,7 +99,7 @@
     },
     "对方回合": {
         "on_error": [
-            "心动水弹"
+            "心动水弹_err"
         ],
         "post_delay": 1000,
         "green_mask": true,
@@ -99,7 +114,7 @@
     },
     "我的回合": {
         "on_error": [
-            "心动水弹"
+            "心动水弹_err"
         ],
         "post_delay": 1000,
         "green_mask": true,
@@ -123,7 +138,7 @@
     },
     "检查怪盗之手": {
         "on_error": [
-            "心动水弹"
+            "心动水弹_err"
         ],
         "recognition": "TemplateMatch",
         "roi": [
@@ -317,7 +332,7 @@
     },
     "检查墨镜": {
         "on_error": [
-            "心动水弹"
+            "心动水弹_err"
         ],
         "recognition": "TemplateMatch",
         "roi": [
@@ -338,7 +353,7 @@
     },
     "检查逆转魔术": {
         "on_error": [
-            "心动水弹"
+            "心动水弹_err"
         ],
         "recognition": "TemplateMatch",
         "roi": [
@@ -351,7 +366,7 @@
     },
     "检查退弹布偶": {
         "on_error": [
-            "心动水弹"
+            "心动水弹_err"
         ],
         "recognition": "TemplateMatch",
         "roi": [
@@ -364,7 +379,7 @@
     },
     "检查退弹布偶_偷": {
         "on_error": [
-            "心动水弹"
+            "心动水弹_err"
         ],
         "recognition": "TemplateMatch",
         "roi": [
@@ -377,7 +392,7 @@
     },
     "检查重置之锤": {
         "on_error": [
-            "心动水弹"
+            "心动水弹_err"
         ],
         "recognition": "TemplateMatch",
         "roi": [
@@ -390,7 +405,7 @@
     },
     "判断射击目标_自己": {
         "on_error": [
-            "心动水弹"
+            "心动水弹_err"
         ],
         "recognition": "OCR",
         "roi": [
@@ -406,7 +421,7 @@
     },
     "生命值缺失": {
         "on_error": [
-            "心动水弹"
+            "心动水弹_err"
         ],
         "recognition": "TemplateMatch",
         "roi": [
@@ -419,7 +434,7 @@
     },
     "检查活力宝石": {
         "on_error": [
-            "心动水弹"
+            "心动水弹_err"
         ],
         "recognition": "TemplateMatch",
         "roi": [
@@ -432,7 +447,7 @@
     },
     "检查手铐": {
         "on_error": [
-            "心动水弹"
+            "心动水弹_err"
         ],
         "recognition": "TemplateMatch",
         "roi": [
@@ -445,7 +460,7 @@
     },
     "检查枪管": {
         "on_error": [
-            "心动水弹"
+            "心动水弹_err"
         ],
         "threshold": 0.6,
         "recognition": "TemplateMatch",
@@ -459,7 +474,7 @@
     },
     "判断射击目标_对方": {
         "on_error": [
-            "心动水弹"
+            "心动水弹_err"
         ],
         "recognition": "OCR",
         "roi": [
@@ -476,7 +491,7 @@
     "向对方开枪_custom_100": {
         "_doc": "下一发肯定是水弹",
         "on_error": [
-            "心动水弹"
+            "心动水弹_err"
         ],
         "green_mask": true,
         "recognition": "TemplateMatch",
@@ -496,7 +511,7 @@
     "向对方开枪_custom": {
         "_doc": "下一发不一定是什么",
         "on_error": [
-            "心动水弹"
+            "心动水弹_err"
         ],
         "green_mask": true,
         "recognition": "TemplateMatch",
@@ -513,7 +528,7 @@
     "向自己开枪_custom": {
         "_doc": "下一发肯定是空弹",
         "on_error": [
-            "心动水弹"
+            "心动水弹_err"
         ],
         "green_mask": true,
         "recognition": "TemplateMatch",
@@ -529,7 +544,7 @@
     },
     "使用道具": {
         "on_error": [
-            "心动水弹"
+            "心动水弹_err"
         ],
         "recognition": "OCR",
         "roi": [
@@ -543,7 +558,7 @@
     },
     "检查手铐状态": {
         "on_error": [
-            "心动水弹"
+            "心动水弹_err"
         ],
         "green_mask": true,
         "recognition": "TemplateMatch",
@@ -557,7 +572,7 @@
     },
     "展开道具": {
         "on_error": [
-            "心动水弹"
+            "心动水弹_err"
         ],
         "threshold": 0.95,
         "recognition": "TemplateMatch",
@@ -576,7 +591,7 @@
     "检查下一发是否是水弹": {
         "_doc": "检查空弹区域,如果为0代表下一发必是水弹",
         "on_error": [
-            "心动水弹"
+            "心动水弹_err"
         ],
         "recognition": "OCR",
         "roi": [
@@ -593,7 +608,7 @@
     "检查下一发是否是空弹": {
         "_doc": "检查水弹区域,如果为0代表下一发必是空弹",
         "on_error": [
-            "心动水弹"
+            "心动水弹_err"
         ],
         "roi": [
             1067,
@@ -614,7 +629,7 @@
     },
     "向自己开枪": {
         "on_error": [
-            "心动水弹"
+            "心动水弹_err"
         ],
         "pre_delay": 2000,
         "post_delay": 10000,
@@ -631,7 +646,7 @@
     },
     "向对方开枪": {
         "on_error": [
-            "心动水弹"
+            "心动水弹_err"
         ],
         "green_mask": true,
         "threshold": 0.8,
@@ -650,7 +665,7 @@
     },
     "开枪!": {
         "on_error": [
-            "心动水弹"
+            "心动水弹_err"
         ],
         "post_delay": 8000,
         "recognition": "TemplateMatch",
