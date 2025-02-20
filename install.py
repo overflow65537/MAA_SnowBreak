@@ -42,9 +42,14 @@ def bulid():
     ]
     PyInstaller.__main__.run(command)
     maapicli_dir = install_path / "maapicli"
-    if maapicli_dir.exists():
-        for item in maapicli_dir.iterdir():
-            shutil.move(str(item), str(install_path))
+    for item in maapicli_dir.iterdir():  # 使用iterdir()遍历目录
+        target = install_path / item.name  # 使用/操作符拼接路径
+        if target.exists():  # 如果目标路径已存在
+            if target.is_dir():  # 如果是目录
+                shutil.rmtree(target)
+            else:  # 如果是文件
+                target.unlink()  # 删除文件
+        shutil.move(str(item), str(target))  # move()仍需要字符串路径
 
     # 删除空的 maapicli 文件夹
     if maapicli_dir.is_dir() and not any(maapicli_dir.iterdir()):
