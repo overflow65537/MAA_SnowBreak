@@ -35,26 +35,23 @@ def bulid():
 
     command = [
         "run_cli.py",
-        "--name=maapicli",
+        "--name=install",
         f"--add-data={add_data_param2}",
-        f"--distpath={install_path}",
+        f"--distpath={working_dir}",
         "--clean",
     ]
     PyInstaller.__main__.run(command)
-    maapicli_dir = install_path / "maapicli"
-    for item in maapicli_dir.iterdir():  # 使用iterdir()遍历目录
-        target = install_path / item.name  # 使用/操作符拼接路径
-        if target.exists():  # 如果目标路径已存在
-            if target.is_dir():  # 如果是目录
-                shutil.rmtree(target)
-            else:  # 如果是文件
-                target.unlink()  # 删除文件
-        shutil.move(str(item), str(target))  # move()仍需要字符串路径
-
-    # 删除空的 maapicli 文件夹
-    if maapicli_dir.is_dir() and not any(maapicli_dir.iterdir()):
-        maapicli_dir.rmdir()
-        # 查找包含 maa/bin 的路径
+    
+    if sys.platform == "win32":
+        old_name = install_path / "install.exe"
+        new_name = install_path / "maapicli.exe"
+        old_name.rename(new_name)
+    elif sys.platform == "darwin" or sys.platform == "linux":
+        old_name = install_path / "install"
+        new_name = install_path / "maapicli"
+        old_name.rename(new_name)
+    else:
+        raise NotImplementedError("not supported platform")
     maa_bin_path = None
     for path in site_packages_paths:
         potential_path = os.path.join(path, "maa", "bin")
