@@ -1,3 +1,7 @@
+import os
+if not os.path.exists("run_cli.py"):
+    os.environ["MAAFW_BINARY_PATH"] = os.getcwd()
+
 from assets.custom.action.Fishing.main import Fishing
 from assets.custom.action.ShotTarget.main import ShotTarget
 from assets.custom.action.ScreenShot.main import ScreenShot
@@ -6,7 +10,6 @@ from assets.custom.action.ShotSelf.main import ShotSelf
 from maa.toolkit import Toolkit
 
 import sys
-
 
 def main():
     # 注册自定义动作
