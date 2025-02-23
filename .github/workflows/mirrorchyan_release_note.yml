@@ -13,7 +13,7 @@ jobs:
       - id: uploading
         uses: MirrorChyan/release-note-action@v1
         with:
-          mirrorchyan_rid: MFW-PyQt6
+          mirrorchyan_rid: MAA_SnowBreak
 
           upload_token: ${{ secrets.MirrorChyanUploadToken }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
