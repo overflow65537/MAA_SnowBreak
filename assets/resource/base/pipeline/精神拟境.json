@@ -132,6 +132,7 @@
         ]
     },
     "点击第二栏": {
+        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
             1080,
