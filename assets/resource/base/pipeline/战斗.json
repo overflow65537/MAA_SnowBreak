@@ -114,6 +114,7 @@
         ]
     },
     "进入深渊作战": {
+        "post_delay": 1000,
         "recognition": "OCR",
         "expected": "深渊",
         "action": "Click"
