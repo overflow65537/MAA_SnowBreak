@@ -140,7 +140,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: MSBA-${{ matrix.platform }}-${{ matrix.arch }}
-          path: install
+          path: install/
           include-hidden-files: true
 
   release:
