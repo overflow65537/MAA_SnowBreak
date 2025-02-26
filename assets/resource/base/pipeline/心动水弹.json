@@ -693,6 +693,10 @@
             150
         ],
         "template": "心动水弹\\开枪!.png",
-        "action": "Click"
+        "action": "Click",
+        "next": [
+            "开枪!",
+            "心动水弹"
+        ]
     }
 }
