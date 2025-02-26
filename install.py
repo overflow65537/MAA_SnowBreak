@@ -29,29 +29,7 @@ def bulid():
 
     if maa_bin_path2 is None:
         raise FileNotFoundError("not found MaaAgentBinary")
-
-    # 构建 --add-data 参数
-    add_data_param2 = f"{maa_bin_path2}{os.pathsep}MaaAgentBinary"
-
-    command = [
-        "run_cli.py",
-        "--name=install",
-        f"--add-data={add_data_param2}",
-        f"--distpath={working_dir}",
-        "--clean",
-    ]
-    PyInstaller.__main__.run(command)
-    
-    if sys.platform == "win32":
-        old_name = install_path / "install.exe"
-        new_name = install_path / "maapicli.exe"
-        old_name.rename(new_name)
-    elif sys.platform == "darwin" or sys.platform == "linux":
-        old_name = install_path / "install"
-        new_name = install_path / "maapicli"
-        old_name.rename(new_name)
-    else:
-        raise NotImplementedError("not supported platform")
+    # 查找包含 maa/bin 的路径
     maa_bin_path = None
     for path in site_packages_paths:
         potential_path = os.path.join(path, "maa", "bin")

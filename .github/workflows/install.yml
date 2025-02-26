@@ -70,31 +70,55 @@ jobs:
       tag: ${{ steps.set_tag.outputs.tag }}
       is_release: ${{ steps.set_tag.outputs.is_release }}
 
-  windows:
+  build:
     needs: meta
-    runs-on: windows-latest
+    name: nuitka Build (${{ matrix.platform }})
+    runs-on: ${{ matrix.runs-on }}
     strategy:
       matrix:
-        arch: [aarch64, x86_64]
+        include:
+          - platform: win
+            runs-on: windows-latest
+            arch: x86_64 
+          - platform: win
+            runs-on: windows-latest
+            arch: aarch64  
+          - platform: linux
+            runs-on: ubuntu-latest
+            arch: x86_64
+          - platform: linux
+            runs-on: ubuntu-latest
+            arch: aarch64
+          - platform: macos
+            runs-on: macos-latest
+            arch: x86_64
+          - platform: macos
+            runs-on: macos-latest
+            arch: aarch64
+
       fail-fast: false
 
     steps:
       - uses: actions/checkout@v4
-        with:
-          submodules: true
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
-      - name: Install
-        shell: bash
+      - name: Install Dependencies
         run: |
-          pip install pyinstaller
-          pip install -r requirements.txt
-          python ./install.py ${{ needs.meta.outputs.tag }}
-          
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+
+      - name: maapicli build
+        uses: Nuitka/Nuitka-Action@main
+        with:
+          nuitka-version: main
+          script-name: maapicli.py
+          mode: standalone
+      - name: rename install
+        run: |
+          mv build/maapicli.dist install
       - name: Download MFW
         uses: robinraju/release-downloader@v1
         with:
@@ -103,111 +127,23 @@ jobs:
           latest: true
           out-file-path: "install"
           extract: true
-
+  
       - name: Install MFW
         shell: bash
         run: |
           rm install/MFW-PyQt6-win-${{ matrix.arch }}* 
           python ./deploy.py ${{ needs.meta.outputs.tag }}
-      
-      - uses: actions/upload-artifact@v4
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
         with:
-          name: MSBA-win-${{ matrix.arch }}
-          path: "install"
-
-  ubuntu:
-    needs: meta
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        arch: [aarch64, x86_64]
-      fail-fast: false
-
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          submodules: true
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.12'
-          
-      - name: Install
-        shell: bash
-        run: |
-          pip install pyinstaller
-          pip install -r requirements.txt
-          python ./install.py ${{ needs.meta.outputs.tag }}
-
-      - name: Download MFW
-        uses: robinraju/release-downloader@v1
-        with:
-          repository: overflow65537/MFW-PyQt6
-          fileName: "MFW-PyQt6-linux-${{ matrix.arch }}*"
-          latest: true
-          out-file-path: "install"
-          extract: true
-
-      - name: Install MFW
-        shell: bash
-        run: |
-          rm install/MFW-PyQt6-linux-${{ matrix.arch }}* 
-          python ./deploy.py ${{ needs.meta.outputs.tag }}
-
-      - uses: actions/upload-artifact@v4
-        with:
-          name: MSBA-linux-${{ matrix.arch }}
-          path: "install"
-
-  macos:
-    needs: meta
-    runs-on: macos-latest
-    strategy:
-      matrix:
-        arch: [aarch64, x86_64]
-      fail-fast: false
-
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          submodules: true
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.12'
-  
-      - name: Install
-        shell: bash
-        run: |
-          pip install pyinstaller
-          pip install -r requirements.txt
-          python ./install.py ${{ needs.meta.outputs.tag }}
-
-      - name: Download MFW
-        uses: robinraju/release-downloader@v1
-        with:
-          repository: overflow65537/MFW-PyQt6
-          fileName: "MFW-PyQt6-macos-${{ matrix.arch }}*"
-          latest: true
-          out-file-path: "install"
-          extract: true
-
-      - name: Install MFW
-        shell: bash
-        run: |
-          rm install/MFW-PyQt6-macos-${{ matrix.arch }}*
-          python ./deploy.py ${{ needs.meta.outputs.tag }}
-
-      - uses: actions/upload-artifact@v4
-        with:
-          name: MSBA-macos-${{ matrix.arch }}
-          path: "install"
+          name: MSBA-${{ matrix.platform }}-${{ matrix.arch }}
+          path: build/main.dist
+          include-hidden-files: true
 
   release:
     if: ${{ needs.meta.outputs.is_release == 'true' }}
-    needs: [meta, windows, ubuntu, macos, changelog]
+    needs: [meta, build, changelog]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@v4
