@@ -1,5 +1,8 @@
 {
     "疗愈": {
+        "on_error": [
+            "疗愈"
+        ],
         "action": "Swipe",
         "begin": [
             0,
