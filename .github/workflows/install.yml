@@ -118,9 +118,11 @@ jobs:
           nuitka-version: main
           script-name: maapicli.py
           mode: standalone
+
       - name: rename install
         run: |
           mv build/maapicli.dist install
+
       - name: Download MFW
         uses: robinraju/release-downloader@v1
         with:
@@ -135,6 +137,7 @@ jobs:
         run: |
           rm install/MFW-PyQt6-${{ matrix.platform }}-${{ matrix.arch }}* 
           python ./deploy.py ${{ needs.meta.outputs.tag }}
+          python .install.py ${{ needs.meta.outputs.tag }}
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
