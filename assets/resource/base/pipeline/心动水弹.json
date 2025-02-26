@@ -663,6 +663,7 @@
         "on_error": [
             "心动水弹_err"
         ],
+        "pre_delay": 1000,
         "green_mask": true,
         "threshold": 0.8,
         "recognition": "TemplateMatch",
@@ -675,7 +676,8 @@
         "template": "心动水弹\\向对方开枪.png",
         "action": "Click",
         "next": [
-            "开枪!"
+            "开枪!",
+            "向对方开枪"
         ]
     },
     "开枪!": {
