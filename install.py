@@ -1,5 +1,4 @@
 from pathlib import Path
-import PyInstaller.__main__
 import site
 import os
 
