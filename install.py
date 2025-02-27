@@ -66,8 +66,8 @@ def install_resource():
         working_dir / "assets" ,
         install_path ,
         dirs_exist_ok=True,
-        ignore=working_dir / "assets"/"MaaCommonAssets"
     )
+    shutil.rmtree(install_path / "MaaCommonAssets")
 
     with open(install_path / "interface.json", "r", encoding="utf-8") as f:
         interface = json.load(f)
