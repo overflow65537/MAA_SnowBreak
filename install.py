@@ -34,7 +34,7 @@ def bulid():
     add_data_param2 = f"{maa_bin_path2}{os.pathsep}MaaAgentBinary"
 
     command = [
-        "run_cli.py",
+        "maapicli.py",
         "--name=maapicli",
         f"--add-data={add_data_param2}",
         f"--distpath={working_dir}",
