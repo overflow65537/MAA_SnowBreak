@@ -66,8 +66,9 @@ def install_resource():
         working_dir / "assets" ,
         install_path ,
         dirs_exist_ok=True,
+        ignore="MaaCommonAssets"
     )
-    
+
     with open(install_path / "interface.json", "r", encoding="utf-8") as f:
         interface = json.load(f)
 
