@@ -11,6 +11,7 @@ from maa.toolkit import Toolkit
 
 import sys
 
+
 print("如无必要，请使用MFW.exe运行")
 print("if not necessary, please use MFW.exe to run")
 

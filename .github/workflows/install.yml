@@ -72,79 +72,58 @@ jobs:
 
   build:
     needs: meta
-    name: nuitka Build (${{ matrix.platform }})
-    runs-on: ${{ matrix.runs-on }}
     strategy:
       matrix:
+        os: [windows, ubuntu, macos]
+        arch: [aarch64, x86_64]
         include:
-          - platform: win
+          - os: windows
             runs-on: windows-latest
-            arch: x86_64 
-          - platform: win
-            runs-on: windows-latest
-            arch: aarch64  
-          - platform: linux
+            file-suffix: win
+          - os: ubuntu
             runs-on: ubuntu-latest
-            arch: x86_64
-          - platform: linux
-            runs-on: ubuntu-latest
-            arch: aarch64
-          - platform: macos
+            file-suffix: linux
+          - os: macos 
             runs-on: macos-latest
-            arch: x86_64
-          - platform: macos
-            runs-on: macos-latest
-            arch: aarch64
-
+            file-suffix: macos
       fail-fast: false
 
+    runs-on: ${{ matrix.runs-on }}
     steps:
       - uses: actions/checkout@v4
         with:
-            submodules: true
+          submodules: true
 
-      - uses: actions/setup-python@v5
+      - name: Set up Python
+        uses: actions/setup-python@v4
         with:
           python-version: '3.12'
 
-      - name: Install Dependencies
+      - name: Install
+        shell: bash
         run: |
-          python -m pip install --upgrade pip
-          python -m pip install -r requirements.txt
-
-      - name: maapicli build
-        uses: Nuitka/Nuitka-Action@main
-        with:
-          nuitka-version: main
-          script-name: maapicli.py
-          mode: standalone
-
-      - name: rename install
-        run: |
-          mv build/maapicli.dist install
+          pip install pyinstaller
+          pip install -r requirements.txt
+          python ./install.py ${{ needs.meta.outputs.tag }}
 
       - name: Download MFW
         uses: robinraju/release-downloader@v1
         with:
           repository: overflow65537/MFW-PyQt6
-          fileName: "MFW-PyQt6-${{ matrix.platform }}-${{ matrix.arch }}*"
+          fileName: "MFW-PyQt6-${{ matrix.file-suffix }}-${{ matrix.arch }}*"
           latest: true
-          out-file-path: "install"
+          out-file-path: "maapicli"
           extract: true
-  
-      - name: Install MFW
+
+      - name: rm MFW pack
         shell: bash
         run: |
-          rm install/MFW-PyQt6-${{ matrix.platform }}-${{ matrix.arch }}* 
-          python ./deploy.py ${{ needs.meta.outputs.tag }}
-          python ./install.py ${{ needs.meta.outputs.tag }}
+          rm maapicli/MFW-PyQt6-${{ matrix.file-suffix }}-${{ matrix.arch }}*
 
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v4
         with:
-          name: MSBA-${{ matrix.platform }}-${{ matrix.arch }}
-          path: install
-          include-hidden-files: true
+          name: MSBA-${{ matrix.file-suffix }}-${{ matrix.arch }}
+          path: "maapicli"
 
   release:
     if: ${{ needs.meta.outputs.is_release == 'true' }}
