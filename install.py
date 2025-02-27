@@ -1,4 +1,5 @@
 from pathlib import Path
+import PyInstaller.__main__
 import site
 import os
 
@@ -10,7 +11,7 @@ from configure import configure_ocr_model
 
 
 working_dir = Path(__file__).parent
-install_path = working_dir / Path("install")
+install_path = working_dir / Path("maapicli")
 version = len(sys.argv) > 1 and sys.argv[1] or "v0.0.1"
 
 
@@ -28,7 +29,19 @@ def bulid():
 
     if maa_bin_path2 is None:
         raise FileNotFoundError("not found MaaAgentBinary")
-    # 查找包含 maa/bin 的路径
+
+    # 构建 --add-data 参数
+    add_data_param2 = f"{maa_bin_path2}{os.pathsep}MaaAgentBinary"
+
+    command = [
+        "run_cli.py",
+        "--name=maapicli",
+        f"--add-data={add_data_param2}",
+        f"--distpath={working_dir}",
+        "--clean",
+    ]
+    PyInstaller.__main__.run(command)
+
     maa_bin_path = None
     for path in site_packages_paths:
         potential_path = os.path.join(path, "maa", "bin")
