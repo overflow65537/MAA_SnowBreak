@@ -364,7 +364,8 @@
     "选择活动作战1": {
         "recognition": "OCR",
         "expected": [
-            "材料"
+            "材",
+            "料"
         ],
         "action": "Click"
     },
