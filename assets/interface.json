@@ -478,6 +478,23 @@
         "选择人物": {
             "cases": [
                 {
+                    "name": "澜风恩雅",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": "OCR",
+                            "expected": [
+                                "澜风"
+                            ],
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
+                            ]
+                        }
+                    }
+                },
+                {
                     "name": "夜天光肴",
                     "pipeline_override": {
                         "选择人物": {

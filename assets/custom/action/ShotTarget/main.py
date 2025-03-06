@@ -23,8 +23,8 @@ class ShotTarget(CustomAction):
             
         #reset = context.run_recognition("检查重置之锤", image)
         eject = context.run_recognition("检查退弹布偶", image)
-        water = context.run_recognition("检查子弹_custom", image,{"检查子弹_custom":{"roi":[1067,651,25,33]}})
-        empty = context.run_recognition("检查子弹_custom", image,{"检查子弹_custom":{"roi":[988,652,25,34]}})
+        empty = context.run_recognition("检查子弹_custom", image,{"检查子弹_custom":{"roi":[1067,651,25,33]}})
+        water = context.run_recognition("检查子弹_custom", image,{"检查子弹_custom":{"roi":[988,652,25,34]}})
 
         has_eject = bool(eject)
         is_not_shot_chance_true = argv.custom_action_param!='{"shot_chance":true}'
@@ -53,8 +53,8 @@ class ShotTarget(CustomAction):
                     context.run_task("使用道具")
                     time.sleep(1)
                     image = context.tasker.controller.post_screencap().wait().get()
-                    water = context.run_recognition("检查子弹_custom", image,{"检查子弹_custom":{"roi":[1067,651,25,33]}})
-                    empty = context.run_recognition("检查子弹_custom", image,{"检查子弹_custom":{"roi":[988,652,25,34]}})
+                    empty = context.run_recognition("检查子弹_custom", image,{"检查子弹_custom":{"roi":[1067,651,25,33]}}) #空弹数量
+                    water = context.run_recognition("检查子弹_custom", image,{"检查子弹_custom":{"roi":[988,652,25,34]}})  #水弹数量
                     eject = context.run_recognition("检查退弹布偶", image)
                 if int(water.best_result.text) ==0:
                     context.run_task("向自己开枪_custom"),
