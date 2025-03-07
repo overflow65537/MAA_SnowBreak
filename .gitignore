@@ -448,3 +448,6 @@ install
 tools/ImageCropper/**/*.png
 assets/config/maa_pi_config.json
 maapicli.spec
+config/maa_option.json
+assets/agent/config/maa_option.json
+.vscode/settings.json
