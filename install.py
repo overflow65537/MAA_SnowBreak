@@ -53,15 +53,18 @@ def install_resource():
     )
 
     with open(install_path / "interface.json", "r", encoding="utf-8") as f:
-        interface:dict = json.load(f)
+        interface: dict = json.load(f)
 
     interface["version"] = version
-    interface["agent"] = interface.get("agent",{})
+    interface["agent"] = interface.get("agent", {})
     if sys.platform == "win32":
         interface["agent"]["child_exec"] = "{PROJECT_DIR}/agent/agent.exe"
     elif sys.platform == "darwin" or "linux":
         interface["agent"]["child_exec"] = "{PROJECT_DIR}/agent/agent"
-    interface["agent"]["child_args"] = interface.get("agent",{}).get("child_args",["{PROJECT_DIR}"])
+    interface["agent"]["child_args"] = interface.get("agent", {}).get(
+        "child_args", ["{PROJECT_DIR}"]
+    )  # {PROJECT_DIR}为maafw的dll/so文件路径,通过参数传递给agent
+    # 如果有其他的参数,需要在{PROJECT_DIR}的前面添加,需要保证{PROJECT_DIR}为最后一位
 
     with open(install_path / "interface.json", "w", encoding="utf-8") as f:
         json.dump(interface, f, ensure_ascii=False, indent=4)
@@ -84,7 +87,9 @@ def install_agent():
         str(working_dir / "agent" / "main.py"),
         "--name=agent",
         "--clean",
+        "--noconsole",
     ]
+
     PyInstaller.__main__.run(command)
     print(working_dir / "dist" / "agent")
     shutil.copytree(
