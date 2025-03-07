@@ -56,11 +56,13 @@ def install_resource():
         interface: dict = json.load(f)
 
     interface["version"] = version
-    interface["agent"] = interface.get("agent", {})
+
+    #添加agent的配置
+    interface["agent"] = interface.get("agent", {})#如果没有agent,则创建一个
     if sys.platform == "win32":
         interface["agent"]["child_exec"] = "{PROJECT_DIR}/agent/agent.exe"
     elif sys.platform == "darwin" or "linux":
-        interface["agent"]["child_exec"] = "{PROJECT_DIR}/agent/agent"
+        interface["agent"]["child_exec"] = "{PROJECT_DIR}/agent/agent"#linux和macos的可执行文件均为agent
     interface["agent"]["child_args"] = interface.get("agent", {}).get(
         "child_args", ["{PROJECT_DIR}"]
     )  # {PROJECT_DIR}为maafw的dll/so文件路径,通过参数传递给agent
