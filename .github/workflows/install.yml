@@ -99,6 +99,15 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Download MaaFramework
+        uses: robinraju/release-downloader@v1
+        with:
+          repository: MaaXYZ/MaaFramework
+          fileName: "MAA-${{ matrix.file-suffix }}-${{ matrix.arch }}*"
+          latest: true
+          out-file-path: "deps"
+          extract: true
+
       - name: Install
         shell: bash
         run: |
