@@ -58,10 +58,10 @@ def install_resource():
     interface["version"] = version
     interface["agent"] = interface.get("agent",{})
     if sys.platform == "win32":
-        interface["agent"]["child_exec"] = "./agent/agent.exe"
+        interface["agent"]["child_exec"] = "{PROJECT_DIR}/agent/agent.exe"
     elif sys.platform == "darwin" or "linux":
-        interface["agent"]["child_exec"] = "./agent/agent"
-    interface["agent"]["child_args"] = interface.get("agent",{}).get("child_args",[])
+        interface["agent"]["child_exec"] = "{PROJECT_DIR}/agent/agent"
+    interface["agent"]["child_args"] = interface.get("agent",{}).get("child_args",["{PROJECT_DIR}"])
 
     with open(install_path / "interface.json", "w", encoding="utf-8") as f:
         json.dump(interface, f, ensure_ascii=False, indent=4)
