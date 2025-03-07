@@ -107,6 +107,7 @@ jobs:
           latest: true
           out-file-path: "deps"
           extract: true
+          preRelease: true
 
       - name: Install
         shell: bash
