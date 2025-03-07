@@ -5,7 +5,6 @@ print(sys.argv)
 if len(sys.argv) > 2:
     binding_dir = Path(sys.argv[-2]).resolve()
     os.environ["MAAFW_BINARY_PATH"] = str(binding_dir)
-    print(f"binding_dir: {binding_dir}")
 
 from maa.agent.agent_server import AgentServer
 from maa.toolkit import Toolkit
