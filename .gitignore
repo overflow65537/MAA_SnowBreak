@@ -451,3 +451,5 @@ maapicli.spec
 config/maa_option.json
 assets/agent/config/maa_option.json
 .vscode/settings.json
+install.py
+agent.spec
