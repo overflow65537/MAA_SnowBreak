@@ -1,12 +1,14 @@
 {
     "笔谈_进入活动": {
-        "action": "Click",
-        "target": [
-            840,
-            282,
-            105,
-            64
+        "recognition": "OCR",
+        "roi": [
+            812,
+            254,
+            153,
+            116
         ],
+        "expected": "荒城栖花",
+        "action": "Click",
         "post_delay": 2000,
         "next": [
             "笔谈_进入笔谈"
