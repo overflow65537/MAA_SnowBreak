@@ -1,0 +1,388 @@
+{
+    "笔谈_进入活动": {
+        "action": "Click",
+        "target": [
+            840,
+            282,
+            105,
+            64
+        ],
+        "post_delay": 2000,
+        "next": [
+            "笔谈_进入笔谈"
+        ]
+    },
+    "笔谈_进入笔谈": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            972,
+            271,
+            200,
+            127
+        ],
+        "template": "笔谈\\笔谈_入口__1022_321_100_27__972_271_200_127.png",
+        "action": "Click",
+        "next": [
+            "笔谈_入梦"
+        ]
+    },
+    "笔谈_入梦": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            980,
+            455,
+            208,
+            217
+        ],
+        "template": "笔谈\\笔谈_入梦__1030_505_108_117__980_455_208_217.png",
+        "action": "Click",
+        "next": [
+            "笔谈_确认"
+        ]
+    },
+    "笔谈_确认": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            840,
+            438,
+            241,
+            145
+        ],
+        "template": "笔谈\\笔谈确认__890_488_141_45__840_438_241_145.png",
+        "action": "Click",
+        "next": "笔谈_准备战斗"
+    },
+    "笔谈_准备战斗": {
+        "recognition": "OCR",
+        "roi": [
+            1018,
+            640,
+            228,
+            60
+        ],
+        "expected": "准备作战",
+        "action": "Click",
+        "post_wait_freeze": 500,
+        "next": "笔谈_选队"
+    },
+    "笔谈_选队": {
+        "recognition": "OCR",
+        "roi": [
+            1118,
+            621,
+            128,
+            57
+        ],
+        "expected": "开始作战",
+        "action": "Click",
+        "post_delay": 6000,
+        "next": [
+            "笔谈_战斗"
+        ]
+    },
+    "笔谈_战斗": {
+        "_doc": "使用custom识别不同地图,执行对应脚本",
+        "recognition": "TemplateMatch",
+        "roi": [
+            59,
+            0,
+            122,
+            90
+        ],
+        "template": "笔谈\\笔谈_战斗中__109_21_22_19__59_0_122_90.png",
+        "post_delay": 500,
+        "next": [
+            "笔谈_战斗_custom"
+        ]
+    },
+    "笔谈_战斗_custom": {
+        "action": "Custom",
+        "custom_action": "StoryRogue",
+        "post_delay": 2000,
+        "next": "笔谈_选择宝物"
+    },
+    "笔谈_选择宝物": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            224,
+            520,
+            317,
+            135
+        ],
+        "template": "笔谈\\笔谈_选择宝物__274_570_217_35__224_520_317_135.png",
+        "action": "Click",
+        "post_delay": 2000,
+        "next": "笔谈_背包_返回"
+    },
+    "笔谈_背包_返回": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            1089,
+            0,
+            171,
+            108
+        ],
+        "template": "笔谈\\笔谈_返回__1139_19_71_39__1089_0_171_108.png",
+        "action": "Click",
+        "post_delay": 2000,
+        "next": "笔谈_第二关"
+    },
+    "笔谈_第二关": {
+        "next": [
+            "笔谈_第二关_宝箱",
+            "笔谈_第二关_扩展背包",
+            "笔谈_第二关_问号"
+        ]
+    },
+    "笔谈_第二关_宝箱": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            419,
+            71,
+            211,
+            528
+        ],
+        "template": "笔谈\\笔谈_宝箱__497_221_46_45__447_171_146_145.png",
+        "action": "Click",
+        "post_delay": 1500,
+        "next": [
+            "笔谈_第二关_宝箱_选择星砂",
+            "笔谈_第二关_宝箱_选择宝物"
+        ],
+        "interrupt": "笔谈_第二关_取消提示框"
+    },
+    "笔谈_第二关_宝箱_选择星砂": {
+        "recognition": "OCR",
+        "roi": [
+            207,
+            130,
+            905,
+            206
+        ],
+        "expected": "探索收获",
+        "action": "Click",
+        "target_offset": [
+            0,
+            390,
+            -80,
+            -20
+        ],
+        "post_delay": 500,
+        "next": "笔谈_重置"
+    },
+    "笔谈_第二关_宝箱_选择宝物": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            240,
+            479,
+            800,
+            172
+        ],
+        "template": "笔谈\\笔谈_无钥匙宝物__338_532_217_75__288_482_317_175.png",
+        "threshold": 0.95,
+        "action": "Click",
+        "target_offset": [
+            100,
+            50,
+            -216,
+            -74
+        ],
+        "post_delay": 1000,
+        "next": "笔谈_重置",
+        "interrupt": "笔谈_第二关_背包_返回"
+    },
+    "笔谈_第二关_扩展背包": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            419,
+            71,
+            211,
+            528
+        ],
+        "template": "笔谈\\笔谈_扩展背包__497_220_44_45__447_170_144_145.png",
+        "action": "Click",
+        "next": "笔谈_第二关_背包_选择扩展背包",
+        "interrupt": "笔谈_第二关_取消提示框"
+    },
+    "笔谈_第二关_背包_选择扩展背包": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            250,
+            455,
+            789,
+            183
+        ],
+        "template": "笔谈\\笔谈_选择宝物__274_570_217_35__224_520_317_135.png",
+        "action": "Click",
+        "next": "笔谈_第二关_背包_返回"
+    },
+    "笔谈_第二关_背包_返回": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            1089,
+            0,
+            171,
+            108
+        ],
+        "template": "笔谈\\笔谈_返回__1139_19_71_39__1089_0_171_108.png",
+        "action": "Click",
+        "post_delay": 800,
+        "next": "笔谈_重置"
+    },
+    "笔谈_第二关_问号": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            419,
+            71,
+            211,
+            528
+        ],
+        "template": "笔谈\\笔谈_问号__498_457_42_43__448_407_142_143.png",
+        "action": "Click",
+        "next": [
+            "笔谈_第二关_问号_选择宝物",
+            "笔谈_第二关_宝箱_选择星砂"
+        ],
+        "interrupt": "笔谈_第二关_取消提示框"
+    },
+    "笔谈_第二关_问号_选择宝物": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            240,
+            479,
+            800,
+            172
+        ],
+        "template": "笔谈\\笔谈_无钥匙宝物__338_532_217_75__288_482_317_175.png",
+        "threshold": 0.96,
+        "action": "Click",
+        "target_offset": [
+            100,
+            50,
+            -216,
+            -74
+        ],
+        "post_delay": 1000,
+        "next": "笔谈_重置",
+        "interrupt": "笔谈_第二关_背包_返回"
+    },
+    "笔谈_重置": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            1138,
+            561,
+            142,
+            159
+        ],
+        "template": "笔谈\\笔谈_重置__1188_611_86_75__1138_561_142_159.png",
+        "action": "Click",
+        "next": "笔谈_重置_确定"
+    },
+    "笔谈_重置_确定": {
+        "recognition": "OCR",
+        "roi": [
+            554,
+            509,
+            177,
+            100
+        ],
+        "expected": "确定",
+        "action": "Click",
+        "post_wait_freeze": 300,
+        "next": [
+            "笔谈_结算"
+        ]
+    },
+    "笔谈_结算": {
+        "recognition": "OCR",
+        "roi": [
+            488,
+            595,
+            348,
+            105
+        ],
+        "expected": "退出",
+        "action": "Click",
+        "post_delay": 500,
+        "next": "笔谈_入梦"
+    },
+    "笔谈_第二关_取消提示框": {
+        "recognition": "OCR",
+        "roi": [
+            393,
+            234,
+            490,
+            154
+        ],
+        "expected": "选择后无法返回",
+        "action": "Click",
+        "target": [
+            547,
+            422,
+            6,
+            6
+        ],
+        "next": "笔谈_第二关_取消提示框_确定"
+    },
+    "笔谈_第二关_取消提示框_确定": {
+        "recognition": "OCR",
+        "roi": [
+            859,
+            471,
+            205,
+            90
+        ],
+        "expected": "确定",
+        "action": "Click"
+    },
+    "走廊场景识别": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            14,
+            80,
+            302,
+            260
+        ],
+        "template": "笔谈\\笔谈_战斗_走廊__64_130_202_145__14_80_302_245.png"
+    },
+    "红走廊场景识别": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            14,
+            80,
+            302,
+            260
+        ],
+        "template": "笔谈\\笔谈_战斗_红走廊__65_123_211_160__15_73_311_260.png"
+    },
+    "大门场景识别": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            44,
+            284,
+            276,
+            160
+        ],
+        "template": "笔谈\\笔谈_战斗_大门__94_334_176_60__44_284_276_160.png"
+    },
+    "庭院场景识别": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            43,
+            101,
+            205,
+            248
+        ],
+        "template": "笔谈\\笔谈_战斗_庭院__93_151_105_148__43_101_205_248.png"
+    },
+    "检查退出按钮": {
+        "recognition": "OCR",
+        "roi": [
+            552,
+            589,
+            171,
+            97
+        ],
+        "expected": "退出"
+    }
+}

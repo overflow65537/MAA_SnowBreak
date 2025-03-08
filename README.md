@@ -1,4 +1,5 @@
 <!-- markdownlint-disable MD033 MD041 -->
+
 <p align="center">
   <img alt="LOGO" src="logo.png" width="256" height="256" />
 </p>
@@ -7,7 +8,7 @@
 
 # MAA_SnowBreak
 
-基于全新架构的 尘白禁区 小助手。图像技术 + 模拟控制，解放双手！  
+基于全新架构的 尘白禁区 小助手。图像技术 + 模拟控制，解放双手！
 由 [MaaFramework](https://github.com/MaaXYZ/MaaFramework) 强力驱动！
 
 </div>
@@ -36,31 +37,32 @@
 - 钓鱼
 - 心动水弹
 - 悖论迷宫
+- 蜃梦笔谈
 
 ## 注意事项
 
 - 安卓端：模拟器必须为mumu模拟器,如果出现部分任务无法完成,请切换1280*720(240DPI)
 - 桌面端：不支持
-- 打开后无法运行首先尝试安装运行库 <https://learn.microsoft.com/zh-cn/cpp/windows/latest-supported-vc-redist?view=msvc-170>
+- 打开后无法运行首先尝试安装运行库 [https://learn.microsoft.com/zh-cn/cpp/windows/latest-supported-vc-redist?view=msvc-170](https://learn.microsoft.com/zh-cn/cpp/windows/latest-supported-vc-redist?view=msvc-170)
 - 反馈 QQ 群：980583911
 
 ## 图形化界面
 
 ### [MFW-PyQt6](https://github.com/overflow65537/MFW-PyQt6)
 
- 一个基于PyQt6的MAAFramework图形化操作界面
+一个基于PyQt6的MAAFramework图形化操作界面
 
-- 下载对应系统架构,后缀带有MFW-PyQt的压缩包,比如`MSBA-win-x86_64-MFW-PyQt-vXXX.zip`
+- 下载对应系统架构,后缀带有MFW-PyQt的压缩包,比如 `MSBA-win-x86_64-MFW-PyQt-vXXX.zip`
 - 解压后运行main.exe或者MFW.exe
-  
+
 ## 视频教程
 
-- 教程: <https://www.bilibili.com/video/BV1v2hFe8Esv/>
-- 计划任务教程: <https://www.bilibili.com/video/BV1Nuh2eGEwG/>
-  
+- 教程: [https://www.bilibili.com/video/BV1v2hFe8Esv/](https://www.bilibili.com/video/BV1v2hFe8Esv/)
+- 计划任务教程: [https://www.bilibili.com/video/BV1Nuh2eGEwG/](https://www.bilibili.com/video/BV1Nuh2eGEwG/)
+
 ## 使用说明
 
-下载地址：<https://github.com/overflow65537/MAA_SnowBreak/releases>
+下载地址：[https://github.com/overflow65537/MAA_SnowBreak/releases](https://github.com/overflow65537/MAA_SnowBreak/releases)
 
 ### Windows
 
@@ -73,7 +75,7 @@
 - 若使用 Intel 处理器，请下载 `MSBA-macos-x86_64-vXXX.zip`
 - 若使用 M1, M2 等 arm 处理器，请下载 `MSBA-macos-aarch64-vXXX.zip`
 - 使用方式：
-
+  
   ```bash
   chmod a+x MaaPiCli
   ./MaaPiCli
@@ -207,16 +209,15 @@ Tasks:
 **如果你要编译源码才看这节，否则直接 [下载](https://github.com/overflow65537/MAA_SnowBreak/releases) 即可**
 
 0. 完整克隆本项目及子项目
-
-    ```bash
-    git clone --recursive https://github.com/overflow65537/MAA_SnowBreak.git
-    ```
-
+   
+   ```bash
+   git clone --recursive https://github.com/overflow65537/MAA_SnowBreak.git
+   ```
 1. 安装
-
-    ```python
-    python ./install.py
-    ```
+   
+   ```python
+   python ./install.py
+   ```
 
 生成的二进制及相关资源文件在 `install` 目录下
 
@@ -245,3 +246,4 @@ Tasks:
 <a href="https://github.com/overflow65537/MAA_SnowBreak/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=overflow65537/MAA_SnowBreak&max=1000" alt="Contributors to MAA_SnowBreak"/>
 </a>
+
