@@ -1,6 +1,7 @@
 import sys
 import os
 from pathlib import Path
+
 print(sys.argv)
 if len(sys.argv) > 2:
     binding_dir = Path(sys.argv[-2]).resolve()
@@ -15,15 +16,42 @@ from action.ShotSelf import ShotSelf
 from action.ShotTarget import ShotTarget
 from action.StoryRogue import StoryRogue
 
+
+@AgentServer.custom_action("Fishing")
+class Agent_Fishing(Fishing):
+    pass
+
+
+@AgentServer.custom_action("ShotSelf")
+class Agent_ShotSelf(ShotSelf):
+    pass
+
+
+@AgentServer.custom_action("ShotTarget")
+class Agent_ShotTarget(ShotTarget):
+    pass
+
+
+@AgentServer.custom_action("ScreenShot")
+class Agent_ScreenShot(ScreenShot):
+    pass
+
+
+@AgentServer.custom_action("StoryRogue")
+class Agent_StoryRogue(StoryRogue):
+    pass
+
+
 def main():
     Toolkit.init_option("./")
-    if len(sys.argv) >1:
+    if len(sys.argv) > 1:
         socket_id = sys.argv[-1]
     else:
         socket_id = "MAA_AGENT_SOCKET"
     AgentServer.start_up(socket_id)
     AgentServer.join()
     AgentServer.shut_down()
+
 
 if __name__ == "__main__":
     main()
