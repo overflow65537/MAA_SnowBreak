@@ -1,1 +1,1 @@
-maafw >=2.4.0
+maafw == 4.0.0-beta.4

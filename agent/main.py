@@ -13,6 +13,7 @@ from action.Fishing import Fishing
 from action.ScreenShot import ScreenShot
 from action.ShotSelf import ShotSelf
 from action.ShotTarget import ShotTarget
+from action.StoryRogue import StoryRogue
 
 def main():
     Toolkit.init_option("./")

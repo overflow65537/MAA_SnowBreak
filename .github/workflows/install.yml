@@ -107,10 +107,12 @@ jobs:
           latest: true
           out-file-path: "deps"
           extract: true
+          preRelease: true
 
       - name: Install
         shell: bash
         run: |
+          pip install -r ./requirements.txt
           pip install pyinstaller
           python ./install.py ${{ needs.meta.outputs.tag }}
 
@@ -122,6 +124,7 @@ jobs:
           latest: true
           out-file-path: "install"
           extract: true
+          preRelease: true
 
       - name: rm MFW pack
         shell: bash
