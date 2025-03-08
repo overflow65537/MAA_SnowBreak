@@ -1,12 +1,4 @@
 import sys
-import os
-from pathlib import Path
-
-print(sys.argv)
-if len(sys.argv) > 2:
-    binding_dir = Path(sys.argv[-2]).resolve()
-    os.environ["MAAFW_BINARY_PATH"] = str(binding_dir)
-
 from maa.agent.agent_server import AgentServer
 from maa.toolkit import Toolkit
 
@@ -45,8 +37,10 @@ class Agent_StoryRogue(StoryRogue):
 def main():
     Toolkit.init_option("./")
     if len(sys.argv) > 1:
+        print("使用自定义socket_id: " + sys.argv[-1])
         socket_id = sys.argv[-1]
     else:
+        print("使用默认socket_id: MAA_AGENT_SOCKET")
         socket_id = "MAA_AGENT_SOCKET"
     AgentServer.start_up(socket_id)
     AgentServer.join()
