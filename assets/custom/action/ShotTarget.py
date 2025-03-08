@@ -1,9 +1,9 @@
-from maa.agent.agent_server import AgentServer
+#from maa.agent.agent_server import AgentServer
 from maa.context import Context
 from maa.custom_action import CustomAction
 import time
 
-@AgentServer.custom_action("ShotTarget")
+#@AgentServer.custom_action("ShotTarget")
 class ShotTarget(CustomAction):
     def run(
         self, context: Context, argv: CustomAction.RunArg

@@ -99,11 +99,21 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Download MaaFramework
+        uses: robinraju/release-downloader@v1
+        with:
+          repository: MaaXYZ/MaaFramework
+          fileName: "MAA-${{ matrix.file-suffix }}-${{ matrix.arch }}*"
+          latest: true
+          out-file-path: "deps"
+          extract: true
+          preRelease: true
+
       - name: Install
         shell: bash
         run: |
+          pip install -r ./requirements.txt
           pip install pyinstaller
-          pip install -r requirements.txt
           python ./install.py ${{ needs.meta.outputs.tag }}
 
       - name: Download MFW
@@ -112,18 +122,19 @@ jobs:
           repository: overflow65537/MFW-PyQt6
           fileName: "MFW-PyQt6-${{ matrix.file-suffix }}-${{ matrix.arch }}*"
           latest: true
-          out-file-path: "maapicli"
+          out-file-path: "install"
           extract: true
+          preRelease: true
 
       - name: rm MFW pack
         shell: bash
         run: |
-          rm maapicli/MFW-PyQt6-${{ matrix.file-suffix }}-${{ matrix.arch }}*
+          rm install/MFW-PyQt6-${{ matrix.file-suffix }}-${{ matrix.arch }}*
 
       - uses: actions/upload-artifact@v4
         with:
           name: MSBA-${{ matrix.file-suffix }}-${{ matrix.arch }}
-          path: "maapicli"
+          path: "install"
 
   release:
     if: ${{ needs.meta.outputs.is_release == 'true' }}

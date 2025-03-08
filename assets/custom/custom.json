@@ -1,0 +1,27 @@
+{
+    "Fishing": {
+        "type": "action",
+        "class": "Fishing",
+        "file_path": "{custom_path}\\action\\Fishing.py"
+    },
+    "ScreenShot": {
+        "type": "action",
+        "class": "ScreenShot",
+        "file_path": "{custom_path}\\action\\ScreenShot.py"
+    },
+    "ShotSelf": {
+        "type": "action",
+        "class": "ShotSelf",
+        "file_path": "{custom_path}\\action\\ShotSelf.py"
+    },
+    "ShotTarget": {
+        "type": "action",
+        "class": "ShotTarget",
+        "file_path": "{custom_path}\\action\\ShotTarget.py"
+    },
+    "StoryRogue": {
+        "type": "action",
+        "class": "StoryRogue",
+        "file_path": "{custom_path}\\action\\StoryRogue.py"
+    }
+}

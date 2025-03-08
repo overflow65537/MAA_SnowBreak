@@ -1,4 +1,4 @@
-from maa.agent.agent_server import AgentServer
+#from maa.agent.agent_server import AgentServer
 from maa.context import Context
 from maa.custom_action import CustomAction
 import os
@@ -7,7 +7,7 @@ import struct
 import zlib
 import numpy
 
-@AgentServer.custom_action("ScreenShot")
+#@AgentServer.custom_action("ScreenShot")
 class ScreenShot(CustomAction):
     def run(
         self, context: Context, argv: CustomAction.RunArg

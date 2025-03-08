@@ -1,11 +1,12 @@
+#from maa.agent.agent_server import AgentServer
 from maa.context import Context
 from maa.custom_action import CustomAction
-from maa.agent.agent_server import AgentServer
+
 import os
 import time
 
 
-@AgentServer.custom_action("StoryRogue")
+#@AgentServer.custom_action("StoryRogue")
 class StoryRogue(CustomAction):    
     def run(
         self, context: Context, argv: CustomAction.RunArg
