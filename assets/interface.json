@@ -2,7 +2,7 @@
     "url": "https://github.com/overflow65537/MAA_SnowBreak",
     "name": "MSBA",
     "mirrorchyan_rid": "MAA_SnowBreak",
-    "MFW_min_req_version":"v1.4.2",
+    "MFW_min_req_version": "v1.4.2",
     "controller": [
         {
             "name": "Adb控制器",

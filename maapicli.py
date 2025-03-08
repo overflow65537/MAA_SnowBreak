@@ -2,11 +2,11 @@ import os
 if not os.path.exists("run_cli.py"):
     os.environ["MAAFW_BINARY_PATH"] = os.getcwd()
 
-from assets.custom.action.Fishing.main import Fishing
-from assets.custom.action.ShotTarget.main import ShotTarget
-from assets.custom.action.ScreenShot.main import ScreenShot
-from assets.custom.action.ShotSelf.main import ShotSelf
-from assets.custom.action.StoryRogue.main import StoryRogue
+from assets.custom.action.Fishing import Fishing
+from assets.custom.action.ShotTarget import ShotTarget
+from assets.custom.action.ScreenShot import ScreenShot
+from assets.custom.action.ShotSelf import ShotSelf
+from assets.custom.action.StoryRogue import StoryRogue
 
 from maa.toolkit import Toolkit
 
