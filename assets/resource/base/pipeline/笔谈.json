@@ -1,4 +1,18 @@
 {
+    "蜃梦笔谈": {
+        "_doc": "扁平化设计让所有的流程都在一个层级上, 这样任务可以在任何界面中启动",
+        "next": [
+            "笔谈_战斗"
+        ],
+        "interrupt": [
+            "笔谈_进入活动",
+            "笔谈_进入笔谈",
+            "笔谈_入梦",
+            "笔谈_确认",
+            "笔谈_准备战斗",
+            "笔谈_选队"
+        ]
+    },
     "笔谈_进入活动": {
         "recognition": "OCR",
         "roi": [
@@ -9,52 +23,45 @@
         ],
         "expected": "荒城栖花",
         "action": "Click",
-        "post_delay": 2000,
-        "next": [
-            "笔谈_进入笔谈"
-        ]
+        "post_delay": 2000
     },
     "笔谈_进入笔谈": {
-        "recognition": "TemplateMatch",
+        "recognition": "OCR",
         "roi": [
             972,
             271,
             200,
             127
         ],
-        "template": "笔谈\\笔谈_入口__1022_321_100_27__972_271_200_127.png",
-        "action": "Click",
-        "next": [
-            "笔谈_入梦"
-        ]
+        "expected": "蜃梦笔谈",
+        "action": "Click"
     },
     "笔谈_入梦": {
-        "recognition": "TemplateMatch",
+        "recognition": "OCR",
         "roi": [
-            980,
-            455,
-            208,
-            217
+            1005,
+            497,
+            165,
+            131
         ],
-        "template": "笔谈\\笔谈_入梦__1030_505_108_117__980_455_208_217.png",
+        "expected": [
+            "浮烟",
+            "入梦"
+        ],
         "action": "Click",
-        "post_wait_freezes": 500,
-        "next": [
-            "笔谈_确认"
-        ]
+        "post_wait_freezes": 500
     },
     "笔谈_确认": {
-        "recognition": "TemplateMatch",
+        "recognition": "OCR",
         "roi": [
             840,
             438,
             241,
             145
         ],
-        "template": "笔谈\\笔谈确认__890_488_141_45__840_438_241_145.png",
+        "expected": "确定",
         "action": "Click",
-        "post_wait_freezes": 500,
-        "next": "笔谈_准备战斗"
+        "post_wait_freezes": 500
     },
     "笔谈_准备战斗": {
         "recognition": "OCR",
@@ -66,8 +73,7 @@
         ],
         "expected": "准备作战",
         "action": "Click",
-        "post_wait_freezes": 500,
-        "next": "笔谈_选队"
+        "post_wait_freezes": 500
     },
     "笔谈_选队": {
         "recognition": "OCR",
@@ -79,10 +85,7 @@
         ],
         "expected": "开始作战",
         "action": "Click",
-        "post_delay": 6000,
-        "next": [
-            "笔谈_战斗"
-        ]
+        "post_delay": 6000
     },
     "笔谈_战斗": {
         "_doc": "使用custom识别不同地图,执行对应脚本",
@@ -100,10 +103,32 @@
         ]
     },
     "笔谈_战斗_custom": {
+        "_doc": "移除了custom程序中的战斗部分,使其移动完成后由pipeline来检查是否完成战斗,如果没有完成则一直循环战斗未结束",
         "action": "Custom",
         "custom_action": "StoryRogue",
         "post_delay": 2000,
-        "next": "笔谈_选择宝物"
+        "next": "笔谈_选择宝物",
+        "interrupt": [
+            "战斗未结束"
+        ]
+    },
+    "战斗未结束": {
+        "_doc": "使用技能",
+        "recognition": "TemplateMatch",
+        "roi": [
+            59,
+            0,
+            122,
+            90
+        ],
+        "template": "笔谈\\笔谈_战斗中__109_21_22_19__59_0_122_90.png",
+        "action": "Click",
+        "target": [
+            1065,
+            347,
+            1,
+            1
+        ]
     },
     "笔谈_选择宝物": {
         "recognition": "TemplateMatch",

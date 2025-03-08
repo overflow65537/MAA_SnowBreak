@@ -56,9 +56,10 @@ class StoryRogue(CustomAction):
         self.move_forward(context, 7)
         
         # 循环执行技能直到战斗结束
-        result = self.skill_cycle_until_exit(context)
+        # result = self.skill_cycle_until_exit(context) 
+        # 取消python中的战斗程序,移交至pipeline中
         
-        return result
+        return CustomAction.RunResult(success=True)
     
     def handle_red_corridor(self, context: Context) -> CustomAction.RunResult:
         """红走廊场景的处理逻辑"""
@@ -66,9 +67,10 @@ class StoryRogue(CustomAction):
         # 前进7秒
         self.move_forward(context, 7)
         # 循环执行技能直到战斗结束
-        result = self.skill_cycle_until_exit(context)
+        #result = self.skill_cycle_until_exit(context)
+        # 取消python中的战斗程序,移交至pipeline中
         
-        return result
+        return CustomAction.RunResult(success=True)
     
     def handle_gate(self, context: Context) -> CustomAction.RunResult:
         """大门场景的处理逻辑"""
@@ -81,9 +83,10 @@ class StoryRogue(CustomAction):
         self.move_right(context, 3.5)
         
         # 循环执行技能直到战斗结束
-        result = self.skill_cycle_until_exit(context)
+        #result = self.skill_cycle_until_exit(context)
+        # 取消python中的战斗程序,移交至pipeline中
         
-        return result
+        return CustomAction.RunResult(success=True)
     
     def handle_courtyard(self, context: Context) -> CustomAction.RunResult:
         """庭院场景的处理逻辑"""
@@ -96,9 +99,10 @@ class StoryRogue(CustomAction):
         self.swipe_screen(context, 688, 316, 536, 316)
         
         # 循环执行技能直到战斗结束
-        result = self.skill_cycle_until_exit(context)
+        #result = self.skill_cycle_until_exit(context)
+        # 取消python中的战斗程序,移交至pipeline中
         
-        return result
+        return CustomAction.RunResult(success=True)
     
     def move_forward(self, context: Context, duration: float) -> None:
         """持续前进指定秒数"""
