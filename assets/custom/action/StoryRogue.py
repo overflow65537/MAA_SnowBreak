@@ -8,6 +8,9 @@ import time
 
 #@AgentServer.custom_action("StoryRogue")
 class StoryRogue(CustomAction):    
+    # 静态计数器，记录成功运行的次数
+    run_counter = 0
+    
     def run(
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
@@ -22,6 +25,7 @@ class StoryRogue(CustomAction):
         gate_result = context.run_recognition("大门场景识别", image)
 
         courtyard_result = context.run_recognition("庭院场景识别", image)
+        
         
         # 根据识别结果执行不同的操作
         if corridor_result:
@@ -43,7 +47,7 @@ class StoryRogue(CustomAction):
         else:
             print("无法识别当前场景")
             # 默认处理或错误处理
-            return CustomAction.RunResult(success=False, message="无法识别当前场景")
+            return CustomAction.RunResult(success=True)
     
     def handle_corridor(self, context: Context) -> CustomAction.RunResult:
         """走廊场景的处理逻辑"""
@@ -89,30 +93,36 @@ class StoryRogue(CustomAction):
         self.move_forward(context, 7.5)
         
         # 屏幕从右往左滑动
-        self.swipe_screen(context, 688, 316, 436, 316)
+        self.swipe_screen(context, 688, 316, 536, 316)
         
         # 循环执行技能直到战斗结束
         result = self.skill_cycle_until_exit(context)
         
         return result
     
-    def move_forward(self, context: Context, duration: int) -> None:
+    def move_forward(self, context: Context, duration: float) -> None:
         """持续前进指定秒数"""
         print(f"前进 {duration} 秒")
         x, y = 268, 423  # 前进按钮的坐标
         
+        # 修复：确保转换为整数
+        duration_ms = int(duration * 1000)
         # 使用长时间的swipe来模拟长按效果(起点和终点相同)
-        context.tasker.controller.post_swipe(x, y, x, y, duration * 1000).wait()
+        context.tasker.controller.post_swipe(x, y, x, y, duration_ms).wait()
         time.sleep(0.5)  # 短暂等待以确保操作完成
     
-    def move_right(self, context: Context, duration: int) -> None:
+    def move_right(self, context: Context, duration: float) -> None:
         """持续向右移动指定秒数"""
         print(f"向右移动 {duration} 秒")
-        x, y = 380, 531  # 右进按钮的坐标
+        x, y = 370, 531  # 右进按钮的坐标
         
+
+        # 修复：确保转换为整数
+        duration_ms = int(duration * 1000)
         # 使用长时间的swipe来模拟长按效果(起点和终点相同)
-        context.tasker.controller.post_swipe(x, y, x, y, duration * 1000).wait()
+        context.tasker.controller.post_swipe(x, y, x, y, duration_ms).wait()
         time.sleep(0.5)  # 短暂等待以确保操作完成
+
     
     def swipe_screen(self, context: Context, start_x: int, start_y: int, end_x: int, end_y: int) -> None:
         """从一点滑动到另一点"""
@@ -149,6 +159,9 @@ class StoryRogue(CustomAction):
             # 检查是否有退出按钮
             if self.check_battle_exit(context):
                 print("检测到战斗结束，点击退出")
+                # 增加计数器并打印
+                StoryRogue.run_counter += 1
+                print(f"StoryRogue 程序运行次数: {StoryRogue.run_counter}")
                 # 使用带错误处理的点击方式
                 try:
                     context.tasker.controller.post_click(637, 637).wait()
@@ -156,7 +169,7 @@ class StoryRogue(CustomAction):
                     return CustomAction.RunResult(success=True)
                 except Exception as e:
                     print(f"点击退出按钮时出错: {e}")
-                    return CustomAction.RunResult(success=False, message=f"点击退出按钮时出错: {e}")
+                    return CustomAction.RunResult(success=True)
             
             # 按E技能3次
             for _ in range(3):
@@ -165,6 +178,9 @@ class StoryRogue(CustomAction):
                 # 每次技能后检查是否结束
                 if self.check_battle_exit(context):
                     print("检测到战斗结束，点击退出")
+                    # 增加计数器并打印
+                    StoryRogue.run_counter += 1
+                    print(f"StoryRogue 程序运行次数: {StoryRogue.run_counter}")
                     context.tasker.controller.post_click(637, 637).wait()
                     time.sleep(2)
                     return CustomAction.RunResult(success=True)
@@ -177,4 +193,4 @@ class StoryRogue(CustomAction):
         
         # 如果达到最大循环次数仍未结束
         print("达到最大循环次数，强制结束")
-        return CustomAction.RunResult(success=False)
+        return CustomAction.RunResult(success=True)

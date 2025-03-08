@@ -36,6 +36,7 @@
         ],
         "template": "笔谈\\笔谈_入梦__1030_505_108_117__980_455_208_217.png",
         "action": "Click",
+        "post_wait_freezes": 500,
         "next": [
             "笔谈_确认"
         ]
@@ -50,6 +51,7 @@
         ],
         "template": "笔谈\\笔谈确认__890_488_141_45__840_438_241_145.png",
         "action": "Click",
+        "post_wait_freezes": 500,
         "next": "笔谈_准备战斗"
     },
     "笔谈_准备战斗": {
@@ -62,7 +64,7 @@
         ],
         "expected": "准备作战",
         "action": "Click",
-        "post_wait_freeze": 500,
+        "post_wait_freezes": 500,
         "next": "笔谈_选队"
     },
     "笔谈_选队": {
@@ -288,7 +290,7 @@
         ],
         "expected": "确定",
         "action": "Click",
-        "post_wait_freeze": 300,
+        "post_wait_freezes": 300,
         "next": [
             "笔谈_结算"
         ]
