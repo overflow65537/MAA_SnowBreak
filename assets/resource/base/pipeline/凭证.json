@@ -89,7 +89,6 @@
         ]
     },
     "限定任务": {
-        "threshold": 0.85,
         "post_delay": 1000,
         "recognition": "TemplateMatch",
         "green_mask": true,
