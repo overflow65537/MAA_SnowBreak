@@ -996,7 +996,7 @@
                     }
                 },
                 {
-                    "name": "碳原子板",
+                    "name": "碳原子板(地下清理)",
                     "pipeline_override": {
                         "判断物品": {
                             "expected": "碳原子板"
@@ -1015,7 +1015,7 @@
                     }
                 },
                 {
-                    "name": "量子胞体(拟境)",
+                    "name": "量子胞体(精神拟境)",
                     "pipeline_override": {
                         "判断物品": {
                             "expected": "量子胞体"
@@ -1030,25 +1030,6 @@
                         "翻到底了": {
                             "inverse": false,
                             "expected": "光纤轴突"
-                        }
-                    }
-                },
-                {
-                    "name": "量子胞体(配给)",
-                    "pipeline_override": {
-                        "判断物品": {
-                            "expected": "量子胞体"
-                        },
-                        "切换商店1": {
-                            "enabled": true,
-                            "expected": "循环中心"
-                        },
-                        "切换商店2": {
-                            "expected": "优质配给"
-                        },
-                        "翻到底了": {
-                            "inverse": false,
-                            "expected": "通用银"
                         }
                     }
                 },
@@ -1079,48 +1060,6 @@
                         "翻到底了": {
                             "inverse": false,
                             "expected": "通用银"
-                        }
-                    }
-                },
-                {
-                    "name": "重修申请",
-                    "pipeline_override": {
-                        "判断物品": {
-                            "expected": "重修申请"
-                        },
-                        "切换商店1": {
-                            "enabled": true,
-                            "expected": "循环中心"
-                        },
-                        "切换商店2": {
-                            "expected": "优质配给"
-                        },
-                        "翻到底了": {
-                            "inverse": false,
-                            "expected": "通用银"
-                        }
-                    }
-                },
-                {
-                    "name": "重修额度",
-                    "pipeline_override": {
-                        "判断物品": {
-                            "expected": "重修额度"
-                        },
-                        "切换商店1": {
-                            "enabled": true,
-                            "expected": "循环中心"
-                        },
-                        "切换商店2": {
-                            "expected": "后勤人事",
-                            "index": 1
-                        },
-                        "购买物品": {
-                            "expected": "聘调"
-                        },
-                        "翻到底了": {
-                            "inverse": false,
-                            "expected": "伊甸"
                         }
                     }
                 },
@@ -1258,6 +1197,29 @@
                             "expected": [
                                 "光纤轴突"
                             ]
+                        }
+                    }
+                },
+                {
+                    "name": "重修额度",
+                    "pipeline_override": {
+                        "判断物品": {
+                            "expected": "重修额度"
+                        },
+                        "切换商店1": {
+                            "enabled": true,
+                            "expected": "循环中心"
+                        },
+                        "切换商店2": {
+                            "expected": "后勤人事",
+                            "index": 1
+                        },
+                        "购买物品": {
+                            "expected": "聘调"
+                        },
+                        "翻到底了": {
+                            "inverse": false,
+                            "expected": "伊甸"
                         }
                     }
                 }
