@@ -23,5 +23,10 @@
         "type": "action",
         "class": "StoryRogue",
         "file_path": "{custom_path}\\action\\StoryRogue.py"
+    },
+    "Count": {
+        "type": "action",
+        "class": "Count",
+        "file_path": "{custom_path}\\action\\Count.py"
     }
 }
