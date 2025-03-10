@@ -1015,6 +1015,25 @@
                     }
                 },
                 {
+                    "name": "重修申请(地下清理)",
+                    "pipeline_override": {
+                        "判断物品": {
+                            "expected": "重修申请"
+                        },
+                        "切换商店1": {
+                            "enabled": true,
+                            "expected": "活动兑换"
+                        },
+                        "切换商店2": {
+                            "expected": "地下清理"
+                        },
+                        "翻到底了": {
+                            "inverse": false,
+                            "expected": "特级职级认证"
+                        }
+                    }
+                },
+                {
                     "name": "量子胞体(精神拟境)",
                     "pipeline_override": {
                         "判断物品": {
@@ -1034,7 +1053,7 @@
                     }
                 },
                 {
-                    "name": "抽卡券",
+                    "name": "抽卡券(优质配给)",
                     "pipeline_override": {
                         "判断物品": {
                             "expected": [
@@ -1201,7 +1220,7 @@
                     }
                 },
                 {
-                    "name": "重修额度",
+                    "name": "重修额度(后勤人士)",
                     "pipeline_override": {
                         "判断物品": {
                             "expected": "重修额度"
