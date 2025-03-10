@@ -8,31 +8,31 @@
             "打开商店"
         ]
     },
-    "切换商店1":{
-        "enabled":false,
-        "pre_delay":2000,
-        "recognition":"OCR",
-        "roi":[
+    "切换商店1": {
+        "enabled": false,
+        "pre_delay": 2000,
+        "recognition": "OCR",
+        "roi": [
             0,
             0,
             320,
             720
         ],
-        "action":"Click",
-        "post_delay":1000,
-        "next":"切换商店2"
+        "action": "Click",
+        "post_delay": 1000,
+        "next": "切换商店2"
     },
-    "切换商店2":{
-        "recognition":"OCR",
-        "roi":[
+    "切换商店2": {
+        "recognition": "OCR",
+        "roi": [
             0,
             0,
             320,
             720
         ],
-        "action":"Click",
-        "post_delay":1000,
-        "next":"在商店内0"
+        "action": "Click",
+        "post_delay": 1000,
+        "next": "在商店内0"
     },
     "在商店内": {
         "recognition": "OCR",
@@ -61,12 +61,12 @@
             "判断物品",
             "翻到底了"
         ],
-        "interrupt":[
+        "interrupt": [
             "向下滑动_商店"
         ]
     },
     "翻到底了": {
-        "inverse":true,
+        "inverse": true,
         "roi": [
             250,
             165,
@@ -129,7 +129,7 @@
             51
         ],
         "expected": [
-            "资金不足"
+            "不足"
         ],
         "action": "Click",
         "target": [
