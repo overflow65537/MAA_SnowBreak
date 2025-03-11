@@ -23,6 +23,7 @@
         ]
     },
     "接收后勤": {
+        "post_delay": 1000,
         "enabled": false,
         "recognition": "OCR",
         "roi": [
