@@ -91,7 +91,10 @@
         "action": "Custom",
         "custom_action": "Count",
         "custom_action_param": {
-            "Count": 0
+            "self": "黑屏计数",
+            "count": 0,
+            "target_count": 100,
+            "next": "重启游戏"
         }
     },
     "关闭签到": {

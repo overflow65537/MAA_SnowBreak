@@ -9,16 +9,30 @@ class Count(CustomAction):
     ) -> CustomAction.RunResult:
         argv: dict = json.loads(argv.custom_action_param)
         print(argv)
-        if argv.get("Count") < 100:
-            argv["Count"] += 1
+        if not argv:
+            return CustomAction.RunResult(success=True)
+        if argv.get("count") < argv.get("target_count"):
+            argv["count"] += 1
             context.override_pipeline(
                 {
-                    "黑屏计数": {"custom_action_param": argv},
+                    argv.get("self"): {
+                        "custom_action_param": argv,
+                    },
                 }
             )
         else:
-            context.run_task("重启游戏")
+            context.override_pipeline(
+                {
+                    argv.get("self"): {
+                        "custom_action_param": {
+                            "self": argv.get("self"),
+                            "count": 0,
+                            "target_count": argv.get("target_count"),
+                            "next": argv.get("next"),
+                        },
+                    },
+                }
+            )
+            context.run_task(argv.get("next"))
 
-        return CustomAction.RunResult(
-            success=True
-        )
+        return CustomAction.RunResult(success=True)
