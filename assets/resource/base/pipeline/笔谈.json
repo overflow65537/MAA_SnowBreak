@@ -146,10 +146,8 @@
         "next": "笔谈_boss关",
         "interrupt": [
             "笔谈_宝箱_选择星砂",
-            "笔谈_宝箱_选择宝物",
             "笔谈_取消提示框",
             "笔谈_事件1",
-            "笔谈_背包_选择扩展背包",
             "笔谈_选择宝物",
             "笔谈_战斗退出",
             "战斗未结束",
@@ -289,14 +287,14 @@
         ]
     },
     "笔谈_选择宝物": {
-        "recognition": "TemplateMatch",
+        "recognition": "OCR",
         "roi": [
-            224,
+            212,
             520,
-            317,
-            135
+            889,
+            127
         ],
-        "template": "笔谈\\笔谈_选择宝物__274_570_217_35__224_520_317_135.png",
+        "expected": "选择",
         "action": "Click",
         "post_delay": 2000
     },
@@ -329,55 +327,6 @@
             -20
         ],
         "post_delay": 500
-    },
-    "笔谈_宝箱_选择宝物": {
-        "recognition": "TemplateMatch",
-        "roi": [
-            240,
-            479,
-            800,
-            172
-        ],
-        "template": "笔谈\\笔谈_无钥匙宝物__338_532_217_75__288_482_317_175.png",
-        "threshold": 0.95,
-        "action": "Click",
-        "target_offset": [
-            100,
-            50,
-            -216,
-            -74
-        ],
-        "post_delay": 1000
-    },
-    "笔谈_背包_选择扩展背包": {
-        "recognition": "TemplateMatch",
-        "roi": [
-            250,
-            455,
-            789,
-            183
-        ],
-        "template": "笔谈\\笔谈_选择宝物__274_570_217_35__224_520_317_135.png",
-        "action": "Click"
-    },
-    "笔谈_问号_选择宝物": {
-        "recognition": "TemplateMatch",
-        "roi": [
-            240,
-            479,
-            800,
-            172
-        ],
-        "template": "笔谈\\笔谈_无钥匙宝物__338_532_217_75__288_482_317_175.png",
-        "threshold": 0.96,
-        "action": "Click",
-        "target_offset": [
-            100,
-            50,
-            -216,
-            -74
-        ],
-        "post_delay": 1000
     },
     "笔谈_背包_返回": {
         "recognition": "OCR",
@@ -415,14 +364,14 @@
         "action": "Click"
     },
     "笔谈_重置": {
-        "recognition": "TemplateMatch",
+        "recognition": "OCR",
         "roi": [
             1138,
             561,
             142,
             159
         ],
-        "template": "笔谈\\笔谈_重置__1188_611_86_75__1138_561_142_159.png",
+        "expected": "重置",
         "action": "Click",
         "next": "笔谈_重置_确定"
     },

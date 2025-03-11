@@ -71,6 +71,7 @@
         ]
     },
     "返回主菜单_err": {
+        "focus": true,
         "action": "Custom",
         "custom_action": "ScreenShot",
         "next": [
