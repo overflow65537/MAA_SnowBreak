@@ -311,6 +311,7 @@
         "post_delay": 1500
     },
     "笔谈_宝箱_选择星砂": {
+        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
             207,
@@ -325,8 +326,7 @@
             390,
             -80,
             -20
-        ],
-        "post_delay": 500
+        ]
     },
     "笔谈_背包_返回": {
         "recognition": "OCR",
@@ -347,6 +347,7 @@
         ]
     },
     "笔谈_事件1": {
+        "post_delay": 1000,
         "recognition": "TemplateMatch",
         "roi": [
             419,
@@ -365,11 +366,12 @@
     },
     "笔谈_重置": {
         "recognition": "OCR",
+        "only_rec": true,
         "roi": [
-            1138,
-            561,
-            142,
-            159
+            1207,
+            656,
+            45,
+            28
         ],
         "expected": "重置",
         "action": "Click",
@@ -400,10 +402,11 @@
         ],
         "expected": "退出",
         "action": "Click",
-        "post_delay": 500,
+        "post_delay": 1000,
         "next": "蜃梦笔谈"
     },
     "笔谈_取消提示框": {
+        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
             393,
