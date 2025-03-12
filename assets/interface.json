@@ -19,7 +19,10 @@
     "task": [
         {
             "name": "启动",
-            "entry": "启动"
+            "entry": "启动",
+            "periodic": 2,
+            "daily_start": 0,
+            "weekly_start": 3
         },
         {
             "name": "赠送感知",

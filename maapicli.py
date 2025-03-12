@@ -7,6 +7,7 @@ from assets.custom.action.ShotTarget import ShotTarget
 from assets.custom.action.ScreenShot import ScreenShot
 from assets.custom.action.ShotSelf import ShotSelf
 from assets.custom.action.StoryRogue import StoryRogue
+from assets.custom.action.Count import Count
 
 from maa.toolkit import Toolkit
 
@@ -23,6 +24,7 @@ def main():
     Toolkit.pi_register_custom_action("ScreenShot", ScreenShot())
     Toolkit.pi_register_custom_action("ShotSelf", ShotSelf())
     Toolkit.pi_register_custom_action("StoryRogue", StoryRogue())
+    Toolkit.pi_register_custom_action("Count", Count())
 
     # 注册自定义识别
 
