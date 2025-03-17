@@ -1,6 +1,7 @@
 {
     "url": "https://github.com/overflow65537/MAA_SnowBreak",
     "name": "MSBA",
+    "MFW_min_req_version": "1.5.4",
     "mirrorchyan_rid": "MAA_SnowBreak",
     "controller": [
         {
