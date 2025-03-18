@@ -110,7 +110,9 @@
         },
         {
             "name": "新星开拓任务",
-            "entry": "新星开拓任务"
+            "entry": "新星开拓任务",
+            "periodic": 1,
+            "daily_start": 5
         },
         {
             "name": "疗愈",
