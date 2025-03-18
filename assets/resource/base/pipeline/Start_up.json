@@ -93,7 +93,7 @@
         "custom_action_param": {
             "self": "黑屏计数",
             "count": 0,
-            "target_count": 100,
+            "target_count": 12,
             "next": "重启游戏"
         }
     },

@@ -83,6 +83,9 @@
         ]
     },
     "重启游戏": {
+        "focus": true,
+        "focus_succeeded": "未知错误,重启游戏",
+        "focus_succeeded_color": "tomato",
         "action": "StopApp",
         "package": "com.dragonli.projectsnow.lhm",
         "next": [
