@@ -15,7 +15,7 @@ class ScreenShot(CustomAction):
         image: numpy.ndarray = context.tasker.controller.post_screencap().wait().get()
 
         height, width, _ = image.shape
-        current_time = time.strftime("%Y%m%d%H%M%S") + ".png"
+        current_time = time.strftime("%Y-%m-%d_%H-%M-%S") + ".png"
         debug_path = os.path.join("debug", current_time)
 
         def png_chunk(chunk_type, data):
