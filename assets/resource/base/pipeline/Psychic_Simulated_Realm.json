@@ -11,6 +11,7 @@
         ]
     },
     "点击第一栏": {
+        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
             1080,
@@ -105,6 +106,7 @@
         "action": "Click"
     },
     "确认选项": {
+        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
             864,
