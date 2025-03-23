@@ -94,7 +94,9 @@
             "self": "黑屏计数",
             "count": 0,
             "target_count": 12,
-            "next": "重启游戏"
+            "next_node": [
+                "重启游戏"
+            ]
         }
     },
     "关闭签到": {
