@@ -338,9 +338,38 @@
             330,
             0,
             0
+        ],
+        "next": [
+            "滑动计数"
         ]
     },
+    "滑动计数": {
+        "action": "Custom",
+        "custom_action": "Count",
+        "custom_action_param": {
+            "self": "滑动计数",
+            "count": 0,
+            "target_count": 50,
+            "next_node": [
+                "返回主菜单",
+                "停止任务"
+            ]
+        }
+    },
+    "停止任务": {
+        "action": "StopTask"
+    },
     "选择人物": {
+        "recognition": "OCR",
+        "roi": [
+            1000,
+            330,
+            100,
+            100
+        ],
+        "expected": [
+            "选择人物"
+        ],
         "next": [
             "次数不足",
             "完成战斗",
