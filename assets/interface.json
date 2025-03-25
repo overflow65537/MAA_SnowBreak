@@ -684,22 +684,17 @@
                     "name": "无限之视里芙",
                     "pipeline_override": {
                         "选择人物": {
-                            "green_mask": true,
-                            "recognition": "TemplateMatch",
-                            "template": "刷碎片\\无限之视里芙.png",
+                            "recognition": "OCR",
+                            "expected": [
+                                "无限",
+                                "之视",
+                                "限之"
+                            ],
                             "roi": [
                                 30,
                                 87,
                                 975,
                                 525
-                            ]
-                        },
-                        "次数不足": {
-                            "roi_offset": [
-                                240,
-                                0,
-                                -150,
-                                -420
                             ]
                         }
                     }
