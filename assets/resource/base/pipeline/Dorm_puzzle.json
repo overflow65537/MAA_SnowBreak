@@ -1,0 +1,113 @@
+{
+    "基地拼图": {
+        "next": [
+            "开始拼图",
+            "检查信源研析0"
+        ],
+        "interrupt": [
+            "检查信源研析非0",
+            "点击卡罗琳",
+            "前进_基地拼图",
+            "打开基地"
+        ]
+    },
+    "开始拼图": {
+        "recognition": "OCR",
+        "roi": [
+            1006,
+            483,
+            63,
+            42
+        ],
+        "expected": "开始"
+    },
+    "检查信源研析非0": {
+        "only_rec": true,
+        "recognition": "OCR",
+        "roi": [
+            1027,
+            253,
+            15,
+            23
+        ],
+        "expected": [
+            "1",
+            "2",
+            "3"
+        ],
+        "next": [
+            "点击信源研析"
+        ]
+    },
+    "点击信源研析": {
+        "recognition": "OCR",
+        "roi": [
+            892,
+            292,
+            122,
+            231
+        ],
+        "expected": "信源研析",
+        "action": "Click"
+    },
+    "检查信源研析0": {
+        "only_rec": true,
+        "recognition": "OCR",
+        "roi": [
+            1027,
+            253,
+            15,
+            23
+        ],
+        "expected": "0",
+        "next": [
+            "返回主菜单"
+        ]
+    },
+    "点击卡罗琳": {
+        "recognition": "OCR",
+        "roi": [
+            764,
+            421,
+            67,
+            141
+        ],
+        "expected": "卡罗琳",
+        "action": "Click"
+    },
+    "前进_基地拼图": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            17,
+            1,
+            88,
+            85
+        ],
+        "green_mask": true,
+        "template": "基地\\在基地内部.png",
+        "action": "Swipe",
+        "begin": [
+            188,
+            426,
+            1,
+            1
+        ],
+        "end": [
+            188,
+            426,
+            1,
+            1
+        ]
+    },
+    "打开基地": {
+        "recognition": "OCR",
+        "roi": [
+            1006,
+            483,
+            63,
+            42
+        ],
+        "expected": "基地",
+        "action": "Click"
+    }
+}
