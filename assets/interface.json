@@ -507,6 +507,23 @@
         "选择人物": {
             "cases": [
                 {
+                    "name": "冥河代理人奈莉德",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": "OCR",
+                            "expected": [
+                                "冥河代理人"
+                            ],
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
+                            ]
+                        }
+                    }
+                },
+                {
                     "name": "澜风恩雅",
                     "pipeline_override": {
                         "选择人物": {
