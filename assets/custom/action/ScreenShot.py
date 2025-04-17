@@ -1,4 +1,3 @@
-#from maa.agent.agent_server import AgentServer
 from maa.context import Context
 from maa.custom_action import CustomAction
 import os
@@ -6,18 +5,20 @@ import time
 import struct
 import zlib
 import numpy
+import json
 
-#@AgentServer.custom_action("ScreenShot")
+
+
 class ScreenShot(CustomAction):
     def run(
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
+        argv = json.loads(argv.custom_action_param)
         image: numpy.ndarray = context.tasker.controller.post_screencap().wait().get()
 
         height, width, _ = image.shape
-        current_time = time.strftime("%Y-%m-%d_%H-%M-%S") + ".png"
+        current_time = argv.get("type","")+"_"+ time.strftime("%Y-%m-%d_%H-%M-%S") + ".png"
         debug_path = os.path.join("debug", current_time)
-
         def png_chunk(chunk_type, data):
             chunk = chunk_type + data
             return (

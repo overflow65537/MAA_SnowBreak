@@ -71,9 +71,14 @@
         ]
     },
     "返回主菜单_err": {
-        "focus": true,
+        "focus": {
+            "succeeded": "[color:Tomato]识别错误，返回主菜单[/color]"
+        },
         "action": "Custom",
         "custom_action": "ScreenShot",
+        "custom_action_param": {
+            "type": "ERR"
+        },
         "next": [
             "检查主界面",
             "返回主菜单"
@@ -83,9 +88,9 @@
         ]
     },
     "重启游戏": {
-        "focus": true,
-        "focus_succeeded": "未知错误,重启游戏",
-        "focus_succeeded_color": "tomato",
+        "focus": {
+            "succeeded": "[color:Tomato]未知错误，重启游戏[/color]"
+        },
         "action": "StopApp",
         "package": "com.dragonli.projectsnow.lhm",
         "next": [
