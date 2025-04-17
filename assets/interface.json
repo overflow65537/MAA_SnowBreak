@@ -105,14 +105,20 @@
             "entry": "凭证"
         },
         {
-            "name": "关闭游戏",
-            "entry": "关闭游戏"
-        },
-        {
             "name": "新星开拓任务",
             "entry": "新星开拓任务",
             "periodic": 1,
             "daily_start": 5
+        },
+        {
+            "name": "收取信源碎片",
+            "entry": "收取碎片",
+            "periodic": 1,
+            "daily_start": 5
+        },
+        {
+            "name": "关闭游戏",
+            "entry": "关闭游戏"
         },
         {
             "name": "疗愈",
