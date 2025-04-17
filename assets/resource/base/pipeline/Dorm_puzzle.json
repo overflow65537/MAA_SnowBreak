@@ -14,12 +14,19 @@
     "开始拼图": {
         "recognition": "OCR",
         "roi": [
-            1006,
-            483,
-            63,
-            42
+            1080,
+            659,
+            107,
+            35
         ],
-        "expected": "开始"
+        "expected": "完成",
+        "next": [
+            "拼图计算器"
+        ]
+    },
+    "拼图计算器": {
+        "action": "Custom",
+        "custom_action": "Puzzle_Clculate"
     },
     "检查信源研析非0": {
         "only_rec": true,
@@ -109,5 +116,26 @@
         ],
         "expected": "基地",
         "action": "Click"
+    },
+    "识别可放置区域": {
+        "recognition": "ColorMatch",
+        "roi": [
+            382,
+            101,
+            656,
+            551
+        ],
+        "upper": [
+            174,
+            183,
+            191
+        ],
+        "lower": [
+            168,
+            177,
+            184
+        ],
+        "connected": true,
+        "count": 8500
     }
 }

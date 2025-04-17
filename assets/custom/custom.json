@@ -28,5 +28,10 @@
         "type": "action",
         "class": "Count",
         "file_path": "{custom_path}\\action\\Count.py"
+    },
+    "Puzzle_Clculate": {
+        "type": "action",
+        "class": "Puzzle_Clculate",
+        "file_path": "{custom_path}\\action\\Puzzle_Clculate.py"
     }
 }
