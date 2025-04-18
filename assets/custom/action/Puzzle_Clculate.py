@@ -3,6 +3,8 @@ from maa.custom_action import CustomAction
 from maa.define import RecognitionDetail
 
 class PuzzleClculate(CustomAction):
+
+
     def run(
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
@@ -28,7 +30,7 @@ class PuzzleClculate(CustomAction):
         :return: 二维数组表示的拼图板布局
         """
         # 初始化一个5行6列的矩阵,向内部填充0
-        matrix = [[0 for _ in range(6)] for _ in range(5)]
+        matrix = [[-1 for _ in range(6)] for _ in range(5)]
         
         # 定义行和列的边界阈值
         row_y = [109, 219, 328, 437, 547]  # 5个行的y坐标
@@ -49,6 +51,9 @@ class PuzzleClculate(CustomAction):
             except StopIteration:
                 continue
                 
-            matrix[row_idx][col_idx] = 1
+            matrix[row_idx][col_idx] = 0
             
         return matrix
+    def get_puzzle_count(self):
+       pass
+

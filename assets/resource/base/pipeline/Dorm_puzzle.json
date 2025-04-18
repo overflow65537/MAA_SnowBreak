@@ -137,5 +137,302 @@
         ],
         "connected": true,
         "count": 8500
+    },
+    "识别碎片1": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            50,
+            102,
+            294,
+            544
+        ],
+        "green_mask": true,
+        "template": "拼图\\1_up.png",
+        "order_by": "Score",
+        "next": [
+            "识别碎片1数量"
+        ]
+    },
+    "识别碎片1数量": {
+        "recognition": "OCR",
+        "only_rec": true,
+        "roi": "识别碎片1",
+        "roi_offset": [
+            -32,
+            72,
+            -35,
+            -42
+        ],
+        "expected": "^(100|[1-9]\\d?)$"
+    },
+    "识别碎片2": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            50,
+            102,
+            294,
+            544
+        ],
+        "green_mask": true,
+        "template": "拼图\\2_up.png",
+        "order_by": "Score",
+        "next": [
+            "识别碎片2数量"
+        ]
+    },
+    "识别碎片2数量": {
+        "recognition": "OCR",
+        "only_rec": true,
+        "roi": "识别碎片2",
+        "roi_offset": [
+            -51,
+            103,
+            0,
+            -103
+        ],
+        "expected": "^(100|[1-9]\\d?)$"
+    },
+    "识别碎片3": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            50,
+            102,
+            294,
+            544
+        ],
+        "green_mask": true,
+        "template": "拼图\\3_up.png",
+        "order_by": "Score",
+        "next": [
+            "识别碎片3数量"
+        ]
+    },
+    "识别碎片3数量": {
+        "recognition": "OCR",
+        "only_rec": true,
+        "roi": "识别碎片3",
+        "roi_offset": [
+            -17,
+            73,
+            -69,
+            -43
+        ],
+        "expected": "^(100|[1-9]\\d?)$"
+    },
+    "识别碎片4": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            50,
+            102,
+            294,
+            544
+        ],
+        "green_mask": true,
+        "template": "拼图\\4_up.png",
+        "order_by": "Score",
+        "next": [
+            "识别碎片4数量"
+        ]
+    },
+    "识别碎片4数量": {
+        "recognition": "OCR",
+        "only_rec": true,
+        "roi": "识别碎片4",
+        "roi_offset": [
+            -16,
+            71,
+            -66,
+            -41
+        ],
+        "expected": "^(100|[1-9]\\d?)$"
+    },
+    "识别碎片5": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            50,
+            102,
+            294,
+            544
+        ],
+        "green_mask": true,
+        "template": "拼图\\5_up.png",
+        "order_by": "Score",
+        "next": [
+            "识别碎片5数量"
+        ]
+    },
+    "识别碎片5数量": {
+        "recognition": "OCR",
+        "only_rec": true,
+        "roi": "识别碎片5",
+        "roi_offset": [
+            -12,
+            102,
+            -72,
+            -96
+        ],
+        "expected": "^(100|[1-9]\\d?)$"
+    },
+    "识别碎片6": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            50,
+            102,
+            294,
+            544
+        ],
+        "green_mask": true,
+        "template": "拼图\\6_up.png",
+        "order_by": "Score",
+        "next": [
+            "识别碎片6数量"
+        ]
+    },
+    "识别碎片6数量": {
+        "recognition": "OCR",
+        "only_rec": true,
+        "roi": "识别碎片6",
+        "roi_offset": [
+            -6,
+            103,
+            -87,
+            -102
+        ],
+        "expected": "^(100|[1-9]\\d?)$"
+    },
+    "识别碎片7": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            50,
+            102,
+            294,
+            544
+        ],
+        "green_mask": true,
+        "template": "拼图\\7_up.png",
+        "order_by": "Score",
+        "next": [
+            "识别碎片7数量"
+        ]
+    },
+    "识别碎片7数量": {
+        "recognition": "OCR",
+        "only_rec": true,
+        "roi": "识别碎片7",
+        "roi_offset": [
+            -14,
+            74,
+            -62,
+            -42
+        ],
+        "expected": "^(100|[1-9]\\d?)$"
+    },
+    "识别碎片8": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            50,
+            102,
+            294,
+            544
+        ],
+        "green_mask": true,
+        "template": "拼图\\8_up.png",
+        "order_by": "Score",
+        "next": [
+            "识别碎片8数量"
+        ]
+    },
+    "识别碎片8数量": {
+        "recognition": "OCR",
+        "only_rec": true,
+        "roi": "识别碎片8",
+        "roi_offset": [
+            -14,
+            72,
+            -62,
+            -40
+        ],
+        "expected": "^(100|[1-9]\\d?)$"
+    },
+    "识别碎片9": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            50,
+            102,
+            294,
+            544
+        ],
+        "green_mask": true,
+        "template": "拼图\\9_up.png",
+        "order_by": "Score",
+        "next": [
+            "识别碎片9数量"
+        ]
+    },
+    "识别碎片9数量": {
+        "recognition": "OCR",
+        "only_rec": true,
+        "roi": "识别碎片9",
+        "roi_offset": [
+            -53,
+            54,
+            3,
+            -8
+        ],
+        "expected": "^(100|[1-9]\\d?)$"
+    },
+    "识别碎片10": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            50,
+            102,
+            294,
+            544
+        ],
+        "green_mask": true,
+        "template": "拼图\\10_up.png",
+        "order_by": "Score",
+        "next": [
+            "识别碎片10数量"
+        ]
+    },
+    "识别碎片10数量": {
+        "recognition": "OCR",
+        "only_rec": true,
+        "roi": "识别碎片10",
+        "roi_offset": [
+            -52,
+            68,
+            0,
+            -36
+        ],
+        "expected": "^(100|[1-9]\\d?)$"
+    },
+    "识别碎片11": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            50,
+            102,
+            294,
+            544
+        ],
+        "green_mask": true,
+        "template": "拼图\\11_up.png",
+        "order_by": "Score",
+        "next": [
+            "识别碎片11数量"
+        ]
+    },
+    "识别碎片11数量": {
+        "recognition": "OCR",
+        "only_rec": true,
+        "roi": "识别碎片11",
+        "roi_offset": [
+            -36,
+            72,
+            -32,
+            -47
+        ],
+        "expected": "^(100|[1-9]\\d?)$"
     }
 }
