@@ -45,6 +45,7 @@ class PuzzleSolver:
         self.a = []  # 当前棋盘状态
         self.l = []  # 剩余拼图块数量
         self.res = []  # 解方案集合
+        self.temp_solution = []  # 临时存储当前解块信息
 
     def solve(self, arr, num):
         """主求解入口"""
@@ -96,11 +97,14 @@ class PuzzleSolver:
         """深度优先搜索核心"""
         # 终止条件：处理完所有格子
         if p == self.m * self.n:
-            self.res.append([row.copy() for row in self.a])
-            if len(self.res) >= 10000:
-                print("方案数过多，仅保留前10000种")
-                return True
-            return False
+            # 记录完整解（棋盘状态+块信息）
+            self.res.append(
+                {
+                    "board": [row.copy() for row in self.a],
+                    "blocks": self.temp_solution.copy(),
+                }
+            )
+            return len(self.res) >= 10000
 
         x, y = divmod(p, self.n)  # 转换为二维坐标
 
@@ -118,15 +122,33 @@ class PuzzleSolver:
                 if not self.can_place_block(x, y, b, d):
                     continue
 
-                # 放置拼图块并递归搜索
+                # 计算实际放置坐标（考虑偏移）
+                pat = blocks[b][d]
+                offset = 0
+                while pat[0][offset] == 0:
+                    offset += 1
+                actual_y = y - offset
+
+                # 记录块信息（新增）
+                block_info = {
+                    "type": b,
+                    "direction": d,
+                    "position": (x, actual_y),
+                    "size": (len(pat), len(pat[0])),
+                }
+
+                # 放置块并记录
                 self.place_block(x, y, b, d, b + 1)
                 self.l[b] -= 1
+                self.temp_solution.append(block_info)
+
                 if self.dfs(p + 1):
                     return True
 
-                # 回溯恢复状态
+                # 回溯时移除记录
                 self.l[b] += 1
                 self.place_block(x, y, b, d, -1)
+                self.temp_solution.pop()
 
         return False
 
@@ -175,13 +197,17 @@ class PuzzleClculate(CustomAction):
 
         # 初始化求解器
         solver = PuzzleSolver()
+        # 在run方法中调用分析函数
         solutions = solver.solve(puzzle_layout, self.PUZZLE_COUNT)
         if solutions:
-            # 打印前十个解决方案
-            for i in range(min(10, len(solutions))):
-                print(f"解决方案 {i+1}:")
-                for row in solutions[i]:
-                    print(row)
+            for row in solutions[0]["board"]:
+                print(row)
+            print("首解块信息:")
+            for block in solutions[0]["blocks"]:
+                print(
+                    f"类型{block['type']+1} | 方向{block['direction']} | "
+                    f"位置{block['position']} | 尺寸{block['size']}"
+                )
         else:
             print("未找到解决方案")
             return CustomAction.RunResult(success=True)
