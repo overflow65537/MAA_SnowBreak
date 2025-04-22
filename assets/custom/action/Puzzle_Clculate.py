@@ -4,36 +4,150 @@ from maa.define import RecognitionDetail
 import time
 
 blocks = [
-    [[[1, 1], [1, 1]]],
-    [[[2, 2, 2, 2]], [[2], [2], [2], [2]]],
-    [[[3, 3, 0], [0, 3, 3]], [[0, 3], [3, 3], [3, 0]]],
-    [[[0, 4, 4], [4, 4, 0]], [[4, 0], [4, 4], [0, 4]]],
+    # 1号
     [
-        [[5, 0, 0], [5, 5, 5]],
-        [[5, 5], [5, 0], [5, 0]],
-        [[5, 5, 5], [0, 0, 5]],
-        [[0, 5], [0, 5], [5, 5]],
+        [
+            [1, 1],
+            [1, 1],
+        ]
     ],
+    # 2号
     [
-        [[0, 0, 6], [6, 6, 6]],
-        [[6, 6], [0, 6], [0, 6]],
-        [[6, 6, 6], [6, 0, 0]],
-        [[6, 0], [6, 0], [6, 6]],
+        [
+            [2],
+            [2],
+            [2],
+            [2],
+        ],
+        [
+            [2, 2, 2, 2],
+        ],
     ],
+    # 3号
     [
-        [[0, 7, 0], [7, 7, 7]],
-        [[7, 7, 7], [0, 7, 0]],
-        [[7, 0], [7, 7], [7, 0]],
-        [[0, 7], [7, 7], [0, 7]],
+        [
+            [3, 3, 0],
+            [0, 3, 3],
+        ],
+        [
+            [0, 3],
+            [3, 3],
+            [3, 0],
+        ],
     ],
-    [[[0, 8, 0], [8, 8, 8], [0, 8, 0]]],
+    # 4号
+    [
+        [
+            [0, 4, 4],
+            [4, 4, 0],
+        ],
+        [
+            [4, 0],
+            [4, 4],
+            [0, 4],
+        ],
+    ],
+    # 5号
+    [
+        [
+            [0, 5],
+            [0, 5],
+            [5, 5],
+        ],
+        [
+            [5, 0, 0],
+            [5, 5, 5],
+        ],
+        [
+            [5, 5],
+            [5, 0],
+            [5, 0],
+        ],
+        [
+            [5, 5, 5],
+            [0, 0, 5],
+        ],
+    ],
+    # 6号
+    [
+        [
+            [6, 0],
+            [6, 0],
+            [6, 6],
+        ],
+        [
+            [6, 6, 6],
+            [6, 0, 0],
+        ],
+        [
+            [6, 6],
+            [0, 6],
+            [0, 6],
+        ],
+        [
+            [0, 0, 6],
+            [6, 6, 6],
+        ],
+    ],
+    # 7号
+    [
+        [
+            [7, 7, 7],
+            [0, 7, 0],
+        ],
+        [
+            [0, 7],
+            [7, 7],
+            [0, 7],
+        ],
+        [
+            [0, 7, 0],
+            [7, 7, 7],
+        ],
+        [
+            [7, 0],
+            [7, 7],
+            [7, 0],
+        ],
+    ],
+    # 8号
+    [
+        [
+            [0, 8, 0],
+            [8, 8, 8],
+            [0, 8, 0],
+        ]
+    ],
+    # 9号
     [[[9]]],
-    [[[10, 10]], [[10], [10]]],
+    # 10号
     [
-        [[11, 11], [11, 0]],
-        [[11, 11], [0, 11]],
-        [[0, 11], [11, 11]],
-        [[11, 0], [11, 11]],
+        [
+            [10],
+            [10],
+        ],
+        [
+            [10, 10],
+        ],
+    ],
+    # 11号
+    [
+        [
+            [11, 0],
+            [11, 11],
+        ],
+        [
+            [11, 11],
+            [11, 0],
+        ],
+        [
+            [11, 11],
+            [0, 11],
+        ],
+        [
+            [0, 11],
+            [11, 11],
+        ],
     ],
 ]
 
@@ -129,12 +243,18 @@ class PuzzleSolver:
                     offset += 1
                 actual_y = y - offset
 
-                # 记录块信息（新增）
+                # 计算包围盒坐标
+                rows = len(pat)
+                cols = len(pat[0])
+                begin_pos = (x, actual_y)  # 左上角坐标
+                end_pos = (x + rows - 1, actual_y + cols - 1)  # 右下角坐标
+
+                # 更新块信息记录方式
                 block_info = {
                     "type": b,
                     "direction": d,
-                    "position": (x, actual_y),
-                    "size": (len(pat), len(pat[0])),
+                    "begin_position": begin_pos,
+                    "end_position": end_pos
                 }
 
                 # 放置块并记录
@@ -191,6 +311,7 @@ class PuzzleClculate(CustomAction):
         context.tasker.controller.post_swipe(200, 600, 200, 100, 500).wait()
         time.sleep(1)  # 滑动后等待动画结束
         self.get_puzzle_count(context)
+        context.tasker.controller.post_swipe(200, 150, 200, 600, 500).wait()
         print("碎片数量:")
         for idx, count in enumerate(self.PUZZLE_COUNT):
             print(f"碎片{idx}: {count}")
@@ -205,9 +326,86 @@ class PuzzleClculate(CustomAction):
             print("首解块信息:")
             for block in solutions[0]["blocks"]:
                 print(
-                    f"类型{block['type']+1} | 方向{block['direction']} | "
-                    f"位置{block['position']} | 尺寸{block['size']}"
+                    "碎片类型:",
+                    block["type"]+1,
+                    "方向:",
+                    block["direction"],
+                    "左上角坐标:",
+                    block["begin_position"],
+                    "右下角坐标:",
+                    block["end_position"],
                 )
+
+                image = context.tasker.controller.post_screencap().wait().get()
+                piece = context.run_recognition(f"识别碎片{block['type']+1}", image)
+                if piece is None and block['type']+1>=8:   
+                    print(f"未搜索到{block['type']+1}, 尝试向上滑动")
+                    context.tasker.controller.post_swipe(200, 600, 200, 100, 500).wait()
+                    time.sleep(1)  # 滑动后等待动画结束
+                    image = context.tasker.controller.post_screencap().wait().get()
+                    piece = context.run_recognition(f"识别碎片{block['type']+1}", image)
+                    if piece is None:
+                        print(f"无法识别碎片{block['type']+1}")
+                        return CustomAction.RunResult(success=True)
+                elif piece is None and block['type']+1<8:
+                    print(f"未搜索到{block['type']+1}, 尝试向下滑动")
+                    context.tasker.controller.post_swipe(200, 150, 200, 600, 500).wait()
+                    time.sleep(1)  # 滑动后等待动画结束
+                    image = context.tasker.controller.post_screencap().wait().get()
+                    piece = context.run_recognition(f"识别碎片{block['type']+1}", image)
+                    if piece is None:
+                        print(f"无法识别碎片{block['type']+1}")
+                        return CustomAction.RunResult(success=True)
+                # 旋转
+                if block["direction"] == 1:
+                    print("旋转90度")
+                    context.tasker.controller.post_click(
+                        piece.best_result.box[0] + 10, piece.best_result.box[1] + 10
+                    ).wait()
+                    time.sleep(0.5)
+                    context.tasker.controller.post_click(
+                        piece.best_result.box[0] + 10, piece.best_result.box[1] + 10
+                    ).wait()
+                elif block["direction"] == 2:
+                    print("旋转180度")
+                    context.tasker.controller.post_click(
+                        piece.best_result.box[0] + 10, piece.best_result.box[1] + 10
+                    ).wait()
+                    time.sleep(0.5)
+                    context.tasker.controller.post_click(
+                        piece.best_result.box[0] + 10, piece.best_result.box[1] + 10
+                    ).wait()
+                    time.sleep(0.5)
+                    context.tasker.controller.post_click(
+                        piece.best_result.box[0] + 10, piece.best_result.box[1] + 10
+                    ).wait()
+                elif block["direction"] == 3:
+                    print("旋转270度")
+                    context.tasker.controller.post_click(
+                        piece.best_result.box[0] + 10, piece.best_result.box[1] + 10
+                    ).wait()
+                    time.sleep(0.5)
+                    context.tasker.controller.post_click(
+                        piece.best_result.box[0] + 10, piece.best_result.box[1] + 10 
+                    )
+                    time.sleep(0.5)
+                    context.tasker.controller.post_click(
+                        piece.best_result.box[0] + 10, piece.best_result.box[1] + 10
+                    ).wait()
+                    time.sleep(0.5)
+                    context.tasker.controller.post_click(
+                        piece.best_result.box[0] + 10, piece.best_result.box[1] + 10 
+                    )
+                time.sleep(1)
+                    
+                # 计算中心点坐标
+                end_x, end_y = self.convert_grid_to_coords(block['begin_position'], block['end_position'])
+                print(f"碎片{block['type']+1}中心点坐标: ({end_x}, {end_y})")
+                begin_x, begin_y = piece.best_result.box[0], piece.best_result.box[1]
+                context.tasker.controller.post_swipe(begin_x, begin_y, end_x, end_y, 2000).wait()
+                time.sleep(1)
+                context.run_task("重新进入拼图")
+                time.sleep(1)
         else:
             print("未找到解决方案")
             return CustomAction.RunResult(success=True)
@@ -261,3 +459,25 @@ class PuzzleClculate(CustomAction):
                     )
                 except (ValueError, IndexError) as e:
                     print(f"碎片{idx}数量识别错误: {str(e)}")
+
+    def convert_grid_to_coords(self, begin_pos, end_pos):
+        AREA = (382, 101, 656, 551)  # 更新为修正后的区域参数
+        
+        total_rows = 5
+        total_cols = 6
+        
+        # 计算单个格子尺寸
+        cell_width = AREA[2] / total_cols
+        cell_height = AREA[3] / total_rows
+        
+        # 计算实际坐标范围
+        min_x = AREA[0] + begin_pos[1] * cell_width
+        max_x = AREA[0] + (end_pos[1] + 1) * cell_width
+        min_y = AREA[1] + begin_pos[0] * cell_height
+        max_y = AREA[1] + (end_pos[0] + 1) * cell_height
+        
+        # 返回中心点坐标（取整）
+        return (
+            int((min_x + max_x) / 2),
+            int((min_y + max_y) / 2)
+        )
