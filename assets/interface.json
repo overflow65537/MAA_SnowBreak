@@ -117,6 +117,13 @@
             "daily_start": 5
         },
         {
+            "name": "信源研分",
+            "entry": "基地拼图",
+            "periodic": 2,
+            "daily_start": 5,
+            "weekly_start": 1
+        },
+        {
             "name": "关闭游戏",
             "entry": "关闭游戏"
         },
