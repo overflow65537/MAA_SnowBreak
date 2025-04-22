@@ -427,8 +427,8 @@ class PuzzleClculate(CustomAction):
                     begin_x, begin_y, end_x, end_y, 1000
                 ).wait()
                 last_block = block["type"]
-                """time.sleep(1)
-                context.run_task("重新进入拼图")
+                time.sleep(1)
+                """context.run_task("重新进入拼图")
                 time.sleep(1)"""
         else:
             print("未找到解决方案")
@@ -485,7 +485,7 @@ class PuzzleClculate(CustomAction):
                     print(f"碎片{idx}数量识别错误: {str(e)}")
 
     def convert_grid_to_coords(self, begin_pos, end_pos):
-        AREA = (382, 101, 656, 551)  # 更新为修正后的区域参数
+        AREA = (382, 101, 656, 551)  
 
         total_rows = 5
         total_cols = 6

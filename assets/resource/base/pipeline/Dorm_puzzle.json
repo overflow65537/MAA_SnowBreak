@@ -14,17 +14,107 @@
     "开始拼图": {
         "recognition": "OCR",
         "roi": [
-            1080,
-            659,
-            107,
+            1171,
+            533,
+            65,
             35
         ],
-        "expected": "完成",
+        "expected": "重置",
+        "action": "Click",
         "next": [
+            "拼图次数归零"
+        ],
+        "interrupt": [
+            "继续拼图",
+            "领取拼图奖励",
+            "确定提交拼图",
+            "完美解析",
+            "关闭奖励通知",
             "拼图计算器"
         ]
     },
+    "拼图次数归零": {
+        "recognition": "OCR",
+        "roi": [
+            624,
+            608,
+            53,
+            33
+        ],
+        "expected": "退出",
+        "action": "Click",
+        "next": [
+            "检查主界面"
+        ],
+        "interrupt": [
+            "一会儿再见"
+        ]
+    },
+    "一会儿再见": {
+        "recognition": "OCR",
+        "roi": [
+            892,
+            478,
+            105,
+            37
+        ],
+        "expected": "一会儿再见",
+        "action": "Click"
+    },
+    "继续拼图": {
+        "recognition": "OCR",
+        "roi": [
+            820,
+            609,
+            59,
+            35
+        ],
+        "expected": "继续",
+        "action": "Click"
+    },
+    "领取拼图奖励": {
+        "recognition": "OCR",
+        "roi": [
+            617,
+            608,
+            59,
+            36
+        ],
+        "expected": "领取",
+        "action": "Click"
+    },
+    "确定提交拼图": {
+        "recognition": "OCR",
+        "roi": [
+            948,
+            491,
+            56,
+            37
+        ],
+        "expected": "确定",
+        "action": "Click"
+    },
+    "完美解析": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1084,
+            661,
+            102,
+            33
+        ],
+        "expected": "完美",
+        "action": "Click"
+    },
     "拼图计算器": {
+        "recognition": "OCR",
+        "roi": [
+            1084,
+            661,
+            102,
+            33
+        ],
+        "expected": "完成",
         "action": "Custom",
         "custom_action": "Puzzle_Clculate"
     },
