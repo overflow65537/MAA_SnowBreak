@@ -1,7 +1,7 @@
 {
     "url": "https://github.com/overflow65537/MAA_SnowBreak",
     "name": "MSBA",
-    "MFW_min_req_version": "1.5.4",
+    "MFW_min_req_version": "1.6.0",
     "mirrorchyan_rid": "MAA_SnowBreak",
     "controller": [
         {
@@ -105,14 +105,20 @@
             "entry": "凭证"
         },
         {
-            "name": "关闭游戏",
-            "entry": "关闭游戏"
-        },
-        {
             "name": "新星开拓任务",
             "entry": "新星开拓任务",
             "periodic": 1,
             "daily_start": 5
+        },
+        {
+            "name": "收取信源碎片",
+            "entry": "收取碎片",
+            "periodic": 1,
+            "daily_start": 5
+        },
+        {
+            "name": "关闭游戏",
+            "entry": "关闭游戏"
         },
         {
             "name": "疗愈",
@@ -506,6 +512,23 @@
         },
         "选择人物": {
             "cases": [
+                {
+                    "name": "冥河代理人奈莉德",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": "OCR",
+                            "expected": [
+                                "冥河代理人"
+                            ],
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
+                            ]
+                        }
+                    }
+                },
                 {
                     "name": "澜风恩雅",
                     "pipeline_override": {

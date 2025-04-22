@@ -7,15 +7,14 @@
         ]
     },
     "每日任务": {
-        "threshold": 0.85,
         "post_delay": 1000,
         "recognition": "TemplateMatch",
         "green_mask": true,
         "roi": [
-            630,
-            588,
-            134,
-            132
+            666,
+            656,
+            48,
+            41
         ],
         "template": [
             "凭证\\每日任务_680_661_34_32__630_588_134_132.png"
@@ -48,15 +47,14 @@
         ]
     },
     "每周任务": {
-        "threshold": 0.85,
         "post_delay": 1000,
         "recognition": "TemplateMatch",
         "green_mask": true,
         "roi": [
-            834,
-            583,
-            139,
-            137
+            873,
+            655,
+            45,
+            41
         ],
         "template": [
             "凭证\\每周任务_884_657_39_37__834_583_139_137.png"
@@ -93,10 +91,10 @@
         "recognition": "TemplateMatch",
         "green_mask": true,
         "roi": [
-            1043,
-            584,
-            135,
-            136
+            1084,
+            657,
+            36,
+            38
         ],
         "template": [
             "凭证\\限定任务_1093_658_35_36__1043_584_135_136.png"

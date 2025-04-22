@@ -33,5 +33,10 @@
         "type": "action",
         "class": "Puzzle_Clculate",
         "file_path": "{custom_path}\\action\\Puzzle_Clculate.py"
+    },
+    "PPOverride": {
+        "type": "action",
+        "class": "PPOverride",
+        "file_path": "{custom_path}\\action\\PPOverride.py"
     }
 }

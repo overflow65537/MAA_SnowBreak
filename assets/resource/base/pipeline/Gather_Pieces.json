@@ -1,0 +1,106 @@
+{
+    "收取碎片": {
+        "next": [
+            "一键收取碎片"
+        ],
+        "interrupt": [
+            "点击剩余碎片",
+            "点击地图",
+            "打开基地"
+        ]
+    },
+    "打开基地": {
+        "post_delay": 2000,
+        "recognition": "OCR",
+        "roi": [
+            1013,
+            480,
+            55,
+            41
+        ],
+        "expected": "基地",
+        "action": "Click"
+    },
+    "一键收取碎片": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "only_rec": true,
+        "roi": [
+            923,
+            491,
+            107,
+            40
+        ],
+        "expected": "收取",
+        "action": "Click",
+        "next": [
+            "谢谢芙提雅",
+            "返回主菜单_基地",
+            "一键收取碎片"
+        ]
+    },
+    "谢谢芙提雅": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "only_rec": true,
+        "roi": [
+            567,
+            535,
+            140,
+            42
+        ],
+        "expected": "谢谢",
+        "action": "Click",
+        "next": [
+            "返回主菜单_基地"
+        ],
+        "interrupt": [
+            "点击地图"
+        ]
+    },
+    "返回主菜单_基地": {
+        "recognition": "OCR",
+        "only_rec": true,
+        "roi": [
+            1034,
+            22,
+            52,
+            27
+        ],
+        "expected": "退出",
+        "action": "Click",
+        "next": [
+            "检查主界面",
+            "返回主菜单_基地",
+            "返回主菜单"
+        ],
+        "interrupt": [
+            "点击地图"
+        ]
+    },
+    "点击地图": {
+        "green_mask": true,
+        "recognition": "TemplateMatch",
+        "roi": [
+            18,
+            0,
+            82,
+            79
+        ],
+        "template": "基地\\在基地内部.png",
+        "action": "Click"
+    },
+    "点击剩余碎片": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "only_rec": true,
+        "roi": [
+            983,
+            678,
+            39,
+            23
+        ],
+        "expected": "剩余",
+        "action": "Click"
+    }
+}
