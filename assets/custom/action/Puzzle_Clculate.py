@@ -254,7 +254,7 @@ class PuzzleSolver:
                     "type": b,
                     "direction": d,
                     "begin_position": begin_pos,
-                    "end_position": end_pos
+                    "end_position": end_pos,
                 }
 
                 # 放置块并记录
@@ -323,11 +323,12 @@ class PuzzleClculate(CustomAction):
         if solutions:
             for row in solutions[0]["board"]:
                 print(row)
-            print("首解块信息:")
+            last_block = None
+            need_reinit = False
             for block in solutions[0]["blocks"]:
                 print(
                     "碎片类型:",
-                    block["type"]+1,
+                    block["type"] + 1,
                     "方向:",
                     block["direction"],
                     "左上角坐标:",
@@ -335,10 +336,14 @@ class PuzzleClculate(CustomAction):
                     "右下角坐标:",
                     block["end_position"],
                 )
+                if need_reinit:
+                    context.run_task("重新进入拼图")
+                    time.sleep(1)
+                    need_reinit = False
 
                 image = context.tasker.controller.post_screencap().wait().get()
                 piece = context.run_recognition(f"识别碎片{block['type']+1}", image)
-                if piece is None and block['type']+1>=8:   
+                if piece is None and block["type"] + 1 >= 8:
                     print(f"未搜索到{block['type']+1}, 尝试向上滑动")
                     context.tasker.controller.post_swipe(200, 600, 200, 100, 500).wait()
                     time.sleep(1)  # 滑动后等待动画结束
@@ -347,7 +352,7 @@ class PuzzleClculate(CustomAction):
                     if piece is None:
                         print(f"无法识别碎片{block['type']+1}")
                         return CustomAction.RunResult(success=True)
-                elif piece is None and block['type']+1<8:
+                elif piece is None and block["type"] + 1 < 8:
                     print(f"未搜索到{block['type']+1}, 尝试向下滑动")
                     context.tasker.controller.post_swipe(200, 150, 200, 600, 500).wait()
                     time.sleep(1)  # 滑动后等待动画结束
@@ -358,20 +363,25 @@ class PuzzleClculate(CustomAction):
                         return CustomAction.RunResult(success=True)
                 # 旋转
                 if block["direction"] == 1:
+                    need_reinit = True
                     print("旋转90度")
+                    if last_block != block["type"]:
+                        context.tasker.controller.post_click(
+                            piece.best_result.box[0] + 10, piece.best_result.box[1] + 10
+                        ).wait()
+                        time.sleep(0.5)
                     context.tasker.controller.post_click(
                         piece.best_result.box[0] + 10, piece.best_result.box[1] + 10
                     ).wait()
-                    time.sleep(0.5)
-                    context.tasker.controller.post_click(
-                        piece.best_result.box[0] + 10, piece.best_result.box[1] + 10
-                    ).wait()
+
                 elif block["direction"] == 2:
+                    need_reinit = True
                     print("旋转180度")
-                    context.tasker.controller.post_click(
-                        piece.best_result.box[0] + 10, piece.best_result.box[1] + 10
-                    ).wait()
-                    time.sleep(0.5)
+                    if last_block != block["type"]:
+                        context.tasker.controller.post_click(
+                            piece.best_result.box[0] + 10, piece.best_result.box[1] + 10
+                        ).wait()
+                        time.sleep(0.5)
                     context.tasker.controller.post_click(
                         piece.best_result.box[0] + 10, piece.best_result.box[1] + 10
                     ).wait()
@@ -380,13 +390,15 @@ class PuzzleClculate(CustomAction):
                         piece.best_result.box[0] + 10, piece.best_result.box[1] + 10
                     ).wait()
                 elif block["direction"] == 3:
+                    need_reinit = True
                     print("旋转270度")
+                    if last_block != block["type"]:
+                        context.tasker.controller.post_click(
+                            piece.best_result.box[0] + 10, piece.best_result.box[1] + 10
+                        ).wait()
+                        time.sleep(0.5)
                     context.tasker.controller.post_click(
                         piece.best_result.box[0] + 10, piece.best_result.box[1] + 10
-                    ).wait()
-                    time.sleep(0.5)
-                    context.tasker.controller.post_click(
-                        piece.best_result.box[0] + 10, piece.best_result.box[1] + 10 
                     )
                     time.sleep(0.5)
                     context.tasker.controller.post_click(
@@ -394,18 +406,30 @@ class PuzzleClculate(CustomAction):
                     ).wait()
                     time.sleep(0.5)
                     context.tasker.controller.post_click(
-                        piece.best_result.box[0] + 10, piece.best_result.box[1] + 10 
+                        piece.best_result.box[0] + 10, piece.best_result.box[1] + 10
                     )
                 time.sleep(1)
-                    
+
                 # 计算中心点坐标
-                end_x, end_y = self.convert_grid_to_coords(block['begin_position'], block['end_position'])
-                print(f"碎片{block['type']+1}中心点坐标: ({end_x}, {end_y})")
+                end_x, end_y = self.convert_grid_to_coords(
+                    block["begin_position"], block["end_position"]
+                )
                 begin_x, begin_y = piece.best_result.box[0], piece.best_result.box[1]
-                context.tasker.controller.post_swipe(begin_x, begin_y, end_x, end_y, 2000).wait()
-                time.sleep(1)
+
+                # 7号碎片特殊处理
+                if block["type"] + 1 == 7 and block["direction"] == 1:
+                    end_y = end_y + 100
+                elif block["type"] + 1 == 7 and block["direction"] == 3:
+                    end_y = end_y - 100
+                print(f"碎片{block['type']+1}中心点坐标: ({end_x}, {end_y})")
+                # 最终滑动
+                context.tasker.controller.post_swipe(
+                    begin_x, begin_y, end_x, end_y, 1000
+                ).wait()
+                last_block = block["type"]
+                """time.sleep(1)
                 context.run_task("重新进入拼图")
-                time.sleep(1)
+                time.sleep(1)"""
         else:
             print("未找到解决方案")
             return CustomAction.RunResult(success=True)
@@ -462,22 +486,19 @@ class PuzzleClculate(CustomAction):
 
     def convert_grid_to_coords(self, begin_pos, end_pos):
         AREA = (382, 101, 656, 551)  # 更新为修正后的区域参数
-        
+
         total_rows = 5
         total_cols = 6
-        
+
         # 计算单个格子尺寸
         cell_width = AREA[2] / total_cols
         cell_height = AREA[3] / total_rows
-        
+
         # 计算实际坐标范围
         min_x = AREA[0] + begin_pos[1] * cell_width
         max_x = AREA[0] + (end_pos[1] + 1) * cell_width
         min_y = AREA[1] + begin_pos[0] * cell_height
         max_y = AREA[1] + (end_pos[0] + 1) * cell_height
-        
+
         # 返回中心点坐标（取整）
-        return (
-            int((min_x + max_x) / 2),
-            int((min_y + max_y) / 2)
-        )
+        return (int((min_x + max_x) / 2), int((min_y + max_y) / 2))
