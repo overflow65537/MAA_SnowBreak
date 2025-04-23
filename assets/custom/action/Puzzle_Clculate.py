@@ -339,6 +339,7 @@ class PuzzleClculate(CustomAction):
                 if need_reinit:
                     context.run_task("重新进入拼图")
                     time.sleep(1)
+                    last_block = None
                     need_reinit = False
 
                 image = context.tasker.controller.post_screencap().wait().get()
