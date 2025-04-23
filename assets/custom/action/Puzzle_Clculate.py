@@ -433,6 +433,10 @@ class PuzzleClculate(CustomAction):
                 time.sleep(1)"""
         else:
             print("未找到解决方案")
+            context.run_task("退出拼图")
+            context.run_task("一会儿再见")
+            context.run_task("返回主菜单_基地_custom")
+            context.run_task("停止任务")
             return CustomAction.RunResult(success=True)
 
         return CustomAction.RunResult(success=True)
@@ -466,24 +470,14 @@ class PuzzleClculate(CustomAction):
     def get_puzzle_count(self, context: Context):
         """获取碎片数量"""
         image = context.tasker.controller.post_screencap().wait().get()
-        PUZZLE_TYPES = 11  # 碎片类型总数
-
-        pieces = {
-            i: (
-                context.run_recognition(f"识别碎片{i}", image),
-                context.run_recognition(f"识别碎片{i}数量", image),
-            )
-            for i in range(1, PUZZLE_TYPES + 1)
-        }
-
-        for idx, (_, count_result) in pieces.items():
-            if count_result and count_result.filterd_results:
-                try:
-                    self.PUZZLE_COUNT[idx - 1] = int(
-                        count_result.filterd_results[0].text
-                    )
-                except (ValueError, IndexError) as e:
-                    print(f"碎片{idx}数量识别错误: {str(e)}")
+        for i in range(11):
+            result = context.run_recognition(f"识别碎片{i+1}", image)
+            if result is None:
+                self.PUZZLE_COUNT[i] = 0
+            else:
+                count =  context.run_recognition(f"识别碎片{i+1}数量", image)
+                if count is not None:
+                    self.PUZZLE_COUNT[i] = int(count.best_result.text)
 
     def convert_grid_to_coords(self, begin_pos, end_pos):
         AREA = (382, 101, 656, 551)  
