@@ -291,9 +291,7 @@ class PuzzleClculate(CustomAction):
             0,
         ]
 
-    def run(
-        self, context: Context, argv: CustomAction.RunArg
-    ) -> CustomAction.RunResult:
+    def run(self, context: Context, argv: CustomAction.RunArg) -> CustomAction.RunResult:
         image = context.tasker.controller.post_screencap().wait().get()
 
         # 识别拼图板
@@ -321,11 +319,25 @@ class PuzzleClculate(CustomAction):
         # 在run方法中调用分析函数
         solutions = solver.solve(puzzle_layout, self.PUZZLE_COUNT)
         if solutions:
-            for row in solutions[0]["board"]:
+            # 选择优先包含8的方案
+            selected_solution = None
+            for solution in solutions:
+                if any(8 in row for row in solution["board"]):
+                    selected_solution = solution
+                    break
+            
+            # 未找到则使用第一个方案
+            if not selected_solution:
+                selected_solution = solutions[0]
+
+            # 打印选中的棋盘方案
+            for row in selected_solution["board"]:
                 print(row)
+            
             last_block = None
             need_reinit = False
-            for block in solutions[0]["blocks"]:
+            # 使用选中的解决方案进行操作
+            for block in selected_solution["blocks"]:
                 print(
                     "碎片类型:",
                     block["type"] + 1,
