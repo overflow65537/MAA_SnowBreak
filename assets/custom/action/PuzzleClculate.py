@@ -286,7 +286,9 @@ logging.basicConfig(
     encoding="utf-8",
 )
 
-
+#打印当前目录和debug目录
+print("当前目录:", os.getcwd())
+print("debug目录:", os.path.abspath("debug"))
 class PuzzleClculate(CustomAction):
     def __init__(self):
         super().__init__()
