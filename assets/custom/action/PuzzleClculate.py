@@ -352,6 +352,7 @@ class PuzzleClculate(CustomAction):
                     context.run_task("重新进入拼图")
                     time.sleep(1)
                     block_changes = []
+                    last_block = None
 
                 image = context.tasker.controller.post_screencap().wait().get()
                 piece = context.run_recognition(f"识别碎片{block['type']+1}", image)
