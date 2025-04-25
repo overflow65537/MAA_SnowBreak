@@ -72,7 +72,13 @@
             35
         ],
         "expected": "继续",
-        "action": "Click"
+        "action": "Click",
+        "next": [
+            "重新进入拼图"
+        ],
+        "interrupt": [
+            "关闭奖励通知"
+        ]
     },
     "领取拼图奖励": {
         "recognition": "OCR",
@@ -118,7 +124,7 @@
         ],
         "expected": "完成",
         "action": "Custom",
-        "custom_action": "Puzzle_Clculate"
+        "custom_action": "PuzzleClculate"
     },
     "检查信源研析非0": {
         "only_rec": true,

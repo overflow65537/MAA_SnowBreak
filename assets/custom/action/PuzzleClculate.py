@@ -275,58 +275,92 @@ class PuzzleSolver:
 
 import logging
 import os
+from datetime import datetime, timedelta
 
-os.makedirs("debug", exist_ok=True)
-
-logging.basicConfig(
-    filename="debug/custom.log",
-    level=logging.DEBUG,
-    format="%(asctime)s - %(levelname)s - %(message)s",
-    filemode="a",
-    encoding="utf-8",
-)
-
-#打印当前目录和debug目录
-print("当前目录:", os.getcwd())
-print("debug目录:", os.path.abspath("debug"))
 class PuzzleClculate(CustomAction):
     def __init__(self):
         super().__init__()
         self.PUZZLE_COUNT = [0] * 11
-        logging.info("=" * 80)
-        logging.info("初始化拼图计算器，碎片数量数组重置")
-        logging.info("=" * 80)
+        
+        self.logger = self._setup_logger()
+        self._clear_old_logs() 
+        self.logger.info("=" * 80)
+        self.logger.info("初始化拼图计算器，碎片数量数组重置")
+        self.logger.info("=" * 80)
+
+    def _setup_logger(self):
+        debug_dir = "debug"
+        os.makedirs(debug_dir, exist_ok=True)
+
+        timestamp = datetime.now().strftime("%Y%m%d")
+        log_file_name = f"custom_{timestamp}.log"
+        log_file_path = os.path.join(debug_dir, log_file_name)
+
+        logger = logging.getLogger(__name__ + ".PuzzleClculate")
+        logger.setLevel(logging.DEBUG)
+
+        for handler in logger.handlers[:]:
+            logger.removeHandler(handler)
+
+        file_handler = logging.FileHandler(log_file_path, mode='a', encoding='utf-8')
+        file_handler.setLevel(logging.DEBUG)
+
+        formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+        file_handler.setFormatter(formatter)
+
+        logger.addHandler(file_handler)
+
+        return logger
+
+    def _clear_old_logs(self):
+        debug_dir = "debug"
+        if not os.path.isdir(debug_dir):
+            return
+
+        three_days_ago = datetime.now() - timedelta(days=3)
+        for root, dirs, files in os.walk(debug_dir):
+            for file in files:
+                if file.startswith("custom_") and file.endswith(".log"):
+                    try:
+                        timestamp_str = file.split("_")[1].split(".")[0]
+                        file_time = datetime.strptime(timestamp_str, "%Y%m%d")
+                        if file_time < three_days_ago:
+                            file_path = os.path.join(root, file)
+                            os.remove(file_path)
+                            self.logger.info(f"已删除过期日志文件: {file_path}")
+                    except Exception as e:
+                        self.logger.error(f"处理文件 {file} 时出错: {e}")
 
     def run(
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
-        logging.info("开始执行拼图计算任务")
+        self.logger.info("开始执行拼图计算任务")
         image = context.tasker.controller.post_screencap().wait().get()
 
         # 识别拼图板
-        logging.debug("尝试识别拼图板")
+        self.logger.debug("尝试识别拼图板")
         board = context.run_recognition("识别可放置区域", image)
         if board is None:
-            logging.warning("未识别到拼图板")
+            self.logger.warning("未识别到拼图板")
             return CustomAction.RunResult(success=True)
 
         puzzle_layout = self.parse_puzzle_layout(board)
-        logging.info(
+        self.logger.info(
             "拼图板布局解析完成:\n%s", "\n".join(str(row) for row in puzzle_layout)
         )
 
         # 识别碎片
-        logging.debug("开始识别碎片数量")
+        self.logger.debug("开始识别碎片数量")
         self.get_puzzle_count(context)
-        logging.debug("二次识别获取更多碎片")
+        self.logger.debug("二次识别获取更多碎片")
         context.tasker.controller.post_swipe(200, 600, 200, 100, 500).wait()
         time.sleep(1)
         self.get_puzzle_count(context)
         context.tasker.controller.post_swipe(200, 150, 200, 600, 500).wait()
-        logging.info("最终碎片数量: %s", self.PUZZLE_COUNT)
+        self.logger.info("最终碎片数量: %s", self.PUZZLE_COUNT)
 
         # 初始化求解器
-        logging.debug("初始化拼图求解器")
+        self.logger.debug("初始化拼图求解器")
         solver = PuzzleSolver()
         solutions = solver.solve(puzzle_layout, self.PUZZLE_COUNT)
 
@@ -335,45 +369,45 @@ class PuzzleClculate(CustomAction):
                 (s for s in solutions if any(8 in row for row in s["board"])),
                 solutions[0],
             )
-            logging.debug("选择方案：\n%s", "\n".join(str(row) for row in selected_solution["board"]))
+            self.logger.debug("选择方案：\n%s", "\n".join(str(row) for row in selected_solution["board"]))
 
             last_block = None
             need_reinit = False
             for block in selected_solution["blocks"]:
                 
                 if need_reinit:
-                    logging.debug("需要重新初始化")
+                    self.logger.debug("需要重新初始化")
                     context.run_task("重新进入拼图")
                     time.sleep(1)
                     last_block = None
                     need_reinit = False
-                logging.info(
+                self.logger.info(
                     "处理碎片 %d 方向 %d", block["type"] + 1, block["direction"]
                 )
                 image = context.tasker.controller.post_screencap().wait().get()
                 piece = context.run_recognition(f"识别碎片{block['type']+1}", image)
                 if piece is None and block["type"] + 1 >= 8:
-                    print(f"未搜索到{block['type']+1}, 尝试向上滑动")
+                    self.logger.info(f"未搜索到{block['type']+1}, 尝试向上滑动")
                     context.tasker.controller.post_swipe(200, 600, 200, 100, 500).wait()
                     time.sleep(1)  # 滑动后等待动画结束
                     image = context.tasker.controller.post_screencap().wait().get()
                     piece = context.run_recognition(f"识别碎片{block['type']+1}", image)
                     if piece is None:
-                        print(f"无法识别碎片{block['type']+1}")
+                        self.logger.info(f"无法识别碎片{block['type']+1}")
                         return CustomAction.RunResult(success=True)
                 elif piece is None and block["type"] + 1 < 8:
-                    print(f"未搜索到{block['type']+1}, 尝试向下滑动")
+                    self.logger.info(f"未搜索到{block['type']+1}, 尝试向下滑动")
                     context.tasker.controller.post_swipe(200, 150, 200, 600, 500).wait()
                     time.sleep(1)  # 滑动后等待动画结束
                     image = context.tasker.controller.post_screencap().wait().get()
                     piece = context.run_recognition(f"识别碎片{block['type']+1}", image)
                     if piece is None:
-                        print(f"无法识别碎片{block['type']+1}")
+                        self.logger.info(f"无法识别碎片{block['type']+1}")
                         return CustomAction.RunResult(success=True)
                 # 旋转
                 if block["direction"] == 1:
                     need_reinit = True
-                    print("旋转90度")
+                    self.logger.info("旋转90度")
                     if last_block != block["type"]:
                         context.tasker.controller.post_click(
                             piece.best_result.box[0] + 10, piece.best_result.box[1] + 10
@@ -385,7 +419,7 @@ class PuzzleClculate(CustomAction):
 
                 elif block["direction"] == 2:
                     need_reinit = True
-                    print("旋转180度")
+                    self.logger.info("旋转180度")
                     if last_block != block["type"]:
                         context.tasker.controller.post_click(
                             piece.best_result.box[0] + 10, piece.best_result.box[1] + 10
@@ -400,7 +434,7 @@ class PuzzleClculate(CustomAction):
                     ).wait()
                 elif block["direction"] == 3:
                     need_reinit = True
-                    print("旋转270度")
+                    self.logger.info("旋转270度")
                     if last_block != block["type"]:
                         context.tasker.controller.post_click(
                             piece.best_result.box[0] + 10, piece.best_result.box[1] + 10
@@ -430,23 +464,20 @@ class PuzzleClculate(CustomAction):
                     end_y = end_y + 100
                 elif block["type"] + 1 == 7 and block["direction"] == 3:
                     end_y = end_y - 100
-                print(f"碎片{block['type']+1}中心点坐标: ({end_x}, {end_y})")
+                self.logger.info(f"碎片{block['type']+1}中心点坐标: ({end_x}, {end_y})")
                 # 最终滑动
                 context.tasker.controller.post_swipe(
                     begin_x, begin_y, end_x, end_y, 1000
                 ).wait()
                 last_block = block["type"]
                 time.sleep(1)
-                """context.run_task("重新进入拼图")
-                time.sleep(1)"""
         else:
-            print("未找到解决方案")
+            self.logger.info("未找到拼图方案，可能是碎片数量不足或布局不合理")
             context.run_task("退出拼图")
             context.run_task("一会儿再见")
             context.run_task("返回主菜单_基地_custom")
             context.run_task("停止任务")
             return CustomAction.RunResult(success=True)
-        context.run_task("重新进入拼图")
 
         return CustomAction.RunResult(success=True)
 
@@ -478,18 +509,18 @@ class PuzzleClculate(CustomAction):
 
     def get_puzzle_count(self, context: Context):
         """获取碎片数量"""
-        logging.debug("更新碎片数量")
+        self.logger.debug("更新碎片数量")
         image = context.tasker.controller.post_screencap().wait().get()
         for i in range(11):
             result = context.run_recognition(f"识别碎片{i+1}", image)
             if result is None:
-                logging.debug("未识别到碎片 %d", i + 1)
+                self.logger.debug("未识别到碎片 %d", i + 1)
             else:
                 count = context.run_recognition(f"识别碎片{i+1}数量", image)
                 if count is not None:
                     old_count = self.PUZZLE_COUNT[i]
                     self.PUZZLE_COUNT[i] = int(count.best_result.text)
-                    logging.debug(
+                    self.logger.debug(
                         "更新碎片 %d 数量：%d → %d",
                         i + 1,
                         old_count,
