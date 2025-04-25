@@ -334,8 +334,8 @@ class PuzzleClculate(CustomAction):
             for row in selected_solution["board"]:
                 print(row)
             
-            block_changes = []
             last_block = None
+            need_reinit = False
             # 使用选中的解决方案进行操作
             for block in selected_solution["blocks"]:
                 print(
@@ -348,11 +348,11 @@ class PuzzleClculate(CustomAction):
                     "右下角坐标:",
                     block["end_position"],
                 )
-                if block["type"] + 1 in block_changes:
+                if need_reinit:
                     context.run_task("重新进入拼图")
                     time.sleep(1)
-                    block_changes = []
                     last_block = None
+                    need_reinit = False
 
                 image = context.tasker.controller.post_screencap().wait().get()
                 piece = context.run_recognition(f"识别碎片{block['type']+1}", image)
@@ -376,7 +376,7 @@ class PuzzleClculate(CustomAction):
                         return CustomAction.RunResult(success=True)
                 # 旋转
                 if block["direction"] == 1:
-                    block_changes.append(block["type"] + 1)
+                    need_reinit = True
                     print("旋转90度")
                     if last_block != block["type"]:
                         context.tasker.controller.post_click(
@@ -388,7 +388,7 @@ class PuzzleClculate(CustomAction):
                     ).wait()
 
                 elif block["direction"] == 2:
-                    block_changes.append(block["type"] + 1)
+                    need_reinit = True
                     print("旋转180度")
                     if last_block != block["type"]:
                         context.tasker.controller.post_click(
@@ -403,7 +403,7 @@ class PuzzleClculate(CustomAction):
                         piece.best_result.box[0] + 10, piece.best_result.box[1] + 10
                     ).wait()
                 elif block["direction"] == 3:
-                    block_changes.append(block["type"] + 1)
+                    need_reinit = True
                     print("旋转270度")
                     if last_block != block["type"]:
                         context.tasker.controller.post_click(
