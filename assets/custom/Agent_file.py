@@ -6,11 +6,11 @@ from action.ShotSelf import ShotSelf
 from action.ShotTarget import ShotTarget
 from action.StoryRogue import StoryRogue
 from action.Count import Count
-from action.Puzzle_Clculate import PuzzleClculate
+from action.PuzzleClculate import PuzzleClculate
 
 
 @AgentServer.custom_action("Puzzle_Clculate")
-class Agent_Puzzle_Clculate(PuzzleClculate):
+class Agent_PuzzleClculate(PuzzleClculate):
     pass
 
 
