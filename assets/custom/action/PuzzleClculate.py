@@ -273,87 +273,81 @@ class PuzzleSolver:
         return False
 
 
+import logging
+import os
+
+os.makedirs("debug", exist_ok=True)
+
+logging.basicConfig(
+    filename="debug/custom.log",
+    level=logging.DEBUG,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    filemode="a",
+    encoding="utf-8",
+)
+
+
 class PuzzleClculate(CustomAction):
     def __init__(self):
         super().__init__()
-        # 初始化拼图数量数组，每个元素代表对应类型的拼图数量
-        self.PUZZLE_COUNT = [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-        ]
+        self.PUZZLE_COUNT = [0] * 11
+        logging.info("=" * 80)
+        logging.info("初始化拼图计算器，碎片数量数组重置")
+        logging.info("=" * 80)
 
-    def run(self, context: Context, argv: CustomAction.RunArg) -> CustomAction.RunResult:
+    def run(
+        self, context: Context, argv: CustomAction.RunArg
+    ) -> CustomAction.RunResult:
+        logging.info("开始执行拼图计算任务")
         image = context.tasker.controller.post_screencap().wait().get()
 
         # 识别拼图板
+        logging.debug("尝试识别拼图板")
         board = context.run_recognition("识别可放置区域", image)
         if board is None:
+            logging.warning("未识别到拼图板")
             return CustomAction.RunResult(success=True)
 
         puzzle_layout = self.parse_puzzle_layout(board)
-        print("拼图板布局:")
-        for row in puzzle_layout:
-            print(row)
+        logging.info(
+            "拼图板布局解析完成:\n%s", "\n".join(str(row) for row in puzzle_layout)
+        )
 
         # 识别碎片
+        logging.debug("开始识别碎片数量")
         self.get_puzzle_count(context)
+        logging.debug("二次识别获取更多碎片")
         context.tasker.controller.post_swipe(200, 600, 200, 100, 500).wait()
-        time.sleep(1)  # 滑动后等待动画结束
+        time.sleep(1)
         self.get_puzzle_count(context)
         context.tasker.controller.post_swipe(200, 150, 200, 600, 500).wait()
-        print("碎片数量:")
-        for idx, count in enumerate(self.PUZZLE_COUNT):
-            print(f"碎片{idx}: {count}")
+        logging.info("最终碎片数量: %s", self.PUZZLE_COUNT)
 
         # 初始化求解器
+        logging.debug("初始化拼图求解器")
         solver = PuzzleSolver()
-        # 在run方法中调用分析函数
         solutions = solver.solve(puzzle_layout, self.PUZZLE_COUNT)
-        if solutions:
-            # 选择优先包含8的方案
-            selected_solution = None
-            for solution in solutions:
-                if any(8 in row for row in solution["board"]):
-                    selected_solution = solution
-                    break
-            
-            # 未找到则使用第一个方案
-            if not selected_solution:
-                selected_solution = solutions[0]
 
-            # 打印选中的棋盘方案
-            for row in selected_solution["board"]:
-                print(row)
-            
+        if solutions:
+            selected_solution = next(
+                (s for s in solutions if any(8 in row for row in s["board"])),
+                solutions[0],
+            )
+            logging.debug("选择方案：\n%s", "\n".join(str(row) for row in selected_solution["board"]))
+
             last_block = None
             need_reinit = False
-            # 使用选中的解决方案进行操作
             for block in selected_solution["blocks"]:
-                print(
-                    "碎片类型:",
-                    block["type"] + 1,
-                    "方向:",
-                    block["direction"],
-                    "左上角坐标:",
-                    block["begin_position"],
-                    "右下角坐标:",
-                    block["end_position"],
-                )
+                
                 if need_reinit:
+                    logging.debug("需要重新初始化")
                     context.run_task("重新进入拼图")
                     time.sleep(1)
                     last_block = None
                     need_reinit = False
-
+                logging.info(
+                    "处理碎片 %d 方向 %d", block["type"] + 1, block["direction"]
+                )
                 image = context.tasker.controller.post_screencap().wait().get()
                 piece = context.run_recognition(f"识别碎片{block['type']+1}", image)
                 if piece is None and block["type"] + 1 >= 8:
@@ -450,6 +444,7 @@ class PuzzleClculate(CustomAction):
             context.run_task("返回主菜单_基地_custom")
             context.run_task("停止任务")
             return CustomAction.RunResult(success=True)
+        context.run_task("重新进入拼图")
 
         return CustomAction.RunResult(success=True)
 
@@ -481,18 +476,27 @@ class PuzzleClculate(CustomAction):
 
     def get_puzzle_count(self, context: Context):
         """获取碎片数量"""
+        logging.debug("更新碎片数量")
         image = context.tasker.controller.post_screencap().wait().get()
         for i in range(11):
             result = context.run_recognition(f"识别碎片{i+1}", image)
             if result is None:
-                self.PUZZLE_COUNT[i] = 0
+                logging.debug("未识别到碎片 %d", i + 1)
             else:
-                count =  context.run_recognition(f"识别碎片{i+1}数量", image)
+                count = context.run_recognition(f"识别碎片{i+1}数量", image)
                 if count is not None:
+                    old_count = self.PUZZLE_COUNT[i]
                     self.PUZZLE_COUNT[i] = int(count.best_result.text)
+                    logging.debug(
+                        "更新碎片 %d 数量：%d → %d",
+                        i + 1,
+                        old_count,
+                        self.PUZZLE_COUNT[i],
+                    )
 
     def convert_grid_to_coords(self, begin_pos, end_pos):
-        AREA = (382, 101, 656, 551)  
+        """将网格坐标转换为屏幕坐标。"""
+        AREA = (382, 101, 656, 551)
 
         total_rows = 5
         total_cols = 6
