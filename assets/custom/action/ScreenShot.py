@@ -8,17 +8,33 @@ import numpy
 import json
 
 
-
 class ScreenShot(CustomAction):
     def run(
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
-        argv = json.loads(argv.custom_action_param)
+        argv:dict = json.loads(argv.custom_action_param)
         image: numpy.ndarray = context.tasker.controller.post_screencap().wait().get()
 
+        debug_dir = "debug"
+        three_days_ago = time.time() - 3 * 24 * 3600
+        if os.path.exists(debug_dir):
+            for entry in os.scandir(debug_dir):
+                if (
+                    entry.is_file()
+                    and entry.name.lower().endswith(".png")
+                    and entry.stat().st_mtime < three_days_ago
+                ):
+                    try:
+                        os.remove(entry.path)
+                    except:
+                        pass
+
         height, width, _ = image.shape
-        current_time = argv.get("type","")+"_"+ time.strftime("%Y-%m-%d_%H-%M-%S") + ".png"
+        current_time = (
+            argv.get("type", "") + "_" + time.strftime("%Y-%m-%d_%H-%M-%S") + ".png"
+        )
         debug_path = os.path.join("debug", current_time)
+
         def png_chunk(chunk_type, data):
             chunk = chunk_type + data
             return (
