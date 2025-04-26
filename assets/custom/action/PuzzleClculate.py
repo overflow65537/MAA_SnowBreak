@@ -277,13 +277,14 @@ import logging
 import os
 from datetime import datetime, timedelta
 
+
 class PuzzleClculate(CustomAction):
     def __init__(self):
         super().__init__()
         self.PUZZLE_COUNT = [0] * 11
-        
+
         self.logger = self._setup_logger()
-        self._clear_old_logs() 
+        self._clear_old_logs()
         self.logger.info("=" * 80)
         self.logger.info("初始化拼图计算器，碎片数量数组重置")
         self.logger.info("=" * 80)
@@ -302,10 +303,10 @@ class PuzzleClculate(CustomAction):
         for handler in logger.handlers[:]:
             logger.removeHandler(handler)
 
-        file_handler = logging.FileHandler(log_file_path, mode='a', encoding='utf-8')
+        file_handler = logging.FileHandler(log_file_path, mode="a", encoding="utf-8")
         file_handler.setLevel(logging.DEBUG)
 
-        formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+        formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
         file_handler.setFormatter(formatter)
 
         logger.addHandler(file_handler)
@@ -348,6 +349,7 @@ class PuzzleClculate(CustomAction):
         self.logger.info(
             "拼图板布局解析完成:\n%s", "\n".join(str(row) for row in puzzle_layout)
         )
+        self.custom_notify(context, f"拼图板布局解析完成:\n{"\n".join(str(row) for row in puzzle_layout)}", )
 
         # 识别碎片
         self.logger.debug("开始识别碎片数量")
@@ -358,6 +360,7 @@ class PuzzleClculate(CustomAction):
         self.get_puzzle_count(context)
         context.tasker.controller.post_swipe(200, 150, 200, 600, 500).wait()
         self.logger.info("最终碎片数量: %s", self.PUZZLE_COUNT)
+        self.custom_notify(context, f"最终碎片数量: {self.PUZZLE_COUNT}", )
 
         # 初始化求解器
         self.logger.debug("初始化拼图求解器")
@@ -369,12 +372,20 @@ class PuzzleClculate(CustomAction):
                 (s for s in solutions if any(8 in row for row in s["board"])),
                 solutions[0],
             )
-            self.logger.debug("选择方案：\n%s", "\n".join(str(row) for row in selected_solution["board"]))
+            self.logger.debug(
+                "选择方案：\n%s",
+                "\n".join(str(row) for row in selected_solution["board"]),
+            )
+            self.custom_notify(
+                context,
+                f"选择方案：\n{ "\n".join(str(row) for row in selected_solution["board"])}",
+               
+            )
 
             last_block = None
             need_reinit = False
             for block in selected_solution["blocks"]:
-                
+
                 if need_reinit:
                     self.logger.debug("需要重新初始化")
                     context.run_task("重新进入拼图")
@@ -472,7 +483,9 @@ class PuzzleClculate(CustomAction):
                 last_block = block["type"]
                 time.sleep(1)
         else:
+
             self.logger.info("未找到拼图方案，可能是碎片数量不足或布局不合理")
+            self.custom_notify(context, "未找到拼图方案，可能是碎片数量不足")
             context.run_task("退出拼图")
             context.run_task("一会儿再见")
             context.run_task("返回主菜单_基地_custom")
@@ -480,6 +493,11 @@ class PuzzleClculate(CustomAction):
             return CustomAction.RunResult(success=True)
 
         return CustomAction.RunResult(success=True)
+
+    def custom_notify(self, context: Context, msg: str):
+        """自定义通知"""
+        context.override_pipeline({"custom通知": {"focus": {"succeeded": msg}}})
+        context.run_task("custom通知")
 
     def parse_puzzle_layout(self, recognition_data: RecognitionDetail):
         """解析拼图板布局"""
