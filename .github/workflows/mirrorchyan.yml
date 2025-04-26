@@ -34,7 +34,7 @@ jobs:
         with:
           filetype: latest-release
           filename: "MSBA-win-x86_64-v*.zip"
-          pick_files: '["resource", "interface.json"]'
+          pick_files: '["resource", "interface.json","custom"]'
           exclude_files: '["*model/ocr/**"]'
           mirrorchyan_rid: MAA_SnowBreak
 
