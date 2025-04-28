@@ -8,7 +8,27 @@
             "准备作战_异星守护",
             "重新执行_异星守护",
             "新伙伴",
+            "惊喜奖励",
             "选择buff"
+        ]
+    },
+    "惊喜奖励": {
+        "recognition": "OCR",
+        "roi": [
+            559,
+            32,
+            162,
+            53
+        ],
+        "expected": [
+            "惊喜奖励"
+        ],
+        "action": "Click",
+        "target": [
+            600,
+            10,
+            0,
+            0
         ]
     },
     "新伙伴": {
@@ -102,15 +122,114 @@
     "选择buff": {
         "recognition": "OCR",
         "roi": [
-            187,
-            367,
-            199,
-            44
+            550,
+            29,
+            198,
+            73
+        ],
+        "expected": [
+            "选择"
+        ],
+        "next": [
+            "选择buff_橙",
+            "选择buff_紫",
+            "选择buff_蓝",
+            "选择buff_文字"
+        ]
+    },
+    "选择buff_文字": {
+        "recognition": "OCR",
+        "roi": [
+            226,
+            369,
+            123,
+            45
         ],
         "expected": [
             "[\\u4e00-\\u9fa5]"
         ],
         "action": "Click",
+        "next": [
+            "确定_异星守护",
+            "空任务"
+        ]
+    },
+    "选择buff_橙": {
+        "count": 5,
+        "recognition": "ColorMatch",
+        "roi": [
+            244,
+            334,
+            812,
+            29
+        ],
+        "upper": [
+            215,
+            144,
+            54
+        ],
+        "lower": [
+            205,
+            138,
+            52
+        ],
+        "action": "Click",
+        "connected": true,
+        "order_by": "Score",
+        "next": [
+            "确定_异星守护",
+            "空任务"
+        ]
+    },
+    "选择buff_紫": {
+        "count": 5,
+        "recognition": "ColorMatch",
+        "roi": [
+            244,
+            334,
+            812,
+            29
+        ],
+        "upper": [
+            176,
+            97,
+            214
+        ],
+        "lower": [
+            169,
+            94,
+            205
+        ],
+        "action": "Click",
+        "connected": true,
+        "order_by": "Score",
+        "next": [
+            "确定_异星守护",
+            "空任务"
+        ]
+    },
+    "选择buff_蓝": {
+        "count": 5,
+        "recognition": "ColorMatch",
+        "roi": [
+            244,
+            334,
+            812,
+            29
+        ],
+        "upper": [
+            47,
+            91,
+            243
+        ],
+        "lower": [
+            45,
+            80,
+            204
+        ],
+        "action": "Click",
+        "connected": true,
+        "order_by": "Score",
         "next": [
             "确定_异星守护",
             "空任务"
