@@ -1,0 +1,133 @@
+{
+    "异星守护": {
+        "next": [
+            "结算_异星守护"
+        ],
+        "interrupt": [
+            "开火_异星守护",
+            "准备作战_异星守护",
+            "重新执行_异星守护",
+            "新伙伴",
+            "选择buff"
+        ]
+    },
+    "新伙伴": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            569,
+            191,
+            145,
+            37
+        ],
+        "expected": [
+            "新伙伴"
+        ],
+        "action": "Click",
+        "target": [
+            600,
+            10,
+            0,
+            0
+        ]
+    },
+    "重新执行_异星守护": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            771,
+            598,
+            111,
+            50
+        ],
+        "expected": [
+            "重新执行"
+        ],
+        "action": "Click"
+    },
+    "准备作战_异星守护": {
+        "recognition": "OCR",
+        "roi": [
+            1081,
+            628,
+            115,
+            43
+        ],
+        "expected": [
+            "准备作战"
+        ],
+        "action": "Click"
+    },
+    "结算_异星守护": {
+        "recognition": "OCR",
+        "roi": [
+            803,
+            634,
+            89,
+            41
+        ],
+        "expected": [
+            "下一关"
+        ],
+        "action": "Click",
+        "next": [
+            "异星守护"
+        ]
+    },
+    "开火_异星守护": {
+        "recognition": "TemplateMatch",
+        "green_mask": true,
+        "roi": [
+            10,
+            188,
+            48,
+            47
+        ],
+        "template": "异星守护\\开火.png",
+        "action": "Swipe",
+        "duration": 5000,
+        "begin": [
+            1083,
+            471,
+            1,
+            1
+        ],
+        "end": [
+            1083,
+            471,
+            1,
+            1
+        ]
+    },
+    "选择buff": {
+        "recognition": "OCR",
+        "roi": [
+            187,
+            367,
+            199,
+            44
+        ],
+        "expected": [
+            "[\\u4e00-\\u9fa5]"
+        ],
+        "action": "Click",
+        "next": [
+            "确定_异星守护",
+            "空任务"
+        ]
+    },
+    "确定_异星守护": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            610,
+            626,
+            63,
+            35
+        ],
+        "expected": [
+            "确定"
+        ],
+        "action": "Click"
+    }
+}
