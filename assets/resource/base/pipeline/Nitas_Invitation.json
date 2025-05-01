@@ -1,0 +1,427 @@
+{
+    "妮塔之邀": {
+        "next": [
+            "妮塔之邀内部"
+        ],
+        "interrupt": [
+            "关闭奖励界面_妮塔之邀",
+            "开始游戏_妮塔之邀",
+            "选择初始奇物",
+            "前往筑梦",
+            "点击妮塔之邀",
+            "打开活动"
+        ]
+    },
+    "妮塔之邀内部": {
+        "recognition": "OCR",
+        "roi": [
+            204,
+            656,
+            120,
+            37
+        ],
+        "expected": "拥有",
+        "next": [
+            "点击自动"
+        ]
+    },
+    "打开活动": {
+        "recognition": "OCR",
+        "roi": [
+            170,
+            431,
+            65,
+            36
+        ],
+        "expected": "活动",
+        "action": "Click"
+    },
+    "点击妮塔之邀": {
+        "recognition": "OCR",
+        "roi": [
+            43,
+            126,
+            120,
+            569
+        ],
+        "expected": "妮塔之邀",
+        "action": "Click"
+    },
+    "前往筑梦": {
+        "recognition": "OCR",
+        "roi": [
+            1103,
+            608,
+            115,
+            45
+        ],
+        "expected": "前往筑梦",
+        "action": "Click"
+    },
+    "开始游戏_妮塔之邀": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1092,
+            553,
+            139,
+            88
+        ],
+        "expected": [
+            "开始",
+            "游戏"
+        ],
+        "action": "Click"
+    },
+    "选择初始奇物": {
+        "post_delay": 1000,
+        "recognition": "OCR",
+        "roi": [
+            1010,
+            621,
+            246,
+            71
+        ],
+        "expected": "确定",
+        "action": "Click"
+    },
+    "关闭奖励界面_妮塔之邀": {
+        "recognition": "OCR",
+        "roi": [
+            562,
+            516,
+            164,
+            29
+        ],
+        "expected": [
+            "空白",
+            "关闭"
+        ],
+        "action": "Click",
+        "target_offset": [
+            1,
+            50,
+            1,
+            1
+        ],
+        "post_delay": 1000
+    },
+    "点击自动": {
+        "recognition": "OCR",
+        "roi": [
+            1146,
+            487,
+            118,
+            69
+        ],
+        "expected": "自动",
+        "action": "Click",
+        "next": "节点任务循环"
+    },
+    "妮塔之邀_购买": {
+        "recognition": "OCR",
+        "roi": [
+            1074,
+            623,
+            111,
+            67
+        ],
+        "expected": "购买",
+        "action": "Click",
+        "post_delay": 1000,
+        "next": "节点任务循环"
+    },
+    "妮塔之邀_奇物购买": {
+        "recognition": "OCR",
+        "roi": [
+            1074,
+            623,
+            111,
+            67
+        ],
+        "expected": "购买",
+        "action": "Click",
+        "next": "退出奇物商店"
+    },
+    "退出奇物商店": {
+        "action": "Click",
+        "target": [
+            1200,
+            36,
+            1,
+            1
+        ],
+        "post_delay": 1000,
+        "next": "节点任务循环"
+    },
+    "节点任务循环": {
+        "next": "节点任务结束",
+        "interrupt": [
+            "幸运翻倍",
+            "关闭游戏内奖励界面",
+            "选择植物",
+            "水果抽奖",
+            "购买奇物",
+            "翻牌抽奖",
+            "奇遇"
+        ]
+    },
+    "关闭游戏内奖励界面": {
+        "recognition": "OCR",
+        "roi": [
+            547,
+            513,
+            198,
+            61
+        ],
+        "expected": [
+            "空白",
+            "关闭"
+        ],
+        "action": "Click",
+        "target_offset": [
+            1,
+            50,
+            1,
+            1
+        ],
+        "post_delay": 1000
+    },
+    "节点任务结束": {
+        "recognition": "OCR",
+        "roi": [
+            193,
+            248,
+            130,
+            25
+        ],
+        "expected": "本局",
+        "action": "Click",
+        "target": [
+            638,
+            643,
+            1,
+            1
+        ],
+        "post_delay": 1000,
+        "next": "回到妮塔之邀启动界面"
+    },
+    "回到妮塔之邀启动界面": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            1111,
+            1,
+            168,
+            79
+        ],
+        "green_mask": true,
+        "template": "通用任务\\返回.png",
+        "action": "Click",
+        "next": "妮塔之邀"
+    },
+    "奇遇": {
+        "recognition": "TemplateMatch",
+        "template": "妮塔之邀\\奇遇.png",
+        "roi": [
+            480,
+            61,
+            296,
+            151
+        ],
+        "action": "Click",
+        "target": [
+            1144,
+            147,
+            1,
+            1
+        ],
+        "next": "结束奇遇"
+    },
+    "结束奇遇": {
+        "recognition": "OCR",
+        "expected": "确定",
+        "roi": [
+            724,
+            360,
+            119,
+            60
+        ],
+        "action": "Click"
+    },
+    "点击奇遇选项": {
+        "inverse": true,
+        "expected": "对话已结束",
+        "roi": [
+            591,
+            552,
+            100,
+            77
+        ],
+        "action": "Click",
+        "target_offset": [
+            1,
+            -20,
+            1,
+            1
+        ]
+    },
+    "幸运翻倍": {
+        "recognition": "OCR",
+        "expected": "幸运翻倍",
+        "roi": [
+            552,
+            217,
+            179,
+            58
+        ],
+        "action": "Click",
+        "target": [
+            642,
+            582,
+            1,
+            1
+        ]
+    },
+    "选择植物": {
+        "recognition": "OCR",
+        "roi": [
+            518,
+            51,
+            243,
+            59
+        ],
+        "expected": "请选择一种植物",
+        "next": "妮塔之邀_购买"
+    },
+    "水果抽奖": {
+        "recognition": "OCR",
+        "roi": [
+            867,
+            240,
+            139,
+            37
+        ],
+        "expected": "谨慎地按",
+        "action": "Click",
+        "post_delay": 7000
+    },
+    "购买奇物": {
+        "recognition": "OCR",
+        "roi": [
+            522,
+            55,
+            242,
+            49
+        ],
+        "expected": "请选择购买奇物",
+        "action": "Click",
+        "target": [
+            330,
+            320,
+            1,
+            1
+        ],
+        "next": "妮塔之邀_奇物购买"
+    },
+    "翻牌抽奖": {
+        "recognition": "OCR",
+        "roi": [
+            184,
+            48,
+            278,
+            59
+        ],
+        "expected": "炫彩",
+        "next": "翻牌1"
+    },
+    "翻牌1": {
+        "action": "Click",
+        "target": [
+            639,
+            222,
+            1,
+            1
+        ],
+        "next": "翻牌2"
+    },
+    "翻牌2": {
+        "action": "Click",
+        "target": [
+            789,
+            222,
+            1,
+            1
+        ],
+        "next": "翻牌3"
+    },
+    "翻牌3": {
+        "action": "Click",
+        "target": [
+            939,
+            222,
+            1,
+            1
+        ],
+        "next": "翻牌4"
+    },
+    "翻牌4": {
+        "action": "Click",
+        "target": [
+            639,
+            357,
+            1,
+            1
+        ],
+        "next": "翻牌5"
+    },
+    "翻牌5": {
+        "action": "Click",
+        "target": [
+            789,
+            357,
+            1,
+            1
+        ],
+        "next": "翻牌6"
+    },
+    "翻牌6": {
+        "action": "Click",
+        "target": [
+            939,
+            357,
+            1,
+            1
+        ],
+        "next": "翻牌7"
+    },
+    "翻牌7": {
+        "action": "Click",
+        "target": [
+            639,
+            492,
+            1,
+            1
+        ],
+        "next": "翻牌8"
+    },
+    "翻牌8": {
+        "action": "Click",
+        "target": [
+            789,
+            492,
+            1,
+            1
+        ],
+        "next": "翻牌9"
+    },
+    "翻牌9": {
+        "action": "Click",
+        "target": [
+            939,
+            492,
+            1,
+            1
+        ],
+        "post_delay": 1000
+    }
+}
