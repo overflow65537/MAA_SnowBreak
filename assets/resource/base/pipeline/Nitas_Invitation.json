@@ -4,7 +4,6 @@
             "妮塔之邀内部"
         ],
         "interrupt": [
-            "点击自动",
             "关闭奖励界面_妮塔之邀",
             "开始游戏_妮塔之邀",
             "选择初始奇物",
@@ -60,6 +59,7 @@
         "action": "Click"
     },
     "开始游戏_妮塔之邀": {
+        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
             1092,
@@ -74,6 +74,7 @@
         "action": "Click"
     },
     "选择初始奇物": {
+        "post_delay": 1000,
         "recognition": "OCR",
         "roi": [
             1010,
