@@ -15,19 +15,19 @@ class ScreenShot(CustomAction):
         argv:dict = json.loads(argv.custom_action_param)
         image: numpy.ndarray = context.tasker.controller.post_screencap().wait().get()
 
-        debug_dir = "debug"
+        debug_dir = os.path.abspath("debug")
         three_days_ago = time.time() - 3 * 24 * 3600
         if os.path.exists(debug_dir):
             for entry in os.scandir(debug_dir):
                 if (
                     entry.is_file()
                     and entry.name.lower().endswith(".png")
-                    and entry.stat().st_mtime < three_days_ago
+                    and entry.stat(follow_symlinks=False).st_mtime < three_days_ago 
                 ):
                     try:
                         os.remove(entry.path)
-                    except:
-                        pass
+                    except: 
+                        pass  
 
         height, width, _ = image.shape
         current_time = (
