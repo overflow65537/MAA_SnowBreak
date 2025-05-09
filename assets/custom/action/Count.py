@@ -7,28 +7,41 @@ class Count(CustomAction):
     def run(
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
-        argv: dict = json.loads(argv.custom_action_param)
-        print(argv)
-        if not argv:
+        """
+        自定义动作：
+        custom_action_param:
+            {
+                "count": 0,
+                "target_count": 10,
+                "next_node": ["node1", "node2"],
+            }
+        count: 当前次数
+        target_count: 目标次数
+        next_node: 达到目标次数后执行的节点
+        
+        """
+        
+        argv_dict: dict = json.loads(argv.custom_action_param)
+        print(argv_dict)
+        if not argv_dict:
             return CustomAction.RunResult(success=True)
-        if argv.get("count") <= argv.get("target_count"):
-            argv["count"] += 1
+        if argv_dict.get("count") <= argv_dict.get("target_count"):
+            argv_dict["count"] += 1
             context.override_pipeline(
                 {
-                    argv.get("self"): {
-                        "custom_action_param": argv,
+                    argv.node_name: {
+                        "custom_action_param": argv_dict,
                     },
                 }
             )
         else:
             context.override_pipeline(
                 {
-                    argv.get("self"): {
+                    argv.node_name: {
                         "custom_action_param": {
-                            "self": argv.get("self"),
                             "count": 0,
-                            "target_count": argv.get("target_count"),
-                            "next_node": argv.get("next_node"),
+                            "target_count": argv_dict.get("target_count"),
+                            "next_node": argv_dict.get("next_node"),
                         },
                     },
                 }
