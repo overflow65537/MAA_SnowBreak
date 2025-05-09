@@ -46,7 +46,7 @@ class Count(CustomAction):
                     },
                 }
             )
-            for i in argv.get("next_node"):
+            for i in argv_dict.get("next_node"):
                 context.run_task(i)
 
         return CustomAction.RunResult(success=True)
