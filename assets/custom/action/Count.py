@@ -18,8 +18,8 @@ class Count(CustomAction):
             }
         count: 当前次数
         target_count: 目标次数
-        next_node: 达到目标次数后执行的节点. 支持多个节点，按顺序执行.可以出现重复节点
-        else_node: 未达到目标次数时执行的节点. 支持多个节点，按顺序执行.可以出现重复节点
+        next_node: 达到目标次数后执行的节点. 支持多个节点，按顺序执行，可以出现重复节点，可以为空
+        else_node: 未达到目标次数时执行的节点. 支持多个节点，按顺序执行，可以出现重复节点，可以为空
         """
 
         argv_dict: dict = json.loads(argv.custom_action_param)
