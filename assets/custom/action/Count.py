@@ -26,39 +26,36 @@ class Count(CustomAction):
         print(argv_dict)
         if not argv_dict:
             return CustomAction.RunResult(success=True)
-        if argv_dict.get("count") <= argv_dict.get("target_count"):
-            argv_dict["count"] += 1
-            context.override_pipeline(
-                {
-                    argv.node_name: {
-                        "custom_action_param": argv_dict,
-                    },
-                }
-            ),
-            if argv_dict.get("else_node",):
-                if isinstance(argv_dict.get("else_node"), list):
-                    for i in argv_dict.get("else_node",):
-                        context.run_task(i)
-                elif isinstance(argv_dict.get("else_node"), str):
-                    context.run_task(argv_dict.get("else_node"))
+        
+        current_count = argv_dict.get("count", 0)
+        target_count = argv_dict.get("target_count", 0)
+        
+        if current_count <= target_count:
+            argv_dict["count"] = current_count + 1
+            context.override_pipeline({
+                argv.node_name: {"custom_action_param": argv_dict}
+            })
+            self._run_nodes(context, argv_dict.get("else_node"))
         else:
-            context.override_pipeline(
-                {
-                    argv.node_name: {
-                        "custom_action_param": {
-                            "count": 0,
-                            "target_count": argv_dict.get("target_count"),
-                            "else_node": argv_dict.get("else_node"),
-                            "next_node": argv_dict.get("next_node"),
-                        },
-                    },
+            context.override_pipeline({
+                argv.node_name: {
+                    "custom_action_param": {
+                        "count": 0,
+                        "target_count": target_count,
+                        "else_node": argv_dict.get("else_node"),
+                        "next_node": argv_dict.get("next_node")
+                    }
                 }
-            )
-            if argv_dict.get("next_node",):
-                if isinstance(argv_dict.get("next_node"), list):
-                    for i in argv_dict.get("next_node"):
-                        context.run_task(i)
-                elif isinstance(argv_dict.get("next_node"), str):
-                    context.run_task(argv_dict.get("next_node"))
+            })
+            self._run_nodes(context, argv_dict.get("next_node"))
 
         return CustomAction.RunResult(success=True)
+
+    def _run_nodes(self, context: Context, nodes):
+        """统一处理节点执行逻辑"""
+        if not nodes:
+            return
+        if isinstance(nodes, str):
+            nodes = [nodes]
+        for node in nodes:
+            context.run_task(node)
