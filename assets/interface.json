@@ -25,14 +25,22 @@
         {
             "name": "赠送感知",
             "entry": "赠送感知",
-            "periodic": 1,
-            "daily_start": 5
+            "speedrun": {
+                "schedule_mode": "daily",
+                "refresh_time": {
+                    "H": 5
+                }
+            }
         },
         {
             "name": "邮件",
             "entry": "邮件",
-            "periodic": 1,
-            "daily_start": 5
+            "speedrun": {
+                "schedule_mode": "daily",
+                "refresh_time": {
+                    "H": 5
+                }
+            }
         },
         {
             "name": "商店",
@@ -40,27 +48,49 @@
             "option": [
                 "购买物品"
             ],
-            "periodic": 1,
-            "daily_start": 5
+            "speedrun": {
+                "schedule_mode": "daily",
+                "refresh_time": {
+                    "H": 5
+                }
+            }
         },
         {
             "name": "领取体力",
             "entry": "体力",
-            "periodic": 1,
-            "daily_start": 5
+            "speedrun": {
+                "schedule_mode": "daily",
+                "refresh_time": {
+                    "H": 5
+                }
+            }
         },
         {
             "name": "升级枪械",
             "entry": "升级枪械",
-            "periodic": 1,
-            "daily_start": 5
+            "speedrun": {
+                "schedule_mode": "daily",
+                "refresh_time": {
+                    "H": 5
+                }
+            }
         },
         {
             "name": "精神拟境",
             "entry": "精神拟境",
-            "periodic": 2,
-            "daily_start": 5,
-            "weekly_start": 6
+            "speedrun": {
+                "schedule_mode": "weekly",
+                "refresh_time": {
+                    "H": 5,
+                    "w": 1
+                },
+                "interval": {
+                    "unit": 2,
+                    "item": 1,
+                    "loop_item": 1,
+                    "current_loop": 1
+                }
+            }
         },
         {
             "name": "战斗任务",
@@ -89,8 +119,12 @@
             "option": [
                 "选择人物"
             ],
-            "periodic": 1,
-            "daily_start": 5
+            "speedrun": {
+                "schedule_mode": "daily",
+                "refresh_time": {
+                    "H": 5
+                }
+            }
         },
         {
             "name": "任务",
@@ -107,22 +141,40 @@
         {
             "name": "新星开拓任务",
             "entry": "新星开拓任务",
-            "periodic": 1,
-            "daily_start": 5
+            "speedrun": {
+                "schedule_mode": "daily",
+                "refresh_time": {
+                    "H": 5
+                }
+            }
         },
         {
             "name": "收取信源碎片",
             "entry": "收取碎片",
-            "periodic": 1,
-            "daily_start": 5
+            "speedrun": {
+                "schedule_mode": "daily",
+                "refresh_time": {
+                    "H": 5
+                }
+            }
         },
         {
             "name": "信源研析",
             "entry": "基地拼图",
             "doc": "注意: 测试中\n如果没有操作的时间超过5秒,代表任务已经卡死,请上传debug/maa.log至QQ群",
-            "periodic": 2,
-            "daily_start": 5,
-            "weekly_start": 1
+            "speedrun": {
+                "schedule_mode": "weekly",
+                "refresh_time": {
+                    "H": 5,
+                    "w": 1
+                },
+                "interval": {
+                    "unit": 0,
+                    "item": 0,
+                    "loop_item": 0,
+                    "current_loop": 0
+                }
+            }
         },
         {
             "name": "关闭游戏",
