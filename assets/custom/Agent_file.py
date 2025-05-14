@@ -9,7 +9,7 @@ from action.Count import Count
 from action.PuzzleClculate import PuzzleClculate
 
 
-@AgentServer.custom_action("Puzzle_Clculate")
+@AgentServer.custom_action("PuzzleClculate")
 class Agent_PuzzleClculate(PuzzleClculate):
     pass
 
