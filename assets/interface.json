@@ -161,7 +161,6 @@
         {
             "name": "信源研析",
             "entry": "基地拼图",
-            "doc": "注意: 测试中\n如果没有操作的时间超过5秒,代表任务已经卡死,请上传debug/maa.log至QQ群",
             "speedrun": {
                 "schedule_mode": "weekly",
                 "refresh_time": {
