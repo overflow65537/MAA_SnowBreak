@@ -68,6 +68,15 @@ def install_resource():
         dirs_exist_ok=True,
     )
     shutil.rmtree(install_path / "MaaCommonAssets")
+#删除指定文件,而非文件夹
+    try:
+        os.remove(install_path / "custom" / "main.py")
+    except FileNotFoundError:
+        pass
+    try:
+        os.remove(install_path / "custom" / "Agent_file.py")
+    except FileNotFoundError:
+        pass
 
     with open(install_path / "interface.json", "r", encoding="utf-8") as f:
         interface = json.load(f)
