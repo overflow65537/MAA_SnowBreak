@@ -219,13 +219,13 @@
             79
         ],
         "green_mask": true,
-        "template": "通用任务\\返回.png",
+        "template": "通用任务/返回.png",
         "action": "Click",
         "next": "妮塔之邀"
     },
     "奇遇": {
         "recognition": "TemplateMatch",
-        "template": "妮塔之邀\\奇遇.png",
+        "template": "妮塔之邀/奇遇.png",
         "roi": [
             480,
             61,

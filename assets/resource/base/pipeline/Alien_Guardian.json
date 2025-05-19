@@ -108,7 +108,7 @@
             48,
             47
         ],
-        "template": "异星守护\\开火.png",
+        "template": "异星守护/开火.png",
         "action": "Swipe",
         "duration": 5000,
         "begin": [

@@ -87,7 +87,7 @@
             82,
             79
         ],
-        "template": "基地\\在基地内部.png",
+        "template": "基地/在基地内部.png",
         "action": "Click"
     },
     "点击剩余碎片": {

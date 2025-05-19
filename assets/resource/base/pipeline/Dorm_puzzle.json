@@ -189,7 +189,7 @@
             85
         ],
         "green_mask": true,
-        "template": "基地\\在基地内部.png",
+        "template": "基地/在基地内部.png",
         "action": "Swipe",
         "begin": [
             188,
@@ -235,7 +235,7 @@
             544
         ],
         "green_mask": true,
-        "template": "拼图\\1_up.png",
+        "template": "拼图/1_up.png",
         "order_by": "Score",
         "next": [
             "识别碎片1数量"
@@ -262,7 +262,7 @@
             544
         ],
         "green_mask": true,
-        "template": "拼图\\2_up.png",
+        "template": "拼图/2_up.png",
         "order_by": "Score",
         "next": [
             "识别碎片2数量"
@@ -289,7 +289,7 @@
             544
         ],
         "green_mask": true,
-        "template": "拼图\\3_up.png",
+        "template": "拼图/3_up.png",
         "order_by": "Score",
         "next": [
             "识别碎片3数量"
@@ -316,7 +316,7 @@
             544
         ],
         "green_mask": true,
-        "template": "拼图\\4_up.png",
+        "template": "拼图/4_up.png",
         "order_by": "Score",
         "next": [
             "识别碎片4数量"
@@ -343,7 +343,7 @@
             544
         ],
         "green_mask": true,
-        "template": "拼图\\5_up.png",
+        "template": "拼图/5_up.png",
         "order_by": "Score",
         "next": [
             "识别碎片5数量"
@@ -370,7 +370,7 @@
             544
         ],
         "green_mask": true,
-        "template": "拼图\\6_up.png",
+        "template": "拼图/6_up.png",
         "order_by": "Score",
         "next": [
             "识别碎片6数量"
@@ -397,7 +397,7 @@
             544
         ],
         "green_mask": true,
-        "template": "拼图\\7_up.png",
+        "template": "拼图/7_up.png",
         "order_by": "Score",
         "next": [
             "识别碎片7数量"
@@ -424,7 +424,7 @@
             544
         ],
         "green_mask": true,
-        "template": "拼图\\8_up.png",
+        "template": "拼图/8_up.png",
         "order_by": "Score",
         "next": [
             "识别碎片8数量"
@@ -451,7 +451,7 @@
             544
         ],
         "green_mask": true,
-        "template": "拼图\\9_up.png",
+        "template": "拼图/9_up.png",
         "order_by": "Score",
         "next": [
             "识别碎片9数量"
@@ -478,7 +478,7 @@
             544
         ],
         "green_mask": true,
-        "template": "拼图\\10_up.png",
+        "template": "拼图/10_up.png",
         "order_by": "Score",
         "next": [
             "识别碎片10数量"
@@ -505,7 +505,7 @@
             544
         ],
         "green_mask": true,
-        "template": "拼图\\11_up.png",
+        "template": "拼图/11_up.png",
         "order_by": "Score",
         "next": [
             "识别碎片11数量"

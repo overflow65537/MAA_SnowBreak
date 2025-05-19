@@ -110,7 +110,7 @@
             236,
             209
         ],
-        "template": "心动水弹\\GO.png",
+        "template": "心动水弹/GO.png",
         "action": "Click"
     },
     "对方回合": {
@@ -126,7 +126,7 @@
             185,
             67
         ],
-        "template": "心动水弹\\对方回合.png"
+        "template": "心动水弹/对方回合.png"
     },
     "我的回合": {
         "on_error": [
@@ -141,7 +141,7 @@
             246,
             97
         ],
-        "template": "心动水弹\\我的回合.png",
+        "template": "心动水弹/我的回合.png",
         "next": [
             "检查下一发是否是水弹",
             "检查下一发是否是空弹",
@@ -163,7 +163,7 @@
             464,
             93
         ],
-        "template": "心动水弹\\怪盗之手.png",
+        "template": "心动水弹/怪盗之手.png",
         "action": "Click",
         "next": [
             "没有道具",
@@ -202,7 +202,7 @@
             316
         ],
         "template": [
-            "心动水弹\\墨镜_偷.png"
+            "心动水弹/墨镜_偷.png"
         ],
         "action": "Click",
         "next": [
@@ -219,7 +219,7 @@
             316
         ],
         "template": [
-            "心动水弹\\枪管_偷.png"
+            "心动水弹/枪管_偷.png"
         ],
         "action": "Click",
         "next": [
@@ -236,7 +236,7 @@
             316
         ],
         "template": [
-            "心动水弹\\活力宝石_偷.png"
+            "心动水弹/活力宝石_偷.png"
         ],
         "action": "Click",
         "next": [
@@ -253,7 +253,7 @@
             316
         ],
         "template": [
-            "心动水弹\\手铐_偷.png"
+            "心动水弹/手铐_偷.png"
         ],
         "action": "Click",
         "next": [
@@ -270,7 +270,7 @@
             316
         ],
         "template": [
-            "心动水弹\\怪盗之手_偷.png"
+            "心动水弹/怪盗之手_偷.png"
         ],
         "action": "Click",
         "next": [
@@ -287,7 +287,7 @@
             316
         ],
         "template": [
-            "心动水弹\\退弹布偶_偷.png"
+            "心动水弹/退弹布偶_偷.png"
         ],
         "action": "Click",
         "next": [
@@ -304,7 +304,7 @@
             316
         ],
         "template": [
-            "心动水弹\\逆转魔术_偷.png"
+            "心动水弹/逆转魔术_偷.png"
         ],
         "action": "Click",
         "next": [
@@ -357,7 +357,7 @@
             464,
             93
         ],
-        "template": "心动水弹\\墨镜.png",
+        "template": "心动水弹/墨镜.png",
         "action": "Click",
         "next": [
             "判断射击目标_自己",
@@ -378,7 +378,7 @@
             464,
             93
         ],
-        "template": "心动水弹\\逆转魔术.png"
+        "template": "心动水弹/逆转魔术.png"
     },
     "检查退弹布偶": {
         "on_error": [
@@ -391,7 +391,7 @@
             464,
             93
         ],
-        "template": "心动水弹\\退弹布偶.png"
+        "template": "心动水弹/退弹布偶.png"
     },
     "检查退弹布偶_偷": {
         "on_error": [
@@ -404,7 +404,7 @@
             464,
             93
         ],
-        "template": "心动水弹\\退弹布偶_偷.png"
+        "template": "心动水弹/退弹布偶_偷.png"
     },
     "检查重置之锤": {
         "on_error": [
@@ -417,7 +417,7 @@
             464,
             93
         ],
-        "template": "心动水弹\\重置之锤.png"
+        "template": "心动水弹/重置之锤.png"
     },
     "判断射击目标_自己": {
         "on_error": [
@@ -446,7 +446,7 @@
             142,
             60
         ],
-        "template": "心动水弹\\生命值.png"
+        "template": "心动水弹/生命值.png"
     },
     "检查活力宝石": {
         "on_error": [
@@ -459,7 +459,7 @@
             465,
             82
         ],
-        "template": "心动水弹\\活力宝石.png"
+        "template": "心动水弹/活力宝石.png"
     },
     "检查手铐": {
         "on_error": [
@@ -472,7 +472,7 @@
             465,
             82
         ],
-        "template": "心动水弹\\手铐.png"
+        "template": "心动水弹/手铐.png"
     },
     "检查枪管": {
         "on_error": [
@@ -486,7 +486,7 @@
             465,
             82
         ],
-        "template": "心动水弹\\枪管.png"
+        "template": "心动水弹/枪管.png"
     },
     "判断射击目标_对方": {
         "on_error": [
@@ -517,7 +517,7 @@
             270,
             162
         ],
-        "template": "心动水弹\\向对方开枪.png",
+        "template": "心动水弹/向对方开枪.png",
         "action": "Custom",
         "custom_action": "ShotTarget",
         "custom_action_param": {
@@ -537,7 +537,7 @@
             270,
             162
         ],
-        "template": "心动水弹\\向对方开枪.png",
+        "template": "心动水弹/向对方开枪.png",
         "action": "Custom",
         "custom_action": "ShotTarget"
     },
@@ -554,7 +554,7 @@
             256,
             163
         ],
-        "template": "心动水弹\\向自己开枪.png",
+        "template": "心动水弹/向自己开枪.png",
         "action": "Custom",
         "custom_action": "ShotSelf"
     },
@@ -584,7 +584,7 @@
             326,
             130
         ],
-        "template": "心动水弹\\拘束中.png"
+        "template": "心动水弹/拘束中.png"
     },
     "展开道具": {
         "on_error": [
@@ -598,7 +598,7 @@
             79,
             63
         ],
-        "template": "心动水弹\\展开道具.png",
+        "template": "心动水弹/展开道具.png",
         "action": "Click",
         "next": [
             "我的回合"
@@ -641,7 +641,7 @@
     "检查子弹_custom": {
         "recognition": "OCR",
         "only_rec": true,
-        "expected": "\\d+"
+        "expected": "/d+"
     },
     "向自己开枪": {
         "on_error": [
@@ -657,7 +657,7 @@
             256,
             163
         ],
-        "template": "心动水弹\\向自己开枪.png",
+        "template": "心动水弹/向自己开枪.png",
         "action": "Click"
     },
     "向对方开枪": {
@@ -674,7 +674,7 @@
             270,
             162
         ],
-        "template": "心动水弹\\向对方开枪.png",
+        "template": "心动水弹/向对方开枪.png",
         "action": "Click",
         "next": [
             "开枪!",
@@ -693,7 +693,7 @@
             151,
             150
         ],
-        "template": "心动水弹\\开枪!.png",
+        "template": "心动水弹/开枪!.png",
         "action": "Click",
         "next": [
             "开枪!",
