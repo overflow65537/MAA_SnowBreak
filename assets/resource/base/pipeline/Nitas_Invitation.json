@@ -144,6 +144,10 @@
             67
         ],
         "expected": "购买",
+        "replace": [
+            "勾",
+            "购"
+        ],
         "action": "Click",
         "next": "退出奇物商店"
     },
