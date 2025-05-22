@@ -127,6 +127,10 @@
             67
         ],
         "expected": "购买",
+        "replace": [
+            "勾",
+            "购"
+        ],
         "action": "Click",
         "post_delay": 1000,
         "next": "节点任务循环"
