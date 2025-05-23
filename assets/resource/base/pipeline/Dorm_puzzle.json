@@ -148,6 +148,7 @@
         ]
     },
     "点击信源研析": {
+        "post_delay": 1500,
         "recognition": "OCR",
         "roi": [
             892,
