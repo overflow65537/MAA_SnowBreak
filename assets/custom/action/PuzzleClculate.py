@@ -1,3 +1,35 @@
+# Copyright (c) 2024-2025 MAA_SnowBreak
+#
+# The `PuzzleSolver` object in this module was translated by an AI tool from a
+# JavaScript project, without an explicitly declared license
+# reference: https://github.com/halozhy/cbjq/tree/main/cali.js
+#
+# and the remaining logic is independently implemented.This project as a whole
+# uses the MIT open-source license.
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+"""
+MAA_SnowBreak
+MAA_SnowBreak 拼图计算器
+作者:overflow65537
+"""
+
 from maa.context import Context
 from maa.custom_action import CustomAction
 from maa.define import RecognitionDetail
@@ -349,7 +381,10 @@ class PuzzleClculate(CustomAction):
         self.logger.info(
             "拼图板布局解析完成:\n%s", "\n".join(str(row) for row in puzzle_layout)
         )
-        self.custom_notify(context, f"拼图板布局解析完成:\n{"\n".join(str(row) for row in puzzle_layout)}", )
+        self.custom_notify(
+            context,
+            f"拼图板布局解析完成:\n{"\n".join(str(row) for row in puzzle_layout)}",
+        )
 
         # 识别碎片
         self.logger.debug("开始识别碎片数量")
@@ -360,7 +395,10 @@ class PuzzleClculate(CustomAction):
         self.get_puzzle_count(context)
         context.tasker.controller.post_swipe(200, 150, 200, 600, 500).wait()
         self.logger.info("最终碎片数量: %s", self.PUZZLE_COUNT)
-        self.custom_notify(context, f"最终碎片数量: {self.PUZZLE_COUNT}", )
+        self.custom_notify(
+            context,
+            f"最终碎片数量: {self.PUZZLE_COUNT}",
+        )
 
         # 初始化求解器
         self.logger.debug("初始化拼图求解器")
@@ -379,7 +417,6 @@ class PuzzleClculate(CustomAction):
             self.custom_notify(
                 context,
                 f"选择方案：\n{ "\n".join(str(row) for row in selected_solution["board"])}",
-               
             )
 
             last_block = None
