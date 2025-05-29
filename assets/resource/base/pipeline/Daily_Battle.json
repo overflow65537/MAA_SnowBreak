@@ -15,7 +15,7 @@
             "作战_滑动",
             "选择作战1",
             "打开战斗",
-            "检查是否在主界面",
+            "进入活动",
             "选择活动作战2",
             "选择活动作战1",
             "账号等级提升",
@@ -360,23 +360,34 @@
             "体力不足_next"
         ]
     },
-    "检查是否在主界面": {
+    "进入活动": {
         "post_delay": 1000,
+        "recognition": "Custom",
+        "custom_recognition": "LOp",
+        "custom_recognition_param": {
+            "mode": "and",
+            "nodes": [
+                "检查主界面",
+                "检查活动区域内是否存在文字"
+            ]
+        },
+        "action": "Click",
+        "target": [
+            900,
+            311,
+            1,
+            1
+        ]
+    },
+    "检查活动区域内是否存在文字": {
         "recognition": "OCR",
         "roi": [
-            950,
-            260,
-            180,
-            130
+            829,
+            269,
+            132,
+            85
         ],
-        "expected": "战斗",
-        "target_offset": [
-            -100,
-            0,
-            0,
-            0
-        ],
-        "action": "Click"
+        "expected": ""
     },
     "选择活动作战1": {
         "recognition": "OCR",

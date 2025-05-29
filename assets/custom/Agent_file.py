@@ -34,6 +34,12 @@ from action.ShotTarget import ShotTarget
 from action.StoryRogue import StoryRogue
 from action.Count import Count
 from action.PuzzleClculate import PuzzleClculate
+from Recognition.LogicalOperators import LOp
+
+
+@AgentServer.custom_recognition("LOp")
+class Agent_LOp(LOp):
+    pass
 
 
 @AgentServer.custom_action("PuzzleClculate")
