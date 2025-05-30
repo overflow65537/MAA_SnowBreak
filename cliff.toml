@@ -5,7 +5,7 @@ repo = "MAA_SnowBreak"
 # 尾部
 footer = """
 
-如果不清楚要下哪个,请点击[此处进行下载](https://github.com/overflow65537/MAA_SnowBreak/releases/download/{{version}}/MSBA-win-x86_64-{{version}}.zip)
+如无必要,请下载[MSBA-win-x86_64{{version}}](https://github.com/overflow65537/MAA_SnowBreak/releases/download/{{version}}/MSBA-win-x86_64-{{version}}.zip)
 [已有 Mirror酱 CDK？点击前往高速下载](https://mirrorchyan.com/zh/projects?rid=MAA_SnowBreak)
 <!--本软件完全免费，若您有付费购买请立即退款并举报！-->
 """
