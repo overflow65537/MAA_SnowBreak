@@ -588,6 +588,23 @@
         "选择人物": {
             "cases": [
                 {
+                    "name": "天鹅座薇蒂雅",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": "OCR",
+                            "expected": [
+                                "天鹅座"
+                            ],
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
+                            ]
+                        }
+                    }
+                },
+                {
                     "name": "冥河代理人奈莉德",
                     "pipeline_override": {
                         "选择人物": {
