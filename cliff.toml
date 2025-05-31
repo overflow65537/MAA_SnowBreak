@@ -5,7 +5,7 @@ repo = "MAA_SnowBreak"
 # 尾部
 footer = """
 
-如无必要,请下载[MSBA-win-x86_64{{version}}](https://github.com/overflow65537/MAA_SnowBreak/releases/download/{{version}}/MSBA-win-x86_64-{{version}}.zip)
+如果不知道该下载哪一个,请下载MSBA-win-x86_64-vXXX.zip
 [已有 Mirror酱 CDK？点击前往高速下载](https://mirrorchyan.com/zh/projects?rid=MAA_SnowBreak)
 <!--本软件完全免费，若您有付费购买请立即退款并举报！-->
 """
@@ -52,7 +52,3 @@ ignore_tags = "rc"
 topo_order = false
 # sort the commits inside sections by oldest/newest order
 sort_commits = "newest"
-
-
-[template]
-file = "changelog-template.hbs" 
