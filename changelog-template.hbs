@@ -1,0 +1,14 @@
+{{#each releases}}
+# {{version}}
+
+{{#each groups}}
+## {{title}}
+{{#each commits}}
+- {{message}}
+{{/each}}
+{{/each}}
+
+{{#if footer}}
+{{footer.replace '{tag}' version}}
+{{/if}}
+{{/each}}
