@@ -256,6 +256,9 @@
                 {
                     "name": "活动武器",
                     "pipeline_override": {
+                        "选择活动作战1_精确": {
+                            "enabled": false
+                        },
                         "选择活动作战1": {
                             "enabled": false
                         },
@@ -275,6 +278,9 @@
                     "pipeline_override": {
                         "接收后勤": {
                             "enabled": true
+                        },
+                        "选择活动作战1_精确": {
+                            "enabled": false
                         },
                         "选择活动作战1": {
                             "enabled": false
@@ -296,6 +302,9 @@
                         "选择活动作战1": {
                             "enabled": false
                         },
+                        "选择活动作战1_精确": {
+                            "enabled": false
+                        },
                         "选择活动作战2": {
                             "enabled": false
                         },
@@ -310,6 +319,9 @@
                 {
                     "name": "角色经验",
                     "pipeline_override": {
+                        "选择活动作战1_精确": {
+                            "enabled": false
+                        },
                         "选择活动作战1": {
                             "enabled": false
                         },
@@ -327,6 +339,9 @@
                 {
                     "name": "武器经验",
                     "pipeline_override": {
+                        "选择活动作战1_精确": {
+                            "enabled": false
+                        },
                         "选择活动作战1": {
                             "enabled": false
                         },
@@ -344,6 +359,9 @@
                 {
                     "name": "武器材料",
                     "pipeline_override": {
+                        "选择活动作战1_精确": {
+                            "enabled": false
+                        },
                         "选择活动作战1": {
                             "enabled": false
                         },
@@ -361,6 +379,9 @@
                 {
                     "name": "神经素材",
                     "pipeline_override": {
+                        "选择活动作战1_精确": {
+                            "enabled": false
+                        },
                         "选择活动作战1": {
                             "enabled": false
                         },
@@ -378,6 +399,9 @@
                 {
                     "name": "后勤",
                     "pipeline_override": {
+                        "选择活动作战1_精确": {
+                            "enabled": false
+                        },
                         "接收后勤": {
                             "enabled": true
                         },
