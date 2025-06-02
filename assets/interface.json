@@ -159,6 +159,23 @@
             }
         },
         {
+            "name": "赠送碎片",
+            "entry": "赠送碎片",
+            "speedrun": {
+                "schedule_mode": "weekly",
+                "refresh_time": {
+                    "H": 5,
+                    "w": 1
+                },
+                "interval": {
+                    "unit": 0,
+                    "item": 0,
+                    "loop_item": 0,
+                    "current_loop": 0
+                }
+            }
+        },
+        {
             "name": "信源研析",
             "entry": "基地拼图",
             "speedrun": {

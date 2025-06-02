@@ -1,0 +1,178 @@
+{
+    "赠送碎片": {
+        "next": [
+            "一键接收",
+            "开始赠送"
+        ],
+        "interrupt": [
+            "信源交换",
+            "点击卡罗琳",
+            "前进_基地拼图",
+            "打开基地"
+        ]
+    },
+    "一键接收": {
+        "recognition": "OCR",
+        "roi": [
+            1039,
+            615,
+            196,
+            93
+        ],
+        "expected": "键接收",
+        "action": "Click",
+        "next": [
+            "开始赠送"
+        ],
+        "interrupt": [
+            "进入赠送界面"
+        ]
+    },
+    "进入赠送界面": {
+        "recognition": "ColorMatch",
+        "roi": [
+            346,
+            18,
+            148,
+            82
+        ],
+        "lower": [
+            137,
+            146,
+            154
+        ],
+        "upper": [
+            145,
+            152,
+            159
+        ],
+        "connected": true,
+        "count": 100,
+        "action": "Click"
+    },
+    "开始赠送": {
+        "recognition": "OCR",
+        "roi": [
+            105,
+            47,
+            68,
+            32
+        ],
+        "expected": "可赠送",
+        "next": [
+            "赠送已满"
+        ],
+        "interrupt": [
+            "关闭奖励通知",
+            "选择碎片进行赠送"
+        ]
+    },
+    "选择碎片进行赠送": {
+        "recognition": "OCR",
+        "post_delay": 1000,
+        "roi": [
+            33,
+            181,
+            196,
+            398
+        ],
+        "expected": "^(1[1-9](\\.\\d+)?|[2-9]\\d+(\\.\\d+)?)$",
+        "action": "Click",
+        "next": [
+            "开始赠送碎片",
+            "关闭奖励通知"
+        ]
+    },
+    "开始赠送碎片": {
+        "recognition": "OCR",
+        "roi": [
+            1208,
+            183,
+            43,
+            22
+        ],
+        "expected": "赠送",
+        "action": "Click"
+    },
+    "赠送已满": {
+        "recognition": "ColorMatch",
+        "roi": [
+            1014,
+            671,
+            22,
+            23
+        ],
+        "lower": [
+            186,
+            229,
+            248
+        ],
+        "upper": [
+            188,
+            233,
+            252
+        ],
+        "connected": true,
+        "count": 10,
+        "next": [
+            "没有待领取的碎片"
+        ],
+        "interrupt": [
+            "领取碎片"
+        ]
+    },
+    "没有待领取的碎片": {
+        "inverse": true,
+        "recognition": "TemplateMatch",
+        "roi": [
+            495,
+            618,
+            567,
+            74
+        ],
+        "template": "拼图\\赠送碎片.png",
+        "next": [
+            "返回主菜单_基地"
+        ],
+        "interrupt": [
+            "继续_基地",
+            "一会儿再见",
+            "点击地图"
+        ]
+    },
+    "继续_基地": {
+        "recognition": "OCR",
+        "roi": [
+            1188,
+            16,
+            56,
+            40
+        ],
+        "expected": "继续",
+        "action": "Click"
+    },
+    "领取碎片": {
+        "recognition": "TemplateMatch",
+        "roi": [
+            495,
+            618,
+            567,
+            74
+        ],
+        "template": "拼图\\赠送碎片.png",
+        "action": "Click"
+    },
+    "信源交换": {
+        "recognition": "OCR",
+        "roi": [
+            889,
+            289,
+            113,
+            236
+        ],
+        "expected": [
+            "交换"
+        ],
+        "action": "Click"
+    }
+}
