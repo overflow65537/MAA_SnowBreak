@@ -43,5 +43,10 @@
         "type": "recognition",
         "class": "LOp",
         "file_path": "{custom_path}/recognition/LogicalOperators.py"
+    },
+    "GetingMax": {
+        "type": "recognition",
+        "class": "GetingMax",
+        "file_path": "{custom_path}/recognition/GetingMax.py"
     }
 }

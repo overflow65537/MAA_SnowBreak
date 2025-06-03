@@ -35,6 +35,11 @@ from action.StoryRogue import StoryRogue
 from action.Count import Count
 from action.PuzzleClculate import PuzzleClculate
 from Recognition.LogicalOperators import LOp
+from Recognition.GetingMax import GetingMax
+
+@AgentServer.custom_recognition("GetingMax")
+class Agent_GetingMax(GetingMax):
+    pass
 
 
 @AgentServer.custom_recognition("LOp")

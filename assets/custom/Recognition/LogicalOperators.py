@@ -34,7 +34,7 @@ class LOp(CustomRecognition):
         self,
         context: Context,
         argv: CustomRecognition.AnalyzeArg,
-    ) -> CustomRecognition.AnalyzeResult:
+    ) -> CustomRecognition.AnalyzeResult|None:
         """
         逻辑识别器：
         custom_recognition_param:
@@ -79,3 +79,6 @@ class LOp(CustomRecognition):
         elif isinstance(node, list) and len(node) == 1:
             inner_node = node[0]
             return not bool(context.run_recognition(inner_node, image))
+        else:
+            # 传了个啥?
+            raise NotImplementedError(f"Unsupported node type: {type(node)}")

@@ -68,20 +68,19 @@
         ]
     },
     "选择碎片进行赠送": {
-        "recognition": "OCR",
+        "recognition": "Custom",
+        "custom_recognition": "GetingMax",
         "post_delay": 1000,
-        "roi": [
-            33,
-            181,
-            196,
-            398
-        ],
-        "expected": "^(1[1-9](\\.\\d+)?|[2-9]\\d+(\\.\\d+)?)$",
         "action": "Click",
         "next": [
             "开始赠送碎片",
             "关闭奖励通知"
         ]
+    },
+    "识别碎片数量": {
+        "recognition": "OCR",
+        "only_rec": true,
+        "expected": "^(1[1-9](\\.\\d+)?|[2-9]\\d+(\\.\\d+)?)$"
     },
     "开始赠送碎片": {
         "recognition": "OCR",
