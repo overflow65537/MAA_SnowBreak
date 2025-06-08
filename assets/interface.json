@@ -120,9 +120,7 @@
                 "选择人物"
             ],
             "advanced": [
-                "选择人物",
-                "高级设置A",
-                "高级设置B"
+                "选择人物"
             ],
             "speedrun": {
                 "schedule_mode": "daily",
