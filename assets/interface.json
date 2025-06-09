@@ -1,7 +1,7 @@
 {
     "url": "https://github.com/overflow65537/MAA_SnowBreak",
     "name": "MSBA",
-    "MFW_min_req_version": "2.2.0",
+    "MFW_min_req_version": "1.7.0",
     "mirrorchyan_rid": "MAA_SnowBreak",
     "controller": [
         {
@@ -104,7 +104,7 @@
         {
             "name": "刷天启碎片",
             "entry": "刷碎片",
-            "doc": "选项可以自行输入新角色的代号,",
+            "doc": "MFW在v2.2.0以上版本时选项可以自行输入新角色的代号",
             "pipeline_override": {
                 "速战MAX": {
                     "next": [
