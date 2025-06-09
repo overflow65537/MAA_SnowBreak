@@ -413,6 +413,7 @@
         "action": "Click"
     },
     "选择活动作战2": {
+        "post_delay": 2000,
         "recognition": "OCR",
         "expected": [
             "深渊"
