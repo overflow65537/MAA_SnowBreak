@@ -36,7 +36,12 @@ from action.Count import Count
 from action.PuzzleClculate import PuzzleClculate
 from Recognition.LogicalOperators import LOp
 from Recognition.GetingMax import GetingMax
+from Recognition.CheckResolution import CheckResolution
 
+
+@AgentServer.custom_recognition("CheckResolution")
+class Agent_CheckResolution(CheckResolution):
+    pass
 @AgentServer.custom_recognition("GetingMax")
 class Agent_GetingMax(GetingMax):
     pass

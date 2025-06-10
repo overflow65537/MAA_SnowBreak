@@ -14,6 +14,10 @@
             "启动应用"
         ]
     },
+    "检查分辨率": {
+        "recognition": "Custom",
+        "custom_recognition": "CheckResolution"
+    },
     "下载资源包": {
         "recognition": "OCR",
         "roi": [

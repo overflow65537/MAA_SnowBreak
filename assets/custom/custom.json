@@ -48,5 +48,10 @@
         "type": "recognition",
         "class": "GetingMax",
         "file_path": "{custom_path}/recognition/GetingMax.py"
+    },
+    "CheckResolution": {
+        "type": "recognition",
+        "class": "CheckResolution",
+        "file_path": "{custom_path}/recognition/CheckResolution.py"
     }
 }
