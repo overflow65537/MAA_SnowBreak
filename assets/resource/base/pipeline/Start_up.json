@@ -16,7 +16,19 @@
     },
     "检查分辨率": {
         "recognition": "Custom",
-        "custom_recognition": "CheckResolution"
+        "custom_recognition": "CheckResolution",
+        "next": [
+            "提示分辨率错误"
+        ]
+    },
+    "提示分辨率错误": {
+        "focus": {
+            "succeeded": "[color:Tomato]分辨率错误,请设置为1280*720 240DPI[/color]"
+        },
+        "post_delay": 5000,
+        "next": [
+            "提示分辨率错误"
+        ]
     },
     "下载资源包": {
         "recognition": "OCR",
