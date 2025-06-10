@@ -2,6 +2,11 @@ import os
 if not os.path.exists("run_cli.py"):
     os.environ["MAAFW_BINARY_PATH"] = os.getcwd()
 from maa.toolkit import Toolkit
+
+from maa.context import Context
+from maa.custom_action import CustomAction
+from maa.custom_recognition import CustomRecognition
+
 import sys
 print("如无必要，请使用MFW.exe运行")
 print("if not necessary, please use MFW.exe to run")
@@ -13,6 +18,8 @@ from typing import Dict
 import logging
 import os
 from logging.handlers import TimedRotatingFileHandler
+
+
 
 def Read_Config(file_path):
     """
