@@ -139,7 +139,7 @@ jobs:
           for f in *; do
             (cd $f && zip -r ../$f-${{ needs.meta.outputs.tag }}.zip .)
           done
-      - uses: softprops/action-gh-release@v2
+      - uses: softprops/action-gh-release@v2.2.2
         with:
           files: assets/*
           tag_name: ${{ needs.meta.outputs.tag }}
