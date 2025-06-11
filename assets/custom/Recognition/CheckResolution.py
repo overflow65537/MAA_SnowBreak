@@ -24,7 +24,6 @@ MAA_SnowBreak 分辨率检查
 作者:overflow65537
 """
 
-from funkify import T
 from maa.context import Context
 from maa.custom_recognition import CustomRecognition
 from numpy import ndarray
