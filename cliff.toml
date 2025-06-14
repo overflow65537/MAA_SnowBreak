@@ -5,7 +5,7 @@ repo = "MAA_SnowBreak"
 # 尾部
 footer = """
 
-[已有 Mirror酱 CDK？点击前往高速下载](https://mirrorchyan.com/zh/projects?rid=MAA_SnowBreak)
+[已有 Mirror酱 CDK？点击前往高速下载](https://mirrorchyan.com/zh/projects?rid=MAA_SnowBreak&source=MSBA_gh_release)
 <!--本软件完全免费，若您有付费购买请立即退款并举报！-->
 """
 
