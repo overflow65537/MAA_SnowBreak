@@ -48,7 +48,8 @@
         "expected": [
             "隧道",
             "区域",
-            "废弃"
+            "废弃"，
+            "污染"
         ],
         "action": "Click",
         "target": [
