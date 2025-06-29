@@ -27,6 +27,7 @@
         ]
     },
     "选择复刻活动_精确": {
+        "enabled": false,
         "recognition": "OCR",
         "roi": [
             979,
@@ -41,6 +42,7 @@
         "action": "Click"
     },
     "复刻活动_精确": {
+        "enabled": false,
         "recognition": "OCR",
         "roi": [
             213,
@@ -52,6 +54,7 @@
         "action": "Click"
     },
     "复刻活动": {
+        "enabled": false,
         "recognition": "OCR",
         "expected": "^追忆$",
         "action": "Click"
