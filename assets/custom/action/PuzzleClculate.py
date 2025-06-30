@@ -317,9 +317,6 @@ class PuzzleClculate(CustomAction):
 
         self.logger = self._setup_logger()
         self._clear_old_logs()
-        self.logger.info("=" * 80)
-        self.logger.info("初始化拼图计算器，碎片数量数组重置")
-        self.logger.info("=" * 80)
 
     def _setup_logger(self):
         debug_dir = "debug"
@@ -453,7 +450,13 @@ class PuzzleClculate(CustomAction):
                         self.logger.info(f"无法识别碎片{block['type']+1}")
                         return CustomAction.RunResult(success=True)
                 # 旋转
-                if block["direction"] == 1:
+                if not piece:
+                    self.logger.info(f"无法识别碎片{block['type']+1}")
+                    return CustomAction.RunResult(success=True)
+                elif not piece.best_result:
+                    self.logger.info(f"无法识别碎片{block['type']+1}的最佳结果")
+                    return CustomAction.RunResult(success=True)
+                if block["direction"] == 1 :
                     need_reinit = True
                     self.logger.info("旋转90度")
                     if last_block != block["type"]:
@@ -574,7 +577,8 @@ class PuzzleClculate(CustomAction):
                 count = context.run_recognition(f"识别碎片{i+1}数量", image)
                 if count is not None:
                     old_count = self.PUZZLE_COUNT[i]
-                    self.PUZZLE_COUNT[i] = int(count.best_result.text)
+                    #断言 count.best_result.text一定是字符串
+                    self.PUZZLE_COUNT[i] = int(count.best_result.text) # type: ignore
                     self.logger.debug(
                         "更新碎片 %d 数量：%d → %d",
                         i + 1,
