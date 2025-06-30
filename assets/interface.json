@@ -326,6 +326,38 @@
                     }
                 },
                 {
+                    "name": "活动战斗-复刻",
+                    "pipeline_override": {
+                        "选择复刻活动_精确": {
+                            "enabled": true
+                        },
+                        "复刻活动_精确": {
+                            "enabled": true
+                        },
+                        "复刻活动": {
+                            "enabled": true
+                        },
+                        "打开战斗": {
+                            "enabled": false
+                        },
+                        "选择作战1": {
+                            "enabled": false
+                        },
+                        "作战_滑动": {
+                            "enabled": false
+                        },
+                        "进入作战": {
+                            "enabled": false
+                        },
+                        "进入深渊作战_滑动": {
+                            "enabled": false
+                        },
+                        "进入深渊作战": {
+                            "enabled": false
+                        }
+                    }
+                },
+                {
                     "name": "活动武器",
                     "pipeline_override": {
                         "选择活动作战1_精确": {

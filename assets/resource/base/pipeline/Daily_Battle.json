@@ -16,12 +16,48 @@
             "选择作战1",
             "打开战斗",
             "进入活动",
+            "复刻活动_精确",
+            "选择复刻活动_精确",
+            "复刻活动",
             "选择活动作战2",
             "选择活动作战1_精确",
             "选择活动作战1",
             "账号等级提升",
             "关闭奖励通知"
         ]
+    },
+    "选择复刻活动_精确": {
+        "enabled": false,
+        "recognition": "OCR",
+        "roi": [
+            979,
+            410,
+            136,
+            53
+        ],
+        "expected": [
+            "材料",
+            "赐福集会"
+        ],
+        "action": "Click"
+    },
+    "复刻活动_精确": {
+        "enabled": false,
+        "recognition": "OCR",
+        "roi": [
+            213,
+            545,
+            81,
+            22
+        ],
+        "expected": "素影遗痕",
+        "action": "Click"
+    },
+    "复刻活动": {
+        "enabled": false,
+        "recognition": "OCR",
+        "expected": "^追忆$",
+        "action": "Click"
     },
     "接收后勤": {
         "post_delay": 1000,
