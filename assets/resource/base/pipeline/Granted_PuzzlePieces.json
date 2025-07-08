@@ -12,15 +12,21 @@
         ]
     },
     "一键接收": {
-        "recognition": "OCR",
-        "roi": [
-            1039,
-            615,
-            196,
-            93
-        ],
-        "expected": "键接收",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1039,
+                    615,
+                    196,
+                    93
+                ],
+                "expected": "键接收"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "开始赠送"
         ],
@@ -29,37 +35,47 @@
         ]
     },
     "进入赠送界面": {
-        "recognition": "ColorMatch",
-        "roi": [
-            346,
-            18,
-            148,
-            82
-        ],
-        "lower": [
-            137,
-            146,
-            154
-        ],
-        "upper": [
-            145,
-            152,
-            159
-        ],
-        "connected": true,
-        "count": 100,
-        "action": "Click"
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    346,
+                    18,
+                    148,
+                    82
+                ],
+                "count": 100,
+                "connected": true,
+                "upper": [
+                    145,
+                    152,
+                    159
+                ],
+                "lower": [
+                    137,
+                    146,
+                    154
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "开始赠送": {
-        "recognition": "OCR",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    105,
+                    47,
+                    68,
+                    32
+                ],
+                "expected": "可赠送"
+            }
+        },
         "on_error": "碎片不足",
-        "roi": [
-            105,
-            47,
-            68,
-            32
-        ],
-        "expected": "可赠送",
         "next": [
             "赠送已满"
         ],
@@ -82,51 +98,71 @@
         ]
     },
     "选择碎片进行赠送": {
-        "recognition": "Custom",
-        "custom_recognition": "GetingMax",
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "GetingMax"
+            }
+        },
         "post_delay": 1000,
-        "action": "Click",
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "开始赠送碎片",
             "关闭奖励通知"
         ]
     },
     "识别碎片数量": {
-        "recognition": "OCR",
-        "only_rec": true,
-        "expected": "^(1[1-9](\\.\\d+)?|[2-9]\\d+(\\.\\d+)?)$"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "expected": "^(1[1-9](\\.\\d+)?|[2-9]\\d+(\\.\\d+)?)$"
+            }
+        }
     },
     "开始赠送碎片": {
-        "recognition": "OCR",
-        "roi": [
-            1208,
-            183,
-            43,
-            22
-        ],
-        "expected": "赠送",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1208,
+                    183,
+                    43,
+                    22
+                ],
+                "expected": "赠送"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "赠送已满": {
-        "recognition": "ColorMatch",
-        "roi": [
-            1014,
-            671,
-            22,
-            23
-        ],
-        "lower": [
-            186,
-            229,
-            248
-        ],
-        "upper": [
-            188,
-            233,
-            252
-        ],
-        "connected": true,
-        "count": 10,
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    1014,
+                    671,
+                    22,
+                    23
+                ],
+                "count": 10,
+                "connected": true,
+                "upper": [
+                    188,
+                    233,
+                    252
+                ],
+                "lower": [
+                    186,
+                    229,
+                    248
+                ]
+            }
+        },
         "next": [
             "没有待领取的碎片"
         ],
@@ -136,14 +172,18 @@
     },
     "没有待领取的碎片": {
         "inverse": true,
-        "recognition": "TemplateMatch",
-        "roi": [
-            495,
-            618,
-            567,
-            74
-        ],
-        "template": "拼图/赠送碎片.png",
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    495,
+                    618,
+                    567,
+                    74
+                ],
+                "template": "拼图/赠送碎片.png"
+            }
+        },
         "next": [
             "返回主菜单_基地"
         ],
@@ -154,38 +194,56 @@
         ]
     },
     "继续_基地": {
-        "recognition": "OCR",
-        "roi": [
-            1188,
-            16,
-            56,
-            40
-        ],
-        "expected": "继续",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1188,
+                    16,
+                    56,
+                    40
+                ],
+                "expected": "继续"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "领取碎片": {
-        "recognition": "TemplateMatch",
-        "roi": [
-            495,
-            618,
-            567,
-            74
-        ],
-        "template": "拼图/赠送碎片.png",
-        "action": "Click"
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    495,
+                    618,
+                    567,
+                    74
+                ],
+                "template": "拼图/赠送碎片.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "信源交换": {
-        "recognition": "OCR",
-        "roi": [
-            889,
-            289,
-            113,
-            236
-        ],
-        "expected": [
-            "交换"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    889,
+                    289,
+                    113,
+                    236
+                ],
+                "expected": [
+                    "交换"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     }
 }

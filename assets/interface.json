@@ -1,7 +1,7 @@
 {
     "url": "https://github.com/overflow65537/MAA_SnowBreak",
     "name": "MSBA",
-    "MFW_min_req_version": "1.7.0",
+    "MFW_min_req_version": "2.3.0",
     "mirrorchyan_rid": "MAA_SnowBreak",
     "controller": [
         {
@@ -250,8 +250,11 @@
     ],
     "advanced": {
         "选择人物": {
+            "doc": [
+                "请输入需要自动选择的人物代号"
+            ],
             "field": [
-                "x"
+                "选择人物"
             ],
             "type": [
                 "string"
@@ -285,16 +288,20 @@
             ],
             "pipeline_override": {
                 "选择人物": {
-                    "recognition": "OCR",
-                    "expected": [
-                        "{x}"
-                    ],
-                    "roi": [
-                        30,
-                        87,
-                        975,
-                        525
-                    ]
+                    "recognition": {
+                        "type": "OCR",
+                        "param": {
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
+                            ],
+                            "expected": [
+                                "{选择人物}"
+                            ]
+                        }
+                    }
                 }
             }
         }
@@ -373,7 +380,11 @@
                             "enabled": false
                         },
                         "进入作战": {
-                            "expected": "聚兵之器"
+                            "recognition": {
+                                "param": {
+                                    "expected": "聚兵之器"
+                                }
+                            }
                         }
                     }
                 },
@@ -396,7 +407,11 @@
                             "enabled": false
                         },
                         "进入作战": {
-                            "expected": "炼心之战"
+                            "recognition": {
+                                "param": {
+                                    "expected": "炼心之战"
+                                }
+                            }
                         }
                     }
                 },
@@ -416,7 +431,11 @@
                             "enabled": false
                         },
                         "进入作战": {
-                            "expected": "富饶之壶"
+                            "recognition": {
+                                "param": {
+                                    "expected": "富饶之壶"
+                                }
+                            }
                         }
                     }
                 },
@@ -436,7 +455,11 @@
                             "enabled": false
                         },
                         "进入作战": {
-                            "expected": "百足之市"
+                            "recognition": {
+                                "param": {
+                                    "expected": "百足之市"
+                                }
+                            }
                         }
                     }
                 },
@@ -456,7 +479,11 @@
                             "enabled": false
                         },
                         "进入作战": {
-                            "expected": "止战之人"
+                            "recognition": {
+                                "param": {
+                                    "expected": "止战之人"
+                                }
+                            }
                         }
                     }
                 },
@@ -476,7 +503,11 @@
                             "enabled": false
                         },
                         "进入作战": {
-                            "expected": "重铸之炎"
+                            "recognition": {
+                                "param": {
+                                    "expected": "重铸之炎"
+                                }
+                            }
                         }
                     }
                 },
@@ -496,7 +527,11 @@
                             "enabled": false
                         },
                         "进入作战": {
-                            "expected": "永冬之境"
+                            "recognition": {
+                                "param": {
+                                    "expected": "永冬之境"
+                                }
+                            }
                         }
                     }
                 },
@@ -519,7 +554,11 @@
                             "enabled": false
                         },
                         "进入作战": {
-                            "expected": "浴火之战"
+                            "recognition": {
+                                "param": {
+                                    "expected": "浴火之战"
+                                }
+                            }
                         }
                     }
                 }
@@ -531,27 +570,31 @@
                     "name": "1",
                     "pipeline_override": {
                         "战斗次数": {
-                            "expected": [
-                                "1"
-                            ],
-                            "replace": [
-                                [
-                                    "i",
-                                    "1"
-                                ],
-                                [
-                                    "I",
-                                    "1"
-                                ],
-                                [
-                                    "l",
-                                    "1"
-                                ],
-                                [
-                                    "L",
-                                    "1"
-                                ]
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "replace": [
+                                        [
+                                            "i",
+                                            "1"
+                                        ],
+                                        [
+                                            "I",
+                                            "1"
+                                        ],
+                                        [
+                                            "l",
+                                            "1"
+                                        ],
+                                        [
+                                            "L",
+                                            "1"
+                                        ]
+                                    ],
+                                    "expected": [
+                                        "1"
+                                    ]
+                                }
+                            }
                         },
                         "速战MAX": {
                             "enabled": false
@@ -571,7 +614,11 @@
                     "name": "2",
                     "pipeline_override": {
                         "战斗次数": {
-                            "expected": "2"
+                            "recognition": {
+                                "param": {
+                                    "expected": "2"
+                                }
+                            }
                         },
                         "速战MAX": {
                             "enabled": false
@@ -591,7 +638,11 @@
                     "name": "3",
                     "pipeline_override": {
                         "战斗次数": {
-                            "expected": "3"
+                            "recognition": {
+                                "param": {
+                                    "expected": "3"
+                                }
+                            }
                         },
                         "速战MAX": {
                             "enabled": false
@@ -611,7 +662,11 @@
                     "name": "4",
                     "pipeline_override": {
                         "战斗次数": {
-                            "expected": "4"
+                            "recognition": {
+                                "param": {
+                                    "expected": "4"
+                                }
+                            }
                         },
                         "速战MAX": {
                             "enabled": false
@@ -649,7 +704,11 @@
                     "name": "6",
                     "pipeline_override": {
                         "战斗次数": {
-                            "expected": "6"
+                            "recognition": {
+                                "param": {
+                                    "expected": "6"
+                                }
+                            }
                         },
                         "速战MAX": {
                             "enabled": false
@@ -689,12 +748,16 @@
                     "name": "是",
                     "pipeline_override": {
                         "确认/取消使用体力": {
-                            "expected": "确定",
                             "next": [
                                 "体力不足",
                                 "确认/取消使用体力",
                                 "战斗"
-                            ]
+                            ],
+                            "recognition": {
+                                "param": {
+                                    "expected": "确定"
+                                }
+                            }
                         }
                     }
                 },
@@ -702,12 +765,16 @@
                     "name": "否",
                     "pipeline_override": {
                         "确认/取消使用体力": {
-                            "expected": "取消",
                             "next": [
                                 "确认/取消使用体力",
                                 "关闭速战界面",
                                 "返回主菜单"
-                            ]
+                            ],
+                            "recognition": {
+                                "param": {
+                                    "expected": "取消"
+                                }
+                            }
                         }
                     }
                 }
@@ -719,16 +786,20 @@
                     "name": "天鹅座薇蒂雅",
                     "pipeline_override": {
                         "选择人物": {
-                            "recognition": "OCR",
-                            "expected": [
-                                "天鹅座"
-                            ],
-                            "roi": [
-                                30,
-                                87,
-                                975,
-                                525
-                            ]
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "天鹅座"
+                                    ]
+                                }
+                            }
                         }
                     }
                 },
@@ -736,16 +807,20 @@
                     "name": "冥河代理人奈莉德",
                     "pipeline_override": {
                         "选择人物": {
-                            "recognition": "OCR",
-                            "expected": [
-                                "冥河代理人"
-                            ],
-                            "roi": [
-                                30,
-                                87,
-                                975,
-                                525
-                            ]
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "冥河代理人"
+                                    ]
+                                }
+                            }
                         }
                     }
                 },
@@ -753,16 +828,20 @@
                     "name": "澜风恩雅",
                     "pipeline_override": {
                         "选择人物": {
-                            "recognition": "OCR",
-                            "expected": [
-                                "澜风"
-                            ],
-                            "roi": [
-                                30,
-                                87,
-                                975,
-                                525
-                            ]
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "澜风"
+                                    ]
+                                }
+                            }
                         }
                     }
                 },
@@ -770,16 +849,20 @@
                     "name": "夜天光肴",
                     "pipeline_override": {
                         "选择人物": {
-                            "recognition": "OCR",
-                            "expected": [
-                                "夜天光"
-                            ],
-                            "roi": [
-                                30,
-                                87,
-                                975,
-                                525
-                            ]
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "夜天光"
+                                    ]
+                                }
+                            }
                         }
                     }
                 },
@@ -787,16 +870,20 @@
                     "name": "琼弦晨星",
                     "pipeline_override": {
                         "选择人物": {
-                            "recognition": "OCR",
-                            "expected": [
-                                "琼弦"
-                            ],
-                            "roi": [
-                                30,
-                                87,
-                                975,
-                                525
-                            ]
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "琼弦"
+                                    ]
+                                }
+                            }
                         }
                     }
                 },
@@ -804,16 +891,20 @@
                     "name": "小天师卜卜",
                     "pipeline_override": {
                         "选择人物": {
-                            "recognition": "OCR",
-                            "expected": [
-                                "小天师"
-                            ],
-                            "roi": [
-                                30,
-                                87,
-                                975,
-                                525
-                            ]
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "小天师"
+                                    ]
+                                }
+                            }
                         }
                     }
                 },
@@ -821,23 +912,31 @@
                     "name": "驰掣芙提雅",
                     "pipeline_override": {
                         "选择人物": {
-                            "green_mask": true,
-                            "recognition": "TemplateMatch",
-                            "template": "刷碎片/驰掣芙提雅.png",
-                            "roi": [
-                                30,
-                                87,
-                                975,
-                                525
-                            ]
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "template": "刷碎片/驰掣芙提雅.png",
+                                    "green_mask": true
+                                }
+                            }
                         },
                         "次数不足": {
-                            "roi_offset": [
-                                240,
-                                0,
-                                -150,
-                                -420
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "roi_offset": [
+                                        240,
+                                        0,
+                                        -150,
+                                        -420
+                                    ]
+                                }
+                            }
                         }
                     }
                 },
@@ -845,16 +944,20 @@
                     "name": "幽潮茉莉安",
                     "pipeline_override": {
                         "选择人物": {
-                            "recognition": "OCR",
-                            "expected": [
-                                "幽潮"
-                            ],
-                            "roi": [
-                                30,
-                                87,
-                                975,
-                                525
-                            ]
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "幽潮"
+                                    ]
+                                }
+                            }
                         }
                     }
                 },
@@ -862,23 +965,31 @@
                     "name": "朝翼凯西娅",
                     "pipeline_override": {
                         "选择人物": {
-                            "green_mask": true,
-                            "recognition": "TemplateMatch",
-                            "template": "刷碎片/朝翼凯西娅.png",
-                            "roi": [
-                                30,
-                                87,
-                                975,
-                                525
-                            ]
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "template": "刷碎片/朝翼凯西娅.png",
+                                    "green_mask": true
+                                }
+                            }
                         },
                         "次数不足": {
-                            "roi_offset": [
-                                240,
-                                0,
-                                -150,
-                                -420
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "roi_offset": [
+                                        240,
+                                        0,
+                                        -150,
+                                        -420
+                                    ]
+                                }
+                            }
                         }
                     }
                 },
@@ -886,16 +997,20 @@
                     "name": "龙舌兰薇蒂雅",
                     "pipeline_override": {
                         "选择人物": {
-                            "recognition": "OCR",
-                            "expected": [
-                                "龙舌兰"
-                            ],
-                            "roi": [
-                                30,
-                                87,
-                                975,
-                                525
-                            ]
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "龙舌兰"
+                                    ]
+                                }
+                            }
                         }
                     }
                 },
@@ -903,23 +1018,31 @@
                     "name": "辉耀芬妮",
                     "pipeline_override": {
                         "选择人物": {
-                            "green_mask": true,
-                            "recognition": "TemplateMatch",
-                            "template": "刷碎片/辉耀芬妮.png",
-                            "roi": [
-                                30,
-                                87,
-                                975,
-                                525
-                            ]
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "template": "刷碎片/辉耀芬妮.png",
+                                    "green_mask": true
+                                }
+                            }
                         },
                         "次数不足": {
-                            "roi_offset": [
-                                240,
-                                0,
-                                -150,
-                                -420
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "roi_offset": [
+                                        240,
+                                        0,
+                                        -150,
+                                        -420
+                                    ]
+                                }
+                            }
                         }
                     }
                 },
@@ -927,18 +1050,22 @@
                     "name": "无限之视里芙",
                     "pipeline_override": {
                         "选择人物": {
-                            "recognition": "OCR",
-                            "expected": [
-                                "无限",
-                                "之视",
-                                "限之"
-                            ],
-                            "roi": [
-                                30,
-                                87,
-                                975,
-                                525
-                            ]
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "无限",
+                                        "之视",
+                                        "限之"
+                                    ]
+                                }
+                            }
                         }
                     }
                 },
@@ -946,16 +1073,20 @@
                     "name": "瞬刻瑟瑞斯",
                     "pipeline_override": {
                         "选择人物": {
-                            "recognition": "OCR",
-                            "expected": [
-                                "瞬刻"
-                            ],
-                            "roi": [
-                                30,
-                                87,
-                                975,
-                                525
-                            ]
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "瞬刻"
+                                    ]
+                                }
+                            }
                         }
                     }
                 },
@@ -963,23 +1094,31 @@
                     "name": "羽蜕恩雅",
                     "pipeline_override": {
                         "选择人物": {
-                            "green_mask": true,
-                            "recognition": "TemplateMatch",
-                            "template": "刷碎片/恩雅羽蜕.png",
-                            "roi": [
-                                30,
-                                87,
-                                975,
-                                525
-                            ]
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "template": "刷碎片/恩雅羽蜕.png",
+                                    "green_mask": true
+                                }
+                            }
                         },
                         "次数不足": {
-                            "roi_offset": [
-                                240,
-                                0,
-                                -150,
-                                -420
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "roi_offset": [
+                                        240,
+                                        0,
+                                        -150,
+                                        -420
+                                    ]
+                                }
+                            }
                         }
                     }
                 },
@@ -987,23 +1126,31 @@
                     "name": "悖谬琴诺",
                     "pipeline_override": {
                         "选择人物": {
-                            "green_mask": true,
-                            "recognition": "TemplateMatch",
-                            "template": "刷碎片/琴诺悖谬.png",
-                            "roi": [
-                                30,
-                                87,
-                                975,
-                                525
-                            ]
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "template": "刷碎片/琴诺悖谬.png",
+                                    "green_mask": true
+                                }
+                            }
                         },
                         "次数不足": {
-                            "roi_offset": [
-                                240,
-                                0,
-                                -150,
-                                -420
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "roi_offset": [
+                                        240,
+                                        0,
+                                        -150,
+                                        -420
+                                    ]
+                                }
+                            }
                         }
                     }
                 },
@@ -1011,16 +1158,20 @@
                     "name": "豹豹伊切尔",
                     "pipeline_override": {
                         "选择人物": {
-                            "recognition": "OCR",
-                            "expected": [
-                                "豹豹"
-                            ],
-                            "roi": [
-                                30,
-                                87,
-                                975,
-                                525
-                            ]
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "豹豹"
+                                    ]
+                                }
+                            }
                         }
                     }
                 },
@@ -1028,23 +1179,31 @@
                     "name": "蓝闪凯西娅",
                     "pipeline_override": {
                         "选择人物": {
-                            "green_mask": true,
-                            "recognition": "TemplateMatch",
-                            "template": "刷碎片/蓝闪凯西娅.png",
-                            "roi": [
-                                30,
-                                87,
-                                975,
-                                525
-                            ]
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "template": "刷碎片/蓝闪凯西娅.png",
+                                    "green_mask": true
+                                }
+                            }
                         },
                         "次数不足": {
-                            "roi_offset": [
-                                240,
-                                0,
-                                -150,
-                                -420
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "roi_offset": [
+                                        240,
+                                        0,
+                                        -150,
+                                        -420
+                                    ]
+                                }
+                            }
                         }
                     }
                 },
@@ -1052,16 +1211,20 @@
                     "name": "魔术师苔丝",
                     "pipeline_override": {
                         "选择人物": {
-                            "recognition": "OCR",
-                            "expected": [
-                                "魔术师"
-                            ],
-                            "roi": [
-                                30,
-                                87,
-                                975,
-                                525
-                            ]
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "魔术师"
+                                    ]
+                                }
+                            }
                         }
                     }
                 },
@@ -1069,16 +1232,20 @@
                     "name": "溯影猫汐尔",
                     "pipeline_override": {
                         "选择人物": {
-                            "recognition": "OCR",
-                            "expected": [
-                                "溯影"
-                            ],
-                            "roi": [
-                                30,
-                                87,
-                                975,
-                                525
-                            ]
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "溯影"
+                                    ]
+                                }
+                            }
                         }
                     }
                 },
@@ -1086,16 +1253,20 @@
                     "name": "藏锋晴",
                     "pipeline_override": {
                         "选择人物": {
-                            "recognition": "OCR",
-                            "expected": [
-                                "藏锋"
-                            ],
-                            "roi": [
-                                30,
-                                87,
-                                975,
-                                525
-                            ]
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "藏锋"
+                                    ]
+                                }
+                            }
                         }
                     }
                 },
@@ -1103,16 +1274,20 @@
                     "name": "云篆晨星",
                     "pipeline_override": {
                         "选择人物": {
-                            "recognition": "OCR",
-                            "expected": [
-                                "云篆"
-                            ],
-                            "roi": [
-                                30,
-                                87,
-                                975,
-                                525
-                            ]
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "云篆"
+                                    ]
+                                }
+                            }
                         }
                     }
                 },
@@ -1120,16 +1295,20 @@
                     "name": "辉夜安卡希雅",
                     "pipeline_override": {
                         "选择人物": {
-                            "recognition": "OCR",
-                            "expected": [
-                                "辉夜"
-                            ],
-                            "roi": [
-                                30,
-                                87,
-                                975,
-                                525
-                            ]
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "辉夜"
+                                    ]
+                                }
+                            }
                         }
                     }
                 },
@@ -1137,23 +1316,31 @@
                     "name": "咎冠芬妮",
                     "pipeline_override": {
                         "选择人物": {
-                            "green_mask": true,
-                            "recognition": "TemplateMatch",
-                            "template": "刷碎片/咎冠芬妮.png",
-                            "roi": [
-                                30,
-                                87,
-                                975,
-                                525
-                            ]
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "template": "刷碎片/咎冠芬妮.png",
+                                    "green_mask": true
+                                }
+                            }
                         },
                         "次数不足": {
-                            "roi_offset": [
-                                240,
-                                0,
-                                -150,
-                                -420
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "roi_offset": [
+                                        240,
+                                        0,
+                                        -150,
+                                        -420
+                                    ]
+                                }
+                            }
                         }
                     }
                 },
@@ -1161,23 +1348,31 @@
                     "name": "缄默芙提雅",
                     "pipeline_override": {
                         "选择人物": {
-                            "green_mask": true,
-                            "recognition": "TemplateMatch",
-                            "template": "刷碎片/缄默芙提雅.png",
-                            "roi": [
-                                30,
-                                87,
-                                975,
-                                525
-                            ]
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "template": "刷碎片/缄默芙提雅.png",
+                                    "green_mask": true
+                                }
+                            }
                         },
                         "次数不足": {
-                            "roi_offset": [
-                                240,
-                                0,
-                                -150,
-                                -420
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "roi_offset": [
+                                        240,
+                                        0,
+                                        -150,
+                                        -420
+                                    ]
+                                }
+                            }
                         }
                     }
                 },
@@ -1185,23 +1380,31 @@
                     "name": "狂猎里芙",
                     "pipeline_override": {
                         "选择人物": {
-                            "green_mask": true,
-                            "recognition": "TemplateMatch",
-                            "template": "刷碎片/狂猎里芙.png",
-                            "roi": [
-                                30,
-                                87,
-                                975,
-                                525
-                            ]
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "template": "刷碎片/狂猎里芙.png",
+                                    "green_mask": true
+                                }
+                            }
                         },
                         "次数不足": {
-                            "roi_offset": [
-                                240,
-                                0,
-                                -150,
-                                -420
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "roi_offset": [
+                                        240,
+                                        0,
+                                        -150,
+                                        -420
+                                    ]
+                                }
+                            }
                         }
                     }
                 },
@@ -1209,23 +1412,31 @@
                     "name": "雨燕茉莉安",
                     "pipeline_override": {
                         "选择人物": {
-                            "green_mask": true,
-                            "recognition": "TemplateMatch",
-                            "template": "刷碎片/雨燕茉莉安.png",
-                            "roi": [
-                                30,
-                                87,
-                                975,
-                                525
-                            ]
+                            "recognition": {
+                                "type": "TemplateMatch",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "template": "刷碎片/雨燕茉莉安.png",
+                                    "green_mask": true
+                                }
+                            }
                         },
                         "次数不足": {
-                            "roi_offset": [
-                                240,
-                                0,
-                                -150,
-                                -420
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "roi_offset": [
+                                        240,
+                                        0,
+                                        -150,
+                                        -420
+                                    ]
+                                }
+                            }
                         }
                     }
                 },
@@ -1233,16 +1444,20 @@
                     "name": "冬至肴",
                     "pipeline_override": {
                         "选择人物": {
-                            "recognition": "OCR",
-                            "expected": [
-                                "冬至"
-                            ],
-                            "roi": [
-                                30,
-                                87,
-                                975,
-                                525
-                            ]
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "冬至"
+                                    ]
+                                }
+                            }
                         }
                     }
                 }
@@ -1254,11 +1469,15 @@
                     "name": "常规物资.[最便宜的]",
                     "pipeline_override": {
                         "判断物品": {
-                            "expected": [
-                                "通用强化套件",
-                                "初级职级认证",
-                                "新手战斗记录"
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "通用强化套件",
+                                        "初级职级认证",
+                                        "新手战斗记录"
+                                    ]
+                                }
+                            }
                         },
                         "买满": {
                             "enabled": false
@@ -1269,18 +1488,34 @@
                     "name": "活动兑换.地下清理.碳原子板",
                     "pipeline_override": {
                         "判断物品": {
-                            "expected": "碳原子板"
+                            "recognition": {
+                                "param": {
+                                    "expected": "碳原子板"
+                                }
+                            }
                         },
                         "切换商店1": {
                             "enabled": true,
-                            "expected": "活动兑换"
+                            "recognition": {
+                                "param": {
+                                    "expected": "活动兑换"
+                                }
+                            }
                         },
                         "切换商店2": {
-                            "expected": "地下清理"
+                            "recognition": {
+                                "param": {
+                                    "expected": "地下清理"
+                                }
+                            }
                         },
                         "翻到底了": {
                             "inverse": false,
-                            "expected": "特级职级认证"
+                            "recognition": {
+                                "param": {
+                                    "expected": "特级职级认证"
+                                }
+                            }
                         }
                     }
                 },
@@ -1288,18 +1523,34 @@
                     "name": "活动兑换.地下清理.重修申请",
                     "pipeline_override": {
                         "判断物品": {
-                            "expected": "重修申请"
+                            "recognition": {
+                                "param": {
+                                    "expected": "重修申请"
+                                }
+                            }
                         },
                         "切换商店1": {
                             "enabled": true,
-                            "expected": "活动兑换"
+                            "recognition": {
+                                "param": {
+                                    "expected": "活动兑换"
+                                }
+                            }
                         },
                         "切换商店2": {
-                            "expected": "地下清理"
+                            "recognition": {
+                                "param": {
+                                    "expected": "地下清理"
+                                }
+                            }
                         },
                         "翻到底了": {
                             "inverse": false,
-                            "expected": "特级职级认证"
+                            "recognition": {
+                                "param": {
+                                    "expected": "特级职级认证"
+                                }
+                            }
                         }
                     }
                 },
@@ -1307,18 +1558,34 @@
                     "name": "活动兑换.精神拟境.量子胞体",
                     "pipeline_override": {
                         "判断物品": {
-                            "expected": "量子胞体"
+                            "recognition": {
+                                "param": {
+                                    "expected": "量子胞体"
+                                }
+                            }
                         },
                         "切换商店1": {
                             "enabled": true,
-                            "expected": "活动兑换"
+                            "recognition": {
+                                "param": {
+                                    "expected": "活动兑换"
+                                }
+                            }
                         },
                         "切换商店2": {
-                            "expected": "精神拟境"
+                            "recognition": {
+                                "param": {
+                                    "expected": "精神拟境"
+                                }
+                            }
                         },
                         "翻到底了": {
                             "inverse": false,
-                            "expected": "光纤轴突"
+                            "recognition": {
+                                "param": {
+                                    "expected": "光纤轴突"
+                                }
+                            }
                         }
                     }
                 },
@@ -1326,18 +1593,34 @@
                     "name": "循环中心.优质配给.量子胞体",
                     "pipeline_override": {
                         "判断物品": {
-                            "expected": "量子胞体"
+                            "recognition": {
+                                "param": {
+                                    "expected": "量子胞体"
+                                }
+                            }
                         },
                         "切换商店1": {
                             "enabled": true,
-                            "expected": "循环中心"
+                            "recognition": {
+                                "param": {
+                                    "expected": "循环中心"
+                                }
+                            }
                         },
                         "切换商店2": {
-                            "expected": "优质配给"
+                            "recognition": {
+                                "param": {
+                                    "expected": "优质配给"
+                                }
+                            }
                         },
                         "翻到底了": {
                             "inverse": false,
-                            "expected": "通用银"
+                            "recognition": {
+                                "param": {
+                                    "expected": "通用银"
+                                }
+                            }
                         }
                     }
                 },
@@ -1345,18 +1628,34 @@
                     "name": "循环中心.优质配给.重修申请",
                     "pipeline_override": {
                         "判断物品": {
-                            "expected": "重修申请"
+                            "recognition": {
+                                "param": {
+                                    "expected": "重修申请"
+                                }
+                            }
                         },
                         "切换商店1": {
                             "enabled": true,
-                            "expected": "循环中心"
+                            "recognition": {
+                                "param": {
+                                    "expected": "循环中心"
+                                }
+                            }
                         },
                         "切换商店2": {
-                            "expected": "优质配给"
+                            "recognition": {
+                                "param": {
+                                    "expected": "优质配给"
+                                }
+                            }
                         },
                         "翻到底了": {
                             "inverse": false,
-                            "expected": "通用银"
+                            "recognition": {
+                                "param": {
+                                    "expected": "通用银"
+                                }
+                            }
                         }
                     }
                 },
@@ -1364,20 +1663,36 @@
                     "name": "循环中心.优质配给.天启者共鸣誓约",
                     "pipeline_override": {
                         "判断物品": {
-                            "expected": [
-                                "天启者共鸣誓约"
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "天启者共鸣誓约"
+                                    ]
+                                }
+                            }
                         },
                         "切换商店1": {
                             "enabled": true,
-                            "expected": "循环中心"
+                            "recognition": {
+                                "param": {
+                                    "expected": "循环中心"
+                                }
+                            }
                         },
                         "切换商店2": {
-                            "expected": "优质配给"
+                            "recognition": {
+                                "param": {
+                                    "expected": "优质配给"
+                                }
+                            }
                         },
                         "翻到底了": {
                             "inverse": false,
-                            "expected": "通用银"
+                            "recognition": {
+                                "param": {
+                                    "expected": "通用银"
+                                }
+                            }
                         },
                         "购买物品": {
                             "next": [
@@ -1392,20 +1707,36 @@
                     "name": "循环中心.优质配给.武器定制合约",
                     "pipeline_override": {
                         "判断物品": {
-                            "expected": [
-                                "武器定制合约"
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "武器定制合约"
+                                    ]
+                                }
+                            }
                         },
                         "切换商店1": {
                             "enabled": true,
-                            "expected": "循环中心"
+                            "recognition": {
+                                "param": {
+                                    "expected": "循环中心"
+                                }
+                            }
                         },
                         "切换商店2": {
-                            "expected": "优质配给"
+                            "recognition": {
+                                "param": {
+                                    "expected": "优质配给"
+                                }
+                            }
                         },
                         "翻到底了": {
                             "inverse": false,
-                            "expected": "通用银"
+                            "recognition": {
+                                "param": {
+                                    "expected": "通用银"
+                                }
+                            }
                         },
                         "购买物品": {
                             "next": [
@@ -1420,20 +1751,36 @@
                     "name": "循环中心.优质配给.天启者共鸣凭证",
                     "pipeline_override": {
                         "判断物品": {
-                            "expected": [
-                                "天启者共鸣凭证"
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "天启者共鸣凭证"
+                                    ]
+                                }
+                            }
                         },
                         "切换商店1": {
                             "enabled": true,
-                            "expected": "循环中心"
+                            "recognition": {
+                                "param": {
+                                    "expected": "循环中心"
+                                }
+                            }
                         },
                         "切换商店2": {
-                            "expected": "优质配给"
+                            "recognition": {
+                                "param": {
+                                    "expected": "优质配给"
+                                }
+                            }
                         },
                         "翻到底了": {
                             "inverse": false,
-                            "expected": "通用银"
+                            "recognition": {
+                                "param": {
+                                    "expected": "通用银"
+                                }
+                            }
                         },
                         "购买物品": {
                             "next": [
@@ -1448,20 +1795,36 @@
                     "name": "循环中心.优质配给.武器申请书",
                     "pipeline_override": {
                         "判断物品": {
-                            "expected": [
-                                "武器申请书"
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "武器申请书"
+                                    ]
+                                }
+                            }
                         },
                         "切换商店1": {
                             "enabled": true,
-                            "expected": "循环中心"
+                            "recognition": {
+                                "param": {
+                                    "expected": "循环中心"
+                                }
+                            }
                         },
                         "切换商店2": {
-                            "expected": "优质配给"
+                            "recognition": {
+                                "param": {
+                                    "expected": "优质配给"
+                                }
+                            }
                         },
                         "翻到底了": {
                             "inverse": false,
-                            "expected": "通用银"
+                            "recognition": {
+                                "param": {
+                                    "expected": "通用银"
+                                }
+                            }
                         },
                         "购买物品": {
                             "next": [
@@ -1476,9 +1839,13 @@
                     "name": "常规物资.[全部角色升级材料]",
                     "pipeline_override": {
                         "判断物品": {
-                            "expected": [
-                                "新手战斗记录"
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "新手战斗记录"
+                                    ]
+                                }
+                            }
                         }
                     }
                 },
@@ -1486,19 +1853,31 @@
                     "name": "常规物资.[全部后勤升级材料]",
                     "pipeline_override": {
                         "判断物品": {
-                            "expected": [
-                                "初级职级认证"
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "初级职级认证"
+                                    ]
+                                }
+                            }
                         },
                         "判断物品2": {
-                            "expected": [
-                                "中级职级认证"
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "中级职级认证"
+                                    ]
+                                }
+                            }
                         },
                         "判断物品3": {
-                            "expected": [
-                                "高级职级认证"
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "高级职级认证"
+                                    ]
+                                }
+                            }
                         },
                         "购买物品": {
                             "next": [
@@ -1517,19 +1896,31 @@
                     "name": "常规物资.[全部武器升级材料]",
                     "pipeline_override": {
                         "判断物品": {
-                            "expected": [
-                                "通用强化套件"
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "通用强化套件"
+                                    ]
+                                }
+                            }
                         },
                         "判断物品2": {
-                            "expected": [
-                                "优选强化套件"
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "优选强化套件"
+                                    ]
+                                }
+                            }
                         },
                         "判断物品3": {
-                            "expected": [
-                                "精致强化套件"
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "精致强化套件"
+                                    ]
+                                }
+                            }
                         },
                         "购买物品": {
                             "next": [
@@ -1548,14 +1939,18 @@
                     "name": "常规物资.辅助武器",
                     "pipeline_override": {
                         "判断物品": {
-                            "expected": [
-                                "军舰鸟",
-                                "彩虹打火机",
-                                "深海呼唤",
-                                "草莓蛋糕",
-                                "楼道怪猫",
-                                "青金石"
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "军舰鸟",
+                                        "彩虹打火机",
+                                        "深海呼唤",
+                                        "草莓蛋糕",
+                                        "楼道怪猫",
+                                        "青金石"
+                                    ]
+                                }
+                            }
                         }
                     }
                 },
@@ -1563,9 +1958,13 @@
                     "name": "常规物资.芳烃塑料",
                     "pipeline_override": {
                         "判断物品": {
-                            "expected": [
-                                "芳烃塑料"
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "芳烃塑料"
+                                    ]
+                                }
+                            }
                         }
                     }
                 },
@@ -1573,9 +1972,13 @@
                     "name": "常规物资.合成颗粒",
                     "pipeline_override": {
                         "判断物品": {
-                            "expected": [
-                                "合成颗粒"
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "合成颗粒"
+                                    ]
+                                }
+                            }
                         }
                     }
                 },
@@ -1583,9 +1986,13 @@
                     "name": "常规物资.人物碎片",
                     "pipeline_override": {
                         "判断物品": {
-                            "expected": [
-                                "提取物"
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "提取物"
+                                    ]
+                                }
+                            }
                         }
                     }
                 },
@@ -1593,9 +2000,13 @@
                     "name": "常规物资.单极纤维",
                     "pipeline_override": {
                         "判断物品": {
-                            "expected": [
-                                "单极纤维"
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "单极纤维"
+                                    ]
+                                }
+                            }
                         }
                     }
                 },
@@ -1603,9 +2014,13 @@
                     "name": "常规物资.光纤轴突",
                     "pipeline_override": {
                         "判断物品": {
-                            "expected": [
-                                "光纤轴突"
-                            ]
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "光纤轴突"
+                                    ]
+                                }
+                            }
                         }
                     }
                 },
@@ -1613,22 +2028,42 @@
                     "name": "循环中心.后勤人事.重修额度",
                     "pipeline_override": {
                         "判断物品": {
-                            "expected": "重修额度"
+                            "recognition": {
+                                "param": {
+                                    "expected": "重修额度"
+                                }
+                            }
                         },
                         "切换商店1": {
                             "enabled": true,
-                            "expected": "循环中心"
+                            "recognition": {
+                                "param": {
+                                    "expected": "循环中心"
+                                }
+                            }
                         },
                         "切换商店2": {
-                            "expected": "后勤人事",
-                            "index": 1
+                            "recognition": {
+                                "param": {
+                                    "expected": "后勤人事",
+                                    "index": 1
+                                }
+                            }
                         },
                         "购买物品": {
-                            "expected": "聘调"
+                            "recognition": {
+                                "param": {
+                                    "expected": "聘调"
+                                }
+                            }
                         },
                         "翻到底了": {
                             "inverse": false,
-                            "expected": "伊甸"
+                            "recognition": {
+                                "param": {
+                                    "expected": "伊甸"
+                                }
+                            }
                         }
                     }
                 }

@@ -14,74 +14,92 @@
     },
     "甩杆": {
         "post_delay": 1000,
-        "count": 500,
-        "recognition": "ColorMatch",
-        "method": 4,
-        "roi": [
-            1069,
-            538,
-            178,
-            166
-        ],
-        "lower": [
-            150,
-            190,
-            40
-        ],
-        "upper": [
-            220,
-            260,
-            110
-        ],
-        "connected": true,
-        "action": "Click"
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    1069,
+                    538,
+                    178,
+                    166
+                ],
+                "method": 4,
+                "count": 500,
+                "connected": true,
+                "upper": [
+                    220,
+                    260,
+                    110
+                ],
+                "lower": [
+                    150,
+                    190,
+                    40
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "钓鱼中": {
-        "count": 500,
-        "recognition": "ColorMatch",
-        "upper": [
-            255,
-            255,
-            102
-        ],
-        "lower": [
-            200,
-            210,
-            40
-        ],
-        "roi": [
-            1050,
-            525,
-            202,
-            184
-        ],
-        "connected": true
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    1050,
+                    525,
+                    202,
+                    184
+                ],
+                "count": 500,
+                "connected": true,
+                "upper": [
+                    255,
+                    255,
+                    102
+                ],
+                "lower": [
+                    200,
+                    210,
+                    40
+                ]
+            }
+        }
     },
     "鱼上钩": {
-        "recognition": "OCR",
-        "roi": [
-            487,
-            56,
-            319,
-            210
-        ],
-        "expected": [
-            "鱼儿",
-            "上钩"
-        ],
-        "replace": [
-            [
-                "钩",
-                "钓"
-            ]
-        ],
-        "action": "Click",
-        "target": [
-            1159,
-            612,
-            1,
-            1
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    487,
+                    56,
+                    319,
+                    210
+                ],
+                "replace": [
+                    [
+                        "钩",
+                        "钓"
+                    ]
+                ],
+                "expected": [
+                    "鱼儿",
+                    "上钩"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1159,
+                    612,
+                    1,
+                    1
+                ]
+            }
+        },
         "next": [
             "成功",
             "失败"
@@ -96,89 +114,117 @@
     },
     "失败": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            503,
-            102,
-            274,
-            131
-        ],
-        "expected": "鱼跑掉了",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    503,
+                    102,
+                    274,
+                    131
+                ],
+                "expected": "鱼跑掉了"
+            }
+        },
         "next": [
             "钓鱼"
         ]
     },
     "点击提示": {
-        "recognition": "OCR",
-        "roi": [
-            868,
-            184,
-            148,
-            62
-        ],
-        "only_rec": true,
-        "expected": [
-            "很好",
-            "失败",
-            "成功",
-            "完美"
-        ]
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": [
+                    868,
+                    184,
+                    148,
+                    62
+                ],
+                "expected": [
+                    "很好",
+                    "失败",
+                    "成功",
+                    "完美"
+                ]
+            }
+        }
     },
     "收杆": {
         "post_delay": 1000,
-        "recognition": "ColorMatch",
-        "roi": [
-            766,
-            95,
-            347,
-            325
-        ],
-        "upper": [
-            255,
-            195,
-            5
-        ],
-        "lower": [
-            250,
-            185,
-            0
-        ],
-        "action": "Custom",
-        "custom_action": "Fishing"
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    766,
+                    95,
+                    347,
+                    325
+                ],
+                "upper": [
+                    255,
+                    195,
+                    5
+                ],
+                "lower": [
+                    250,
+                    185,
+                    0
+                ]
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "Fishing"
+            }
+        }
     },
     "检查黄色块数量": {
-        "recognition": "ColorMatch",
-        "roi": [
-            766,
-            95,
-            347,
-            325
-        ],
-        "upper": [
-            255,
-            195,
-            5
-        ],
-        "lower": [
-            250,
-            185,
-            0
-        ],
-        "connected": true
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    766,
+                    95,
+                    347,
+                    325
+                ],
+                "connected": true,
+                "upper": [
+                    255,
+                    195,
+                    5
+                ],
+                "lower": [
+                    250,
+                    185,
+                    0
+                ]
+            }
+        }
     },
     "成功": {
         "post_delay": 5000,
-        "recognition": "OCR",
-        "expected": [
-            "本次获得"
-        ],
-        "action": "Click",
-        "target": [
-            100,
-            0,
-            0,
-            0
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "本次获得"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    100,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
         "next": [
             "钓鱼"
         ]

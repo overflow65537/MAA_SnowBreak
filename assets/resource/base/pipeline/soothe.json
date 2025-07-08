@@ -3,19 +3,23 @@
         "on_error": [
             "疗愈"
         ],
-        "action": "Swipe",
-        "begin": [
-            0,
-            200,
-            0,
-            0
-        ],
-        "end": [
-            0,
-            400,
-            0,
-            0
-        ],
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    0,
+                    200,
+                    0,
+                    0
+                ],
+                "end": [
+                    0,
+                    400,
+                    0,
+                    0
+                ]
+            }
+        },
         "next": [
             "清理红点",
             "清理黄点",
@@ -27,74 +31,94 @@
         ]
     },
     "未找到目标": {
-        "action": "Swipe",
-        "begin": [
-            100,
-            200,
-            0,
-            0
-        ],
-        "end": [
-            0,
-            400,
-            0,
-            0
-        ]
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    100,
+                    200,
+                    0,
+                    0
+                ],
+                "end": [
+                    0,
+                    400,
+                    0,
+                    0
+                ]
+            }
+        }
     },
     "意外点击_黑点": {
-        "recognition": "ColorMatch",
-        "upper": [
-            123,
-            111,
-            106
-        ],
-        "lower": [
-            120,
-            108,
-            101
-        ],
-        "roi": [
-            43,
-            597,
-            221,
-            86
-        ],
-        "connected": true,
-        "count": 1000,
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    43,
+                    597,
+                    221,
+                    86
+                ],
+                "count": 1000,
+                "connected": true,
+                "upper": [
+                    123,
+                    111,
+                    106
+                ],
+                "lower": [
+                    120,
+                    108,
+                    101
+                ]
+            }
+        },
         "next": [
             "疗愈"
         ]
     },
     "再来一次": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1026,
-            500,
-            222,
-            146
-        ],
-        "expected": "再来一次",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1026,
+                    500,
+                    222,
+                    146
+                ],
+                "expected": "再来一次"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "疗愈"
         ]
     },
     "清理红点": {
-        "recognition": "ColorMatch",
-        "upper": [
-            223,
-            76,
-            96
-        ],
-        "lower": [
-            215,
-            41,
-            71
-        ],
-        "connected": true,
-        "count": 5,
-        "action": "Click",
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "count": 5,
+                "connected": true,
+                "upper": [
+                    223,
+                    76,
+                    96
+                ],
+                "lower": [
+                    215,
+                    41,
+                    71
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "意外点击_黑点",
             "切换锤",
@@ -103,29 +127,41 @@
         ]
     },
     "切换锤": {
-        "recognition": "TemplateMatch",
-        "roi": [
-            6,
-            561,
-            163,
-            159
-        ],
-        "template": [
-            "疗愈/切换锤_56_611_63_59__6_561_163_159.png"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    6,
+                    561,
+                    163,
+                    159
+                ],
+                "template": [
+                    "疗愈/切换锤_56_611_63_59__6_561_163_159.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "清理红点"
         ]
     },
     "清理黄点": {
-        "threshold": 0.8,
-        "green_mask": true,
-        "recognition": "TemplateMatch",
-        "template": [
-            "疗愈/黄点_902_392_31_32__852_342_131_132.png"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "疗愈/黄点_902_392_31_32__852_342_131_132.png"
+                ],
+                "green_mask": true,
+                "threshold": 0.8
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "意外点击_黑点",
             "切换捏",
@@ -134,29 +170,41 @@
         ]
     },
     "切换捏": {
-        "recognition": "TemplateMatch",
-        "roi": [
-            141,
-            561,
-            162,
-            157
-        ],
-        "template": [
-            "疗愈/切换捏_191_611_62_57__141_561_162_157.png"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    141,
+                    561,
+                    162,
+                    157
+                ],
+                "template": [
+                    "疗愈/切换捏_191_611_62_57__141_561_162_157.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "清理黄点"
         ]
     },
     "清理黑点": {
-        "threshold": 0.85,
-        "green_mask": true,
-        "recognition": "TemplateMatch",
-        "template": [
-            "疗愈/黑点_824_384_34_32__774_334_134_132.png"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": [
+                    "疗愈/黑点_824_384_34_32__774_334_134_132.png"
+                ],
+                "green_mask": true,
+                "threshold": 0.85
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "开始疗愈_游戏内",
             "疗愈"
@@ -164,17 +212,23 @@
     },
     "开始疗愈_游戏内": {
         "post_delay": 10000,
-        "recognition": "TemplateMatch",
-        "template": [
-            "疗愈/开始疗愈_1130_626_70_48__1080_572_170_148.png"
-        ],
-        "roi": [
-            1080,
-            572,
-            170,
-            148
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1080,
+                    572,
+                    170,
+                    148
+                ],
+                "template": [
+                    "疗愈/开始疗愈_1130_626_70_48__1080_572_170_148.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "疗愈"
         ]

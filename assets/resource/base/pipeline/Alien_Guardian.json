@@ -13,128 +13,174 @@
         ]
     },
     "惊喜奖励": {
-        "recognition": "OCR",
-        "roi": [
-            559,
-            32,
-            162,
-            53
-        ],
-        "expected": [
-            "惊喜奖励"
-        ],
-        "action": "Click",
-        "target": [
-            600,
-            10,
-            0,
-            0
-        ]
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    559,
+                    32,
+                    162,
+                    53
+                ],
+                "expected": [
+                    "惊喜奖励"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    600,
+                    10,
+                    0,
+                    0
+                ]
+            }
+        }
     },
     "新伙伴": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            569,
-            191,
-            145,
-            37
-        ],
-        "expected": [
-            "新伙伴"
-        ],
-        "action": "Click",
-        "target": [
-            600,
-            10,
-            0,
-            0
-        ]
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    569,
+                    191,
+                    145,
+                    37
+                ],
+                "expected": [
+                    "新伙伴"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    600,
+                    10,
+                    0,
+                    0
+                ]
+            }
+        }
     },
     "重新执行_异星守护": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            771,
-            598,
-            111,
-            50
-        ],
-        "expected": [
-            "重新执行"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    771,
+                    598,
+                    111,
+                    50
+                ],
+                "expected": [
+                    "重新执行"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "准备作战_异星守护": {
-        "recognition": "OCR",
-        "roi": [
-            1081,
-            628,
-            115,
-            43
-        ],
-        "expected": [
-            "准备作战"
-        ],
-        "replace": [
-            "签",
-            "备"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1081,
+                    628,
+                    115,
+                    43
+                ],
+                "replace": [
+                    "签",
+                    "备"
+                ],
+                "expected": [
+                    "准备作战"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "结算_异星守护": {
-        "recognition": "OCR",
-        "roi": [
-            650,
-            634,
-            250,
-            41
-        ],
-        "expected": [
-            "下一关",
-            "退出"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    650,
+                    634,
+                    250,
+                    41
+                ],
+                "expected": [
+                    "下一关",
+                    "退出"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "异星守护"
         ]
     },
     "开火_异星守护": {
-        "recognition": "TemplateMatch",
-        "green_mask": true,
-        "roi": [
-            10,
-            188,
-            48,
-            47
-        ],
-        "template": "异星守护/开火.png",
-        "action": "Swipe",
-        "duration": 5000,
-        "begin": [
-            1083,
-            471,
-            1,
-            1
-        ],
-        "end": [
-            1083,
-            471,
-            1,
-            1
-        ]
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    10,
+                    188,
+                    48,
+                    47
+                ],
+                "template": "异星守护/开火.png",
+                "green_mask": true
+            }
+        },
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    1083,
+                    471,
+                    1,
+                    1
+                ],
+                "end": [
+                    1083,
+                    471,
+                    1,
+                    1
+                ],
+                "duration": 5000
+            }
+        }
     },
     "选择buff": {
-        "recognition": "OCR",
-        "roi": [
-            550,
-            29,
-            198,
-            73
-        ],
-        "expected": [
-            "选择"
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    550,
+                    29,
+                    198,
+                    73
+                ],
+                "expected": [
+                    "选择"
+                ]
+            }
+        },
         "next": [
             "选择伙伴_异星守护",
             "选择buff_橙",
@@ -145,115 +191,145 @@
         ]
     },
     "选择伙伴_异星守护": {
-        "recognition": "OCR",
-        "roi": [
-            375,
-            272,
-            765,
-            21
-        ],
-        "expected": [
-            "新"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    375,
+                    272,
+                    765,
+                    21
+                ],
+                "expected": [
+                    "新"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "确定_异星守护",
             "空任务"
         ]
     },
     "选择buff_文字": {
-        "recognition": "OCR",
-        "roi": [
-            226,
-            369,
-            123,
-            45
-        ],
-        "expected": [
-            "[\\u4e00-\\u9fa5]"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    226,
+                    369,
+                    123,
+                    45
+                ],
+                "expected": [
+                    "[\\u4e00-\\u9fa5]"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "确定_异星守护",
             "空任务"
         ]
     },
     "选择buff_橙": {
-        "count": 5,
-        "recognition": "ColorMatch",
-        "roi": [
-            244,
-            334,
-            812,
-            29
-        ],
-        "upper": [
-            220,
-            150,
-            60
-        ],
-        "lower": [
-            200,
-            130,
-            50
-        ],
-        "action": "Click",
-        "connected": true,
-        "order_by": "Score",
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    244,
+                    334,
+                    812,
+                    29
+                ],
+                "order_by": "Score",
+                "count": 5,
+                "connected": true,
+                "upper": [
+                    220,
+                    150,
+                    60
+                ],
+                "lower": [
+                    200,
+                    130,
+                    50
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "确定_异星守护",
             "空任务"
         ]
     },
     "选择buff_紫": {
-        "count": 5,
-        "recognition": "ColorMatch",
-        "roi": [
-            244,
-            334,
-            812,
-            29
-        ],
-        "upper": [
-            176,
-            97,
-            214
-        ],
-        "lower": [
-            169,
-            94,
-            205
-        ],
-        "action": "Click",
-        "connected": true,
-        "order_by": "Score",
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    244,
+                    334,
+                    812,
+                    29
+                ],
+                "order_by": "Score",
+                "count": 5,
+                "connected": true,
+                "upper": [
+                    176,
+                    97,
+                    214
+                ],
+                "lower": [
+                    169,
+                    94,
+                    205
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "确定_异星守护",
             "空任务"
         ]
     },
     "选择buff_蓝": {
-        "count": 5,
-        "recognition": "ColorMatch",
-        "roi": [
-            244,
-            334,
-            812,
-            29
-        ],
-        "upper": [
-            47,
-            91,
-            243
-        ],
-        "lower": [
-            45,
-            80,
-            204
-        ],
-        "action": "Click",
-        "connected": true,
-        "order_by": "Score",
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    244,
+                    334,
+                    812,
+                    29
+                ],
+                "order_by": "Score",
+                "count": 5,
+                "connected": true,
+                "upper": [
+                    47,
+                    91,
+                    243
+                ],
+                "lower": [
+                    45,
+                    80,
+                    204
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "确定_异星守护",
             "空任务"
@@ -261,16 +337,22 @@
     },
     "确定_异星守护": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            610,
-            626,
-            63,
-            35
-        ],
-        "expected": [
-            "确定"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    610,
+                    626,
+                    63,
+                    35
+                ],
+                "expected": [
+                    "确定"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     }
 }

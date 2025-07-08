@@ -12,15 +12,21 @@
         ]
     },
     "领取定期任务": {
-        "recognition": "TemplateMatch",
-        "roi": [
-            0,
-            136,
-            283,
-            155
-        ],
-        "template": "任务/切换定期任务_1_186_183_55__0_136_283_155.png",
-        "action": "Click",
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    0,
+                    136,
+                    283,
+                    155
+                ],
+                "template": "任务/切换定期任务_1_186_183_55__0_136_283_155.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "领取定期任务_next"
         ]
@@ -37,66 +43,90 @@
     },
     "一键领取_日常": {
         "post_wait_freezes": 1000,
-        "recognition": "OCR",
-        "roi": [
-            0,
-            574,
-            258,
-            146
-        ],
-        "expected": [
-            "一键领取",
-            "键领取"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    0,
+                    574,
+                    258,
+                    146
+                ],
+                "expected": [
+                    "一键领取",
+                    "键领取"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "任务"
         ]
     },
     "一键领取_定期": {
         "post_wait_freezes": 1000,
-        "recognition": "OCR",
-        "roi": [
-            0,
-            574,
-            258,
-            146
-        ],
-        "expected": [
-            "一键领取",
-            "键领取"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    0,
+                    574,
+                    258,
+                    146
+                ],
+                "expected": [
+                    "一键领取",
+                    "键领取"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "领取定期任务_next"
         ]
     },
     "打开任务": {
         "post_wait_freezes": 1000,
-        "recognition": "OCR",
-        "roi": [
-            900,
-            160,
-            150,
-            130
-        ],
-        "expected": "^任务$",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    900,
+                    160,
+                    150,
+                    130
+                ],
+                "expected": "^任务$"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "切换到日常任务": {
         "post_wait_freezes": 1000,
-        "threshold": 0.9,
-        "recognition": "TemplateMatch",
-        "roi": [
-            0,
-            38,
-            268,
-            158
-        ],
-        "template": [
-            "任务/切换日常任务_8_88_168_58__0_38_268_158.png"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    0,
+                    38,
+                    268,
+                    158
+                ],
+                "template": [
+                    "任务/切换日常任务_8_88_168_58__0_38_268_158.png"
+                ],
+                "threshold": 0.9
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "任务"
         ]
@@ -114,32 +144,42 @@
     },
     "一键领取活动任务": {
         "post_wait_freezes": 1000,
-        "recognition": "OCR",
-        "roi": [
-            0,
-            504,
-            301,
-            214
-        ],
-        "expected": [
-            "一键领取",
-            "键领取"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    0,
+                    504,
+                    301,
+                    214
+                ],
+                "expected": [
+                    "一键领取",
+                    "键领取"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "已经打开活动战斗界面"
         ]
     },
     "已经打开活动战斗界面": {
         "inverse": true,
-        "recognition": "OCR",
-        "roi": [
-            950,
-            260,
-            180,
-            130
-        ],
-        "expected": "战斗",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    950,
+                    260,
+                    180,
+                    130
+                ],
+                "expected": "战斗"
+            }
+        },
         "next": [
             "打开活动任务",
             "打开活动任务2",
@@ -152,25 +192,35 @@
     },
     "打开活动任务2": {
         "post_wait_freezes": 1000,
-        "recognition": "OCR",
-        "roi": [
-            326,
-            656,
-            99,
-            46
-        ],
-        "expected": [
-            "抽丝剥茧",
-            "任务"
-        ]
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    326,
+                    656,
+                    99,
+                    46
+                ],
+                "expected": [
+                    "抽丝剥茧",
+                    "任务"
+                ]
+            }
+        }
     },
     "打开活动任务": {
         "post_wait_freezes": 1000,
-        "recognition": "OCR",
-        "expected": [
-            "任务(?!完成|完)"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "任务(?!完成|完)"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "已经打开活动战斗界面"
         ]

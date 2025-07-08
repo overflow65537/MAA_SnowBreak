@@ -16,77 +16,115 @@
         ]
     },
     "进入悖论迷宫_增益试炼": {
-        "recognition": "OCR",
-        "expected": "迷宫",
-        "roi": [
-            981,
-            120,
-            219,
-            101
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    981,
+                    120,
+                    219,
+                    101
+                ],
+                "expected": "迷宫"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "进入验证战场": {
-        "recognition": "OCR",
-        "expected": "验证战场",
-        "roi": [
-            21,
-            82,
-            203,
-            77
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    21,
+                    82,
+                    203,
+                    77
+                ],
+                "expected": "验证战场"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "进入增益试炼": {
-        "recognition": "OCR",
-        "expected": "增益试炼",
-        "roi": [
-            575,
-            320,
-            118,
-            53
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    575,
+                    320,
+                    118,
+                    53
+                ],
+                "expected": "增益试炼"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "进入试炼": {
-        "recognition": "OCR",
-        "roi": [
-            1011,
-            92,
-            244,
-            95
-        ],
-        "expected": "厄险",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1011,
+                    92,
+                    244,
+                    95
+                ],
+                "expected": "厄险"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "post_delay": 1000
     },
     "达到上限": {
-        "recognition": "OCR",
-        "expected": "上限",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "上限"
+            }
+        },
         "post_delay": 500,
         "next": "返回主菜单"
     },
     "进入试炼战斗": {
-        "recognition": "OCR",
-        "roi": [
-            1105,
-            600,
-            151,
-            95
-        ],
-        "expected": "开始作战",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1105,
+                    600,
+                    151,
+                    95
+                ],
+                "expected": "开始作战"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "post_delay": 1000
     },
     "在试炼中": {
-        "recognition": "TemplateMatch",
-        "roi": [
-            0,
-            0,
-            100,
-            100
-        ],
-        "template": "增益试炼/暂停.png",
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    0,
+                    0,
+                    100,
+                    100
+                ],
+                "template": "增益试炼/暂停.png"
+            }
+        },
         "next": "退出试炼",
         "interrupt": [
             "选择增益",
@@ -94,36 +132,50 @@
         ]
     },
     "选择增益": {
-        "recognition": "OCR",
-        "roi": [
-            528,
-            35,
-            231,
-            59
-        ],
-        "expected": "选择增益",
-        "action": "Click",
-        "target": [
-            640,
-            360,
-            1,
-            1
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    528,
+                    35,
+                    231,
+                    59
+                ],
+                "expected": "选择增益"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    640,
+                    360,
+                    1,
+                    1
+                ]
+            }
+        },
         "post_delay": 500,
         "next": [
             "确认增益"
         ]
     },
     "确认增益": {
-        "recognition": "OCR",
-        "roi": [
-            452,
-            577,
-            388,
-            136
-        ],
-        "expected": "确认",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    452,
+                    577,
+                    388,
+                    136
+                ],
+                "expected": "确认"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "post_delay": 500,
         "next": [
             "不为单体增益",
@@ -131,57 +183,83 @@
         ]
     },
     "不为单体增益": {
-        "recognition": "TemplateMatch",
-        "roi": [
-            0,
-            0,
-            100,
-            100
-        ],
-        "template": "增益试炼/暂停.png"
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    0,
+                    0,
+                    100,
+                    100
+                ],
+                "template": "增益试炼/暂停.png"
+            }
+        }
     },
     "丢弃单体增益": {
-        "recognition": "OCR",
-        "roi": [
-            115,
-            598,
-            304,
-            91
-        ],
-        "expected": "丢弃",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    115,
+                    598,
+                    304,
+                    91
+                ],
+                "expected": "丢弃"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": "确认丢弃"
     },
     "确认丢弃": {
-        "recognition": "OCR",
-        "roi": [
-            861,
-            462,
-            212,
-            96
-        ],
-        "expected": "确定",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    861,
+                    462,
+                    212,
+                    96
+                ],
+                "expected": "确定"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "使用技能": {
-        "action": "Click",
-        "target": [
-            1068,
-            354,
-            1,
-            1
-        ]
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1068,
+                    354,
+                    1,
+                    1
+                ]
+            }
+        }
     },
     "退出试炼": {
-        "recognition": "OCR",
-        "roi": [
-            452,
-            577,
-            388,
-            136
-        ],
-        "expected": "退出",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    452,
+                    577,
+                    388,
+                    136
+                ],
+                "expected": "退出"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "post_delay": 2000,
         "next": "增益试炼"
     }

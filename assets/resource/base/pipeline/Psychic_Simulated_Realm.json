@@ -12,21 +12,29 @@
     },
     "点击第一栏": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1080,
-            643,
-            124,
-            53
-        ],
-        "expected": "准备作战",
-        "action": "Click",
-        "target": [
-            151,
-            199,
-            0,
-            0
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1080,
+                    643,
+                    124,
+                    53
+                ],
+                "expected": "准备作战"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    151,
+                    199,
+                    0,
+                    0
+                ]
+            }
+        },
         "next": [
             "暂未开放",
             "检查测评次数",
@@ -38,119 +46,167 @@
         ]
     },
     "意外点击_地下清理": {
-        "recognition": "OCR",
-        "roi": [
-            17,
-            80,
-            928,
-            191
-        ],
-        "expected": [
-            "隧道",
-            "区域",
-            "废弃",
-            "污染"
-        ],
-        "action": "Click",
-        "target": [
-            1207,
-            63,
-            0,
-            0
-        ]
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    17,
+                    80,
+                    928,
+                    191
+                ],
+                "expected": [
+                    "隧道",
+                    "区域",
+                    "废弃",
+                    "污染"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1207,
+                    63,
+                    0,
+                    0
+                ]
+            }
+        }
     },
     "暂未开放": {
-        "recognition": "OCR",
-        "roi": [
-            557,
-            333,
-            176,
-            51
-        ],
-        "expected": "暂未开放",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    557,
+                    333,
+                    176,
+                    51
+                ],
+                "expected": "暂未开放"
+            }
+        },
         "next": [
             "返回主菜单"
         ]
     },
     "特别派遣": {
-        "recognition": "OCR",
-        "roi": [
-            39,
-            264,
-            295,
-            150
-        ],
-        "expected": "特别派遣",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    39,
+                    264,
+                    295,
+                    150
+                ],
+                "expected": "特别派遣"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "打开精神拟境": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            396,
-            514,
-            209,
-            128
-        ],
-        "expected": "精神拟境",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    396,
+                    514,
+                    209,
+                    128
+                ],
+                "expected": "精神拟境"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "快速测评": {
-        "recognition": "OCR",
-        "roi": [
-            774,
-            578,
-            214,
-            142
-        ],
-        "expected": "快速测评",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    774,
+                    578,
+                    214,
+                    142
+                ],
+                "expected": "快速测评"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "确认选项": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            864,
-            449,
-            201,
-            126
-        ],
-        "expected": "确定",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    864,
+                    449,
+                    201,
+                    126
+                ],
+                "expected": "确定"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "检查测评等级": {
-        "green_mask": true,
-        "recognition": "TemplateMatch",
-        "roi": [
-            1147,
-            310,
-            70,
-            70
-        ],
-        "template": [
-            "精神拟境/难度5.png"
-        ],
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1147,
+                    310,
+                    70,
+                    70
+                ],
+                "template": [
+                    "精神拟境/难度5.png"
+                ],
+                "green_mask": true
+            }
+        },
         "next": [
             "点击第二栏"
         ]
     },
     "点击第二栏": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1080,
-            643,
-            124,
-            53
-        ],
-        "expected": "准备作战",
-        "action": "Click",
-        "target": [
-            148,
-            301,
-            0,
-            0
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1080,
+                    643,
+                    124,
+                    53
+                ],
+                "expected": "准备作战"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    148,
+                    301,
+                    0,
+                    0
+                ]
+            }
+        },
         "next": [
             "检查测评次数",
             "检查测评等级_第二栏"
@@ -161,48 +217,62 @@
         ]
     },
     "检查测评等级_第二栏": {
-        "green_mask": true,
-        "recognition": "TemplateMatch",
-        "roi": [
-            1147,
-            310,
-            70,
-            70
-        ],
-        "template": [
-            "精神拟境/难度5.png"
-        ],
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1147,
+                    310,
+                    70,
+                    70
+                ],
+                "template": [
+                    "精神拟境/难度5.png"
+                ],
+                "green_mask": true
+            }
+        },
         "next": [
             "返回主菜单"
         ]
     },
     "检查测评次数": {
-        "recognition": "OCR",
-        "roi": [
-            1159,
-            386,
-            55,
-            40
-        ],
-        "expected": [
-            "0/4",
-            "0/8"
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1159,
+                    386,
+                    55,
+                    40
+                ],
+                "expected": [
+                    "0/4",
+                    "0/8"
+                ]
+            }
+        },
         "next": [
             "领取精神拟境奖励"
         ]
     },
     "领取精神拟境奖励": {
         "post_wait_freezes": 1000,
-        "recognition": "TemplateMatch",
-        "roi": [
-            43,
-            516,
-            144,
-            139
-        ],
-        "template": "精神拟境/打开精神拟境奖励_86_570_45_46__36_520_145_146.png",
-        "action": "Click",
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    43,
+                    516,
+                    144,
+                    139
+                ],
+                "template": "精神拟境/打开精神拟境奖励_86_570_45_46__36_520_145_146.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "一键领取_精神拟境",
             "退出精神拟境奖励界面"
@@ -213,18 +283,24 @@
     },
     "一键领取_精神拟境": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            1062,
-            623,
-            143,
-            53
-        ],
-        "expected": [
-            "键领取",
-            "一键领取"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1062,
+                    623,
+                    143,
+                    53
+                ],
+                "expected": [
+                    "键领取",
+                    "一键领取"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "退出精神拟境奖励界面"
         ],
@@ -233,27 +309,37 @@
         ]
     },
     "退出精神拟境奖励界面": {
-        "recognition": "TemplateMatch",
-        "roi": [
-            1186,
-            19,
-            93,
-            102
-        ],
-        "template": "精神拟境/退出精神拟境奖励_1214_54_39_37__1141_4_139_137.png",
-        "action": "Click",
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1186,
+                    19,
+                    93,
+                    102
+                ],
+                "template": "精神拟境/退出精神拟境奖励_1214_54_39_37__1141_4_139_137.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "返回主菜单"
         ]
     },
     "精神拟境_第二栏": {
-        "action": "Click",
-        "target": [
-            148,
-            304,
-            1,
-            1
-        ],
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    148,
+                    304,
+                    1,
+                    1
+                ]
+            }
+        },
         "next": [
             "检查测评次数",
             "检查测评等级_第二栏"

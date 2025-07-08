@@ -8,18 +8,24 @@
     },
     "每日任务": {
         "post_delay": 1000,
-        "recognition": "TemplateMatch",
-        "green_mask": true,
-        "roi": [
-            666,
-            656,
-            48,
-            41
-        ],
-        "template": [
-            "凭证/每日任务_680_661_34_32__630_588_134_132.png"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    666,
+                    656,
+                    48,
+                    41
+                ],
+                "template": [
+                    "凭证/每日任务_680_661_34_32__630_588_134_132.png"
+                ],
+                "green_mask": true
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "每日任务",
             "一键领取_每日",
@@ -28,15 +34,21 @@
     },
     "一键领取_每日": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            0,
-            585,
-            233,
-            135
-        ],
-        "expected": "键领取",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    0,
+                    585,
+                    233,
+                    135
+                ],
+                "expected": "键领取"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "一键领取_每日",
             "每日任务",
@@ -48,18 +60,24 @@
     },
     "每周任务": {
         "post_delay": 1000,
-        "recognition": "TemplateMatch",
-        "green_mask": true,
-        "roi": [
-            873,
-            655,
-            45,
-            41
-        ],
-        "template": [
-            "凭证/每周任务_884_657_39_37__834_583_139_137.png"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    873,
+                    655,
+                    45,
+                    41
+                ],
+                "template": [
+                    "凭证/每周任务_884_657_39_37__834_583_139_137.png"
+                ],
+                "green_mask": true
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "每周任务",
             "一键领取_每周",
@@ -68,15 +86,21 @@
     },
     "一键领取_每周": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            0,
-            585,
-            233,
-            135
-        ],
-        "expected": "键领取",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    0,
+                    585,
+                    233,
+                    135
+                ],
+                "expected": "键领取"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "一键领取_每周",
             "每周任务",
@@ -88,18 +112,24 @@
     },
     "限定任务": {
         "post_delay": 1000,
-        "recognition": "TemplateMatch",
-        "green_mask": true,
-        "roi": [
-            1084,
-            657,
-            36,
-            38
-        ],
-        "template": [
-            "凭证/限定任务_1093_658_35_36__1043_584_135_136.png"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1084,
+                    657,
+                    36,
+                    38
+                ],
+                "template": [
+                    "凭证/限定任务_1093_658_35_36__1043_584_135_136.png"
+                ],
+                "green_mask": true
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "限定任务",
             "一键领取_限定",
@@ -108,15 +138,21 @@
     },
     "一键领取_限定": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            0,
-            585,
-            233,
-            135
-        ],
-        "expected": "键领取",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    0,
+                    585,
+                    233,
+                    135
+                ],
+                "expected": "键领取"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "一键领取_限定",
             "限定任务",
@@ -127,20 +163,26 @@
         ]
     },
     "凭证奖励": {
-        "threshold": 0.8,
         "post_delay": 1000,
-        "recognition": "TemplateMatch",
-        "green_mask": true,
-        "roi": [
-            422,
-            585,
-            136,
-            135
-        ],
-        "template": [
-            "凭证/凭证奖励_472_660_36_35__422_585_136_135.png"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    422,
+                    585,
+                    136,
+                    135
+                ],
+                "template": [
+                    "凭证/凭证奖励_472_660_36_35__422_585_136_135.png"
+                ],
+                "green_mask": true,
+                "threshold": 0.8
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "凭证奖励",
             "一键领取_凭证奖励",
@@ -149,15 +191,21 @@
     },
     "一键领取_凭证奖励": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            0,
-            585,
-            233,
-            135
-        ],
-        "expected": "键领取",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    0,
+                    585,
+                    233,
+                    135
+                ],
+                "expected": "键领取"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "一键领取_凭证奖励",
             "凭证奖励",
@@ -169,15 +217,21 @@
     },
     "打开凭证": {
         "post_delay": 2000,
-        "recognition": "OCR",
-        "roi": [
-            149,
-            326,
-            200,
-            120
-        ],
-        "expected": "凭证",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    149,
+                    326,
+                    200,
+                    120
+                ],
+                "expected": "凭证"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "凭证"
         ]

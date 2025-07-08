@@ -11,28 +11,36 @@
         ]
     },
     "返回第一页": {
-        "recognition": "OCR",
-        "roi": [
-            500,
-            659,
-            291,
-            35
-        ],
-        "expected": "个人故事",
-        "action": "Swipe",
-        "begin": [
-            20,
-            330,
-            0,
-            0
-        ],
-        "end": [
-            1270,
-            330,
-            0,
-            0
-        ],
-        "duration": 50,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    500,
+                    659,
+                    291,
+                    35
+                ],
+                "expected": "个人故事"
+            }
+        },
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    20,
+                    330,
+                    0,
+                    0
+                ],
+                "end": [
+                    1270,
+                    330,
+                    0,
+                    0
+                ],
+                "duration": 50
+            }
+        },
         "next": [
             "选择人物"
         ],
@@ -41,24 +49,28 @@
         ]
     },
     "次数不足": {
-        "recognition": "ColorMatch",
-        "roi": "选择人物",
-        "roi_offset": [
-            210,
-            -375,
-            50,
-            0
-        ],
-        "upper": [
-            182,
-            42,
-            66
-        ],
-        "lower": [
-            174,
-            19,
-            29
-        ],
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": "选择人物",
+                "roi_offset": [
+                    210,
+                    -375,
+                    50,
+                    0
+                ],
+                "upper": [
+                    182,
+                    42,
+                    66
+                ],
+                "lower": [
+                    174,
+                    19,
+                    29
+                ]
+            }
+        },
         "next": [
             "返回主菜单"
         ]
@@ -78,63 +90,87 @@
         ]
     },
     "未获取": {
-        "recognition": "OCR",
-        "roi": [
-            0,
-            345,
-            1000,
-            70
-        ],
-        "expected": [
-            "未获取"
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    0,
+                    345,
+                    1000,
+                    70
+                ],
+                "expected": [
+                    "未获取"
+                ]
+            }
+        },
         "next": [
             "返回主菜单"
         ]
     },
     "未解锁行为02": {
-        "recognition": "TemplateMatch",
-        "template": "刷碎片/未解锁行为02.png",
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": "刷碎片/未解锁行为02.png"
+            }
+        },
         "next": [
             "返回主菜单"
         ]
     },
     "行为01_点击": {
-        "recognition": "OCR",
-        "expected": [
-            "行为-1",
-            "行为"
-        ],
-        "action": "Click",
-        "target": [
-            10,
-            10,
-            0,
-            0
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "行为-1",
+                    "行为"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    10,
+                    10,
+                    0,
+                    0
+                ]
+            }
+        },
         "next": [
             "行为01"
         ]
     },
     "行为01": {
-        "recognition": "OCR",
-        "expected": [
-            "行为-1",
-            "行为"
-        ],
-        "action": "Swipe",
-        "begin": [
-            500,
-            330,
-            0,
-            0
-        ],
-        "end": [
-            250,
-            330,
-            0,
-            0
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "行为-1",
+                    "行为"
+                ]
+            }
+        },
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    500,
+                    330,
+                    0,
+                    0
+                ],
+                "end": [
+                    250,
+                    330,
+                    0,
+                    0
+                ]
+            }
+        },
         "next": [
             "检查次数剩余0",
             "检查次数大于0",
@@ -143,13 +179,17 @@
         ]
     },
     "检查次数大于0": {
-        "recognition": "OCR",
-        "expected": [
-            "2/2",
-            "1/2",
-            "挑战次数：2/2",
-            "挑战次数：1/2"
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "2/2",
+                    "1/2",
+                    "挑战次数：2/2",
+                    "挑战次数：1/2"
+                ]
+            }
+        },
         "next": [
             "关卡次数限制",
             "记忆嵌片不足_提示",
@@ -162,48 +202,68 @@
         ]
     },
     "检查次数剩余0": {
-        "recognition": "OCR",
-        "expected": [
-            "0/2",
-            "挑战次数：0/2"
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "0/2",
+                    "挑战次数：0/2"
+                ]
+            }
+        },
         "next": [
             "返回主菜单"
         ]
     },
     "记忆嵌片不足_提示": {
-        "recognition": "OCR",
-        "roi": [
-            500,
-            333,
-            250,
-            51
-        ],
-        "expected": "记忆嵌片不足",
-        "action": "Click",
-        "target": [
-            1,
-            0,
-            0,
-            0
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    500,
+                    333,
+                    250,
+                    51
+                ],
+                "expected": "记忆嵌片不足"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
         "next": [
             "返回主菜单"
         ]
     },
     "行为01_二次检测": {
-        "recognition": "OCR",
-        "expected": [
-            "行为-1",
-            "行为"
-        ],
-        "action": "Click",
-        "target": [
-            10,
-            10,
-            0,
-            0
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "行为-1",
+                    "行为"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    10,
+                    10,
+                    0,
+                    0
+                ]
+            }
+        },
         "next": [
             "检查次数剩余0",
             "检查次数大于0_二次检测",
@@ -212,164 +272,224 @@
     },
     "检查次数大于0_二次检测": {
         "post_delay": 1500,
-        "recognition": "OCR",
-        "expected": [
-            "2/2",
-            "1/2",
-            "挑战次数：2/2",
-            "挑战次数：1/2"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "2/2",
+                    "1/2",
+                    "挑战次数：2/2",
+                    "挑战次数：1/2"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "使用记忆嵌片",
             "记忆嵌片包不足"
         ]
     },
     "记忆嵌片包不足": {
-        "recognition": "OCR",
-        "roi": [
-            525,
-            328,
-            229,
-            61
-        ],
-        "expected": [
-            "暂时没有该类道具"
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    525,
+                    328,
+                    229,
+                    61
+                ],
+                "expected": [
+                    "暂时没有该类道具"
+                ]
+            }
+        },
         "next": [
             "返回主菜单"
         ]
     },
     "使用记忆嵌片": {
         "post_wait_freezes": 1000,
-        "recognition": "TemplateMatch",
-        "roi": [
-            618,
-            11,
-            400,
-            64
-        ],
-        "template": [
-            "刷碎片/记忆嵌片包_820_30_32_32__770_0_132_132.png"
-        ],
-        "action": "Click",
-        "target_offset": [
-            150,
-            0,
-            0,
-            0
-        ]
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    618,
+                    11,
+                    400,
+                    64
+                ],
+                "template": [
+                    "刷碎片/记忆嵌片包_820_30_32_32__770_0_132_132.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    150,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        }
     },
     "确认使用记忆嵌片包": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            911,
-            492,
-            102,
-            42
-        ],
-        "expected": [
-            "确定"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    911,
+                    492,
+                    102,
+                    42
+                ],
+                "expected": [
+                    "确定"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "速战_碎片": {
         "post_wait_freezes": 1000,
-        "recognition": "OCR",
-        "roi": [
-            867,
-            638,
-            212,
-            147
-        ],
-        "expected": "速战",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    867,
+                    638,
+                    212,
+                    147
+                ],
+                "expected": "速战"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "完成战斗_碎片": {
-        "recognition": "OCR",
-        "roi": [
-            527,
-            645,
-            229,
-            39
-        ],
-        "expected": [
-            "完成"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    527,
+                    645,
+                    229,
+                    39
+                ],
+                "expected": [
+                    "完成"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "刷碎片"
         ]
     },
     "个人故事": {
         "post_wait_freezes": 500,
-        "recognition": "OCR",
-        "roi": [
-            432,
-            492,
-            249,
-            146
-        ],
-        "expected": [
-            "个人故事"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    432,
+                    492,
+                    249,
+                    146
+                ],
+                "expected": [
+                    "个人故事"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "个人故事_滑动": {
         "post_wait_freezes": 500,
-        "recognition": "OCR",
-        "roi": [
-            500,
-            659,
-            291,
-            35
-        ],
-        "expected": "个人故事",
-        "action": "Swipe",
-        "begin": [
-            500,
-            330,
-            0,
-            0
-        ],
-        "end": [
-            450,
-            330,
-            0,
-            0
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    500,
+                    659,
+                    291,
+                    35
+                ],
+                "expected": "个人故事"
+            }
+        },
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    500,
+                    330,
+                    0,
+                    0
+                ],
+                "end": [
+                    450,
+                    330,
+                    0,
+                    0
+                ]
+            }
+        },
         "next": [
             "滑动计数"
         ]
     },
     "滑动计数": {
-        "action": "Custom",
-        "custom_action": "Count",
-        "custom_action_param": {
-            "self": "滑动计数",
-            "count": 0,
-            "target_count": 50,
-            "next_node": [
-                "返回主菜单",
-                "停止任务"
-            ]
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "Count",
+                "custom_action_param": {
+                    "self": "滑动计数",
+                    "count": 0,
+                    "target_count": 50,
+                    "next_node": [
+                        "返回主菜单",
+                        "停止任务"
+                    ]
+                }
+            }
         }
     },
     "停止任务": {
-        "action": "StopTask"
+        "action": {
+            "type": "StopTask"
+        }
     },
     "选择人物": {
-        "recognition": "OCR",
-        "roi": [
-            1000,
-            330,
-            100,
-            100
-        ],
-        "expected": [
-            "选择人物"
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1000,
+                    330,
+                    100,
+                    100
+                ],
+                "expected": [
+                    "选择人物"
+                ]
+            }
+        },
         "next": [
             "次数不足",
             "完成战斗",
@@ -382,30 +502,40 @@
     },
     "碎片_速战_新": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": "选择人物",
-        "roi_offset": [
-            0,
-            0,
-            60,
-            80
-        ],
-        "expected": [
-            "速战"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "选择人物",
+                "roi_offset": [
+                    0,
+                    0,
+                    60,
+                    80
+                ],
+                "expected": [
+                    "速战"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "记忆嵌片不足": {
-        "recognition": "OCR",
-        "roi": [
-            912,
-            29,
-            48,
-            29
-        ],
-        "expected": [
-            "0/12"
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    912,
+                    29,
+                    48,
+                    29
+                ],
+                "expected": [
+                    "0/12"
+                ]
+            }
+        },
         "next": [
             "记忆嵌片包不足",
             "记忆嵌片补充"
@@ -417,42 +547,56 @@
         ]
     },
     "记忆嵌片补充": {
-        "recognition": "OCR",
-        "roi": [
-            912,
-            28,
-            51,
-            32
-        ],
-        "expected": [
-            "3/12",
-            "6/12",
-            "9/12",
-            "12/12"
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    912,
+                    28,
+                    51,
+                    32
+                ],
+                "expected": [
+                    "3/12",
+                    "6/12",
+                    "9/12",
+                    "12/12"
+                ]
+            }
+        },
         "next": [
             "选择人物"
         ]
     },
     "行为02": {
-        "recognition": "OCR",
-        "expected": [
-            "行为-(?!1)"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "行为-(?!1)"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "关卡次数限制": {
         "post_delay": 5000,
-        "recognition": "OCR",
-        "roi": [
-            557,
-            333,
-            176,
-            51
-        ],
-        "expected": [
-            "关卡次数限制"
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    557,
+                    333,
+                    176,
+                    51
+                ],
+                "expected": [
+                    "关卡次数限制"
+                ]
+            }
+        },
         "next": [
             "返回主菜单"
         ]

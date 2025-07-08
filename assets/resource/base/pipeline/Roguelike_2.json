@@ -24,113 +24,165 @@
         ]
     },
     "笔谈_退出": {
-        "recognition": "OCR",
-        "roi": [
-            585,
-            617,
-            72,
-            49
-        ],
-        "expected": "退出",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    585,
+                    617,
+                    72,
+                    49
+                ],
+                "expected": "退出"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "笔谈_确认重置": {
-        "recognition": "OCR",
-        "roi": [
-            624,
-            536,
-            81,
-            49
-        ],
-        "expected": "确定",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    624,
+                    536,
+                    81,
+                    49
+                ],
+                "expected": "确定"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "笔谈_二次进入": {
-        "recognition": "OCR",
-        "roi": [
-            1204,
-            653,
-            52,
-            35
-        ],
-        "expected": "重置",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1204,
+                    653,
+                    52,
+                    35
+                ],
+                "expected": "重置"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "笔谈_进入笔谈": {
-        "recognition": "OCR",
-        "roi": [
-            966,
-            438,
-            81,
-            26
-        ],
-        "expected": [
-            "蜃梦",
-            "笔谈"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    966,
+                    438,
+                    81,
+                    26
+                ],
+                "expected": [
+                    "蜃梦",
+                    "笔谈"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "笔谈_入梦": {
-        "recognition": "OCR",
-        "roi": [
-            1005,
-            497,
-            165,
-            131
-        ],
-        "expected": [
-            "浮烟",
-            "入梦"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1005,
+                    497,
+                    165,
+                    131
+                ],
+                "expected": [
+                    "浮烟",
+                    "入梦"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "post_delay": 1000
     },
     "笔谈_确认": {
-        "recognition": "OCR",
-        "roi": [
-            840,
-            438,
-            241,
-            145
-        ],
-        "expected": "确定",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    840,
+                    438,
+                    241,
+                    145
+                ],
+                "expected": "确定"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "post_delay": 1000
     },
     "笔谈_速战": {
-        "recognition": "OCR",
-        "roi": [
-            882,
-            646,
-            88,
-            45
-        ],
-        "expected": "速战",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    882,
+                    646,
+                    88,
+                    45
+                ],
+                "expected": "速战"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "post_delay": 1000
     },
     "笔谈_选队": {
-        "recognition": "OCR",
-        "roi": [
-            1118,
-            621,
-            128,
-            57
-        ],
-        "expected": "开始作战",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1118,
+                    621,
+                    128,
+                    57
+                ],
+                "expected": "开始作战"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "post_delay": 6000
     },
     "笔谈_战斗": {
         "_doc": "使用custom识别不同地图,执行对应脚本",
-        "recognition": "TemplateMatch",
-        "roi": [
-            59,
-            0,
-            122,
-            90
-        ],
-        "template": "笔谈/笔谈_战斗中__109_21_22_19__59_0_122_90.png",
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    59,
+                    0,
+                    122,
+                    90
+                ],
+                "template": "笔谈/笔谈_战斗中__109_21_22_19__59_0_122_90.png"
+            }
+        },
         "post_delay": 500,
         "next": [
             "笔谈_战斗_custom"
@@ -138,8 +190,12 @@
     },
     "笔谈_战斗_custom": {
         "_doc": "移除了custom程序中的战斗部分,使其移动完成后由pipeline来检查是否完成战斗,如果没有完成则一直循环战斗未结束",
-        "action": "Custom",
-        "custom_action": "StoryRogue",
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "StoryRogue"
+            }
+        },
         "post_delay": 2000,
         "next": "笔谈_boss关",
         "interrupt": [
@@ -155,42 +211,56 @@
         ]
     },
     "笔谈_boss关": {
-        "recognition": "TemplateMatch",
-        "roi": [
-            419,
-            71,
-            240,
-            528
-        ],
-        "template": [
-            "笔谈/笔谈_boss.png",
-            "笔谈/笔谈_战斗.png"
-        ],
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    419,
+                    71,
+                    240,
+                    528
+                ],
+                "template": [
+                    "笔谈/笔谈_boss.png",
+                    "笔谈/笔谈_战斗.png"
+                ]
+            }
+        },
         "next": [
             "笔谈_重置"
         ]
     },
     "笔谈_战斗退出": {
-        "recognition": "OCR",
-        "roi": [
-            586,
-            617,
-            87,
-            37
-        ],
-        "expected": "退出",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    586,
+                    617,
+                    87,
+                    37
+                ],
+                "expected": "退出"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "战斗未结束": {
         "_doc": "使用技能",
-        "recognition": "TemplateMatch",
-        "roi": [
-            59,
-            0,
-            122,
-            90
-        ],
-        "template": "笔谈/笔谈_战斗中__109_21_22_19__59_0_122_90.png",
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    59,
+                    0,
+                    122,
+                    90
+                ],
+                "template": "笔谈/笔谈_战斗中__109_21_22_19__59_0_122_90.png"
+            }
+        },
         "next": [
             "识别敌人",
             "笔谈_使用技能",
@@ -199,52 +269,68 @@
     },
     "未识别到敌人": {
         "enabled": false,
-        "recognition": "ColorMatch",
-        "lower": [
-            210,
-            95,
-            65
-        ],
-        "upper": [
-            250,
-            120,
-            91
-        ],
-        "connected": true,
-        "end": true,
-        "count": 9
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "count": 9,
+                "connected": true,
+                "upper": [
+                    250,
+                    120,
+                    91
+                ],
+                "lower": [
+                    210,
+                    95,
+                    65
+                ]
+            }
+        },
+        "action": {
+            "param": {
+                "end": true
+            }
+        }
     },
     "识别敌人": {
         "post_delay": 0,
         "pre_delay": 0,
-        "duration": 100,
-        "order_by": "Vertical",
-        "recognition": "ColorMatch",
-        "roi": [
-            24,
-            232,
-            1255,
-            275
-        ],
-        "lower": [
-            210,
-            95,
-            65
-        ],
-        "upper": [
-            250,
-            120,
-            91
-        ],
-        "connected": true,
-        "count": 9,
-        "action": "Swipe",
-        "begin": [
-            676,
-            354,
-            1,
-            1
-        ],
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    24,
+                    232,
+                    1255,
+                    275
+                ],
+                "order_by": "Vertical",
+                "count": 9,
+                "connected": true,
+                "upper": [
+                    250,
+                    120,
+                    91
+                ],
+                "lower": [
+                    210,
+                    95,
+                    65
+                ]
+            }
+        },
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    676,
+                    354,
+                    1,
+                    1
+                ],
+                "duration": 100
+            }
+        },
         "next": [
             "笔谈_使用技能"
         ]
@@ -252,20 +338,24 @@
     "笔谈_使用技能": {
         "post_delay": 0,
         "pre_delay": 0,
-        "duration": 1000,
-        "action": "Swipe",
-        "begin": [
-            1069,
-            353,
-            1,
-            1
-        ],
-        "end": [
-            1069,
-            353,
-            1,
-            1
-        ],
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    1069,
+                    353,
+                    1,
+                    1
+                ],
+                "end": [
+                    1069,
+                    353,
+                    1,
+                    1
+                ],
+                "duration": 1000
+            }
+        },
         "next": [
             "射击"
         ]
@@ -273,20 +363,24 @@
     "射击": {
         "post_delay": 0,
         "pre_delay": 0,
-        "duration": 1000,
-        "action": "Swipe",
-        "begin": [
-            892,
-            487,
-            1,
-            1
-        ],
-        "end": [
-            892,
-            487,
-            1,
-            1
-        ],
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    892,
+                    487,
+                    1,
+                    1
+                ],
+                "end": [
+                    892,
+                    487,
+                    1,
+                    1
+                ],
+                "duration": 1000
+            }
+        },
         "next": [
             "大招"
         ]
@@ -294,212 +388,302 @@
     "大招": {
         "post_delay": 0,
         "pre_delay": 0,
-        "action": "Click",
-        "target": [
-            1183,
-            350,
-            1,
-            1
-        ]
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1183,
+                    350,
+                    1,
+                    1
+                ]
+            }
+        }
     },
     "笔谈_选择宝物": {
-        "recognition": "OCR",
-        "roi": [
-            212,
-            520,
-            889,
-            127
-        ],
-        "expected": "选择",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    212,
+                    520,
+                    889,
+                    127
+                ],
+                "expected": "选择"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "post_delay": 2000
     },
     "笔谈_宝箱": {
-        "recognition": "TemplateMatch",
-        "roi": [
-            419,
-            71,
-            211,
-            528
-        ],
-        "template": "笔谈/笔谈_宝箱__497_221_46_45__447_171_146_145.png",
-        "action": "Click",
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    419,
+                    71,
+                    211,
+                    528
+                ],
+                "template": "笔谈/笔谈_宝箱__497_221_46_45__447_171_146_145.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "post_delay": 1500
     },
     "笔谈_宝箱_选择星砂": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            207,
-            130,
-            905,
-            206
-        ],
-        "expected": "探索收获",
-        "action": "Click",
-        "target_offset": [
-            0,
-            390,
-            -80,
-            -20
-        ]
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    207,
+                    130,
+                    905,
+                    206
+                ],
+                "expected": "探索收获"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    0,
+                    390,
+                    -80,
+                    -20
+                ]
+            }
+        }
     },
     "笔谈_背包_返回": {
-        "recognition": "OCR",
-        "roi": [
-            10,
-            25,
-            94,
-            50
-        ],
-        "expected": "背包",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    10,
+                    25,
+                    94,
+                    50
+                ],
+                "expected": "背包"
+            }
+        },
         "post_delay": 800,
-        "action": "Click",
-        "target": [
-            1199,
-            46,
-            1,
-            1
-        ]
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1199,
+                    46,
+                    1,
+                    1
+                ]
+            }
+        }
     },
     "笔谈_事件1": {
         "post_delay": 1000,
-        "recognition": "TemplateMatch",
-        "roi": [
-            419,
-            71,
-            240,
-            528
-        ],
-        "template": [
-            "笔谈/笔谈_事件.png",
-            "笔谈/笔谈_事件2.png",
-            "笔谈/笔谈_扩展背包__497_220_44_45__447_170_144_145.png",
-            "笔谈/笔谈_问号__498_457_42_43__448_407_142_143.png",
-            "笔谈/笔谈_宝箱__497_221_46_45__447_171_146_145.png",
-            "笔谈/笔谈_战斗2.png"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    419,
+                    71,
+                    240,
+                    528
+                ],
+                "template": [
+                    "笔谈/笔谈_事件.png",
+                    "笔谈/笔谈_事件2.png",
+                    "笔谈/笔谈_扩展背包__497_220_44_45__447_170_144_145.png",
+                    "笔谈/笔谈_问号__498_457_42_43__448_407_142_143.png",
+                    "笔谈/笔谈_宝箱__497_221_46_45__447_171_146_145.png",
+                    "笔谈/笔谈_战斗2.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "笔谈_重置": {
-        "recognition": "OCR",
-        "only_rec": true,
-        "roi": [
-            1207,
-            656,
-            45,
-            28
-        ],
-        "expected": "重置",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": [
+                    1207,
+                    656,
+                    45,
+                    28
+                ],
+                "expected": "重置"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": "笔谈_重置_确定"
     },
     "笔谈_重置_确定": {
-        "recognition": "OCR",
-        "roi": [
-            554,
-            509,
-            177,
-            100
-        ],
-        "expected": "确定",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    554,
+                    509,
+                    177,
+                    100
+                ],
+                "expected": "确定"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "post_wait_freezes": 300,
         "next": [
             "笔谈_结算"
         ]
     },
     "笔谈_结算": {
-        "recognition": "OCR",
-        "roi": [
-            488,
-            595,
-            348,
-            105
-        ],
-        "expected": "退出",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    488,
+                    595,
+                    348,
+                    105
+                ],
+                "expected": "退出"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "post_delay": 1000,
         "next": "蜃梦笔谈"
     },
     "笔谈_取消提示框": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            393,
-            234,
-            490,
-            154
-        ],
-        "expected": "选择后无法返回",
-        "action": "Click",
-        "target": [
-            547,
-            422,
-            6,
-            6
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    393,
+                    234,
+                    490,
+                    154
+                ],
+                "expected": "选择后无法返回"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    547,
+                    422,
+                    6,
+                    6
+                ]
+            }
+        },
         "next": "笔谈_取消提示框_确定"
     },
     "笔谈_取消提示框_确定": {
-        "recognition": "OCR",
-        "roi": [
-            859,
-            471,
-            205,
-            90
-        ],
-        "expected": "确定",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    859,
+                    471,
+                    205,
+                    90
+                ],
+                "expected": "确定"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "走廊场景识别": {
-        "recognition": "TemplateMatch",
-        "roi": [
-            14,
-            80,
-            302,
-            260
-        ],
-        "template": "笔谈/笔谈_战斗_走廊__64_130_202_145__14_80_302_245.png"
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    14,
+                    80,
+                    302,
+                    260
+                ],
+                "template": "笔谈/笔谈_战斗_走廊__64_130_202_145__14_80_302_245.png"
+            }
+        }
     },
     "红走廊场景识别": {
-        "recognition": "TemplateMatch",
-        "roi": [
-            14,
-            80,
-            302,
-            260
-        ],
-        "template": "笔谈/笔谈_战斗_红走廊__65_123_211_160__15_73_311_260.png"
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    14,
+                    80,
+                    302,
+                    260
+                ],
+                "template": "笔谈/笔谈_战斗_红走廊__65_123_211_160__15_73_311_260.png"
+            }
+        }
     },
     "大门场景识别": {
-        "recognition": "TemplateMatch",
-        "roi": [
-            44,
-            284,
-            276,
-            160
-        ],
-        "template": "笔谈/笔谈_战斗_大门__94_334_176_60__44_284_276_160.png"
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    44,
+                    284,
+                    276,
+                    160
+                ],
+                "template": "笔谈/笔谈_战斗_大门__94_334_176_60__44_284_276_160.png"
+            }
+        }
     },
     "庭院场景识别": {
-        "recognition": "TemplateMatch",
-        "roi": [
-            43,
-            101,
-            205,
-            248
-        ],
-        "template": "笔谈/笔谈_战斗_庭院__93_151_105_148__43_101_205_248.png"
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    43,
+                    101,
+                    205,
+                    248
+                ],
+                "template": "笔谈/笔谈_战斗_庭院__93_151_105_148__43_101_205_248.png"
+            }
+        }
     },
     "检查退出按钮": {
-        "recognition": "OCR",
-        "roi": [
-            552,
-            589,
-            171,
-            97
-        ],
-        "expected": "退出"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    552,
+                    589,
+                    171,
+                    97
+                ],
+                "expected": "退出"
+            }
+        }
     }
 }

@@ -10,38 +10,52 @@
         ]
     },
     "向下滑动_体力": {
-        "recognition": "OCR",
-        "roi": [
-            158,
-            96,
-            116,
-            34
-        ],
-        "expected": "限时补给箱",
-        "action": "Swipe",
-        "begin": [
-            620,
-            550,
-            0,
-            0
-        ],
-        "end": [
-            620,
-            300,
-            0,
-            0
-        ]
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    158,
+                    96,
+                    116,
+                    34
+                ],
+                "expected": "限时补给箱"
+            }
+        },
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    620,
+                    550,
+                    0,
+                    0
+                ],
+                "end": [
+                    620,
+                    300,
+                    0,
+                    0
+                ]
+            }
+        }
     },
     "领取体力": {
-        "recognition": "OCR",
-        "roi": [
-            81,
-            137,
-            1198,
-            582
-        ],
-        "expected": "每日物资配给箱",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    81,
+                    137,
+                    1198,
+                    582
+                ],
+                "expected": "每日物资配给箱"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "购买体力",
             "售罄",
@@ -49,42 +63,60 @@
         ]
     },
     "打开供应站": {
-        "recognition": "OCR",
-        "roi": [
-            71,
-            325,
-            167,
-            131
-        ],
-        "expected": [
-            "供应站"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    71,
+                    325,
+                    167,
+                    131
+                ],
+                "expected": [
+                    "供应站"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "打开供应站补给箱": {
-        "recognition": "TemplateMatch",
-        "roi": [
-            0,
-            293,
-            159,
-            157
-        ],
-        "template": [
-            "体力/供应站补给箱_7_343_59_57__0_293_159_157.png"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    0,
+                    293,
+                    159,
+                    157
+                ],
+                "template": [
+                    "体力/供应站补给箱_7_343_59_57__0_293_159_157.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "购买体力": {
         "post_wait_freezes": 500,
-        "recognition": "OCR",
-        "roi": [
-            828,
-            476,
-            200,
-            150
-        ],
-        "expected": "购买",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    828,
+                    476,
+                    200,
+                    150
+                ],
+                "expected": "购买"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "购买体力",
             "返回主菜单"

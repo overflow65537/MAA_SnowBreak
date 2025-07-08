@@ -1,83 +1,117 @@
 {
     "关闭奖励通知": {
-        "recognition": "OCR",
-        "roi": [
-            488,
-            0,
-            298,
-            169
-        ],
-        "expected": [
-            "获得道具"
-        ],
-        "action": "Click",
-        "target": [
-            1,
-            0,
-            0,
-            0
-        ]
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    488,
+                    0,
+                    298,
+                    169
+                ],
+                "expected": [
+                    "获得道具"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        }
     },
     "返回主菜单": {
         "post_wait_freezes": 1000,
-        "recognition": "TemplateMatch",
-        "roi": [
-            970,
-            0,
-            180,
-            80
-        ],
-        "template": [
-            "通用任务/主菜单_999_24_49_44__949_0_149_144.png"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    970,
+                    0,
+                    180,
+                    80
+                ],
+                "template": [
+                    "通用任务/主菜单_999_24_49_44__949_0_149_144.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "检查主界面",
             "返回主菜单"
         ]
     },
     "道具过期提示": {
-        "recognition": "OCR",
-        "roi": [
-            460,
-            24,
-            363,
-            76
-        ],
-        "expected": "以下道具已经过期",
-        "action": "Click",
-        "target": [
-            1,
-            0,
-            0,
-            0
-        ]
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    460,
+                    24,
+                    363,
+                    76
+                ],
+                "expected": "以下道具已经过期"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        }
     },
     "账号等级提升": {
-        "recognition": "OCR",
-        "roi": [
-            663,
-            178,
-            283,
-            172
-        ],
-        "expected": "等级提升",
-        "action": "Click",
-        "target": [
-            100,
-            100,
-            0,
-            0
-        ]
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    663,
+                    178,
+                    283,
+                    172
+                ],
+                "expected": "等级提升"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    100,
+                    100,
+                    0,
+                    0
+                ]
+            }
+        }
     },
     "返回主菜单_err": {
         "focus": {
             "succeeded": "[color:Tomato]识别错误，返回主菜单[/color]"
         },
-        "action": "Custom",
-        "custom_action": "ScreenShot",
-        "custom_action_param": {
-            "type": "ERR"
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "ScreenShot",
+                "custom_action_param": {
+                    "type": "ERR"
+                }
+            }
         },
         "next": [
             "检查分辨率",
@@ -92,8 +126,12 @@
         "focus": {
             "succeeded": "[color:Tomato]未知错误，重启游戏[/color]"
         },
-        "action": "StopApp",
-        "package": "com.dragonli.projectsnow.lhm",
+        "action": {
+            "type": "StopApp",
+            "param": {
+                "package": "com.dragonli.projectsnow.lhm"
+            }
+        },
         "next": [
             "启动"
         ]

@@ -28,261 +28,371 @@
     },
     "选择复刻活动_精确": {
         "enabled": false,
-        "recognition": "OCR",
-        "roi": [
-            979,
-            410,
-            136,
-            53
-        ],
-        "expected": [
-            "材料",
-            "赐福集会"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    979,
+                    410,
+                    136,
+                    53
+                ],
+                "expected": [
+                    "材料",
+                    "赐福集会"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "复刻活动_精确": {
         "enabled": false,
-        "recognition": "OCR",
-        "roi": [
-            213,
-            545,
-            81,
-            22
-        ],
-        "expected": "素影遗痕",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    213,
+                    545,
+                    81,
+                    22
+                ],
+                "expected": "素影遗痕"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "复刻活动": {
         "enabled": false,
-        "recognition": "OCR",
-        "expected": "^追忆$",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "^追忆$"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "接收后勤": {
         "post_delay": 1000,
         "enabled": false,
-        "recognition": "OCR",
-        "roi": [
-            720,
-            630,
-            256,
-            66
-        ],
-        "expected": "接收",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    720,
+                    630,
+                    256,
+                    66
+                ],
+                "expected": "接收"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "未解锁战斗": {
-        "recognition": "OCR",
-        "roi": [
-            348,
-            313,
-            605,
-            88
-        ],
-        "expected": [
-            "通关.{1,}后解锁"
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    348,
+                    313,
+                    605,
+                    88
+                ],
+                "expected": [
+                    "通关.{1,}后解锁"
+                ]
+            }
+        },
         "next": [
             "返回主菜单"
         ]
     },
     "使用体力界面_主要": {
-        "recognition": "OCR",
-        "roi": [
-            821,
-            204,
-            154,
-            56
-        ],
-        "expected": "恢复感知",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    821,
+                    204,
+                    154,
+                    56
+                ],
+                "expected": "恢复感知"
+            }
+        },
         "next": [
             "选择临期体力药剂",
             "关闭体力界面"
         ]
     },
     "选择临期体力药剂": {
-        "recognition": "OCR",
-        "roi": [
-            191,
-            201,
-            326,
-            57
-        ],
-        "expected": [
-            "^(?:[01]\\d|2[0-3])[：:][0-5]\\d[：:][0-5]\\d$",
-            "3天",
-            "2天",
-            "1天"
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    191,
+                    201,
+                    326,
+                    57
+                ],
+                "expected": [
+                    "^(?:[01]\\d|2[0-3])[：:][0-5]\\d[：:][0-5]\\d$",
+                    "3天",
+                    "2天",
+                    "1天"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "确认/取消使用体力"
         ]
     },
     "进入深渊作战_滑动": {
-        "recognition": "OCR",
-        "roi": [
-            630,
-            300,
-            100,
-            60
-        ],
-        "expected": [
-            "困难"
-        ],
-        "action": "Swipe",
-        "begin": [
-            500,
-            330,
-            0,
-            0
-        ],
-        "end": [
-            250,
-            330,
-            0,
-            0
-        ]
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    630,
+                    300,
+                    100,
+                    60
+                ],
+                "expected": [
+                    "困难"
+                ]
+            }
+        },
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    500,
+                    330,
+                    0,
+                    0
+                ],
+                "end": [
+                    250,
+                    330,
+                    0,
+                    0
+                ]
+            }
+        }
     },
     "关闭速战界面": {
-        "recognition": "OCR",
-        "roi": [
-            521,
-            87,
-            250,
-            200
-        ],
-        "expected": "快速作战",
-        "action": "Click",
-        "target": [
-            0,
-            1,
-            0,
-            0
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    521,
+                    87,
+                    250,
+                    200
+                ],
+                "expected": "快速作战"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    0,
+                    1,
+                    0,
+                    0
+                ]
+            }
+        },
         "next": [
             "体力不足_next"
         ]
     },
     "进入深渊作战": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "expected": "深渊",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "深渊"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "确认/取消使用体力": {
         "post_wait_freezes": 200,
-        "recognition": "OCR",
-        "roi": [
-            282,
-            471,
-            722,
-            176
-        ],
-        "action": "Click",
-        "expected": ""
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    282,
+                    471,
+                    722,
+                    176
+                ],
+                "expected": ""
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "速战MAX": {
-        "recognition": "OCR",
-        "roi": [
-            800,
-            440,
-            100,
-            80
-        ],
-        "expected": [
-            "最大"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    800,
+                    440,
+                    100,
+                    80
+                ],
+                "expected": [
+                    "最大"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "完成战斗": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            527,
-            645,
-            229,
-            39
-        ],
-        "expected": [
-            "完成"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    527,
+                    645,
+                    229,
+                    39
+                ],
+                "expected": [
+                    "完成"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "打开战斗": {
-        "recognition": "OCR",
-        "roi": [
-            950,
-            260,
-            180,
-            130
-        ],
-        "expected": "战斗",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    950,
+                    260,
+                    180,
+                    130
+                ],
+                "expected": "战斗"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "选择作战1": {
-        "recognition": "OCR",
-        "roi": [
-            1048,
-            369,
-            174,
-            58
-        ],
-        "expected": [
-            "常规行动"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1048,
+                    369,
+                    174,
+                    58
+                ],
+                "expected": [
+                    "常规行动"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "作战_滑动": {
-        "recognition": "OCR",
-        "roi": [
-            161,
-            575,
-            263,
-            195
-        ],
-        "expected": [
-            "常规行动"
-        ],
-        "action": "Swipe",
-        "begin": [
-            500,
-            330,
-            0,
-            0
-        ],
-        "end": [
-            450,
-            330,
-            0,
-            0
-        ]
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    161,
+                    575,
+                    263,
+                    195
+                ],
+                "expected": [
+                    "常规行动"
+                ]
+            }
+        },
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    500,
+                    330,
+                    0,
+                    0
+                ],
+                "end": [
+                    450,
+                    330,
+                    0,
+                    0
+                ]
+            }
+        }
     },
     "进入作战": {
         "pre_wait_freezes": 200,
-        "recognition": "OCR",
-        "roi": [
-            57,
-            530,
-            2328,
-            43
-        ],
-        "action": "Click",
-        "expected": ""
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    57,
+                    530,
+                    2328,
+                    43
+                ],
+                "expected": ""
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "速战": {
-        "threshold": 0.9,
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            867,
-            638,
-            212,
-            147
-        ],
-        "expected": "速战",
-        "action": "Click",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    867,
+                    638,
+                    212,
+                    147
+                ],
+                "expected": "速战",
+                "threshold": 0.9
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "速战_next"
         ]
@@ -298,75 +408,103 @@
         ]
     },
     "意外点击_速战": {
-        "recognition": "OCR",
-        "roi": [
-            527,
-            645,
-            229,
-            39
-        ],
-        "expected": [
-            "完成"
-        ]
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    527,
+                    645,
+                    229,
+                    39
+                ],
+                "expected": [
+                    "完成"
+                ]
+            }
+        }
     },
     "使用体力界面": {
-        "recognition": "OCR",
-        "roi": [
-            821,
-            204,
-            154,
-            56
-        ],
-        "expected": "恢复感知"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    821,
+                    204,
+                    154,
+                    56
+                ],
+                "expected": "恢复感知"
+            }
+        }
     },
     "战斗次数": {
-        "only_rec": true,
-        "roi": [
-            587,
-            463,
-            42,
-            30
-        ],
-        "recognition": "OCR",
-        "expected": ""
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": [
+                    587,
+                    463,
+                    42,
+                    30
+                ],
+                "expected": ""
+            }
+        }
     },
     "增加战斗次数": {
-        "recognition": "TemplateMatch",
-        "template": "战斗/增加作战次数_748_460_62_37__698_410_162_137.png",
-        "roi": [
-            748,
-            460,
-            62,
-            37
-        ],
-        "action": "Click",
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    748,
+                    460,
+                    62,
+                    37
+                ],
+                "template": "战斗/增加作战次数_748_460_62_37__698_410_162_137.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
             "速战_next"
         ]
     },
     "开始战斗": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            577,
-            539,
-            134,
-            38
-        ],
-        "expected": [
-            "开始作战"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    577,
+                    539,
+                    134,
+                    38
+                ],
+                "expected": [
+                    "开始作战"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "体力不足": {
-        "recognition": "OCR",
-        "roi": [
-            585,
-            337,
-            112,
-            44
-        ],
-        "expected": "道具不足",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    585,
+                    337,
+                    112,
+                    44
+                ],
+                "expected": "道具不足"
+            }
+        },
         "next": [
             "体力不足_next"
         ]
@@ -379,81 +517,119 @@
         ]
     },
     "关闭体力界面": {
-        "recognition": "OCR",
-        "roi": [
-            821,
-            204,
-            154,
-            56
-        ],
-        "expected": "恢复感知",
-        "action": "Click",
-        "target": [
-            100,
-            0,
-            0,
-            0
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    821,
+                    204,
+                    154,
+                    56
+                ],
+                "expected": "恢复感知"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    100,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
         "next": [
             "体力不足_next"
         ]
     },
     "进入活动": {
         "post_delay": 1000,
-        "recognition": "Custom",
-        "custom_recognition": "LOp",
-        "custom_recognition_param": {
-            "mode": "and",
-            "nodes": [
-                "检查主界面",
-                "检查活动区域内是否存在文字"
-            ]
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "LOp",
+                "custom_recognition_param": {
+                    "mode": "and",
+                    "nodes": [
+                        "检查主界面",
+                        "检查活动区域内是否存在文字"
+                    ]
+                }
+            }
         },
-        "action": "Click",
-        "target": [
-            900,
-            311,
-            1,
-            1
-        ]
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    900,
+                    311,
+                    1,
+                    1
+                ]
+            }
+        }
     },
     "检查活动区域内是否存在文字": {
-        "recognition": "OCR",
-        "roi": [
-            829,
-            269,
-            132,
-            85
-        ],
-        "expected": ""
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    829,
+                    269,
+                    132,
+                    85
+                ],
+                "expected": ""
+            }
+        }
     },
     "选择活动作战1_精确": {
-        "recognition": "OCR",
-        "roi": [
-            41,
-            199,
-            150,
-            60
-        ],
-        "expected": [
-            "材料",
-            "研究基地"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    41,
+                    199,
+                    150,
+                    60
+                ],
+                "expected": [
+                    "材料",
+                    "研究基地"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "选择活动作战1": {
-        "recognition": "OCR",
-        "expected": [
-            "材料"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "材料"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "选择活动作战2": {
         "post_delay": 2000,
-        "recognition": "OCR",
-        "expected": [
-            "深渊"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "深渊"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     }
 }

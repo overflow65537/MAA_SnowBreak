@@ -16,8 +16,12 @@
         ]
     },
     "检查分辨率": {
-        "recognition": "Custom",
-        "custom_recognition": "CheckResolution",
+        "recognition": {
+            "type": "Custom",
+            "param": {
+                "custom_recognition": "CheckResolution"
+            }
+        },
         "next": [
             "提示分辨率错误"
         ]
@@ -32,79 +36,109 @@
         ]
     },
     "下载资源包": {
-        "recognition": "OCR",
-        "roi": [
-            820,
-            258,
-            401,
-            357
-        ],
-        "expected": "确定",
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    820,
+                    258,
+                    401,
+                    357
+                ],
+                "expected": "确定"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "意外点击_公告": {
         "post_wait_freezes": 1000,
-        "recognition": "TemplateMatch",
-        "roi": [
-            970,
-            0,
-            180,
-            80
-        ],
-        "template": [
-            "通用任务/主菜单_999_24_49_44__949_0_149_144.png"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    970,
+                    0,
+                    180,
+                    80
+                ],
+                "template": [
+                    "通用任务/主菜单_999_24_49_44__949_0_149_144.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "检查主界面": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "roi": [
-            950,
-            260,
-            180,
-            130
-        ],
-        "expected": "^战斗$",
-        "replace": [
-            "找",
-            "战"
-        ],
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    950,
+                    260,
+                    180,
+                    130
+                ],
+                "replace": [
+                    "找",
+                    "战"
+                ],
+                "expected": "^战斗$"
+            }
+        },
         "next": [
             "二次检测主界面",
             "启动"
         ]
     },
     "二次检测主界面": {
-        "recognition": "OCR",
-        "roi": [
-            950,
-            260,
-            180,
-            130
-        ],
-        "expected": "^战斗$",
-        "replace": [
-            "找",
-            "战"
-        ]
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    950,
+                    260,
+                    180,
+                    130
+                ],
+                "replace": [
+                    "找",
+                    "战"
+                ],
+                "expected": "^战斗$"
+            }
+        }
     },
     "进入游戏": {
         "post_delay": 1000,
-        "recognition": "OCR",
-        "expected": "开始游戏",
-        "roi": [
-            539,
-            569,
-            204,
-            137
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    539,
+                    569,
+                    204,
+                    137
+                ],
+                "expected": "开始游戏"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "启动应用": {
         "post_delay": 5000,
-        "action": "StartApp",
-        "package": "com.dragonli.projectsnow.lhm",
+        "action": {
+            "type": "StartApp",
+            "param": {
+                "package": "com.dragonli.projectsnow.lhm"
+            }
+        },
         "next": [
             "黑屏计数",
             "空任务"
@@ -112,67 +146,89 @@
     },
     "空任务": {},
     "黑屏计数": {
-        "recognition": "ColorMatch",
-        "upper": [
-            0,
-            0,
-            0
-        ],
-        "lower": [
-            0,
-            0,
-            0
-        ],
-        "connected": true,
-        "count": 90000,
-        "action": "Custom",
-        "custom_action": "Count",
-        "custom_action_param": {
-            "self": "黑屏计数",
-            "count": 0,
-            "target_count": 12,
-            "next_node": [
-                "重启游戏"
-            ]
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "count": 90000,
+                "connected": true,
+                "upper": [
+                    0,
+                    0,
+                    0
+                ],
+                "lower": [
+                    0,
+                    0,
+                    0
+                ]
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "Count",
+                "custom_action_param": {
+                    "self": "黑屏计数",
+                    "count": 0,
+                    "target_count": 12,
+                    "next_node": [
+                        "重启游戏"
+                    ]
+                }
+            }
         }
     },
     "关闭签到": {
         "post_delay": 1000,
-        "threshold": 0.8,
-        "recognition": "OCR",
-        "roi": [
-            142,
-            88,
-            306,
-            232
-        ],
-        "expected": "刷新时间",
-        "action": "Click",
-        "target": [
-            1,
-            0,
-            0,
-            0
-        ]
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    142,
+                    88,
+                    306,
+                    232
+                ],
+                "expected": "刷新时间",
+                "threshold": 0.8
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        }
     },
     "关闭公告": {
         "post_delay": 1000,
-        "threshold": 0.8,
-        "recognition": "TemplateMatch",
-        "roi": [
-            834,
-            40,
-            404,
-            266
-        ],
-        "template": [
-            "启动/关闭通知_1203_52_31_33__1149_2_131_133.png",
-            "启动/关闭公告1_1087_110_35_35__1037_60_135_135.png",
-            "启动/关闭公告2_1080_142_31_29__1030_92_131_129.png",
-            "启动/关闭公告3_1192_88_33_33__1142_38_133_133.png",
-            "启动/1.png",
-            "启动/2.png"
-        ],
-        "action": "Click"
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    834,
+                    40,
+                    404,
+                    266
+                ],
+                "template": [
+                    "启动/关闭通知_1203_52_31_33__1149_2_131_133.png",
+                    "启动/关闭公告1_1087_110_35_35__1037_60_135_135.png",
+                    "启动/关闭公告2_1080_142_31_29__1030_92_131_129.png",
+                    "启动/关闭公告3_1192_88_33_33__1142_38_133_133.png",
+                    "启动/1.png",
+                    "启动/2.png"
+                ],
+                "threshold": 0.8
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     }
 }
