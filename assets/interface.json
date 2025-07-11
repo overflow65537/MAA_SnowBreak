@@ -11,9 +11,16 @@
     ],
     "resource": [
         {
-            "name": "移动端",
+            "name": "官服",
             "path": [
                 "{PROJECT_DIR}/resource/base"
+            ]
+        },
+        {
+            "name": "B服",
+            "path": [
+                "{PROJECT_DIR}/resource/base",
+                "{PROJECT_DIR}/resource/bilibili"
             ]
         }
     ],

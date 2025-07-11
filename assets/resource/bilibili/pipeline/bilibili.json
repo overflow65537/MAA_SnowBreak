@@ -1,0 +1,26 @@
+{
+    "启动应用": {
+        "action": {
+            "type": "StartApp",
+            "param": {
+                "package": "com.dragonli.projectsnow.bilibili"
+            }
+        }
+    },
+    "重启游戏": {
+        "action": {
+            "type": "StartApp",
+            "param": {
+                "package": "com.dragonli.projectsnow.bilibili"
+            }
+        }
+    },
+    "关闭游戏": {
+        "action": {
+            "type": "StopApp",
+            "param": {
+                "package": "com.dragonli.projectsnow.bilibili"
+            }
+        }
+    }
+}
