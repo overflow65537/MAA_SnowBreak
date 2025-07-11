@@ -43,7 +43,7 @@
 
 ## 注意事项
 
-- 安卓端：模拟器必须为mumu模拟器,如果出现部分任务无法完成,请切换1280*720(240DPI)
+- 安卓端：~~模拟器必须为mumu模拟器~~任意模拟器皆可（赞美lhm）,如果出现部分任务无法完成,请切换1280*720(240DPI)
 - 桌面端：不支持
 - 打开后无法运行首先尝试安装运行库 [https://learn.microsoft.com/zh-cn/cpp/windows/latest-supported-vc-redist?view=msvc-170](https://learn.microsoft.com/zh-cn/cpp/windows/latest-supported-vc-redist?view=msvc-170)
 - 反馈 QQ 群：980583911
