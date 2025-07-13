@@ -1,0 +1,337 @@
+{
+    "酒馆": {
+        "next": [
+            "再来一局"
+        ],
+        "interrupt": [
+            "调速",
+            "出牌阶段",
+            "喝!",
+            "对方回合_酒馆"
+        ]
+    },
+    "调速": {
+        "post_delay": 1000,
+        "recognition": {
+            "param": {
+                "roi": [
+                    1113,
+                    26,
+                    46,
+                    45
+                ],
+                "expected": [
+                    "X1",
+                    "X2"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "喝!": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    463,
+                    40,
+                    359,
+                    37
+                ],
+                "expected": "愿赌服输"
+            }
+        },
+        "next": [
+            "1号位置"
+        ]
+    },
+    "1号位置": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    580,
+                    660,
+                    1,
+                    1
+                ]
+            }
+        },
+        "next": [
+            "2号位置"
+        ]
+    },
+    "2号位置": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    688,
+                    655,
+                    1,
+                    1
+                ]
+            }
+        },
+        "next": [
+            "3号位置"
+        ]
+    },
+    "3号位置": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    793,
+                    669,
+                    1,
+                    1
+                ]
+            }
+        }
+    },
+    "出牌阶段": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1115,
+                    635,
+                    80,
+                    38
+                ],
+                "expected": "出牌"
+            }
+        },
+        "next": [
+            "出牌_火焰",
+            "出牌_雪花",
+            "出牌_闪电",
+            "出牌_手牌不足"
+        ]
+    },
+    "对方回合_酒馆": {
+        "post_delay": 2000,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    164,
+                    554,
+                    82,
+                    35
+                ],
+                "expected": "指定牌"
+            }
+        }
+    },
+    "再来一局": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1042,
+                    634,
+                    157,
+                    36
+                ],
+                "expected": "再来一局"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "酒馆"
+        ]
+    },
+    "出牌_手牌不足": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1115,
+                    635,
+                    80,
+                    38
+                ],
+                "expected": [
+                    "火焰",
+                    "雪花",
+                    "闪电"
+                ]
+            }
+        },
+        "next": [
+            "点击万能牌",
+            "点击火焰牌",
+            "点击雪花牌",
+            "点击闪电牌",
+            "空任务"
+        ]
+    },
+    "出牌_火焰": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    160,
+                    601,
+                    93,
+                    29
+                ],
+                "expected": "火焰"
+            }
+        },
+        "next": [
+            "点击火焰牌",
+            "点击万能牌",
+            "空任务"
+        ]
+    },
+    "出牌_闪电": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    160,
+                    601,
+                    93,
+                    29
+                ],
+                "expected": "闪电"
+            }
+        },
+        "next": [
+            "点击闪电牌",
+            "点击万能牌",
+            "空任务"
+        ]
+    },
+    "出牌_雪花": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    160,
+                    601,
+                    93,
+                    29
+                ],
+                "expected": "雪花"
+            }
+        },
+        "next": [
+            "点击雪花牌",
+            "点击万能牌",
+            "空任务"
+        ]
+    },
+    "点击万能牌": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    317,
+                    334,
+                    613,
+                    235
+                ],
+                "template": [
+                    "酒馆/万能.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "出牌"
+        ]
+    },
+    "点击火焰牌": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    317,
+                    334,
+                    613,
+                    235
+                ],
+                "template": [
+                    "酒馆/火焰.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "出牌"
+        ]
+    },
+    "点击雪花牌": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    317,
+                    334,
+                    613,
+                    235
+                ],
+                "template": [
+                    "酒馆/雪花.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "出牌"
+        ]
+    },
+    "点击闪电牌": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    317,
+                    334,
+                    613,
+                    235
+                ],
+                "template": [
+                    "酒馆/闪电.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "出牌"
+        ]
+    },
+    "出牌": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1115,
+                    635,
+                    80,
+                    38
+                ],
+                "expected": "出牌"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    }
+}
