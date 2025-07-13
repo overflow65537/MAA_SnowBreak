@@ -291,7 +291,9 @@
                 "夜天光",
                 "澜风",
                 "冥河代理人",
-                "天鹅座"
+                "天鹅座",
+                "狂诗",
+                "绮幻"
             ],
             "pipeline_override": {
                 "选择人物": {
@@ -789,6 +791,48 @@
         },
         "选择人物": {
             "cases": [
+                {
+                    "name": "狂诗凯西娅",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "狂诗"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "绮幻苔丝",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "绮幻"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
                 {
                     "name": "天鹅座薇蒂雅",
                     "pipeline_override": {
