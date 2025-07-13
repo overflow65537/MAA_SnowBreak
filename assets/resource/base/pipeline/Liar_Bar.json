@@ -13,6 +13,7 @@
     "调速": {
         "post_delay": 1000,
         "recognition": {
+            "type": "OCR",
             "param": {
                 "roi": [
                     1113,
