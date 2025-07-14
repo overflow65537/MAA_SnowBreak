@@ -34,6 +34,8 @@
         }
     },
     "喝!": {
+        "post_delay": 0,
+        "pre_delay": 0,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -51,6 +53,8 @@
         ]
     },
     "1号位置": {
+        "post_delay": 0,
+        "pre_delay": 0,
         "action": {
             "type": "Click",
             "param": {
@@ -67,6 +71,8 @@
         ]
     },
     "2号位置": {
+        "post_delay": 0,
+        "pre_delay": 0,
         "action": {
             "type": "Click",
             "param": {
@@ -83,14 +89,16 @@
         ]
     },
     "3号位置": {
+        "post_delay": 0,
+        "pre_delay": 0,
         "action": {
             "type": "Click",
             "param": {
                 "target": [
-                    793,
-                    669,
-                    1,
-                    1
+                    785,
+                    630,
+                    10,
+                    22
                 ]
             }
         }
@@ -112,7 +120,7 @@
             "出牌_火焰",
             "出牌_雪花",
             "出牌_闪电",
-            "出牌_手牌不足"
+            "点击中心牌"
         ]
     },
     "对方回合_酒馆": {
@@ -150,28 +158,20 @@
             "酒馆"
         ]
     },
-    "出牌_手牌不足": {
-        "recognition": {
-            "type": "OCR",
+    "点击中心牌": {
+        "action": {
+            "type": "Click",
             "param": {
-                "roi": [
-                    1115,
-                    635,
-                    80,
-                    38
-                ],
-                "expected": [
-                    "火焰",
-                    "雪花",
-                    "闪电"
+                "target": [
+                    640,
+                    431,
+                    0,
+                    0
                 ]
             }
         },
         "next": [
-            "点击万能牌",
-            "点击火焰牌",
-            "点击雪花牌",
-            "点击闪电牌",
+            "出牌",
             "空任务"
         ]
     },
@@ -191,7 +191,7 @@
         "next": [
             "点击火焰牌",
             "点击万能牌",
-            "空任务"
+            "点击中心牌"
         ]
     },
     "出牌_闪电": {
@@ -210,7 +210,7 @@
         "next": [
             "点击闪电牌",
             "点击万能牌",
-            "空任务"
+            "点击中心牌"
         ]
     },
     "出牌_雪花": {
@@ -229,13 +229,14 @@
         "next": [
             "点击雪花牌",
             "点击万能牌",
-            "空任务"
+            "点击中心牌"
         ]
     },
     "点击万能牌": {
         "recognition": {
             "type": "TemplateMatch",
             "param": {
+                "green_mask": true,
                 "roi": [
                     317,
                     334,
@@ -258,6 +259,7 @@
         "recognition": {
             "type": "TemplateMatch",
             "param": {
+                "green_mask": true,
                 "roi": [
                     317,
                     334,
@@ -280,6 +282,7 @@
         "recognition": {
             "type": "TemplateMatch",
             "param": {
+                "green_mask": true,
                 "roi": [
                     317,
                     334,
@@ -302,6 +305,7 @@
         "recognition": {
             "type": "TemplateMatch",
             "param": {
+                "green_mask": true,
                 "roi": [
                     317,
                     334,
