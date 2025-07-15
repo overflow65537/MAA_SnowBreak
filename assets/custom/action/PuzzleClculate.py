@@ -573,6 +573,7 @@ class PuzzleClculate(CustomAction):
             result = context.run_recognition(f"识别碎片{i+1}", image)
             if result is None:
                 self.logger.debug("未识别到碎片 %d", i + 1)
+                self.PUZZLE_COUNT[i] = 0
             else:
                 count = context.run_recognition(f"识别碎片{i+1}数量", image)
                 if count is not None:
