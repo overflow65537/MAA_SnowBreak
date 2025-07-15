@@ -20,22 +20,22 @@ split_commits = false
 
 # regex for parsing and grouping commits
 commit_parsers = [
-    { message = "^feat", group = "新增 | Feat" },
-    { message = "^fix", group = "修复 | Fix" },
-    { message = "^docs", group = "文档 | Docs" },
-    { message = "^perf", group = "优化 | Perf" },
+    { message = "^feat[：:]", group = "新增 | Feat" },
+    { message = "^fix[：:]", group = "修复 | Fix" },
+    { message = "^docs[：:]", group = "文档 | Docs" },
+    { message = "^perf[：:]", group = "优化 | Perf" },
     { message = "^refactor\\(clippy\\)", skip = true },
-    { message = "^refactor", group = "重构 | Refactor" },
-    { message = "^style", group = "样式 | Style" },
-    { message = "^test", group = "测试 | Test" },
+    { message = "^refactor[：:]", group = "重构 | Refactor" },
+    { message = "^style[：:]", group = "样式 | Style" },
+    { message = "^test[：:]", group = "测试 | Test" },
     { message = "^chore\\(release\\): prepare for", skip = true },
     { message = "^chore\\(deps.*\\)", skip = true },
     { message = "^chore\\(pr\\)", skip = true },
     { message = "^chore\\(pull\\)", skip = true },
     { message = "^chore\\(npm\\).*yarn\\.lock", skip = true },
-    { message = "^chore", group = "杂项 | Chore" },
-    { message = "^other", group = "其它 | Other" },
-    { message = "^ci", group = "集成 | CI" },
+    { message = "^chore[：:]", group = "杂项 | Chore" },
+    { message = "^other[：:]", group = "其它 | Other" },
+    { message = "^ci[：:]", group = "集成 | CI" },
 ]
 # protect breaking changes from being skipped due to matching a skipping commit_parser
 protect_breaking_commits = false
