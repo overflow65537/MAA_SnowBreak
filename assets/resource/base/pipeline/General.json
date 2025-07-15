@@ -102,7 +102,8 @@
     },
     "返回主菜单_err": {
         "focus": {
-            "succeeded": "[color:Tomato]识别错误，返回主菜单[/color]"
+            "succeeded": "[color:Tomato]识别错误，返回主菜单[/color]",
+            "aborted": true
         },
         "action": {
             "type": "Custom",
