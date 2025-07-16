@@ -49,20 +49,6 @@
 - 打开后无法运行首先尝试安装运行库 [https://learn.microsoft.com/zh-cn/cpp/windows/latest-supported-vc-redist?view=msvc-170](https://learn.microsoft.com/zh-cn/cpp/windows/latest-supported-vc-redist?view=msvc-170)
 - 反馈 QQ 群：980583911
 
-## 图形化界面
-
-### [MFW-PyQt6](https://github.com/overflow65537/MFW-PyQt6)
-
-一个基于PyQt6的MAAFramework图形化操作界面
-
-- 下载对应系统架构,后缀带有MFW-PyQt的压缩包,比如 `MSBA-win-x86_64-MFW-PyQt-vXXX.zip`
-- 解压后运行main.exe或者MFW.exe
-
-## 视频教程
-
-- 教程: [https://www.bilibili.com/video/BV1v2hFe8Esv/](https://www.bilibili.com/video/BV1v2hFe8Esv/)
-- 计划任务教程: [https://www.bilibili.com/video/BV1Nuh2eGEwG/](https://www.bilibili.com/video/BV1Nuh2eGEwG/)
-
 ## 使用说明
 
 下载地址：[https://github.com/overflow65537/MAA_SnowBreak/releases](https://github.com/overflow65537/MAA_SnowBreak/releases)
@@ -71,7 +57,7 @@
 
 - 对于绝大部分用户，请下载 `MSBA-win-x86_64-vXXX.zip`
 - 若确定自己的电脑是 arm 架构，请下载 `MSBA-win-aarch64-vXXX.zip`
-- 解压后以***管理员权限***运行 `MaaPiCli.exe` 即可
+- 解压后运行 `MaaPiCli.exe`（命令行）或者`MFW.exe`(图形化界面） 即可
 
 ### macOS
 
@@ -88,124 +74,19 @@
 
 ~~用 Linux 的大佬应该不需要我教~~
 
-## MaaPiCli使用说明
+## 图形化界面
 
-### A
+### [MFW-CFA](https://github.com/overflow65537/MFW-PyQt6)
 
-- 启动后会出现:
+一个基于PyQt6的MAAFramework图形化操作界面
+  
+- 下载对应系统架构,后缀带有MFW-PyQt的压缩包,比如 `MSBA-win-x86_64-MFW-PyQt-vXXX.zip`
+- 解压后运行main.exe或者MFW.exe
 
-```base
-Welcome to use Maa Project Interface CLI!
+## 视频教程
 
-Version: v0.0.1
-
-### Select ADB ###
-
-        1. Auto detect
-        2. Manual input
-
-Please input [1-2]:
-```
-
-- 如无必要，请选择1.Auto detect
-
-```base
-### Select ADB ###
-
-        1. Auto detect
-        2. Manual input
-
-Please input [1-2]: 1
-
-Finding device...
-
-## Select Device ##
-
-        1. MuMuPlayer12
-                H:/Program Files/Netease/MuMuPlayer-12.0/shell/adb.exe
-                127.0.0.1:16672
-
-Please input [1-1]: 1
-```
-
-- 选择 1 后会像上面这样，列出若干个模拟器实例，之后选择你需要进行操控的即可。
-- 如果没有出现选项，请检查模拟器是否正常启动。以及管理员权限启动MaaPiCli。
-
-### B
-
-- 选择完模拟器后就会进入到选择资源界面
-
-```base
-### Select resource ###
-
-        1. 官服
-        2. B 服
-
-Please input [1-2]:
-```
-
-- 请按照自己的服务器类型选择
-
-### C
-
-- 在初次启动后，会让你输入启动的任务：
-
-```base
-### Add task ###
-
-        1. 启动
-        2. 赠送感知
-        3. 邮件
-        4. 商店
-        5. 领取体力
-        6. 升级枪械
-        7. 活动
-        8. 常规战斗
-        9. 刷天启碎片
-        10. 任务
-        11. 活动任务
-        12. 凭证
-        13. 关闭游戏
-
-Please input [1-13]:
-```
-
-- 选择你要执行的任务即可。
-
-### D
-
-- 之后会反复出现：
-
-```base
-Tasks:
-
-<这里会列出你已经增加，等待执行的任务>
-
-### Select action ###
-
-        1. Switch controller
-        2. Switch resource
-        3. Add task
-        4. Move task
-        5. Delete task
-        6. Run tasks
-        7. Exit
-```
-
-- 其中分别代表：
-
-1. 调整控制器（也就是adb地址等）
-2. 调整资源（切换官服或者b服）
-3. 新增任务，像**C**中那样
-4. 移动任务
-5. 删除任务
-6. 开始执行任务，在这之后就会自动开始操控。
-7. 退出程序
-
-## 其他说明
-
-- 添加 `-d` 参数可跳过交互直接运行任务，如 `./MaaPiCli.exe -d`，配合Windows计划任务可以实现自动开启任务
-- 反馈问题请附上日志文件 `debug/maa.log`，谢谢！
+- 教程: [https://www.bilibili.com/video/BV1v2hFe8Esv/](https://www.bilibili.com/video/BV1v2hFe8Esv/)
+- 计划任务教程: [https://www.bilibili.com/video/BV1Nuh2eGEwG/](https://www.bilibili.com/video/BV1Nuh2eGEwG/)
 
 ## How to build
 
