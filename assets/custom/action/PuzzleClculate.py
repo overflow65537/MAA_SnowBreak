@@ -403,10 +403,21 @@ class PuzzleClculate(CustomAction):
         solutions = solver.solve(puzzle_layout, self.PUZZLE_COUNT)
 
         if solutions:
-            selected_solution = next(
-                (s for s in solutions if any(8 in row for row in s["board"])),
-                solutions[0],
-            )
+            # 筛选出包含 8 号碎片的方案
+            solutions_with_8 = [s for s in solutions if any(8 in row for row in s["board"])]
+
+            if solutions_with_8:
+                # 统计每个方案中 9 号碎片的使用量
+                def count_9_usage(solution):
+                    return sum(1 for block in solution["blocks"] if block["type"] == 8)
+
+                # 按 9 号碎片使用量排序
+                solutions_with_8.sort(key=count_9_usage)
+                selected_solution = solutions_with_8[0]
+            else:
+                # 若没有包含 8 号碎片的方案，选择第一个方案
+                selected_solution = solutions[0]
+
             self.logger.debug(
                 "选择方案：\n%s",
                 "\n".join(str(row) for row in selected_solution["board"]),
