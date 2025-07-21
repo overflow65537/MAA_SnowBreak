@@ -61,8 +61,8 @@
 
 ### macOS
 
-- 若您的 Mac 采用 Intel 处理器，请下载 `MPA-macos-x86_64-vXXX.tar.gz`
-- 若您的 Mac 采用 M1、M2 等 ARM 处理器，请下载 `MPA-macos-aarch64-vXXX.tar.gz`
+- 若您的 Mac 采用 Intel 处理器，请下载 `MSBA-macos-x86_64-vXXX.tar.gz`
+- 若您的 Mac 采用 M1、M2 等 ARM 处理器，请下载 `MSBA-macos-aarch64-vXXX.tar.gz`
 - 使用方法如下：
   1. 打开终端，解压下载的压缩包，您有以下三种解压方式可供选择：
 
@@ -70,33 +70,33 @@
       此方式将把程序解压到系统目录，需要输入管理员密码获取权限。
 
       ```zsh
-      sudo mkdir -p /usr/local/bin/MPA
-      sudo tar -xzf <下载的MPA压缩包路径> -C /usr/local/bin/MPA
+      sudo mkdir -p /usr/local/bin/MSBA
+      sudo tar -xzf <下载的MSBA压缩包路径> -C /usr/local/bin/MSBA
       ```
 
       **选项 2：解压到用户目录（推荐）**
       该方式无需管理员权限，操作简便且便于管理个人文件。
 
       ```zsh
-      mkdir -p ~/MPA
-      tar -xzf <下载的MPA压缩包路径> -C ~/MPA
+      mkdir -p ~/MSBA
+      tar -xzf <下载的MSBA压缩包路径> -C ~/MSBA
       ```
 
       **选项 3：直接解压到下载目录（不推荐）**
-      这种方式操作快捷，但可能会导致 `Downloads` 文件夹文件杂乱。您只需双击下载的 MPA 压缩包，即可在同级目录自动解压。
+      这种方式操作快捷，但可能会导致 `Downloads` 文件夹文件杂乱。您只需双击下载的 MSBA 压缩包，即可在同级目录自动解压。
 
   2. 进入解压目录并运行程序：
       - 根据上一步选择的解压方式操作：
           - 若选择选项 1 ，在终端中执行以下命令打开程序目录：
 
           ```zsh
-          open /usr/local/bin/MPA
+          open /usr/local/bin/MSBA
           ```
 
           - 若选择选项 2，在终端中执行以下命令打开程序目录：
 
           ```zsh
-          open ~/MPA
+          open ~/MSBA
           ```
 
           - 若选择选项 3，直接双击解压后的文件夹进入。
@@ -106,23 +106,14 @@
   在 macOS 10.15 (Catalina) 及更高版本中，Gatekeeper 可能会阻止运行未签名的应用程序。若遇到“无法打开，因为无法验证开发者”,或者“已损坏”等错误，请使用以下命令移除隔离属性：
 
   ```zsh
-  sudo xattr -rd com.apple.quarantine /usr/local/bin/MPA/*
-  # 若选择选项 2，解压到用户目录，使用以下命令：xattr -rd com.apple.quarantine ~/MPA/*
-  # 若选择选项 3，直接解压到下载目录，使用以下命令：xattr -rd com.apple.quarantine <下载目录>/MPA/*
+  sudo xattr -rd com.apple.quarantine /usr/local/bin/MSBA/*
+  # 若选择选项 2，解压到用户目录，使用以下命令：xattr -rd com.apple.quarantine ~/MSBA/*
+  # 若选择选项 3，直接解压到下载目录，使用以下命令：xattr -rd com.apple.quarantine <下载目录>/MSBA/*
 
 
 ### Linux
 
 ~~用 Linux 的大佬应该不需要我教~~
-
-## 图形化界面
-
-### [MFW-CFA](https://github.com/overflow65537/MFW-PyQt6)
-
-一个基于PyQt6的MAAFramework图形化操作界面
-  
-- 下载对应系统架构,后缀带有MFW-PyQt的压缩包,比如 `MSBA-win-x86_64-MFW-PyQt-vXXX.zip`
-- 解压后运行main.exe或者MFW.exe
 
 ## 视频教程
 
