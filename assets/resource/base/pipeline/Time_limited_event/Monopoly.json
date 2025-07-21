@@ -1,0 +1,350 @@
+{
+    "大富翁": {
+        "next": [
+            "大富翁内部"
+        ],
+        "interrupt": [
+            "出击",
+            "开始"
+        ]
+    },
+    "出击": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    778,
+                    637,
+                    69,
+                    56
+                ],
+                "expected": "出击"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "开始": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    589,
+                    653,
+                    62,
+                    44
+                ],
+                "expected": "开始"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "大富翁内部": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    83,
+                    86,
+                    80,
+                    31
+                ],
+                "expected": "物价指数"
+            }
+        },
+        "next": [
+            "胜负已分"
+        ],
+        "interrupt": [
+            "答题",
+            "丢弃卡牌",
+            "翻牌游戏",
+            "确认_大富翁",
+            "前进_大富翁",
+            "选择方向_大富翁",
+            "防止超时_大富翁"
+        ]
+    },
+    "答题": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    445,
+                    429,
+                    382,
+                    105
+                ],
+                "expected": [
+                    "小金鱼",
+                    "火种",
+                    "我选安卡希雅",
+                    "后勤部",
+                    "左侧锁骨上",
+                    "芙提雅"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "胜负已分": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    123,
+                    243,
+                    1,
+                    1
+                ],
+                "expected": "胜负已分"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1180,
+                    41,
+                    0,
+                    0
+                ]
+            }
+        },
+        "next": [
+            "大富翁"
+        ]
+    },
+    "丢弃卡牌": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    101,
+                    101,
+                    110,
+                    51
+                ],
+                "expected": "已有卡牌"
+            }
+        },
+        "next": [
+            "确认丢弃_大富翁",
+            "点击1号"
+        ]
+    },
+    "点击1号": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    136,
+                    252,
+                    1,
+                    1
+                ]
+            }
+        },
+        "next": [
+            "确认丢弃_大富翁",
+            "点击2号"
+        ]
+    },
+    "点击2号": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    232,
+                    255,
+                    1,
+                    1
+                ]
+            }
+        },
+        "next": [
+            "确认丢弃_大富翁",
+            "点击3号"
+        ]
+    },
+    "点击3号": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    353,
+                    258,
+                    1,
+                    1
+                ]
+            }
+        },
+        "next": [
+            "确认丢弃_大富翁",
+            "点击4号"
+        ]
+    },
+    "点击4号": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    127,
+                    402,
+                    1,
+                    1
+                ]
+            }
+        },
+        "next": [
+            "确认丢弃_大富翁",
+            "点击5号"
+        ]
+    },
+    "点击5号": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    238,
+                    404,
+                    1,
+                    1
+                ]
+            }
+        },
+        "next": [
+            "确认丢弃_大富翁",
+            "点击6号"
+        ]
+    },
+    "点击6号": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    354,
+                    405,
+                    1,
+                    1
+                ]
+            }
+        },
+        "next": [
+            "丢弃卡牌",
+            "确认丢弃_大富翁"
+        ]
+    },
+    "确认丢弃_大富翁": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    596,
+                    608,
+                    86,
+                    52
+                ],
+                "expected": "丢弃"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "翻牌游戏": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1015,
+                    15,
+                    127,
+                    45
+                ],
+                "expected": "翻牌游戏"
+            }
+        }
+    },
+    "防止超时_大富翁": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    83,
+                    86,
+                    80,
+                    31
+                ],
+                "expected": "物价指数"
+            }
+        }
+    },
+    "选择方向_大富翁": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    382,
+                    121,
+                    595,
+                    446
+                ],
+                "upper": [
+                    230,
+                    250,
+                    255
+                ],
+                "lower": [
+                    210,
+                    235,
+                    250
+                ],
+                "connected": true,
+                "count": 20
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "确认_大富翁": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    722,
+                    512,
+                    85,
+                    43
+                ],
+                "expected": "确认"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "前进_大富翁": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1134,
+                    655,
+                    66,
+                    44
+                ],
+                "expected": "前进"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    }
+}

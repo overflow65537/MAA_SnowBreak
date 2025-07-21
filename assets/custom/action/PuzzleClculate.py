@@ -404,7 +404,9 @@ class PuzzleClculate(CustomAction):
 
         if solutions:
             # 筛选出包含 8 号碎片的方案
-            solutions_with_8 = [s for s in solutions if any(8 in row for row in s["board"])]
+            solutions_with_8 = [
+                s for s in solutions if any(8 in row for row in s["board"])
+            ]
 
             if solutions_with_8:
                 # 统计每个方案中 9 号碎片的使用量
@@ -459,7 +461,7 @@ class PuzzleClculate(CustomAction):
                 elif not piece.best_result:
                     self.logger.info(f"无法识别碎片{block['type']+1}的最佳结果")
                     return CustomAction.RunResult(success=True)
-                if block["direction"] == 1 :
+                if block["direction"] == 1:
                     self.logger.info("旋转90度")
                     if last_block != block["type"]:
                         context.tasker.controller.post_click(
@@ -522,8 +524,8 @@ class PuzzleClculate(CustomAction):
                 ).wait()
                 last_block = block["type"]
                 time.sleep(1)
-                #恢复碎片初始方向
-                for _ in range(5-block["direction"]):
+                # 恢复碎片初始方向
+                for _ in range(4 - block["direction"]):
                     context.tasker.controller.post_click(
                         piece.best_result.box[0] + 10, piece.best_result.box[1] + 10
                     ).wait()
@@ -585,8 +587,8 @@ class PuzzleClculate(CustomAction):
                 count = context.run_recognition(f"识别碎片{i+1}数量", image)
                 if count is not None:
                     old_count = self.PUZZLE_COUNT[i]
-                    #断言 count.best_result.text一定是字符串
-                    self.PUZZLE_COUNT[i] = int(count.best_result.text) # type: ignore
+                    # 断言 count.best_result.text一定是字符串
+                    self.PUZZLE_COUNT[i] = int(count.best_result.text)  # type: ignore
                     self.logger.debug(
                         "更新碎片 %d 数量：%d → %d",
                         i + 1,
