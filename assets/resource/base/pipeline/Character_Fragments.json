@@ -471,6 +471,9 @@
         }
     },
     "停止任务": {
+        "focus": {
+            "success": "未找到目标,停止任务"
+        },
         "action": {
             "type": "StopTask"
         }
