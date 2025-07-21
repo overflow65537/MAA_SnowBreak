@@ -428,15 +428,7 @@ class PuzzleClculate(CustomAction):
             )
 
             last_block = None
-            need_reinit = False
             for block in selected_solution["blocks"]:
-
-                if need_reinit:
-                    self.logger.debug("需要重新初始化")
-                    context.run_task("重新进入拼图")
-                    time.sleep(1)
-                    last_block = None
-                    need_reinit = False
                 self.logger.info(
                     "处理碎片 %d 方向 %d", block["type"] + 1, block["direction"]
                 )
@@ -468,7 +460,6 @@ class PuzzleClculate(CustomAction):
                     self.logger.info(f"无法识别碎片{block['type']+1}的最佳结果")
                     return CustomAction.RunResult(success=True)
                 if block["direction"] == 1 :
-                    need_reinit = True
                     self.logger.info("旋转90度")
                     if last_block != block["type"]:
                         context.tasker.controller.post_click(
@@ -480,7 +471,6 @@ class PuzzleClculate(CustomAction):
                     ).wait()
 
                 elif block["direction"] == 2:
-                    need_reinit = True
                     self.logger.info("旋转180度")
                     if last_block != block["type"]:
                         context.tasker.controller.post_click(
@@ -495,7 +485,6 @@ class PuzzleClculate(CustomAction):
                         piece.best_result.box[0] + 10, piece.best_result.box[1] + 10
                     ).wait()
                 elif block["direction"] == 3:
-                    need_reinit = True
                     self.logger.info("旋转270度")
                     if last_block != block["type"]:
                         context.tasker.controller.post_click(
@@ -533,6 +522,13 @@ class PuzzleClculate(CustomAction):
                 ).wait()
                 last_block = block["type"]
                 time.sleep(1)
+                #恢复碎片初始方向
+                for _ in range(5-block["direction"]):
+                    context.tasker.controller.post_click(
+                        piece.best_result.box[0] + 10, piece.best_result.box[1] + 10
+                    ).wait()
+                    time.sleep(0.5)
+
         else:
 
             self.logger.info("未找到拼图方案，可能是碎片数量不足或布局不合理")
