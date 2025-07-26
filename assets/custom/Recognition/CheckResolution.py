@@ -39,7 +39,7 @@ class CheckResolution(CustomRecognition):
             image:ndarray = argv.image # type: ignore
             height, width = image.shape[:2]
 
-            if width != 1280:
+            if width not in [720,1280] or height not in [1280,720]:
                 return CustomRecognition.AnalyzeResult(
                 box=[0, 0, 0, 0],
                 detail=f"分辨率{width}x{height} 错误",
