@@ -16,7 +16,7 @@
 <p align="center">
   <img alt="license" src="https://img.shields.io/github/license/overflow65537/MAA_SnowBreak">
   <img alt="Python" src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white">
-  <img alt="platform" src="https://img.shields.io/badge/platform-Windows-blueviolet">
+  <img alt="platform" src="https://img.shields.io/badge/platform-Windows%20%7C%20Linux%20%7C%20macOS-blueviolet">
   <img alt="commit" src="https://img.shields.io/github/commit-activity/m/overflow65537/MAA_SnowBreak">
   <img alt="mirrorchyan_rid" src="https://img.shields.io/badge/mirrorchyan_rid-MAA__SnowBreak-orange">
 </p>
