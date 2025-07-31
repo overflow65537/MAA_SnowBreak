@@ -189,6 +189,7 @@
         {
             "name": "信源研析",
             "entry": "基地拼图",
+            "doc": "注意: 需要保证出生地为大厅",
             "speedrun": {
                 "schedule_mode": "weekly",
                 "refresh_time": {
@@ -273,6 +274,9 @@
             "name": "限时活动-增益试炼",
             "entry": "增益试炼",
             "spt": true,
+            "option": [
+                "选择难度"
+            ],
             "pipeline_override": {
                 "检查主界面2": {
                     "post_delay": 1000,
@@ -396,6 +400,50 @@
         }
     },
     "option": {
+        "选择难度": {
+            "cases": [
+                {
+                    "name": "简单",
+                    "pipeline_override": {
+                        "进入试炼": {
+                            "action": {
+                                "param": {
+                                    "expected": "简单"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "普通",
+                    "pipeline_override": {
+                        "进入试炼": {
+                            "action": {
+                                "param": {
+                                    "expected": "普通"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "困难",
+                    "pipeline_override": {
+                        "进入试炼": {
+                            "action": {
+                                "param": {
+                                    "expected": "困难"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "困难",
+                    "pipeline_override": {}
+                }
+            ]
+        },
         "选择章节": {
             "cases": [
                 {
