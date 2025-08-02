@@ -406,7 +406,7 @@
                     "name": "简单",
                     "pipeline_override": {
                         "进入试炼": {
-                            "action": {
+                            "recognition": {
                                 "param": {
                                     "expected": "简单"
                                 }
@@ -418,7 +418,7 @@
                     "name": "普通",
                     "pipeline_override": {
                         "进入试炼": {
-                            "action": {
+                            "recognition": {
                                 "param": {
                                     "expected": "普通"
                                 }
@@ -430,7 +430,7 @@
                     "name": "困难",
                     "pipeline_override": {
                         "进入试炼": {
-                            "action": {
+                            "recognition": {
                                 "param": {
                                     "expected": "困难"
                                 }
