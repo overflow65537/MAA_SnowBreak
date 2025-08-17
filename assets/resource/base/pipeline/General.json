@@ -140,5 +140,23 @@
             "启动"
         ]
     },
-    "custom通知": {}
+    "custom通知": {},
+    "确定": {
+        "post_delay": 1000,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    864,
+                    449,
+                    201,
+                    126
+                ],
+                "expected": "确定"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    }
 }

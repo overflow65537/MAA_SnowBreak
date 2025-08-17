@@ -1123,7 +1123,7 @@
         "选择人物": {
             "cases": [
                 {
-                    "name": "狂诗凯西娅",
+                    "name": "狂诗凯茜娅",
                     "pipeline_override": {
                         "选择人物": {
                             "recognition": {
@@ -1344,7 +1344,7 @@
                     }
                 },
                 {
-                    "name": "朝翼凯西娅",
+                    "name": "朝翼凯茜娅",
                     "pipeline_override": {
                         "选择人物": {
                             "recognition": {
@@ -1356,7 +1356,7 @@
                                         975,
                                         525
                                     ],
-                                    "template": "刷碎片/朝翼凯西娅.png",
+                                    "template": "刷碎片/朝翼凯茜娅.png",
                                     "green_mask": true
                                 }
                             }
@@ -1558,7 +1558,7 @@
                     }
                 },
                 {
-                    "name": "蓝闪凯西娅",
+                    "name": "蓝闪凯茜娅",
                     "pipeline_override": {
                         "选择人物": {
                             "recognition": {
@@ -1570,7 +1570,7 @@
                                         975,
                                         525
                                     ],
-                                    "template": "刷碎片/蓝闪凯西娅.png",
+                                    "template": "刷碎片/蓝闪凯茜娅.png",
                                     "green_mask": true
                                 }
                             }
