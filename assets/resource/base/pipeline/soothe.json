@@ -1,8 +1,266 @@
 {
     "疗愈": {
-        "on_error": [
-            "疗愈"
+        "next": [
+            "疗愈界面"
         ],
+        "interrupt": [
+            "同意调理",
+            "选择难度_疗愈",
+            "查看调理申请",
+            "选择人物_疗愈",
+            "打开健康管理本",
+            "确定",
+            "点击疗愈传送",
+            "点击疗愈楼层",
+            "点击地图",
+            "打开基地",
+            "滑动_疗愈",
+            "反向滑动_疗愈"
+        ]
+    },
+    "反向滑动_疗愈": {
+        "enabled": false,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    29,
+                    328,
+                    1242,
+                    49
+                ],
+                "expected": [
+                    "凯茜娅"
+                ]
+            }
+        },
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    500,
+                    260,
+                    1,
+                    1
+                ],
+                "end": [
+                    1000,
+                    260,
+                    1,
+                    1
+                ]
+            }
+        }
+    },
+    "滑动_疗愈": {
+        "enabled": false,
+        "inverse": true,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    29,
+                    328,
+                    1242,
+                    49
+                ],
+                "expected": [
+                    "凯茜娅"
+                ]
+            }
+        },
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    1000,
+                    260,
+                    1,
+                    1
+                ],
+                "end": [
+                    500,
+                    260,
+                    1,
+                    1
+                ]
+            }
+        }
+    },
+    "同意调理": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1061,
+                    643,
+                    131,
+                    75
+                ],
+                "expected": [
+                    "同意"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "选择难度_疗愈": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    805,
+                    620,
+                    85,
+                    56
+                ],
+                "expected": [
+                    "普通",
+                    "困难"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "选择难度1_疗愈"
+        ]
+    },
+    "选择难度1_疗愈": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    809,
+                    460,
+                    91,
+                    162
+                ],
+                "expected": [
+                    "简单"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "查看调理申请"
+        ]
+    },
+    "查看调理申请": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    927,
+                    591,
+                    199,
+                    104
+                ],
+                "expected": [
+                    "查看调理申请"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "选择人物_疗愈": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    29,
+                    328,
+                    1242,
+                    49
+                ],
+                "expected": [
+                    "安卡希雅"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "打开健康管理本": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    719,
+                    443,
+                    126,
+                    78
+                ],
+                "expected": [
+                    "健康管理本"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "点击疗愈楼层": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    12,
+                    235,
+                    115,
+                    110
+                ],
+                "template": [
+                    "疗愈/疗愈楼层.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "点击疗愈传送": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    854,
+                    238,
+                    147,
+                    162
+                ],
+                "template": [
+                    "疗愈/疗愈传送.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "疗愈界面": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1080,
+                    572,
+                    170,
+                    148
+                ],
+                "template": [
+                    "疗愈/开始疗愈_1130_626_70_48__1080_572_170_148.png"
+                ]
+            }
+        },
         "action": {
             "type": "Swipe",
             "param": {
@@ -30,6 +288,22 @@
             "未找到目标"
         ]
     },
+    "疗愈界面_reco": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1080,
+                    572,
+                    170,
+                    148
+                ],
+                "template": [
+                    "疗愈/开始疗愈_1130_626_70_48__1080_572_170_148.png"
+                ]
+            }
+        }
+    },
     "未找到目标": {
         "action": {
             "type": "Swipe",
@@ -47,7 +321,64 @@
                     0
                 ]
             }
+        },
+        "next": [
+            "未找到目标计数"
+        ]
+    },
+    "未找到目标计数": {
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "Count",
+                "custom_action_param": {
+                    "count": 0,
+                    "target_count": 10,
+                    "next_node": [
+                        "重新开始疗愈"
+                    ]
+                }
+            }
         }
+    },
+    "重新开始疗愈": {
+        "next": [
+            "疗愈界面_reco"
+        ],
+        "interrupt": [
+            "退出疗愈"
+        ]
+    },
+    "退出疗愈": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    1181,
+                    12,
+                    55,
+                    62
+                ],
+                "upper": [
+                    255,
+                    255,
+                    255
+                ],
+                "lower": [
+                    255,
+                    255,
+                    255
+                ],
+                "connected": true,
+                "count": 100
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "疗愈"
+        ]
     },
     "意外点击_黑点": {
         "recognition": {
@@ -74,7 +405,7 @@
             }
         },
         "next": [
-            "疗愈"
+            "疗愈界面"
         ]
     },
     "再来一次": {
@@ -95,7 +426,7 @@
             "type": "Click"
         },
         "next": [
-            "疗愈"
+            "疗愈界面"
         ]
     },
     "清理红点": {
@@ -123,7 +454,7 @@
             "意外点击_黑点",
             "切换锤",
             "开始疗愈_游戏内",
-            "疗愈"
+            "疗愈界面"
         ]
     },
     "切换锤": {
@@ -166,7 +497,7 @@
             "意外点击_黑点",
             "切换捏",
             "开始疗愈_游戏内",
-            "疗愈"
+            "疗愈界面"
         ]
     },
     "切换捏": {
@@ -207,7 +538,7 @@
         },
         "next": [
             "开始疗愈_游戏内",
-            "疗愈"
+            "疗愈界面"
         ]
     },
     "开始疗愈_游戏内": {
@@ -230,7 +561,7 @@
             "type": "Click"
         },
         "next": [
-            "疗愈"
+            "疗愈界面"
         ]
     }
 }

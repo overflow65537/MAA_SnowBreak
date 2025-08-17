@@ -211,6 +211,18 @@
         {
             "name": "疗愈",
             "entry": "疗愈",
+            "option": [
+                "选择疗愈人物",
+                "选择疗愈难度"
+            ],
+            "pipeline_override": {
+                "检查主界面2": {
+                    "post_delay": 1000,
+                    "next": [
+                        "疗愈"
+                    ]
+                }
+            },
             "doc": "注意: 循环任务,无退出条件\n需要自行开始疗愈后在开始任务",
             "spt": true
         },
@@ -400,6 +412,121 @@
         }
     },
     "option": {
+        "选择疗愈人物": {
+            "cases": [
+                {
+                    "name": "安卡希雅",
+                    "pipeline_override": {}
+                },
+                {
+                    "name": "肴",
+                    "pipeline_override": {
+                        "选择人物_疗愈": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "肴"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "芬妮",
+                    "pipeline_override": {
+                        "选择人物_疗愈": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "芬妮"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "里芙",
+                    "pipeline_override": {
+                        "选择人物_疗愈": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "里芙"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "凯茜娅",
+                    "pipeline_override": {
+                        "选择人物_疗愈": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "凯茜娅"
+                                }
+                            }
+                        },
+                        "滑动_疗愈": {
+                            "enabled": true
+                        }
+                    }
+                }
+            ]
+        },
+        "选择疗愈难度": {
+            "cases": [
+                {
+                    "name": "简单",
+                    "pipeline_override": {}
+                },
+                {
+                    "name": "普通",
+                    "pipeline_override": {
+                        "选择难度_疗愈": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "简单",
+                                        "困难"
+                                    ]
+                                }
+                            }
+                        },
+                        "选择难度1_疗愈": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "普通"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "困难",
+                    "pipeline_override": {
+                        "选择难度_疗愈": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "简单",
+                                        "普通"
+                                    ]
+                                }
+                            }
+                        },
+                        "选择难度1_疗愈": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "困难"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        },
         "选择难度": {
             "cases": [
                 {
