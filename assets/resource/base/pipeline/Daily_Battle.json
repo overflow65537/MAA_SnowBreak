@@ -545,7 +545,7 @@
         ]
     },
     "进入活动": {
-        "post_delay": 1000,
+        "post_delay": 3000,
         "recognition": {
             "type": "Custom",
             "param": {
