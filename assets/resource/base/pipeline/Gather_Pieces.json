@@ -28,7 +28,7 @@
         }
     },
     "一键收取碎片": {
-        "post_delay": 1000,
+        "post_delay": 3000,
         "recognition": {
             "type": "OCR",
             "param": {
