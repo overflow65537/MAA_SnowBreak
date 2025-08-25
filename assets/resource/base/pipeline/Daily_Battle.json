@@ -8,6 +8,7 @@
         "interrupt": [
             "开始战斗",
             "接收后勤",
+            "申请进度上限",
             "速战",
             "进入深渊作战",
             "进入深渊作战_滑动",
@@ -25,6 +26,33 @@
             "账号等级提升",
             "关闭奖励通知"
         ]
+    },
+    "申请进度上限": {
+        "post_delay": 1000,
+        "enabled": false,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    288,
+                    284,
+                    684,
+                    48
+                ],
+                "expected": "申请进度已达上限"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    320,
+                    508,
+                    1,
+                    1
+                ]
+            }
+        }
     },
     "选择复刻活动_精确": {
         "enabled": false,
@@ -80,6 +108,25 @@
     "接收后勤": {
         "post_delay": 1000,
         "enabled": false,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": [
+                    359,
+                    651,
+                    25,
+                    21
+                ],
+                "expected": "\\b[1-9]\\d{2,}|0\\b"
+            }
+        },
+        "next": [
+            "点击接收"
+        ]
+    },
+    "点击接收": {
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {

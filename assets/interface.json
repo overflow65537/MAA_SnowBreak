@@ -724,6 +724,9 @@
                 {
                     "name": "活动后勤",
                     "pipeline_override": {
+                        "申请进度上限": {
+                            "enabled": true
+                        },
                         "接收后勤": {
                             "enabled": true
                         },
