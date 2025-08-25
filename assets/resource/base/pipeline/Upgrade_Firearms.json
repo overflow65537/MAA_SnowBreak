@@ -88,20 +88,15 @@
     },
     "检查升级": {
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
                 "roi": [
-                    780,
-                    387,
-                    495,
-                    186
+                    817,
+                    530,
+                    425,
+                    38
                 ],
-                "template": [
-                    "升级/白材料.png",
-                    "升级/绿材料.png",
-                    "升级/蓝材料.png",
-                    "升级/紫材料.png"
-                ]
+                "expected": ".*\\d.*"
             }
         },
         "next": [
