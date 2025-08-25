@@ -431,6 +431,9 @@ class PuzzleClculate(CustomAction):
 
             last_block = None
             for block in selected_solution["blocks"]:
+                if context.tasker.stopping:
+                    self.logger.info("任务被中止，退出拼图操作")
+                    return CustomAction.RunResult(success=False)
                 self.logger.info(
                     "处理碎片 %d 方向 %d", block["type"] + 1, block["direction"]
                 )
@@ -525,11 +528,12 @@ class PuzzleClculate(CustomAction):
                 last_block = block["type"]
                 time.sleep(1)
                 # 恢复碎片初始方向
-                for _ in range(4 - block["direction"]):
-                    context.tasker.controller.post_click(
-                        piece.best_result.box[0] + 10, piece.best_result.box[1] + 10
-                    ).wait()
-                    time.sleep(0.5)
+                if block["direction"] != 0:
+                    for _ in range(4 - block["direction"]):
+                        context.tasker.controller.post_click(
+                            piece.best_result.box[0] + piece.best_result.box[2]//2, piece.best_result.box[1] + piece.best_result.box[3]//2
+                        ).wait()
+                        time.sleep(0.5)
 
         else:
 
