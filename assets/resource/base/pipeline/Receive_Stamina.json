@@ -55,6 +55,7 @@
         ]
     },
     "打开供应站": {
+        "post_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
