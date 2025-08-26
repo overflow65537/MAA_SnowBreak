@@ -874,6 +874,9 @@
                 {
                     "name": "后勤",
                     "pipeline_override": {
+                        "申请进度上限": {
+                            "enabled": true
+                        },
                         "选择活动作战1_精确": {
                             "enabled": false
                         },
