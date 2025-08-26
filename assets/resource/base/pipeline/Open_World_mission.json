@@ -7,8 +7,8 @@
         "interrupt": [
             "意外点击_地下清理",
             "判断派遣0",
-            "判断战斗界面0",
-            "判断主界面0"
+            "特别派遣",
+            "打开战斗"
         ]
     },
     "判断新星开拓": {
@@ -41,40 +41,6 @@
             }
         },
         "post_delay": 2000,
-        "action": {
-            "type": "Click"
-        }
-    },
-    "判断战斗界面0": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    25,
-                    269,
-                    307,
-                    137
-                ],
-                "expected": "特别派遣"
-            }
-        },
-        "action": {
-            "type": "Click"
-        }
-    },
-    "判断主界面0": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    962,
-                    247,
-                    179,
-                    125
-                ],
-                "expected": "战斗"
-            }
-        },
         "action": {
             "type": "Click"
         }
