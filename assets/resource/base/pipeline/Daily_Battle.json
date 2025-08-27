@@ -28,7 +28,9 @@
         ]
     },
     "申请进度上限": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 1000
+        },
         "enabled": false,
         "recognition": {
             "type": "OCR",
@@ -106,7 +108,9 @@
         }
     },
     "接收后勤": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 1000
+        },
         "enabled": false,
         "recognition": {
             "type": "OCR",
@@ -126,7 +130,9 @@
         ]
     },
     "点击接收": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 1000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -267,7 +273,9 @@
         ]
     },
     "进入深渊作战": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 1000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -316,7 +324,9 @@
         }
     },
     "完成战斗": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 1000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -353,6 +363,9 @@
         }
     },
     "选择作战1": {
+        "post_wait_freezes": {
+            "time": 1000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -423,7 +436,9 @@
         }
     },
     "速战": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 1000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -523,7 +538,9 @@
         ]
     },
     "开始战斗": {
-        "post_delay": 1000,
+        "post_wait_freezes": {
+            "time": 1000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -669,7 +686,9 @@
         }
     },
     "选择活动作战2": {
-        "post_delay": 2000,
+        "post_wait_freezes": {
+            "time": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
