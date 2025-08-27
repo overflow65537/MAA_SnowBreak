@@ -54,7 +54,10 @@
                     1
                 ]
             }
-        }
+        },
+        "next": [
+            "接收后勤"
+        ]
     },
     "选择复刻活动_精确": {
         "enabled": false,
@@ -111,38 +114,27 @@
         "post_wait_freezes": {
             "time": 1000
         },
-        "enabled": false,
         "recognition": {
-            "type": "OCR",
-            "param": {
-                "only_rec": true,
-                "roi": [
-                    359,
-                    651,
-                    25,
-                    21
-                ],
-                "expected": "\\b[1-9]\\d{2,}|0\\b"
-            }
-        },
-        "next": [
-            "点击接收"
-        ]
-    },
-    "点击接收": {
-        "post_wait_freezes": {
-            "time": 1000
-        },
-        "recognition": {
-            "type": "OCR",
+            "type": "ColorMatch",
             "param": {
                 "roi": [
-                    720,
-                    630,
-                    256,
-                    66
+                    685,
+                    574,
+                    142,
+                    141
                 ],
-                "expected": "接收"
+                "upper": [
+                    240,
+                    173,
+                    103
+                ],
+                "lower": [
+                    233,
+                    162,
+                    90
+                ],
+                "connected": true,
+                "count": 1000
             }
         },
         "action": {
