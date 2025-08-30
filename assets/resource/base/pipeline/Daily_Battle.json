@@ -604,33 +604,31 @@
         ]
     },
     "进入活动": {
-        "post_delay": 3000,
+        "post_wait_freezes": 1000,
         "recognition": {
-            "type": "Custom",
+            "type": "OCR",
             "param": {
-                "custom_recognition": "LOp",
-                "custom_recognition_param": {
-                    "mode": "and",
-                    "nodes": [
-                        "检查主界面",
-                        "检查活动区域内是否存在文字"
-                    ]
-                }
+                "roi": [
+                    950,
+                    260,
+                    180,
+                    130
+                ],
+                "expected": "战斗"
             }
         },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    900,
-                    311,
-                    1,
-                    1
-                ]
-            }
+        "next": [
+            "检查活动区域内是否存在文字",
+            "活动关闭"
+        ]
+    },
+    "活动关闭": {
+        "focus": {
+            "succeeded": "活动已关闭"
         }
     },
     "检查活动区域内是否存在文字": {
+        "post_wait_freezes": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -642,6 +640,9 @@
                 ],
                 "expected": ""
             }
+        },
+        "action": {
+            "type": "Click"
         }
     },
     "选择活动作战1_精确": {
