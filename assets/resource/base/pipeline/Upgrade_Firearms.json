@@ -90,11 +90,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
+                "only_rec": true,
                 "roi": [
-                    817,
-                    530,
-                    425,
-                    38
+                    832,
+                    538,
+                    44,
+                    25
                 ],
                 "expected": ".*\\d.*"
             }
