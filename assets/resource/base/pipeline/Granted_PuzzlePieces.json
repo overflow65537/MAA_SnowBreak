@@ -296,5 +296,105 @@
         "action": {
             "type": "Click"
         }
+    },
+    "进入信源回收": {
+        "post_wait_freezes": 1000,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    853,
+                    254,
+                    220,
+                    300
+                ],
+                "expected": [
+                    "回收"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "信源回收"
+        ],
+        "interrupt": [
+            "进入信源回收"
+        ]
+    },
+    "信源回收": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    549,
+                    134,
+                    216,
+                    76
+                ],
+                "expected": [
+                    "信源回收"
+                ]
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "PuzzleRecycle",
+                "custom_action_param": {
+                    "min_retain": 15
+                }
+            }
+        },
+        "next": [
+            "返回主菜单_基地"
+        ],
+        "interrupt": [
+            "回收错误",
+            "确定",
+            "继续_基地",
+            "一会儿再见",
+            "点击地图"
+        ]
+    },
+    "回收错误": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    450,
+                    333,
+                    391,
+                    51
+                ],
+                "expected": [
+                    "不足5段",
+                    "无法进行回收"
+                ]
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "ScreenShot",
+                "custom_action_param": {
+                    "type": "PR_ERR"
+                }
+            }
+        },
+        "next": [
+            "取消",
+            "空任务"
+        ]
+    },
+    "识别碎片数量_回收": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "expected": ""
+            }
+        }
     }
 }

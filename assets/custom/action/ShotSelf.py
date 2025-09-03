@@ -30,7 +30,6 @@ from maa.custom_action import CustomAction
 import time
 
 
-# @AgentServer.custom_action("ShotSelf")
 class ShotSelf(CustomAction):
     def run(
         self, context: Context, argv: CustomAction.RunArg
