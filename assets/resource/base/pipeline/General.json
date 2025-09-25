@@ -158,5 +158,34 @@
         "action": {
             "type": "Click"
         }
+    },
+    "custom截图": {
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "ScreenShot",
+                "custom_action_param": {
+                    "type": "CUSTOM"
+                }
+            }
+        }
+    },
+    "取消": {
+        "post_delay": 1000,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    270,
+                    453,
+                    275,
+                    216
+                ],
+                "expected": "取消"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     }
 }

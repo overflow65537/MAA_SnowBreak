@@ -34,11 +34,15 @@ from action.ShotTarget import ShotTarget
 from action.StoryRogue import StoryRogue
 from action.Count import Count
 from action.PuzzleClculate import PuzzleClculate
+from action.PuzzleRecycle import PuzzleRecycle
 from Recognition.LogicalOperators import LOp
 from Recognition.GetingMax import GetingMax
 from Recognition.CheckResolution import CheckResolution
 
 
+@AgentServer.custom_action("PuzzleRecycle")
+class Agent_PuzzleRecycle(PuzzleRecycle):
+    pass
 @AgentServer.custom_recognition("CheckResolution")
 class Agent_CheckResolution(CheckResolution):
     pass
