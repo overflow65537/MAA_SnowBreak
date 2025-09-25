@@ -317,6 +317,8 @@
                 "string"
             ],
             "default": [
+                "澄意",
+                "悠游",
                 "绯月",
                 "绮幻",
                 "狂诗",
@@ -1121,6 +1123,69 @@
         },
         "选择人物": {
             "cases": [
+                {
+                    "name": "澄意芬妮",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "澄意"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "悠游瑟瑞斯",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "悠游"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "克罗瑞娜·吉诺拉",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "绯月"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
                 {
                     "name": "狂诗凯茜娅",
                     "pipeline_override": {
