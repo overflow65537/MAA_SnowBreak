@@ -153,14 +153,7 @@ jobs:
       - run: |
           cd assets
           for f in *; do
-            if [[ $f == *"macos"* ]]; then
-              find $f -type f -name "maapicli" -exec chmod +x {} \; 2>/dev/null || true
-              find $f -type f -name "MFW" -exec chmod +x {} \; 2>/dev/null || true
-              find $f -type f -name "MFWUpdater" -exec chmod +x {} \; 2>/dev/null || true
-              tar -cpzf $f-${{ needs.meta.outputs.tag }}.tar.gz -C $f .
-            else
-              (cd $f && zip -r ../$f-${{ needs.meta.outputs.tag }}.zip .)
-            fi
+            (cd $f && zip -r ../$f-${{ needs.meta.outputs.tag }}.zip .)
           done
 
       - uses: softprops/action-gh-release@v2.2.2
