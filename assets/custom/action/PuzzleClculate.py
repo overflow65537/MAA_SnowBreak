@@ -30,10 +30,6 @@ MAA_SnowBreak 拼图计算器
 作者:overflow65537
 """
 
-from maa.context import Context
-from maa.custom_action import CustomAction
-from maa.define import RecognitionDetail
-import time
 
 blocks = [
     # 1号
@@ -305,65 +301,26 @@ class PuzzleSolver:
         return False
 
 
-import logging
-import os
-from datetime import datetime, timedelta
+from maa.context import Context
+from maa.custom_action import CustomAction
+from maa.define import RecognitionDetail, OCRResult
+import time
+from pathlib import Path
+import sys
+
+# 获取当前文件的绝对路径
+current_file = Path(__file__).resolve()
+target_dir = current_file.parent.parent.parent
+sys.path.append(str(target_dir))
+from custom.tool.logger import Logger
 
 
 class PuzzleClculate(CustomAction):
-    def __init__(self):
-        super().__init__()
-        self.PUZZLE_COUNT = [0] * 11
-
-        self.logger = self._setup_logger()
-        self._clear_old_logs()
-
-    def _setup_logger(self):
-        debug_dir = "debug"
-        os.makedirs(debug_dir, exist_ok=True)
-
-        timestamp = datetime.now().strftime("%Y%m%d")
-        log_file_name = f"custom_{timestamp}.log"
-        log_file_path = os.path.join(debug_dir, log_file_name)
-
-        logger = logging.getLogger(__name__ + ".PuzzleClculate")
-        logger.setLevel(logging.DEBUG)
-
-        for handler in logger.handlers[:]:
-            logger.removeHandler(handler)
-
-        file_handler = logging.FileHandler(log_file_path, mode="a", encoding="utf-8")
-        file_handler.setLevel(logging.DEBUG)
-
-        formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
-        file_handler.setFormatter(formatter)
-
-        logger.addHandler(file_handler)
-
-        return logger
-
-    def _clear_old_logs(self):
-        debug_dir = "debug"
-        if not os.path.isdir(debug_dir):
-            return
-
-        three_days_ago = datetime.now() - timedelta(days=3)
-        for root, dirs, files in os.walk(debug_dir):
-            for file in files:
-                if file.startswith("custom_") and file.endswith(".log"):
-                    try:
-                        timestamp_str = file.split("_")[1].split(".")[0]
-                        file_time = datetime.strptime(timestamp_str, "%Y%m%d")
-                        if file_time < three_days_ago:
-                            file_path = os.path.join(root, file)
-                            os.remove(file_path)
-                            self.logger.info(f"已删除过期日志文件: {file_path}")
-                    except Exception as e:
-                        self.logger.error(f"处理文件 {file} 时出错: {e}")
-
     def run(
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
+        self.logger = Logger(__name__).get_logger()
+        PUZZLE_COUNT = [0] * 11
         self.logger.info("开始执行拼图计算任务")
         image = context.tasker.controller.post_screencap().wait().get()
 
@@ -385,29 +342,28 @@ class PuzzleClculate(CustomAction):
 
         # 识别碎片
         self.logger.debug("开始识别碎片数量")
-        self.get_puzzle_count(context)
+        PUZZLE_COUNT = self.get_puzzle_count(context, PUZZLE_COUNT)
         self.logger.debug("二次识别获取更多碎片")
         context.tasker.controller.post_swipe(200, 600, 200, 100, 500).wait()
         time.sleep(1)
-        self.get_puzzle_count(context)
+        PUZZLE_COUNT = self.get_puzzle_count(context, PUZZLE_COUNT)  # type: ignore
         context.tasker.controller.post_swipe(200, 150, 200, 600, 500).wait()
-        self.logger.info("最终碎片数量: %s", self.PUZZLE_COUNT)
+        self.logger.info("最终碎片数量: %s", PUZZLE_COUNT)
         self.custom_notify(
             context,
-            f"最终碎片数量: {self.PUZZLE_COUNT}",
+            f"最终碎片数量: {PUZZLE_COUNT}",
         )
 
         # 初始化求解器
         self.logger.debug("初始化拼图求解器")
         solver = PuzzleSolver()
-        solutions = solver.solve(puzzle_layout, self.PUZZLE_COUNT)
+        solutions = solver.solve(puzzle_layout, PUZZLE_COUNT)
 
         if solutions:
             # 筛选出包含 8 号碎片的方案
             solutions_with_8 = [
                 s for s in solutions if any(8 in row for row in s["board"])
             ]
-
             if solutions_with_8:
                 # 统计每个方案中 9 号碎片的使用量
                 def count_9_usage(solution):
@@ -417,7 +373,11 @@ class PuzzleClculate(CustomAction):
                 solutions_with_8.sort(key=count_9_usage)
                 selected_solution = solutions_with_8[0]
             else:
-                # 若没有包含 8 号碎片的方案，选择第一个方案
+                # 若没有包含 8 号碎片的方案，选择9号碎片最少的方案
+                def count_9_usage(solution):
+                    return sum(1 for block in solution["blocks"] if block["type"] == 8)
+
+                solutions.sort(key=count_9_usage)
                 selected_solution = solutions[0]
 
             self.logger.debug(
@@ -447,6 +407,14 @@ class PuzzleClculate(CustomAction):
                     piece = context.run_recognition(f"识别碎片{block['type']+1}", image)
                     if piece is None:
                         self.logger.info(f"无法识别碎片{block['type']+1}")
+                        self.custom_notify(
+                            context,
+                            f"无法识别碎片{block['type']+1}",
+                        )
+                        context.tasker.controller.post_click(
+                            1201, 484
+                        ).wait()  # 点击重置
+                        context.run_task("重新进入拼图")
                         return CustomAction.RunResult(success=True)
                 elif piece is None and block["type"] + 1 < 8:
                     self.logger.info(f"未搜索到{block['type']+1}, 尝试向下滑动")
@@ -456,10 +424,25 @@ class PuzzleClculate(CustomAction):
                     piece = context.run_recognition(f"识别碎片{block['type']+1}", image)
                     if piece is None:
                         self.logger.info(f"无法识别碎片{block['type']+1}")
+                        self.custom_notify(
+                            context,
+                            f"无法识别碎片{block['type']+1}",
+                        )
+                        context.tasker.controller.post_click(
+                            1201, 484
+                        ).wait()  # 点击重置
+                        context.run_task("重新进入拼图")
+
                         return CustomAction.RunResult(success=True)
                 # 旋转
                 if not piece:
                     self.logger.info(f"无法识别碎片{block['type']+1}")
+                    self.custom_notify(
+                        context,
+                        f"无法识别碎片{block['type']+1}",
+                    )
+                    context.tasker.controller.post_click(1201, 484).wait()  # 点击重置
+                    context.run_task("重新进入拼图")
                     return CustomAction.RunResult(success=True)
                 elif not piece.best_result:
                     self.logger.info(f"无法识别碎片{block['type']+1}的最佳结果")
@@ -531,12 +514,12 @@ class PuzzleClculate(CustomAction):
                 if block["direction"] != 0:
                     for _ in range(4 - block["direction"]):
                         context.tasker.controller.post_click(
-                            piece.best_result.box[0] + piece.best_result.box[2]//2, piece.best_result.box[1] + piece.best_result.box[3]//2
+                            piece.best_result.box[0] + piece.best_result.box[2] // 2,
+                            piece.best_result.box[1] + piece.best_result.box[3] // 2,
                         ).wait()
                         time.sleep(0.5)
 
         else:
-
             self.logger.info("未找到拼图方案，可能是碎片数量不足或布局不合理")
             self.custom_notify(context, "未找到拼图方案，可能是碎片数量不足")
             context.run_task("退出拼图")
@@ -578,7 +561,7 @@ class PuzzleClculate(CustomAction):
 
         return matrix
 
-    def get_puzzle_count(self, context: Context):
+    def get_puzzle_count(self, context: Context, PUZZLE_COUNT: list[int]):
         """获取碎片数量"""
         self.logger.debug("更新碎片数量")
         image = context.tasker.controller.post_screencap().wait().get()
@@ -588,16 +571,16 @@ class PuzzleClculate(CustomAction):
                 self.logger.debug("未识别到碎片 %d", i + 1)
             else:
                 count = context.run_recognition(f"识别碎片{i+1}数量", image)
-                if count is not None:
-                    old_count = self.PUZZLE_COUNT[i]
-                    # 断言 count.best_result.text一定是字符串
-                    self.PUZZLE_COUNT[i] = int(count.best_result.text)  # type: ignore
+                if count and isinstance(count.best_result, OCRResult):
+                    old_count = PUZZLE_COUNT[i]
+                    PUZZLE_COUNT[i] = int(count.best_result.text)
                     self.logger.debug(
                         "更新碎片 %d 数量：%d → %d",
                         i + 1,
                         old_count,
-                        self.PUZZLE_COUNT[i],
+                        PUZZLE_COUNT[i],
                     )
+        return PUZZLE_COUNT
 
     def convert_grid_to_coords(self, begin_pos, end_pos):
         """将网格坐标转换为屏幕坐标。"""
