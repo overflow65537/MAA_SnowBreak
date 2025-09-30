@@ -108,7 +108,10 @@
         "action": {
             "type": "Custom",
             "param": {
-                "custom_action": "ScreenShot"
+                "custom_action": "ScreenShot",
+                "custom_action_param": {
+                    "type": "PR_ERR"
+                }
             }
         },
         "next": [
