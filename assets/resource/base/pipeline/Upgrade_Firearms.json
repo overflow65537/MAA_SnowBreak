@@ -88,16 +88,26 @@
     },
     "检查升级": {
         "recognition": {
-            "type": "OCR",
+            "type": "ColorMatch",
             "param": {
-                "only_rec": true,
                 "roi": [
-                    832,
-                    538,
-                    44,
-                    25
+                    28,
+                    83,
+                    490,
+                    538
                 ],
-                "expected": ".*\\d.*"
+                "upper": [
+                    241,
+                    74,
+                    41
+                ],
+                "lower": [
+                    239,
+                    72,
+                    39
+                ],
+                "connected": true,
+                "count": 100
             }
         },
         "next": [
