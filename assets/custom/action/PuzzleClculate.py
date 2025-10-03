@@ -308,11 +308,6 @@ import time
 from pathlib import Path
 import sys
 
-# 获取当前文件的绝对路径
-current_file = Path(__file__).resolve()
-target_dir = current_file.parent.parent.parent
-sys.path.append(str(target_dir))
-from custom.tool.logger import Logger
 
 
 class PuzzleClculate(CustomAction):
