@@ -39,6 +39,11 @@
         "class": "PPOverride",
         "file_path": "{custom_path}/action/PPOverride.py"
     },
+    "PuzzleRecycle": {
+        "type": "action",
+        "class": "PuzzleRecycle",
+        "file_path": "{custom_path}/action/PuzzleRecycle.py"
+    },
     "LOp": {
         "type": "recognition",
         "class": "LOp",
@@ -53,10 +58,5 @@
         "type": "recognition",
         "class": "CheckResolution",
         "file_path": "{custom_path}/recognition/CheckResolution.py"
-    },
-    "PuzzleRecycle": {
-        "type": "action",
-        "class": "PuzzleRecycle",
-        "file_path": "{custom_path}/action/PuzzleRecycle.py"
     }
 }
