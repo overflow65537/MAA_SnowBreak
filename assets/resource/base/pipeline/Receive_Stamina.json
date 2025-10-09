@@ -35,6 +35,9 @@
         ]
     },
     "领取体力": {
+        "post_wait_freezes": {
+            "time": 500
+        },
         "recognition": {
             "type": "OCR",
             "param": {
