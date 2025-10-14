@@ -574,8 +574,9 @@ class PuzzleClculate(CustomAction):
                 ).wait()
                 last_block = block["type"]
                 time.sleep(1)
+                PUZZLE_COUNT[block["type"]] -= 1
                 # 恢复碎片初始方向
-                if block["direction"] != 0:
+                if block["direction"] != 0 and PUZZLE_COUNT[block["type"]] > 0:
                     for _ in range(4 - block["direction"]):
                         context.tasker.controller.post_click(
                             piece.best_result.box[0] + piece.best_result.box[2] // 2,
