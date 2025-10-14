@@ -1,0 +1,28 @@
+{
+    "冰趣蜜弹": {},
+    "识别蓝圈": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "upper": [
+                    150,
+                    250,
+                    250
+                ],
+                "lower": [
+                    100,
+                    200,
+                    200
+                ],
+                "connected": true,
+                "count": 50
+            }
+        }
+    }
+}
