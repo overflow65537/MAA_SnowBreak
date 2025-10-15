@@ -312,9 +312,8 @@ from datetime import datetime, timedelta
 import logging
 
 
-
 class PuzzleClculate(CustomAction):
-    
+
     def __init__(self):
         super().__init__()
         self.logger = self._setup_logger()
@@ -383,7 +382,7 @@ class PuzzleClculate(CustomAction):
     def run(
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
-        
+
         PUZZLE_COUNT = [0] * 11
         self.logger.info("开始执行拼图计算任务")
         image = context.tasker.controller.post_screencap().wait().get()
