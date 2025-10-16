@@ -156,7 +156,7 @@
         "action": {
             "type": "StartApp",
             "param": {
-                "package": "com.dragonli.projectsnow.lhm"
+                "package": "com.dragonli.projectsnow.lhm/com.xgsdk.client.api.splash.XGSplashActivity"
             }
         },
         "next": [
