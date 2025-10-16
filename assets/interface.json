@@ -1052,19 +1052,25 @@
                 {
                     "name": "5",
                     "pipeline_override": {
-                        "expected": "5"
-                    },
-                    "速战MAX": {
-                        "enabled": false
-                    },
-                    "完成战斗": {
-                        "next": [
-                            "完成战斗",
-                            "返回主菜单"
-                        ],
-                        "interrupt": [
-                            "账号等级提升"
-                        ]
+                        "战斗次数": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "5"
+                                }
+                            }
+                        },
+                        "速战MAX": {
+                            "enabled": false
+                        },
+                        "完成战斗": {
+                            "next": [
+                                "完成战斗",
+                                "返回主菜单"
+                            ],
+                            "interrupt": [
+                                "账号等级提升"
+                            ]
+                        }
                     }
                 },
                 {
