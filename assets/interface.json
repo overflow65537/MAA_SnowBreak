@@ -551,44 +551,40 @@
         "选择难度": {
             "cases": [
                 {
-                    "name": "简单",
+                    "name": "渊底",
                     "pipeline_override": {
                         "进入试炼": {
                             "recognition": {
                                 "param": {
-                                    "expected": "简单"
+                                    "expected": "渊底"
                                 }
                             }
                         }
                     }
                 },
                 {
-                    "name": "普通",
+                    "name": "幽馆",
                     "pipeline_override": {
                         "进入试炼": {
                             "recognition": {
                                 "param": {
-                                    "expected": "普通"
+                                    "expected": "幽馆"
                                 }
                             }
                         }
                     }
                 },
                 {
-                    "name": "困难",
+                    "name": "异城",
                     "pipeline_override": {
                         "进入试炼": {
                             "recognition": {
                                 "param": {
-                                    "expected": "困难"
+                                    "expected": "异城"
                                 }
                             }
                         }
                     }
-                },
-                {
-                    "name": "厄险",
-                    "pipeline_override": {}
                 }
             ]
         },
