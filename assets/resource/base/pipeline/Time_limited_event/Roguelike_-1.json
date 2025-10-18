@@ -88,7 +88,7 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "expected": "上限"
+                "expected": "AAAA上限"
             }
         },
         "post_delay": 500,
@@ -125,11 +125,59 @@
                 "template": "增益试炼/暂停.png"
             }
         },
-        "next": "退出试炼",
+        "next": [
+            "退出试炼"
+        ],
         "interrupt": [
+            "战斗结束",
+            "意外点击_验证战场道具",
             "选择增益",
             "使用技能"
         ]
+    },
+    "意外点击_验证战场道具": {
+        "pre_wait_freezes": {
+            "time": 1000
+        },
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1226,
+                    687,
+                    1,
+                    1
+                ],
+                "expected": [
+                    "道具"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": true
+            }
+        }
+    },
+    "战斗结束": {
+        "post_wait_freezes": {
+            "time": 1000
+        },
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    544,
+                    334,
+                    208,
+                    53
+                ],
+                "expected": [
+                    "行动结束"
+                ]
+            }
+        }
     },
     "选择增益": {
         "recognition": {
