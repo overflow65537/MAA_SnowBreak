@@ -567,10 +567,21 @@ class PuzzleClculate(CustomAction):
                 elif block["type"] + 1 == 7 and block["direction"] == 3:
                     end_y = end_y - 100
                 self.logger.info(f"碎片{block['type']+1}中心点坐标: ({end_x}, {end_y})")
-                # 最终滑动
-                context.tasker.controller.post_swipe(
-                    begin_x, begin_y, end_x, end_y, 1000
-                ).wait()
+
+                # 使用平滑移动：从碎片位置 -> 基准点 -> 目标位置
+                context.tasker.controller.post_touch_down(begin_x, begin_y).wait()
+                time.sleep(0.02)
+
+                # 平滑移动到基准点
+                self.smooth_move(context, begin_x, begin_y, 650, begin_y, duration=0.5)
+                time.sleep(0.1)
+
+                # 从基准点平滑移动到目标位置
+                self.smooth_move(context, 650, begin_y, end_x, end_y, duration=0.5)
+
+                # 抬起
+                context.tasker.controller.post_touch_up().wait()
+
                 last_block = block["type"]
                 time.sleep(1)
                 PUZZLE_COUNT[block["type"]] -= 1
@@ -593,6 +604,35 @@ class PuzzleClculate(CustomAction):
             return CustomAction.RunResult(success=True)
 
         return CustomAction.RunResult(success=True)
+
+    def smooth_move(
+        self, context: Context, current_x, current_y, target_x, target_y, duration=0.3
+    ):
+        """
+        平滑移动方法（通用）
+
+        Args:
+            context: MAA上下文
+            current_x, current_y: 当前位置坐标
+            target_x, target_y: 目标坐标
+            duration: 滑动总时长（秒）
+
+        说明：
+            此方法仅执行移动操作，不包含按下和抬起
+            调用前需先执行 post_touch_down
+            调用后需手动执行 post_touch_up
+        """
+        steps = max(int(duration / 0.01), 5)  # 至少5步
+        delay = duration / steps
+
+        for i in range(1, steps + 1):
+            ratio = i / steps
+            intermediate_x = int(current_x + (target_x - current_x) * ratio)
+            intermediate_y = int(current_y + (target_y - current_y) * ratio)
+            context.tasker.controller.post_touch_move(
+                intermediate_x, intermediate_y
+            ).wait()
+            time.sleep(delay)
 
     def custom_notify(self, context: Context, msg: str):
         """自定义通知"""
