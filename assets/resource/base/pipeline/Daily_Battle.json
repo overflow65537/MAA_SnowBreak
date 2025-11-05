@@ -666,7 +666,9 @@
                     146,
                     110
                 ],
-                "expected": ""
+                "expected": "",
+                "order_by": "Vertical",
+                "index": -1
             }
         },
         "action": {
