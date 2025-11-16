@@ -321,6 +321,8 @@
                 "string"
             ],
             "default": [
+                "霆光",
+                "星彩",
                 "澄意",
                 "悠游",
                 "绯月",
@@ -1151,6 +1153,48 @@
         },
         "选择人物": {
             "cases": [
+                {
+                    "name": "星彩米娅",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "星彩"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "霆光晴",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "霆光"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
                 {
                     "name": "澄意芬妮",
                     "pipeline_override": {
