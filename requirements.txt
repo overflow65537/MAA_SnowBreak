@@ -1,2 +1,3 @@
-numpy == 2.2.6
+numpy
 maafw
+json-with-comments
