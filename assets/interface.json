@@ -1,8 +1,14 @@
 {
+    "interface_version": 2,
     "url": "https://github.com/overflow65537/MAA_SnowBreak",
     "name": "MSBA",
-    "MFW_min_req_version": "2.3.0",
+    "license": "./LICENSE",
+    "MFW_min_req_version": "99.99.99",
+    "contact": "QQ群: 980583911；B站：https://space.bilibili.com/2626235",
     "mirrorchyan_rid": "MAA_SnowBreak",
+    "welcome": "./README.md",
+    "custom": "./custom/custom.json",
+    "icon": "./logo.png",
     "controller": [
         {
             "name": "Adb控制器",
@@ -33,9 +39,14 @@
             "name": "赠送感知",
             "entry": "赠送感知",
             "speedrun": {
-                "schedule_mode": "daily",
-                "refresh_time": {
-                    "H": 5
+                "mode": "daily",
+                "trigger": {
+                    "daily": {
+                        "hour_start": 5
+                    }
+                },
+                "run": {
+                    "count": 1
                 }
             }
         },
@@ -43,9 +54,14 @@
             "name": "邮件",
             "entry": "邮件",
             "speedrun": {
-                "schedule_mode": "daily",
-                "refresh_time": {
-                    "H": 5
+                "mode": "daily",
+                "trigger": {
+                    "daily": {
+                        "hour_start": 5
+                    }
+                },
+                "run": {
+                    "count": 1
                 }
             }
         },
@@ -56,9 +72,14 @@
                 "购买物品"
             ],
             "speedrun": {
-                "schedule_mode": "daily",
-                "refresh_time": {
-                    "H": 5
+                "mode": "daily",
+                "trigger": {
+                    "daily": {
+                        "hour_start": 5
+                    }
+                },
+                "run": {
+                    "count": 1
                 }
             }
         },
@@ -66,9 +87,14 @@
             "name": "领取体力",
             "entry": "体力",
             "speedrun": {
-                "schedule_mode": "daily",
-                "refresh_time": {
-                    "H": 5
+                "mode": "daily",
+                "trigger": {
+                    "daily": {
+                        "hour_start": 5
+                    }
+                },
+                "run": {
+                    "count": 1
                 }
             }
         },
@@ -76,9 +102,14 @@
             "name": "升级枪械",
             "entry": "升级枪械",
             "speedrun": {
-                "schedule_mode": "daily",
-                "refresh_time": {
-                    "H": 5
+                "mode": "daily",
+                "trigger": {
+                    "daily": {
+                        "hour_start": 5
+                    }
+                },
+                "run": {
+                    "count": 1
                 }
             }
         },
@@ -86,16 +117,18 @@
             "name": "精神拟境",
             "entry": "精神拟境",
             "speedrun": {
-                "schedule_mode": "weekly",
-                "refresh_time": {
-                    "H": 5,
-                    "w": 1
-                },
-                "interval": {
-                    "unit": 2,
-                    "item": 1,
-                    "loop_item": 1,
-                    "current_loop": 1
+                "mode": "weekly",
+                "trigger": {
+                    "weekly": {
+                        "weekday": [
+                            2
+                        ],
+                        "hour_start": 5
+                    },
+                    "run": {
+                        "count": 2,
+                        "min_interval_hours": 24
+                    }
                 }
             }
         },
@@ -111,7 +144,7 @@
         {
             "name": "刷天启碎片",
             "entry": "刷碎片",
-            "doc": "MFW在v2.2.0以上版本时选项可以自行输入新角色的代号",
+            "description": "MFW在v2.2.0以上版本时选项可以自行输入新角色的代号",
             "pipeline_override": {
                 "速战MAX": {
                     "next": [
@@ -127,13 +160,15 @@
             "option": [
                 "选择人物"
             ],
-            "advanced": [
-                "选择人物"
-            ],
             "speedrun": {
-                "schedule_mode": "daily",
-                "refresh_time": {
-                    "H": 5
+                "mode": "daily",
+                "trigger": {
+                    "daily": {
+                        "hour_start": 5
+                    }
+                },
+                "run": {
+                    "count": 1
                 }
             }
         },
@@ -145,9 +180,14 @@
             "name": "新星开拓任务",
             "entry": "新星开拓任务",
             "speedrun": {
-                "schedule_mode": "daily",
-                "refresh_time": {
-                    "H": 5
+                "mode": "daily",
+                "trigger": {
+                    "daily": {
+                        "hour_start": 5
+                    }
+                },
+                "run": {
+                    "count": 1
                 }
             }
         },
@@ -155,9 +195,14 @@
             "name": "收取信源碎片",
             "entry": "收取碎片",
             "speedrun": {
-                "schedule_mode": "daily",
-                "refresh_time": {
-                    "H": 5
+                "mode": "daily",
+                "trigger": {
+                    "daily": {
+                        "hour_start": 5
+                    }
+                },
+                "run": {
+                    "count": 1
                 }
             }
         },
@@ -167,36 +212,40 @@
             "option": [
                 "是否进行信源回收"
             ],
-            "doc": "信源赠送:每3个任意碎片换1个9号碎片,每周上限4个\n信源回收:每5个任意碎片换一个9号碎片,无上限\n信源回收会保证每种碎片多于15个,如果碎片本身低于这个阈值会直接结束任务",
+            "description": "信源赠送:每3个任意碎片换1个9号碎片,每周上限4个\n信源回收:每5个任意碎片换一个9号碎片,无上限\n信源回收会保证每种碎片多于15个,如果碎片本身低于这个阈值会直接结束任务",
             "speedrun": {
-                "schedule_mode": "weekly",
-                "refresh_time": {
-                    "H": 5,
-                    "w": 1
-                },
-                "interval": {
-                    "unit": 0,
-                    "item": 0,
-                    "loop_item": 0,
-                    "current_loop": 0
+                "mode": "weekly",
+                "trigger": {
+                    "weekly": {
+                        "weekday": [
+                            2
+                        ],
+                        "hour_start": 5
+                    },
+                    "run": {
+                        "count": 2,
+                        "min_interval_hours": 24
+                    }
                 }
             }
         },
         {
             "name": "信源研析",
             "entry": "基地拼图",
-            "doc": "注意: 需要保证出生地为大厅",
+            "description": "注意: 需要保证出生地为大厅",
             "speedrun": {
-                "schedule_mode": "weekly",
-                "refresh_time": {
-                    "H": 5,
-                    "w": 1
-                },
-                "interval": {
-                    "unit": 0,
-                    "item": 0,
-                    "loop_item": 0,
-                    "current_loop": 0
+                "mode": "weekly",
+                "trigger": {
+                    "weekly": {
+                        "weekday": [
+                            2
+                        ],
+                        "hour_start": 5
+                    },
+                    "run": {
+                        "count": 2,
+                        "min_interval_hours": 24
+                    }
                 }
             }
         },
@@ -219,19 +268,19 @@
                     ]
                 }
             },
-            "doc": "先使用简单难度刷等级,然后才能使用困难难度",
+            "description": "先使用简单难度刷等级,然后才能使用困难难度",
             "spt": true
         },
         {
             "name": "钓鱼",
             "entry": "钓鱼",
-            "doc": "注意: 循环任务,无退出条件\n需要进入钓鱼界面后在开始任务",
+            "description": "注意: 循环任务,无退出条件\n需要进入钓鱼界面后在开始任务",
             "spt": true
         },
         {
             "name": "猜心对局",
             "entry": "酒馆",
-            "doc": "注意: 循环任务,无退出条件\n需要进入对局内后在开始任务\n启动任务会自动循环对局",
+            "description": "注意: 循环任务,无退出条件\n需要进入对局内后在开始任务\n启动任务会自动循环对局",
             "spt": true
         },
         {
@@ -244,7 +293,7 @@
                     ]
                 }
             },
-            "doc": "注意: 循环任务,无退出条件\n需要进入心动水弹主界面后在开始任务\n默认进入练习模式,手动进入连战后启动任务会自动循环连战",
+            "description": "注意: 循环任务,无退出条件\n需要进入心动水弹主界面后在开始任务\n默认进入练习模式,手动进入连战后启动任务会自动循环连战",
             "spt": true
         },
         {
@@ -255,7 +304,7 @@
         {
             "name": "限时活动-捞金派对",
             "entry": "大富翁",
-            "doc": "需要手动设置倍数, 并确保在捞金派对主界面启动\n每局游戏结束后会自动进行下一场游戏,但是不会更改章节",
+            "description": "需要手动设置倍数, 并确保在捞金派对主界面启动\n每局游戏结束后会自动进行下一场游戏,但是不会更改章节",
             "spt": true,
             "option": [
                 "选择章节"
@@ -275,7 +324,7 @@
         {
             "name": "限时活动-异星守护",
             "entry": "异星守护",
-            "doc": "需要进入异星守护战斗界面后在开始任务",
+            "description": "需要进入异星守护战斗界面后在开始任务",
             "spt": true
         },
         {
@@ -297,7 +346,7 @@
         {
             "name": "限时活动-蜃梦笔谈",
             "entry": "蜃梦笔谈",
-            "doc": "所需设置: 默认按钮位置, 不播放大招动画, 不使用行前整备，使用试用晴放于出战位, 有豹豹最佳\n 此为循环任务, 无退出条件, 确保在主菜单启动即可\n 由于怪物ai与站位问题, 可能出现卡关, 请手动结束并重置笔谈回到主界面, 再开始自动笔谈。",
+            "description": "所需设置: 默认按钮位置, 不播放大招动画, 不使用行前整备，使用试用晴放于出战位, 有豹豹最佳\n 此为循环任务, 无退出条件, 确保在主菜单启动即可\n 由于怪物ai与站位问题, 可能出现卡关, 请手动结束并重置笔谈回到主界面, 再开始自动笔谈。",
             "spt": true,
             "pipeline_override": {
                 "检查主界面2": {
@@ -309,51 +358,17 @@
             }
         }
     ],
-    "advanced": {
-        "选择人物": {
-            "doc": [
-                "请输入需要自动选择的人物代号"
-            ],
-            "field": [
-                "选择人物"
-            ],
-            "type": [
-                "string"
-            ],
-            "default": [
-                "霆光",
-                "星彩",
-                "澄意",
-                "悠游",
-                "绯月",
-                "绮幻",
-                "狂诗",
-                "天鹅座",
-                "冥河代理人",
-                "澜风",
-                "夜天光",
-                "琼弦",
-                "小天师",
-                "驰掣",
-                "幽潮",
-                "朝翼",
-                "龙舌兰",
-                "辉耀",
-                "无限之视",
-                "瞬刻",
-                "羽蜕",
-                "悖谬",
-                "豹豹",
-                "蓝闪",
-                "魔术师",
-                "溯影",
-                "藏锋",
-                "云篆",
-                "辉夜",
-                "咎冠",
-                "缄默",
-                "狂猎",
-                "雨燕"
+    "option": {
+        "输入角色名": {
+            "label": "请输角色名",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "角色名",
+                    "description": "<p>请输入角色名，例如：霆光。</p>",
+                    "default": "霆光",
+                    "pipeline_type": "string"
+                }
             ],
             "pipeline_override": {
                 "选择人物": {
@@ -411,9 +426,7 @@
                     }
                 }
             }
-        }
-    },
-    "option": {
+        },
         "是否进行信源回收": {
             "cases": [
                 {
@@ -421,10 +434,8 @@
                     "pipeline_override": {
                         "没有待领取的碎片": {
                             "next": [
-                                "进入信源回收"
-                            ],
-                            "interrupt": [
-                                "继续_基地"
+                                "进入信源回收",
+                                "[JumpBack]继续_基地"
                             ]
                         }
                     }
@@ -967,10 +978,8 @@
                         "完成战斗": {
                             "next": [
                                 "完成战斗",
-                                "返回主菜单"
-                            ],
-                            "interrupt": [
-                                "账号等级提升"
+                                "返回主菜单",
+                                "[JumpBack]账号等级提升"
                             ]
                         }
                     }
@@ -991,10 +1000,8 @@
                         "完成战斗": {
                             "next": [
                                 "完成战斗",
-                                "返回主菜单"
-                            ],
-                            "interrupt": [
-                                "账号等级提升"
+                                "返回主菜单",
+                                "[JumpBack]账号等级提升"
                             ]
                         }
                     }
@@ -1015,10 +1022,8 @@
                         "完成战斗": {
                             "next": [
                                 "完成战斗",
-                                "返回主菜单"
-                            ],
-                            "interrupt": [
-                                "账号等级提升"
+                                "返回主菜单",
+                                "[JumpBack]账号等级提升"
                             ]
                         }
                     }
@@ -1039,10 +1044,8 @@
                         "完成战斗": {
                             "next": [
                                 "完成战斗",
-                                "返回主菜单"
-                            ],
-                            "interrupt": [
-                                "账号等级提升"
+                                "返回主菜单",
+                                "[JumpBack]账号等级提升"
                             ]
                         }
                     }
@@ -1063,10 +1066,8 @@
                         "完成战斗": {
                             "next": [
                                 "完成战斗",
-                                "返回主菜单"
-                            ],
-                            "interrupt": [
-                                "账号等级提升"
+                                "返回主菜单",
+                                "[JumpBack]账号等级提升"
                             ]
                         }
                     }
@@ -1087,10 +1088,8 @@
                         "完成战斗": {
                             "next": [
                                 "完成战斗",
-                                "返回主菜单"
-                            ],
-                            "interrupt": [
-                                "账号等级提升"
+                                "返回主菜单",
+                                "[JumpBack]账号等级提升"
                             ]
                         }
                     }
@@ -1153,6 +1152,13 @@
         },
         "选择人物": {
             "cases": [
+                {
+                    "name": "输入角色名",
+                    "pipeline_override": {},
+                    "option": [
+                        "输入角色名"
+                    ]
+                },
                 {
                     "name": "星彩米娅",
                     "pipeline_override": {

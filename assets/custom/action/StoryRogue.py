@@ -51,19 +51,19 @@ class StoryRogue(CustomAction):
         courtyard_result = context.run_recognition("庭院场景识别", image)
 
         # 根据识别结果执行不同的操作
-        if corridor_result:
+        if corridor_result and corridor_result.hit:
             print("识别到走廊场景")
             # 走廊场景的处理逻辑
             return self.handle_corridor(context)
-        elif red_corridor_result:
+        elif red_corridor_result and red_corridor_result.hit:
             print("识别到红走廊场景")
             # 红走廊场景的处理逻辑
             return self.handle_red_corridor(context)
-        elif gate_result:
+        elif gate_result and gate_result.hit:
             print("识别到大门场景")
             # 大门场景的处理逻辑
             return self.handle_gate(context)
-        elif courtyard_result:
+        elif courtyard_result and courtyard_result.hit:
             print("识别到庭院场景")
             # 庭院场景的处理逻辑
             return self.handle_courtyard(context)
@@ -173,7 +173,7 @@ class StoryRogue(CustomAction):
         """检查是否有退出按钮"""
         image = context.tasker.controller.post_screencap().wait().get()
         exit_result = context.run_recognition("检查退出按钮", image)
-        return bool(exit_result)
+        return bool(exit_result and exit_result.hit)
 
     def skill_cycle_until_exit(self, context: Context) -> CustomAction.RunResult:
         """循环执行技能直到战斗结束"""
