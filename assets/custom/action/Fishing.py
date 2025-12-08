@@ -29,6 +29,7 @@ MAA_SnowBreak 钓鱼识别器
 
 from maa.context import Context
 from maa.custom_action import CustomAction
+from maa.define import ColorMatchResult, BoxAndCountResult
 import time
 
 
@@ -40,7 +41,15 @@ class Fishing(CustomAction):
         image = context.tasker.controller.post_screencap().wait().get()
         result = context.run_recognition("检查黄色块数量", image)
 
-        if result.best_result.count:
+        initial_yellow_count = 0
+        yellow_count = 0
+
+        if (
+            result
+            and result.hit
+            and result.best_result
+            and isinstance(result.best_result, BoxAndCountResult)
+        ):
             initial_yellow_count = result.best_result.count
             yellow_count = result.best_result.count
 
@@ -51,9 +60,10 @@ class Fishing(CustomAction):
 
             image = context.tasker.controller.post_screencap().wait().get()
             result = context.run_recognition("检查黄色块数量", image)
-            if not result:
+            if result is None or not result.hit:
                 return CustomAction.RunResult(success=True)
-            yellow_count = result.best_result.count
+            if result.best_result and isinstance(result.best_result, BoxAndCountResult):
+                yellow_count = result.best_result.count
 
         context.tasker.controller.post_click(1171, 618).wait()
 

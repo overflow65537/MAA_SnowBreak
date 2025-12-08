@@ -38,7 +38,7 @@ class ShotTarget(CustomAction):
         print(bool(shot_chance))
         image = context.tasker.controller.post_screencap().wait().get()
         item = context.run_recognition("展开道具", image)
-        if item:
+        if item and item.hit and item.best_result:
             x, y = (
                 item.best_result.box[0] + item.best_result.box[2] // 2,
                 item.best_result.box[1] + item.best_result.box[3] // 2,
@@ -56,9 +56,16 @@ class ShotTarget(CustomAction):
             "检查子弹_custom", image, {"检查子弹_custom": {"roi": [988, 652, 25, 34]}}
         )
 
-        has_eject = bool(eject)
+        has_eject = bool(eject and eject.hit)
         is_not_shot_chance_true = argv.custom_action_param != '{"shot_chance":true}'
-        if water and empty:
+        if (
+            water
+            and empty
+            and water.hit
+            and empty.hit
+            and water.best_result
+            and empty.best_result
+        ):
             has_bullets = (
                 int(water.best_result.text) != 0 and int(empty.best_result.text) != 0
             )
@@ -73,8 +80,18 @@ class ShotTarget(CustomAction):
             print(f"退弹数量:{eject_count}")
             if eject_count >= bullet_count - 1:
                 print("开始退弹")
-                while (not int(water.best_result.text) == 0) and (
-                    not int(empty.best_result.text) == 0
+                while (
+                    eject
+                    and eject.hit
+                    and eject.best_result
+                    and water
+                    and empty
+                    and water.hit
+                    and empty.hit
+                    and water.best_result
+                    and empty.best_result
+                    and int(water.best_result.text) != 0
+                    and int(empty.best_result.text) != 0
                 ):
                     x, y = (
                         eject.best_result.box[0] + eject.best_result.box[2] // 2,
@@ -98,14 +115,21 @@ class ShotTarget(CustomAction):
                         {"检查子弹_custom": {"roi": [988, 652, 25, 34]}},
                     )  # 水弹数量
                     eject = context.run_recognition("检查退弹布偶", image)
-                if int(water.best_result.text) == 0:
-                    context.run_task("向自己开枪_custom"),
-                    return CustomAction.RunResult(success=True)
-                elif int(empty.best_result.text) == 0:
-                    context.run_task("向对方开枪_custom_100")
-                    return CustomAction.RunResult(success=True)
-                else:
-                    return CustomAction.RunResult(success=True)
+                if (
+                    water
+                    and water.hit
+                    and water.best_result
+                    and empty
+                    and empty.hit
+                    and empty.best_result
+                ):
+                    if int(water.best_result.text) == 0:
+                        context.run_task("向自己开枪_custom"),
+                        return CustomAction.RunResult(success=True)
+                    elif int(empty.best_result.text) == 0:
+                        context.run_task("向对方开枪_custom_100")
+                        return CustomAction.RunResult(success=True)
+                return CustomAction.RunResult(success=True)
 
         """if reset and eject: #有重置之锤和退弹布偶就直接用
             x, y = (
@@ -131,7 +155,14 @@ class ShotTarget(CustomAction):
 
         health = context.run_recognition("生命值缺失", image)
         health_gem = context.run_recognition("检查活力宝石", image)
-        if health and health_gem:
+        if (
+            health
+            and health.hit
+            and health.best_result
+            and health_gem
+            and health_gem.hit
+            and health_gem.best_result
+        ):
 
             x, y = (
                 health_gem.best_result.box[0] + health_gem.best_result.box[2] // 2,
@@ -144,7 +175,7 @@ class ShotTarget(CustomAction):
             image = context.tasker.controller.post_screencap().wait().get()
         lock = context.run_recognition("检查手铐", image)
         lock_status = context.run_recognition("检查手铐状态", image)
-        if lock and not (lock_status):
+        if lock and lock.hit and lock.best_result and not (lock_status and lock_status.hit):
             x, y = (
                 lock.best_result.box[0] + lock.best_result.box[2] // 2,
                 lock.best_result.box[1] + lock.best_result.box[3] // 2,
@@ -155,7 +186,12 @@ class ShotTarget(CustomAction):
             time.sleep(0.5)
             image = context.tasker.controller.post_screencap().wait().get()
         barrel = context.run_recognition("检查枪管", image)
-        if barrel and argv.custom_action_param == '{"shot_chance":true}':
+        if (
+            barrel
+            and barrel.hit
+            and barrel.best_result
+            and argv.custom_action_param == '{"shot_chance":true}'
+        ):
             x, y = (
                 barrel.best_result.box[0] + barrel.best_result.box[2] // 2,
                 barrel.best_result.box[1] + barrel.best_result.box[3] // 2,

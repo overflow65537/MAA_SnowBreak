@@ -100,7 +100,7 @@ class PuzzleRecycle(CustomAction):
             result = context.run_recognition(
                 "识别碎片数量_回收", image, {"识别碎片数量_回收": {"roi": roi}}
             )
-            if result:
+            if result and result.hit:
                 PUZZLE_COUNT[roi_list.index(roi)] = int(result.best_result.text)  # type: ignore
         self.logger.info(f"信源回收碎片数量总计{PUZZLE_COUNT}")
 

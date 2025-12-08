@@ -390,7 +390,7 @@ class PuzzleClculate(CustomAction):
         # 识别拼图板
         self.logger.debug("尝试识别拼图板")
         board = context.run_recognition("识别可放置区域", image)
-        if board is None:
+        if board is None or not board.hit:
             self.logger.warning("未识别到拼图板")
             return CustomAction.RunResult(success=True)
 
@@ -462,13 +462,13 @@ class PuzzleClculate(CustomAction):
                 )
                 image = context.tasker.controller.post_screencap().wait().get()
                 piece = context.run_recognition(f"识别碎片{block['type']+1}", image)
-                if piece is None and block["type"] + 1 >= 8:
+                if (piece is None or not piece.hit) and block["type"] + 1 >= 8:
                     self.logger.info(f"未搜索到{block['type']+1}, 尝试向上滑动")
                     context.tasker.controller.post_swipe(200, 600, 200, 100, 500).wait()
                     time.sleep(1)  # 滑动后等待动画结束
                     image = context.tasker.controller.post_screencap().wait().get()
                     piece = context.run_recognition(f"识别碎片{block['type']+1}", image)
-                    if piece is None:
+                    if piece is None or not piece.hit:
                         self.logger.info(f"无法识别碎片{block['type']+1}")
                         self.custom_notify(
                             context,
@@ -479,13 +479,13 @@ class PuzzleClculate(CustomAction):
                         ).wait()  # 点击重置
                         context.run_task("重新进入拼图")
                         return CustomAction.RunResult(success=True)
-                elif piece is None and block["type"] + 1 < 8:
+                elif (piece is None or not piece.hit) and block["type"] + 1 < 8:
                     self.logger.info(f"未搜索到{block['type']+1}, 尝试向下滑动")
                     context.tasker.controller.post_swipe(200, 150, 200, 600, 500).wait()
                     time.sleep(1)  # 滑动后等待动画结束
                     image = context.tasker.controller.post_screencap().wait().get()
                     piece = context.run_recognition(f"识别碎片{block['type']+1}", image)
-                    if piece is None:
+                    if piece is None or not piece.hit:
                         self.logger.info(f"无法识别碎片{block['type']+1}")
                         self.custom_notify(
                             context,
@@ -498,7 +498,7 @@ class PuzzleClculate(CustomAction):
 
                         return CustomAction.RunResult(success=True)
                 # 旋转
-                if not piece:
+                if piece is None or not piece.hit:
                     self.logger.info(f"无法识别碎片{block['type']+1}")
                     self.custom_notify(
                         context,
@@ -649,7 +649,7 @@ class PuzzleClculate(CustomAction):
         ROW_Y = [109, 219, 328, 437, 547]
         COL_X = [389, 497, 605, 714, 823, 932]
 
-        for item in recognition_data.filterd_results:
+        for item in recognition_data.filtered_results:
             x, y, w, h = item.box
 
             # 行列索引查找逻辑
@@ -671,11 +671,11 @@ class PuzzleClculate(CustomAction):
         image = context.tasker.controller.post_screencap().wait().get()
         for i in range(11):
             result = context.run_recognition(f"识别碎片{i+1}", image)
-            if result is None:
+            if result is None or not result.hit:
                 self.logger.debug("未识别到碎片 %d", i + 1)
             else:
                 count = context.run_recognition(f"识别碎片{i+1}数量", image)
-                if count and isinstance(count.best_result, OCRResult):
+                if count and count.hit and isinstance(count.best_result, OCRResult):
                     old_count = PUZZLE_COUNT[i]
                     PUZZLE_COUNT[i] = int(count.best_result.text)
                     self.logger.debug(

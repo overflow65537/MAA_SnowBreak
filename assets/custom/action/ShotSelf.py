@@ -36,7 +36,7 @@ class ShotSelf(CustomAction):
     ) -> CustomAction.RunResult:
         image = context.tasker.controller.post_screencap().wait().get()
         item = context.run_recognition("展开道具", image)
-        if item:
+        if item and item.hit and item.best_result:
             x, y = (
                 item.best_result.box[0] + item.best_result.box[2] // 2,
                 item.best_result.box[1] + item.best_result.box[3] // 2,
@@ -46,7 +46,14 @@ class ShotSelf(CustomAction):
             image = context.tasker.controller.post_screencap().wait().get()
         health = context.run_recognition("生命值缺失", image)
         health_gem = context.run_recognition("检查活力宝石", image)
-        if health and health_gem:
+        if (
+            health
+            and health_gem
+            and health.hit
+            and health_gem.hit
+            and health.best_result
+            and health_gem.best_result
+        ):
             x, y = (
                 health_gem.best_result.box[0] + health_gem.best_result.box[2] // 2,
                 health_gem.best_result.box[1] + health_gem.best_result.box[3] // 2,
@@ -58,7 +65,9 @@ class ShotSelf(CustomAction):
             image = context.tasker.controller.post_screencap().wait().get()
         lock = context.run_recognition("检查手铐", image)
         lock_status = context.run_recognition("检查手铐状态", image)
-        if lock and not (lock_status):
+        if (lock and lock.hit and lock.best_result) and not (
+            lock_status and not lock_status.hit
+        ):
             x, y = (
                 lock.best_result.box[0] + lock.best_result.box[2] // 2,
                 lock.best_result.box[1] + lock.best_result.box[3] // 2,
@@ -69,7 +78,7 @@ class ShotSelf(CustomAction):
             time.sleep(1)
             image = context.tasker.controller.post_screencap().wait().get()
         reversal = context.run_recognition("检查逆转魔术", image)
-        if reversal:
+        if reversal and reversal.hit and reversal.best_result:
             x, y = (
                 reversal.best_result.box[0] + reversal.best_result.box[2] // 2,
                 reversal.best_result.box[1] + reversal.best_result.box[3] // 2,
@@ -79,7 +88,7 @@ class ShotSelf(CustomAction):
             context.run_task("使用道具")
             time.sleep(1)
             barrel = context.run_recognition("检查枪管", image)
-            if barrel:
+            if barrel and barrel.hit and barrel.best_result:
                 x, y = (
                     barrel.best_result.box[0] + barrel.best_result.box[2] // 2,
                     barrel.best_result.box[1] + barrel.best_result.box[3] // 2,

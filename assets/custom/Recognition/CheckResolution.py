@@ -42,7 +42,7 @@ class CheckResolution(CustomRecognition):
             if width not in [720,1280] or height not in [1280,720]:
                 return CustomRecognition.AnalyzeResult(
                 box=[0, 0, 0, 0],
-                detail=f"分辨率{width}x{height} 错误",
+                detail={ "error": f"分辨率{width}x{height} 错误"},
             )
             else:
                 return None

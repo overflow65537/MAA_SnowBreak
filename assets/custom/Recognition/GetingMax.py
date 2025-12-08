@@ -54,14 +54,15 @@ class GetingMax(CustomRecognition):
                 "识别碎片数量", image, {"识别碎片数量": {"roi": roi}}
             )
 
-            if not result:
+            if result is None or not result.hit or not result.best_result:
                 continue
             if result.best_result.text.isdigit():  # type: ignore
-                if int(result.best_result.text) > max_val:  # type: ignore
-                    max_val = int(result.best_result.text)  # type: ignore
+                digit_val = int(result.best_result.text)  # type: ignore
+                if digit_val > max_val:
+                    max_val = digit_val
                     max_reco = result.best_result
         if max_reco is None:
             return None
         return CustomRecognition.AnalyzeResult(
-            box=max_reco.box, detail=f"最大值为{max_reco.text}"  # type: ignore
+            box=max_reco.box, detail={"max":f"最大值为{max_reco.text}"}   # type: ignore
         )

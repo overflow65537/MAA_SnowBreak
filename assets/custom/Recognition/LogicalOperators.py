@@ -56,7 +56,7 @@ class LOp(CustomRecognition):
                 if not result:
                     return
             return CustomRecognition.AnalyzeResult(
-                box=(0, 0, 100, 100), detail=f"{nodes} used in {mode} success"
+                box=(0, 0, 100, 100), detail={"status":f"{nodes} used in {mode} success"}
             )
 
         elif mode == "or":
@@ -64,7 +64,7 @@ class LOp(CustomRecognition):
                 result = self._eval_node(item, context, image)
                 if result:
                     return CustomRecognition.AnalyzeResult(
-                        box=(0, 0, 100, 100), detail=f"{nodes} used in {mode} success"
+                        box=(0, 0, 100, 100), detail={"status":f"{nodes} used in {mode} success"}
                     )
             return
 
@@ -74,11 +74,13 @@ class LOp(CustomRecognition):
     def _eval_node(self, node, context: Context, image) -> bool:
 
         if isinstance(node, str):
-            return bool(context.run_recognition(node, image))
+            reco = context.run_recognition(node, image)
+            return bool(reco and reco.hit)
 
         elif isinstance(node, list) and len(node) == 1:
             inner_node = node[0]
-            return not bool(context.run_recognition(inner_node, image))
+            inner_reco = context.run_recognition(inner_node, image)
+            return not bool(inner_reco and inner_reco.hit)
         else:
             # 传了个啥?
             raise NotImplementedError(f"Unsupported node type: {type(node)}")
