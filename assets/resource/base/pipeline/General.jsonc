@@ -106,15 +106,6 @@
             "succeeded": "[color:Tomato]识别错误，返回主菜单[/color]",
             "aborted": true
         },
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "ScreenShot",
-                "custom_action_param": {
-                    "type": "ERR"
-                }
-            }
-        },
         "next": [
             "检查分辨率",
             "检查主界面",

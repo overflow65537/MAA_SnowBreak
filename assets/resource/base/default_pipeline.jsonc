@@ -1,3 +1,7 @@
 {
-    "Default": {}
+    "Default": {
+        "on_error": [
+            "返回主菜单_err"
+        ]
+    }
 }
