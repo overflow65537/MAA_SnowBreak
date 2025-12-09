@@ -30,6 +30,10 @@ def install_resource():
         working_dir / "logo.png",
         install_path / "logo.png",
     )
+    shutil.copy2(
+        working_dir / "update_flag.txt",
+        install_path / "update_flag.txt",
+    )
 
     # 删除指定文件,而非文件夹
     try:
