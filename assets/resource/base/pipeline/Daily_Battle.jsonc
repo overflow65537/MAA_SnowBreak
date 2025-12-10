@@ -650,7 +650,7 @@
     },
     "活动关闭": {
         "focus": {
-            "succeeded": "活动已关闭"
+            "Node.Recognition.Succeeded": "活动已关闭"
         }
     },
     "检查活动区域内是否存在文字": {

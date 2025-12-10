@@ -46,13 +46,13 @@ def install_resource():
         pass
 
 
-    with open(install_path / "interface.jsonc", "r", encoding="utf-8") as f:
+    with open(install_path / "interface.json", "r", encoding="utf-8") as f:
         interface = jsonc.load(f)
 
     interface["version"] = version
     interface["title"] = f"MAA_snowbreak {version}"
 
-    with open(install_path / "interface.jsonc", "w", encoding="utf-8") as f:
+    with open(install_path / "interface.json", "w", encoding="utf-8") as f:
         jsonc.dump(interface, f, ensure_ascii=False, indent=4)
 
 

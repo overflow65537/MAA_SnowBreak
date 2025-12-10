@@ -97,7 +97,7 @@
     },
     "碎片不足": {
         "focus": {
-            "succeeded": "[color:Tomato]碎片不足[/color]"
+            "Node.Recognition.Succeeded": "[color:Tomato]碎片不足[/color]"
         },
         "action": {
             "type": "Custom",

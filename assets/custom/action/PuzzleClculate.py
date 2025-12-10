@@ -636,7 +636,7 @@ class PuzzleClculate(CustomAction):
 
     def custom_notify(self, context: Context, msg: str):
         """自定义通知"""
-        context.override_pipeline({"custom通知": {"focus": {"succeeded": msg}}})
+        context.override_pipeline({"custom通知": {"focus": {"Node.Recognition.Succeeded": msg}}})
         context.run_task("custom通知")
 
     def parse_puzzle_layout(self, recognition_data: RecognitionDetail):

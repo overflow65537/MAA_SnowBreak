@@ -46,7 +46,7 @@
     },
     "提示分辨率错误": {
         "focus": {
-            "succeeded": "[color:Tomato]分辨率错误,请设置为1280*720 240DPI[/color]"
+            "Node.Recognition.Succeeded": "[color:Tomato]分辨率错误,请设置为1280*720 240DPI[/color]"
         },
         "post_delay": 5000,
         "next": [
@@ -168,7 +168,7 @@
     "服务器错误提示": {
         "post_delay": 99999999,
         "focus": {
-            "succeeded": "[color:Tomato]服务器错误,请选择所在服务器[/color]"
+            "Node.Recognition.Succeeded": "[color:Tomato]服务器错误,请选择所在服务器[/color]"
         }
     },
     "空任务": {},
