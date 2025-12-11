@@ -4,6 +4,7 @@
             "选择人物",
             "[JumpBack]关闭奖励通知",
             "[JumpBack]个人故事_滑动",
+            "未找到人物",
             "[JumpBack]个人故事",
             "[JumpBack]打开战斗"
         ]
@@ -246,6 +247,7 @@
         }
     },
     "个人故事_滑动": {
+        "max_hit": 20,
         "post_wait_freezes": 500,
         "recognition": {
             "type": "OCR",
@@ -275,27 +277,27 @@
                     0
                 ]
             }
+        }
+    },
+    "未找到人物": {
+        "focus": {
+            "Node.Recognition.Succeeded": "未找到人物"
+        },
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    500,
+                    659,
+                    291,
+                    35
+                ],
+                "expected": "个人故事"
+            }
         },
         "next": [
-            "滑动计数"
+            "返回主菜单"
         ]
-    },
-    "滑动计数": {
-        "action": {
-            "type": "Custom",
-            "param": {
-                "custom_action": "Count",
-                "custom_action_param": {
-                    "self": "滑动计数",
-                    "count": 0,
-                    "target_count": 50,
-                    "next_node": [
-                        "返回主菜单",
-                        "停止任务"
-                    ]
-                }
-            }
-        }
     },
     "停止任务": {
         "focus": {
