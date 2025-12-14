@@ -33,10 +33,12 @@
     "task": [
         {
             "name": "启动",
+            "default_check": true,
             "entry": "启动"
         },
         {
             "name": "赠送感知",
+            "default_check": true,
             "entry": "赠送感知",
             "description": "<p>赠送感知</p><p>速通周期:每天5点后刷新一次</p>",
             "speedrun": {
@@ -53,6 +55,7 @@
         },
         {
             "name": "邮件",
+            "default_check": true,
             "entry": "邮件",
             "description": "<p>领取邮件</p><p>速通周期:每天5点后刷新一次</p>",
             "speedrun": {
@@ -69,6 +72,7 @@
         },
         {
             "name": "商店",
+            "default_check": true,
             "entry": "商店",
             "description": "<p>购买物品</p><p>速通周期:每天5点后刷新一次</p>",
             "option": [
@@ -88,6 +92,7 @@
         },
         {
             "name": "领取体力",
+            "default_check": true,
             "entry": "体力",
             "description": "<p>领取体力</p><p>速通周期:每天5点后刷新一次</p>",
             "speedrun": {
@@ -104,6 +109,7 @@
         },
         {
             "name": "升级枪械",
+            "default_check": true,
             "entry": "升级枪械",
             "description": "<p>升级枪械</p><p>速通周期:每天5点后刷新一次</p>",
             "speedrun": {
@@ -120,6 +126,7 @@
         },
         {
             "name": "精神拟境",
+            "default_check": true,
             "entry": "精神拟境",
             "description": "<p>精神拟境</p><p>速通周期:每周二5点后刷新2次,任务间隔24小时</p>",
             "speedrun": {
@@ -140,6 +147,7 @@
         },
         {
             "name": "战斗任务",
+            "default_check": true,
             "entry": "战斗",
             "option": [
                 "作战关卡",
@@ -149,6 +157,7 @@
         },
         {
             "name": "刷天启碎片",
+            "default_check": true,
             "entry": "刷碎片",
             "description": "<p>刷天启碎片</p><p>速通周期:每天5点后刷新一次</p>",
             "pipeline_override": {
@@ -180,10 +189,12 @@
         },
         {
             "name": "领取奖励",
+            "default_check": true,
             "entry": "任务"
         },
         {
             "name": "新星开拓任务",
+            "default_check": true,
             "entry": "新星开拓任务",
             "description": "<p>新星开拓任务</p><p>速通周期:每天5点后刷新一次</p>",
             "speedrun": {
@@ -200,6 +211,7 @@
         },
         {
             "name": "收取信源碎片",
+            "default_check": true,
             "entry": "收取碎片",
             "description": "<p>收取信源碎片</p><p>速通周期:每天5点后刷新一次</p>",
             "speedrun": {
@@ -216,6 +228,7 @@
         },
         {
             "name": "赠送碎片",
+            "default_check": true,
             "entry": "赠送碎片",
             "option": [
                 "是否进行信源回收"
@@ -239,6 +252,7 @@
         },
         {
             "name": "信源研析",
+            "default_check": true,
             "entry": "基地拼图",
             "description": "<p>注意: 需要保证出生地为大厅</p><p>信源研析:每周二5点后刷新2次,任务间隔24小时</p>",
             "speedrun": {
@@ -259,6 +273,7 @@
         },
         {
             "name": "关闭游戏",
+            "default_check": true,
             "entry": "关闭游戏"
         },
         {
