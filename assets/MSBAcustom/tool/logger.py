@@ -1,6 +1,7 @@
 import logging
 from logging.handlers import TimedRotatingFileHandler
 from pathlib import Path
+from datetime import datetime, timedelta
 
 class Logger:
     def __init__(self,  name: str = ""):
@@ -13,6 +14,7 @@ class Logger:
         """
         self.name = name
         self.logger = self._create_logger()
+        self._clear_old_logs()
     
     def _create_logger(self):
         """
@@ -60,6 +62,31 @@ class Logger:
         logger.addHandler(stream_handler)
         
         return logger
+    
+    def _clear_old_logs(self):
+        """
+        清理3天前的旧日志文件
+        支持清理 custom_YYYYMMDD.log 格式的日志文件
+        """
+        debug_dir = Path("debug")
+        if not debug_dir.is_dir():
+            return
+        
+        three_days_ago = datetime.now() - timedelta(days=3)
+        for file in debug_dir.iterdir():
+            if file.is_file() and file.name.startswith("custom_") and file.name.endswith(".log"):
+                try:
+                    # 尝试从文件名中提取日期
+                    timestamp_str = file.name.split("_")[1].split(".")[0]
+                    file_time = datetime.strptime(timestamp_str, "%Y%m%d")
+                    if file_time < three_days_ago:
+                        file.unlink()
+                        self.logger.info(f"已删除过期日志文件: {file}")
+                except (ValueError, IndexError):
+                    # 如果文件名格式不正确，跳过
+                    pass
+                except Exception as e:
+                    self.logger.error(f"处理文件 {file.name} 时出错: {e}")
     
     def __del__(self):
         """

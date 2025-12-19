@@ -7,7 +7,7 @@
     "contact": "QQ群: 980583911；B站：https://space.bilibili.com/2626235",
     "mirrorchyan_rid": "MAA_SnowBreak",
     "welcome": "./README.md",
-    "custom": "./custom/custom.json",
+    "custom": "./MSBAcustom/custom.json",
     "icon": "./logo.png",
     "controller": [
         {

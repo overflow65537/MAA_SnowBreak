@@ -26,7 +26,6 @@ MAA_SnowBreak 寻找最大值
 
 from maa.context import Context
 from maa.custom_recognition import CustomRecognition
-import json
 
 
 class GetingMax(CustomRecognition):
