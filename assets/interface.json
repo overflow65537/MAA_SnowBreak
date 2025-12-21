@@ -389,7 +389,7 @@
                 {
                     "name": "角色名",
                     "description": "<p>请输入角色名，例如：霆光。</p>",
-                    "default": "霆光",
+                    "default": "灵鉴",
                     "pipeline_type": "string"
                 }
             ],
@@ -1218,27 +1218,6 @@
                                     ],
                                     "expected": [
                                         "星彩"
-                                    ]
-                                }
-                            }
-                        }
-                    }
-                },
-                {
-                    "name": "霆光晴",
-                    "pipeline_override": {
-                        "选择人物": {
-                            "recognition": {
-                                "type": "OCR",
-                                "param": {
-                                    "roi": [
-                                        30,
-                                        87,
-                                        975,
-                                        525
-                                    ],
-                                    "expected": [
-                                        "霆光"
                                     ]
                                 }
                             }
