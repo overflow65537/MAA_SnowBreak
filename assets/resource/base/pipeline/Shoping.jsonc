@@ -6,9 +6,12 @@
             "[JumpBack]打开商店"
         ]
     },
-    "切换商店1": {
+    "切换商店一级级菜单": {
+        "max_hit": 1,
         "enabled": false,
-        "pre_delay": 2000,
+        "post_wait_freezes": {
+            "time": 1000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -23,10 +26,12 @@
         "action": {
             "type": "Click"
         },
-        "post_delay": 1000,
-        "next": ["切换商店2"]
+        "next": [
+            "切换商店二级菜单"
+        ]
     },
-    "切换商店2": {
+    "切换商店二级菜单": {
+        "max_hit": 1,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -41,8 +46,9 @@
         "action": {
             "type": "Click"
         },
-        "post_delay": 1000,
-        "next": ["在商店内0"]
+        "next": [
+            "在常规物资商店"
+        ]
     },
     "在商店内": {
         "recognition": {
@@ -58,11 +64,11 @@
             }
         },
         "next": [
-            "切换商店1",
-            "在商店内0"
+            "切换商店一级级菜单",
+            "在常规物资商店"
         ]
     },
-    "在商店内0": {
+    "在常规物资商店": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -143,8 +149,11 @@
                     51
                 ],
                 "expected": [
-                    "售罄",
-                    "售馨"
+                    "售罄"
+                ],
+                "replace": [
+                    "罄",
+                    "馨"
                 ]
             }
         },
@@ -487,8 +496,11 @@
                     51
                 ],
                 "expected": [
-                    "售罄",
-                    "售馨"
+                    "售罄"
+                ],
+                "replace": [
+                    "罄",
+                    "馨"
                 ]
             }
         },
@@ -605,8 +617,11 @@
                     51
                 ],
                 "expected": [
-                    "售罄",
-                    "售馨"
+                    "售罄"
+                ],
+                "replace": [
+                    "罄",
+                    "馨"
                 ]
             }
         },
