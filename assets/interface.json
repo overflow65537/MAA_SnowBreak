@@ -1183,6 +1183,27 @@
                     ]
                 },
                 {
+                    "name": "灵鉴卜卜",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "灵鉴"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
                     "name": "星彩米娅",
                     "pipeline_override": {
                         "选择人物": {
