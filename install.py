@@ -65,6 +65,14 @@ def install_chores():
         working_dir / "LICENSE",
         install_path,
     )
+    shutil.copy2(
+        working_dir / "DISCLAIMER.md",
+        install_path,
+    )
+    shutil.copy2(
+        working_dir / "CONTACT.md",
+        install_path,
+    )
 
 
 if __name__ == "__main__":
