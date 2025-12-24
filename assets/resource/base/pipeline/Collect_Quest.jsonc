@@ -38,7 +38,10 @@
         ]
     },
     "返回主菜单_任务": {
-        "post_wait_freezes": 1000,
+        "post_wait_freezes": {
+            "time": 1000,
+            "timeout": 5000
+        },
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -85,7 +88,10 @@
         ]
     },
     "一键领取_日常": {
-        "post_wait_freezes": 1000,
+        "post_wait_freezes": {
+            "time": 1000,
+            "timeout": 5000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -109,7 +115,10 @@
         ]
     },
     "一键领取_定期": {
-        "post_wait_freezes": 1000,
+        "post_wait_freezes": {
+            "time": 1000,
+            "timeout": 5000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -133,7 +142,10 @@
         ]
     },
     "打开任务": {
-        "post_wait_freezes": 1000,
+        "post_wait_freezes": {
+            "time": 1000,
+            "timeout": 5000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -151,7 +163,10 @@
         }
     },
     "切换到日常任务": {
-        "post_wait_freezes": 1000,
+        "post_wait_freezes": {
+            "time": 1000,
+            "timeout": 5000
+        },
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -184,7 +199,10 @@
         ]
     },
     "返回主菜单_活动任务": {
-        "post_wait_freezes": 1000,
+        "post_wait_freezes": {
+            "time": 1000,
+            "timeout": 5000
+        },
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -231,7 +249,10 @@
         ]
     },
     "一键领取活动任务": {
-        "post_wait_freezes": 1000,
+        "post_wait_freezes": {
+            "time": 1000,
+            "timeout": 5000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -249,10 +270,7 @@
         },
         "action": {
             "type": "Click"
-        },
-        "next": [
-            "已经打开活动战斗界面"
-        ]
+        }
     },
     "已经打开活动战斗界面": {
         "inverse": true,
@@ -269,15 +287,14 @@
             }
         },
         "next": [
-            "打开活动任务",
-            "打开活动任务2",
-            "一键领取活动任务",
-            "返回主菜单_活动任务",
-            "[JumpBack]关闭奖励通知"
+            "打开活动任务"
         ]
     },
     "打开活动任务2": {
-        "post_wait_freezes": 1000,
+        "post_wait_freezes": {
+            "time": 1000,
+            "timeout": 5000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -289,18 +306,29 @@
                 ],
                 "expected": [
                     "抽丝剥茧",
+                    "破障前行",
                     "任务"
                 ]
             }
         }
     },
     "打开活动任务": {
-        "post_wait_freezes": 1000,
+        "post_wait_freezes": {
+            "time": 1000,
+            "timeout": 5000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
+                "roi": [
+                    21,
+                    630,
+                    471,
+                    87
+                ],
                 "expected": [
-                    "任务(?!完成|完)"
+                    "任务",
+                    "破障前行"
                 ]
             }
         },
@@ -308,7 +336,9 @@
             "type": "Click"
         },
         "next": [
-            "已经打开活动战斗界面"
+            "[JumpBack]一键领取活动任务",
+            "返回主菜单_活动任务",
+            "[JumpBack]关闭奖励通知"
         ]
     }
 }

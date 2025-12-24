@@ -310,7 +310,10 @@
         }
     },
     "进入信源回收": {
-        "post_wait_freezes": 1000,
+        "post_wait_freezes": {
+            "time": 1000,
+            "timeout": 5000
+        },
         "recognition": {
             "type": "OCR",
             "param": {

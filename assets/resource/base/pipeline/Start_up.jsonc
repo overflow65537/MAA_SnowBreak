@@ -71,7 +71,10 @@
         }
     },
     "意外点击_公告": {
-        "post_wait_freezes": 1000,
+        "post_wait_freezes": {
+            "time": 1000,
+            "timeout": 5000
+        },
         "recognition": {
             "type": "TemplateMatch",
             "param": {

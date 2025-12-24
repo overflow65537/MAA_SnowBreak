@@ -630,7 +630,10 @@
         ]
     },
     "进入活动": {
-        "post_wait_freezes": 1000,
+        "post_wait_freezes": {
+            "time": 1000,
+            "timeout": 5000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -654,7 +657,10 @@
         }
     },
     "检查活动区域内是否存在文字": {
-        "post_wait_freezes": 1000,
+        "post_wait_freezes": {
+            "time": 1000,
+            "timeout": 5000
+        },
         "recognition": {
             "type": "OCR",
             "param": {

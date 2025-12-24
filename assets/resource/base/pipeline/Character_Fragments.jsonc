@@ -140,7 +140,10 @@
         ]
     },
     "使用记忆嵌片": {
-        "post_wait_freezes": 1000,
+        "post_wait_freezes": {
+            "time": 1000,
+            "timeout": 5000
+        },
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -188,7 +191,10 @@
         }
     },
     "速战_碎片": {
-        "post_wait_freezes": 1000,
+        "post_wait_freezes": {
+            "time": 1000,
+            "timeout": 5000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
