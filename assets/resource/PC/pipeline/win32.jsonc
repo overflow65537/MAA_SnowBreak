@@ -51,5 +51,73 @@
                 ]
             }
         }
+    },
+    "进入深渊作战_滑动": {
+        "action": {
+            "type": "Scroll",
+            "param": {
+                "dy": -2500
+            }
+        }
+    },
+    "个人故事_滑动": {
+        "action": {
+            "type": "Scroll",
+            "param": {
+                "dy": -2500
+            }
+        }
+    },
+    "作战_滑动": {
+        "action": {
+            "type": "Scroll",
+            "param": {
+                "dy": -2500
+            }
+        }
+    },
+    "反向滑动_个人故事": {
+        "action": {
+            "type": "Scroll",
+            "param": {
+                "dy": 2500
+            }
+        }
+    },
+    "记忆嵌片不足": {
+        "recognition": {
+            "param": {
+                "roi": [
+                    980,
+                    24,
+                    47,
+                    25
+                ]
+            }
+        }
+    },
+    "使用记忆嵌片": {
+        "action": {
+            "param": {
+                "target_offset": [
+                    115,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        }
+    },
+    "记忆嵌片补充": {
+        "recognition": {
+            "param": {
+                "roi": [
+                    979,
+                    23,
+                    47,
+                    25
+                ]
+            }
+        }
     }
 }
