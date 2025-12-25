@@ -1,0 +1,7 @@
+{
+    "启动应用": {
+        "action": {
+            "type": "DoNothing"
+        }
+    }
+}
