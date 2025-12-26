@@ -13,7 +13,20 @@
     "controller": [
         {
             "name": "Adb控制器",
+            "description": "<p>仅支持安卓模拟器</p>",
             "type": "Adb"
+        },
+        {
+            "name": "Win32控制器",
+            "description": "<p>仅支持PC版</p>",
+            "type": "Win32",
+            "win32": {
+                "class_regex": ".*",
+                "window_regex": "^尘白禁区$",
+                "screencap": "PrintWindow",
+                "mouse": "SendMessageWithCursorPos",
+                "keyboard": "Seize"
+            }
         }
     ],
     "resource": [
@@ -21,6 +34,19 @@
             "name": "官服",
             "path": [
                 "./resource/base"
+            ],
+            "controller": [
+                "Adb控制器"
+            ]
+        },
+        {
+            "name": "桌面端",
+            "path": [
+                "./resource/base",
+                "./resource/PC"
+            ],
+            "controller": [
+                "Win32控制器"
             ]
         },
         {
@@ -28,6 +54,9 @@
             "path": [
                 "./resource/base",
                 "./resource/bilibili"
+            ],
+            "controller": [
+                "Adb控制器"
             ]
         }
     ],
@@ -1461,7 +1490,7 @@
                     "pipeline_override": {
                         "选择人物": {
                             "recognition": {
-                                "type": "TemplateMatch",
+                                "type": "OCR",
                                 "param": {
                                     "roi": [
                                         30,
@@ -1469,19 +1498,8 @@
                                         975,
                                         525
                                     ],
-                                    "template": "刷碎片/驰掣芙提雅.png",
-                                    "green_mask": true
-                                }
-                            }
-                        },
-                        "次数不足": {
-                            "recognition": {
-                                "param": {
-                                    "roi_offset": [
-                                        240,
-                                        0,
-                                        -150,
-                                        -420
+                                    "expected": [
+                                        "驰掣"
                                     ]
                                 }
                             }
@@ -1514,7 +1532,7 @@
                     "pipeline_override": {
                         "选择人物": {
                             "recognition": {
-                                "type": "TemplateMatch",
+                                "type": "OCR",
                                 "param": {
                                     "roi": [
                                         30,
@@ -1522,19 +1540,8 @@
                                         975,
                                         525
                                     ],
-                                    "template": "刷碎片/朝翼凯茜娅.png",
-                                    "green_mask": true
-                                }
-                            }
-                        },
-                        "次数不足": {
-                            "recognition": {
-                                "param": {
-                                    "roi_offset": [
-                                        240,
-                                        0,
-                                        -150,
-                                        -420
+                                    "expected": [
+                                        "朝翼"
                                     ]
                                 }
                             }
@@ -1567,7 +1574,7 @@
                     "pipeline_override": {
                         "选择人物": {
                             "recognition": {
-                                "type": "TemplateMatch",
+                                "type": "OCR",
                                 "param": {
                                     "roi": [
                                         30,
@@ -1575,19 +1582,8 @@
                                         975,
                                         525
                                     ],
-                                    "template": "刷碎片/辉耀芬妮.png",
-                                    "green_mask": true
-                                }
-                            }
-                        },
-                        "次数不足": {
-                            "recognition": {
-                                "param": {
-                                    "roi_offset": [
-                                        240,
-                                        0,
-                                        -150,
-                                        -420
+                                    "expected": [
+                                        "辉耀"
                                     ]
                                 }
                             }
@@ -1643,7 +1639,7 @@
                     "pipeline_override": {
                         "选择人物": {
                             "recognition": {
-                                "type": "TemplateMatch",
+                                "type": "OCR",
                                 "param": {
                                     "roi": [
                                         30,
@@ -1651,19 +1647,18 @@
                                         975,
                                         525
                                     ],
-                                    "template": "刷碎片/恩雅羽蜕.png",
-                                    "green_mask": true
-                                }
-                            }
-                        },
-                        "次数不足": {
-                            "recognition": {
-                                "param": {
-                                    "roi_offset": [
-                                        240,
-                                        0,
-                                        -150,
-                                        -420
+                                    "expected": [
+                                        "羽蜕"
+                                    ],
+                                    "replace": [
+                                        [
+                                            "锐",
+                                            "蜕"
+                                        ],
+                                        [
+                                            "帜",
+                                            "蜕"
+                                        ]
                                     ]
                                 }
                             }
@@ -1675,7 +1670,7 @@
                     "pipeline_override": {
                         "选择人物": {
                             "recognition": {
-                                "type": "TemplateMatch",
+                                "type": "OCR",
                                 "param": {
                                     "roi": [
                                         30,
@@ -1683,19 +1678,30 @@
                                         975,
                                         525
                                     ],
-                                    "template": "刷碎片/琴诺悖谬.png",
-                                    "green_mask": true
-                                }
-                            }
-                        },
-                        "次数不足": {
-                            "recognition": {
-                                "param": {
-                                    "roi_offset": [
-                                        240,
-                                        0,
-                                        -150,
-                                        -420
+                                    "expected": [
+                                        "悖谬"
+                                    ],
+                                    "replace": [
+                                        [
+                                            "谬",
+                                            "悖谬"
+                                        ],
+                                        [
+                                            "送",
+                                            "谬"
+                                        ],
+                                        [
+                                            "传",
+                                            "悖"
+                                        ],
+                                        [
+                                            "专",
+                                            "悖"
+                                        ],
+                                        [
+                                            "读",
+                                            "悖"
+                                        ]
                                     ]
                                 }
                             }
@@ -1728,7 +1734,7 @@
                     "pipeline_override": {
                         "选择人物": {
                             "recognition": {
-                                "type": "TemplateMatch",
+                                "type": "OCR",
                                 "param": {
                                     "roi": [
                                         30,
@@ -1736,19 +1742,8 @@
                                         975,
                                         525
                                     ],
-                                    "template": "刷碎片/蓝闪凯茜娅.png",
-                                    "green_mask": true
-                                }
-                            }
-                        },
-                        "次数不足": {
-                            "recognition": {
-                                "param": {
-                                    "roi_offset": [
-                                        240,
-                                        0,
-                                        -150,
-                                        -420
+                                    "expected": [
+                                        "蓝闪"
                                     ]
                                 }
                             }
@@ -1865,7 +1860,7 @@
                     "pipeline_override": {
                         "选择人物": {
                             "recognition": {
-                                "type": "TemplateMatch",
+                                "type": "OCR",
                                 "param": {
                                     "roi": [
                                         30,
@@ -1873,19 +1868,14 @@
                                         975,
                                         525
                                     ],
-                                    "template": "刷碎片/咎冠芬妮.png",
-                                    "green_mask": true
-                                }
-                            }
-                        },
-                        "次数不足": {
-                            "recognition": {
-                                "param": {
-                                    "roi_offset": [
-                                        240,
-                                        0,
-                                        -150,
-                                        -420
+                                    "expected": [
+                                        "咎冠"
+                                    ],
+                                    "replace": [
+                                        [
+                                            "答",
+                                            "咎"
+                                        ]
                                     ]
                                 }
                             }
@@ -1897,7 +1887,7 @@
                     "pipeline_override": {
                         "选择人物": {
                             "recognition": {
-                                "type": "TemplateMatch",
+                                "type": "OCR",
                                 "param": {
                                     "roi": [
                                         30,
@@ -1905,19 +1895,12 @@
                                         975,
                                         525
                                     ],
-                                    "template": "刷碎片/缄默芙提雅.png",
-                                    "green_mask": true
-                                }
-                            }
-                        },
-                        "次数不足": {
-                            "recognition": {
-                                "param": {
-                                    "roi_offset": [
-                                        240,
-                                        0,
-                                        -150,
-                                        -420
+                                    "expected": [
+                                        "缄默"
+                                    ],
+                                    "replace": [
+                                        "默",
+                                        "缄默"
                                     ]
                                 }
                             }
@@ -1929,7 +1912,7 @@
                     "pipeline_override": {
                         "选择人物": {
                             "recognition": {
-                                "type": "TemplateMatch",
+                                "type": "OCR",
                                 "param": {
                                     "roi": [
                                         30,
@@ -1937,19 +1920,8 @@
                                         975,
                                         525
                                     ],
-                                    "template": "刷碎片/狂猎里芙.png",
-                                    "green_mask": true
-                                }
-                            }
-                        },
-                        "次数不足": {
-                            "recognition": {
-                                "param": {
-                                    "roi_offset": [
-                                        240,
-                                        0,
-                                        -150,
-                                        -420
+                                    "expected": [
+                                        "狂猎"
                                     ]
                                 }
                             }
@@ -1961,7 +1933,7 @@
                     "pipeline_override": {
                         "选择人物": {
                             "recognition": {
-                                "type": "TemplateMatch",
+                                "type": "OCR",
                                 "param": {
                                     "roi": [
                                         30,
@@ -1969,19 +1941,8 @@
                                         975,
                                         525
                                     ],
-                                    "template": "刷碎片/雨燕茉莉安.png",
-                                    "green_mask": true
-                                }
-                            }
-                        },
-                        "次数不足": {
-                            "recognition": {
-                                "param": {
-                                    "roi_offset": [
-                                        240,
-                                        0,
-                                        -150,
-                                        -420
+                                    "expected": [
+                                        "雨燕"
                                     ]
                                 }
                             }
