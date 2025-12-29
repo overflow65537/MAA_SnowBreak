@@ -1,41 +1,123 @@
 {
     "任务": {
         "next": [
-            "[JumpBack]切换到日常任务",
-            "[JumpBack]一键领取_日常",
-            "领取定期任务",
+            "[JumpBack]日常任务",
+            "[JumpBack]定期任务",
             "[JumpBack]账号等级提升",
             "[JumpBack]关闭奖励通知",
-            "[JumpBack]打开任务"
+            "[JumpBack]打开任务",
+            "返回主菜单_任务"
         ]
     },
-    "领取定期任务": {
+    "日常任务": {
+        "max_hit": 1,
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 2000
+        },
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
                 "roi": [
-                    0,
-                    136,
-                    283,
-                    155
+                    8,
+                    68,
+                    121,
+                    57
                 ],
-                "template": "任务/切换定期任务.png"
+                "expected": "日常"
             }
         },
         "action": {
             "type": "Click"
         },
         "next": [
-            "领取定期任务_next"
+            "[JumpBack]没点击到日常任务",
+            "一键领取",
+            "空任务"
         ]
     },
-    "领取定期任务_next": {
+    "没点击到日常任务": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    7,
+                    67,
+                    143,
+                    56
+                ],
+                "lower": [
+                    122,
+                    125,
+                    140
+                ],
+                "upper": [
+                    134,
+                    137,
+                    149
+                ],
+                "count": 500,
+                "connected": true
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "定期任务": {
+        "max_hit": 1,
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 2000
+        },
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    9,
+                    142,
+                    138,
+                    57
+                ],
+                "expected": "定期"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
         "next": [
-            "一键领取_定期",
-            "返回主菜单_任务",
-            "[JumpBack]账号等级提升",
-            "[JumpBack]关闭奖励通知"
+            "[JumpBack]没点击到定期任务",
+            "一键领取",
+            "空任务"
         ]
+    },
+    "没点击到定期任务": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    9,
+                    142,
+                    138,
+                    57
+                ],
+                "lower": [
+                    122,
+                    125,
+                    140
+                ],
+                "upper": [
+                    134,
+                    137,
+                    149
+                ],
+                "count": 500,
+                "connected": true
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "返回主菜单_任务": {
         "post_wait_freezes": {
@@ -87,57 +169,6 @@
             "活动任务"
         ]
     },
-    "一键领取_日常": {
-        "post_wait_freezes": {
-            "time": 1000,
-            "timeout": 5000
-        },
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    0,
-                    574,
-                    258,
-                    146
-                ],
-                "expected": [
-                    "一键领取",
-                    "键领取"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        }
-    },
-    "一键领取_定期": {
-        "post_wait_freezes": {
-            "time": 1000,
-            "timeout": 5000
-        },
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    0,
-                    574,
-                    258,
-                    146
-                ],
-                "expected": [
-                    "一键领取",
-                    "键领取"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "领取定期任务_next"
-        ]
-    },
     "打开任务": {
         "post_wait_freezes": {
             "time": 1000,
@@ -153,30 +184,6 @@
                     130
                 ],
                 "expected": "^任务$"
-            }
-        },
-        "action": {
-            "type": "Click"
-        }
-    },
-    "切换到日常任务": {
-        "post_wait_freezes": {
-            "time": 1000,
-            "timeout": 5000
-        },
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    0,
-                    38,
-                    268,
-                    158
-                ],
-                "template": [
-                    "任务/切换日常任务.png"
-                ],
-                "threshold": 0.9
             }
         },
         "action": {

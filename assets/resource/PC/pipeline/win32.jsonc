@@ -119,5 +119,55 @@
                 ]
             }
         }
+    },
+    "切换到日常任务": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    7,
+                    67,
+                    143,
+                    56
+                ],
+                "lower": [
+                    122,
+                    125,
+                    140
+                ],
+                "upper": [
+                    134,
+                    137,
+                    149
+                ],
+                "count": 500,
+                "connected": true
+            }
+        }
+    },
+    "领取定期任务": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    5,
+                    145,
+                    143,
+                    52
+                ],
+                "lower": [
+                    109,
+                    113,
+                    131
+                ],
+                "upper": [
+                    130,
+                    134,
+                    150
+                ],
+                "count": 500,
+                "connected": true
+            }
+        }
     }
 }
