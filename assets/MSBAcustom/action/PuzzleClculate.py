@@ -314,6 +314,10 @@ class PuzzleClculate(CustomAction):
         super().__init__()
         logger_instance = Logger(name="PuzzleClculate")
         self.logger = logger_instance.get_logger()
+        self.is_desktop = False
+        self.AREA = (382, 101, 656, 551)
+        self.ROW_Y = [109, 219, 328, 437, 547]
+        self.COL_X = [389, 497, 605, 714, 823, 932]
 
     def run(
         self, context: Context, argv: CustomAction.RunArg
@@ -322,6 +326,22 @@ class PuzzleClculate(CustomAction):
         PUZZLE_COUNT = [0] * 11
         self.logger.info("开始执行拼图计算任务")
         image = context.tasker.controller.post_screencap().wait().get()
+
+        is_desktop = context.run_recognition("识别桌面端_拼图", image)
+        if is_desktop:
+            if is_desktop.hit:
+                self.is_desktop = False
+                self.logger.info("当前环境为移动端")
+                self.AREA = (382, 101, 656, 551)
+                self.ROW_Y = [109, 219, 328, 437, 547]
+                self.COL_X = [389, 497, 605, 714, 823, 932]
+
+            else:
+                self.is_desktop = True
+                self.logger.info("当前环境为桌面端")
+                self.AREA = (434, 156, 526, 436)
+                self.ROW_Y = [157, 230, 310, 390, 480]
+                self.COL_X = [435, 520, 600, 680, 760, 840]
 
         # 识别拼图板
         self.logger.debug("尝试识别拼图板")
@@ -572,7 +592,9 @@ class PuzzleClculate(CustomAction):
 
     def custom_notify(self, context: Context, msg: str):
         """自定义通知"""
-        context.override_pipeline({"custom通知": {"focus": {"Node.Recognition.Succeeded": msg}}})
+        context.override_pipeline(
+            {"custom通知": {"focus": {"Node.Recognition.Succeeded": msg}}}
+        )
         context.run_task("custom通知")
 
     def parse_puzzle_layout(self, recognition_data: RecognitionDetail):
@@ -581,19 +603,15 @@ class PuzzleClculate(CustomAction):
         ROWS, COLS = 5, 6
         matrix = [[0] * COLS for _ in range(ROWS)]
 
-        # 坐标配置，确保行列索引正确
-        ROW_Y = [109, 219, 328, 437, 547]
-        COL_X = [389, 497, 605, 714, 823, 932]
-
         for item in recognition_data.filtered_results:
             x, y, w, h = item.box
 
             # 行列索引查找逻辑
             row_idx = next(
-                (i for i, ry in enumerate(ROW_Y) if ry - 50 <= y <= ry + 50), None
+                (i for i, ry in enumerate(self.ROW_Y) if ry - 50 <= y <= ry + 50), None
             )
             col_idx = next(
-                (i for i, cx in enumerate(COL_X) if cx - 50 <= x <= cx + 50), None
+                (i for i, cx in enumerate(self.COL_X) if cx - 50 <= x <= cx + 50), None
             )
 
             if row_idx is not None and col_idx is not None:
@@ -624,20 +642,19 @@ class PuzzleClculate(CustomAction):
 
     def convert_grid_to_coords(self, begin_pos, end_pos):
         """将网格坐标转换为屏幕坐标。"""
-        AREA = (382, 101, 656, 551)
 
         total_rows = 5
         total_cols = 6
 
         # 计算单个格子尺寸
-        cell_width = AREA[2] / total_cols
-        cell_height = AREA[3] / total_rows
+        cell_width = self.AREA[2] / total_cols
+        cell_height = self.AREA[3] / total_rows
 
         # 计算实际坐标范围
-        min_x = AREA[0] + begin_pos[1] * cell_width
-        max_x = AREA[0] + (end_pos[1] + 1) * cell_width
-        min_y = AREA[1] + begin_pos[0] * cell_height
-        max_y = AREA[1] + (end_pos[0] + 1) * cell_height
+        min_x = self.AREA[0] + begin_pos[1] * cell_width
+        max_x = self.AREA[0] + (end_pos[1] + 1) * cell_width
+        min_y = self.AREA[1] + begin_pos[0] * cell_height
+        max_y = self.AREA[1] + (end_pos[0] + 1) * cell_height
 
         # 返回中心点坐标（取整）
         return (int((min_x + max_x) / 2), int((min_y + max_y) / 2))

@@ -3,6 +3,7 @@
         "next": [
             "检查信源研析",
             "[JumpBack]点击卡罗琳",
+            "[JumpBack]左_基地拼图", //这个是PC的占位任务
             "[JumpBack]前进_基地拼图",
             "[JumpBack]打开基地"
         ]
@@ -33,10 +34,10 @@
             "type": "OCR",
             "param": {
                 "roi": [
-                    1171,
-                    533,
-                    65,
-                    35
+                    1148,
+                    501,
+                    114,
+                    118
                 ],
                 "expected": "重置"
             }
@@ -165,10 +166,10 @@
             "type": "OCR",
             "param": {
                 "roi": [
-                    1084,
-                    661,
-                    102,
-                    33
+                    1067,
+                    618,
+                    174,
+                    102
                 ],
                 "expected": "完成"
             }
@@ -202,10 +203,10 @@
             "type": "OCR",
             "param": {
                 "roi": [
-                    884,
-                    224,
-                    123,
-                    297
+                    858,
+                    198,
+                    262,
+                    376
                 ],
                 "expected": "信源研析"
             }
@@ -290,6 +291,31 @@
                     656,
                     551
                 ],
+                "count": 5000,
+                "connected": true,
+                "upper": [
+                    174,
+                    183,
+                    191
+                ],
+                "lower": [
+                    168,
+                    177,
+                    184
+                ]
+            }
+        }
+    },
+    "识别桌面端_拼图": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    382,
+                    101,
+                    656,
+                    551
+                ],
                 "count": 8500,
                 "connected": true,
                 "upper": [
@@ -310,10 +336,10 @@
             "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    50,
-                    102,
-                    294,
-                    544
+                    30,
+                    61,
+                    401,
+                    606
                 ],
                 "template": "拼图/1_up.png",
                 "green_mask": true,
@@ -345,10 +371,10 @@
             "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    50,
-                    102,
-                    294,
-                    544
+                    30,
+                    61,
+                    401,
+                    606
                 ],
                 "template": "拼图/2_up.png",
                 "green_mask": true,
@@ -380,10 +406,10 @@
             "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    50,
-                    102,
-                    294,
-                    544
+                    30,
+                    61,
+                    401,
+                    606
                 ],
                 "template": "拼图/3_up.png",
                 "green_mask": true,
@@ -415,10 +441,10 @@
             "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    50,
-                    102,
-                    294,
-                    544
+                    30,
+                    61,
+                    401,
+                    606
                 ],
                 "template": "拼图/4_up.png",
                 "green_mask": true,
@@ -450,10 +476,10 @@
             "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    50,
-                    102,
-                    294,
-                    544
+                    30,
+                    61,
+                    401,
+                    606
                 ],
                 "template": "拼图/5_up.png",
                 "green_mask": true,
@@ -485,10 +511,10 @@
             "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    50,
-                    102,
-                    294,
-                    544
+                    30,
+                    61,
+                    401,
+                    606
                 ],
                 "template": "拼图/6_up.png",
                 "green_mask": true,
@@ -520,10 +546,10 @@
             "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    50,
-                    102,
-                    294,
-                    544
+                    30,
+                    61,
+                    401,
+                    606
                 ],
                 "template": "拼图/7_up.png",
                 "green_mask": true,
@@ -555,10 +581,10 @@
             "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    50,
-                    102,
-                    294,
-                    544
+                    30,
+                    61,
+                    401,
+                    606
                 ],
                 "template": "拼图/8_up.png",
                 "green_mask": true,
@@ -590,10 +616,10 @@
             "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    50,
-                    102,
-                    294,
-                    544
+                    30,
+                    61,
+                    401,
+                    606
                 ],
                 "template": "拼图/9_up.png",
                 "green_mask": true,
@@ -625,10 +651,10 @@
             "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    50,
-                    102,
-                    294,
-                    544
+                    30,
+                    61,
+                    401,
+                    606
                 ],
                 "template": "拼图/10_up.png",
                 "green_mask": true,
@@ -660,10 +686,10 @@
             "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    50,
-                    102,
-                    294,
-                    544
+                    30,
+                    61,
+                    401,
+                    606
                 ],
                 "template": "拼图/11_up.png",
                 "green_mask": true,

@@ -253,10 +253,10 @@
             "param": {
                 "roi": "点击卡罗琳",
                 "roi_offset": [
-                    110,
-                    -10,
-                    0,
-                    20
+                    103,
+                    -7,
+                    -12,
+                    14
                 ],
                 "expected": [
                     "^F$"
@@ -300,6 +300,150 @@
                     220,
                     240
                 ]
+            }
+        }
+    },
+    "识别碎片1数量": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": "识别碎片1",
+                "roi_offset": [
+                    -25,
+                    65,
+                    -35,
+                    -45
+                ],
+                "expected": "^(100|[1-9]\\d?)$"
+            }
+        }
+    },
+    "识别碎片2数量": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": "识别碎片2",
+                "roi_offset": [
+                    -33,
+                    62,
+                    -14,
+                    -62
+                ],
+                "expected": "^(100|[1-9]\\d?)$"
+            }
+        }
+    },
+    "识别碎片3数量": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": "识别碎片3",
+                "roi_offset": [
+                    -8,
+                    66,
+                    -70,
+                    -49
+                ],
+                "expected": "^(100|[1-9]\\d?)$"
+            }
+        }
+    },
+    "识别碎片4数量": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": "识别碎片4",
+                "roi_offset": [
+                    -12,
+                    66,
+                    -60,
+                    -44
+                ],
+                "expected": "^(100|[1-9]\\d?)$"
+            }
+        }
+    },
+    "识别碎片5数量": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": "识别碎片5",
+                "roi_offset": [
+                    -21,
+                    76,
+                    -46,
+                    -70
+                ],
+                "expected": "^(100|[1-9]\\d?)$"
+            }
+        }
+    },
+    "识别碎片6数量": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": "识别碎片6",
+                "roi_offset": [
+                    -23,
+                    77,
+                    -37,
+                    -71
+                ],
+                "expected": "^(100|[1-9]\\d?)$"
+            }
+        }
+    },
+    "识别碎片7数量": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": "识别碎片7",
+                "roi_offset": [
+                    -4,
+                    72,
+                    -74,
+                    -54
+                ],
+                "expected": "^(100|[1-9]\\d?)$"
+            }
+        }
+    },
+    "识别碎片8数量": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": "识别碎片8",
+                "roi_offset": [
+                    -10,
+                    78,
+                    -64,
+                    -57
+                ],
+                "expected": "^(100|[1-9]\\d?)$"
+            }
+        }
+    },
+    "识别碎片9数量": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": "识别碎片9",
+                "roi_offset": [
+                    -30,
+                    54,
+                    -24,
+                    -22
+                ],
+                "expected": "^(100|[1-9]\\d?)$"
             }
         }
     }
