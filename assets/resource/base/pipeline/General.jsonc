@@ -179,5 +179,37 @@
         "action": {
             "type": "Click"
         }
+    },
+    "识别数据金": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    848,
+                    4,
+                    105,
+                    62
+                ],
+                "expected": [
+                    "\\d"
+                ]
+            }
+        }
+    },
+    "识别体力": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    441,
+                    12,
+                    53,
+                    42
+                ],
+                "expected": [
+                    "\\d"
+                ]
+            }
+        }
     }
 }

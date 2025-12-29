@@ -75,7 +75,6 @@ class Notice(CustomAction):
                 self.custom_notify(context, end_Currency)
                 self.custom_notify(context, "收益:")
                 self.custom_notify(context, str(profit))
-
                 self.custom_notify(context, "下次体力恢复时间:")
                 self.custom_notify(context, next_time.strftime("%Y-%m-%d %H:%M:%S"))
 

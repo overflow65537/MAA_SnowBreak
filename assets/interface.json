@@ -288,7 +288,7 @@
         {
             "name": "关闭游戏",
             "default_check": true,
-            "entry": "关闭游戏"
+            "entry": "结束"
         },
         {
             "name": "疗愈",
