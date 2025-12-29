@@ -1,0 +1,467 @@
+{
+    "启动应用": {
+        "action": {
+            "type": "DoNothing"
+        }
+    },
+    "检查测评次数": {
+        "recognition": {
+            "param": {
+                "roi": [
+                    1187,
+                    384,
+                    37,
+                    23
+                ]
+            }
+        }
+    },
+    "检查测评等级": {
+        "recognition": {
+            "param": {
+                "roi": [
+                    1147,
+                    315,
+                    90,
+                    65
+                ]
+            }
+        }
+    },
+    "检查测评等级_第二栏": {
+        "recognition": {
+            "param": {
+                "roi": [
+                    1147,
+                    315,
+                    90,
+                    65
+                ]
+            }
+        }
+    },
+    "检查活动区域内是否存在文字": {
+        "recognition": {
+            "param": {
+                "roi": [
+                    910,
+                    280,
+                    115,
+                    82
+                ]
+            }
+        }
+    },
+    "进入深渊作战_滑动": {
+        "action": {
+            "type": "Scroll",
+            "param": {
+                "dy": -2500
+            }
+        }
+    },
+    "个人故事_滑动": {
+        "action": {
+            "type": "Scroll",
+            "param": {
+                "dy": -2500
+            }
+        }
+    },
+    "作战_滑动": {
+        "action": {
+            "type": "Scroll",
+            "param": {
+                "dy": -2500
+            }
+        }
+    },
+    "反向滑动_个人故事": {
+        "action": {
+            "type": "Scroll",
+            "param": {
+                "dy": 2500
+            }
+        }
+    },
+    "记忆嵌片不足": {
+        "recognition": {
+            "param": {
+                "roi": [
+                    980,
+                    24,
+                    47,
+                    25
+                ]
+            }
+        }
+    },
+    "使用记忆嵌片": {
+        "action": {
+            "param": {
+                "target_offset": [
+                    115,
+                    0,
+                    0,
+                    0
+                ]
+            }
+        }
+    },
+    "记忆嵌片补充": {
+        "recognition": {
+            "param": {
+                "roi": [
+                    979,
+                    23,
+                    47,
+                    25
+                ]
+            }
+        }
+    },
+    "切换到日常任务": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    7,
+                    67,
+                    143,
+                    56
+                ],
+                "lower": [
+                    122,
+                    125,
+                    140
+                ],
+                "upper": [
+                    134,
+                    137,
+                    149
+                ],
+                "count": 500,
+                "connected": true
+            }
+        }
+    },
+    "领取定期任务": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    5,
+                    145,
+                    143,
+                    52
+                ],
+                "lower": [
+                    109,
+                    113,
+                    131
+                ],
+                "upper": [
+                    130,
+                    134,
+                    150
+                ],
+                "count": 500,
+                "connected": true
+            }
+        }
+    },
+    "点击地图": {
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 2000
+        },
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    0,
+                    0,
+                    95,
+                    102
+                ],
+                "expected": [
+                    "ESC",
+                    "Esc"
+                ]
+            }
+        },
+        "action": {
+            "type": "ClickKey",
+            "param": {
+                "key": 27
+            }
+        }
+    },
+    "前进_基地拼图": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    0,
+                    0,
+                    95,
+                    102
+                ],
+                "expected": [
+                    "ESC",
+                    "Esc"
+                ]
+            }
+        },
+        "action": {
+            "type": "LongPressKey",
+            "param": {
+                "key": 87,
+                "duration": 1000
+            }
+        }
+    },
+    "左_基地拼图": {
+        "enabled": true
+    },
+    "点击卡罗琳": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    618,
+                    340,
+                    289,
+                    224
+                ],
+                "expected": [
+                    "卡罗琳"
+                ]
+            }
+        },
+        "action": {
+            "type": "DoNothing"
+        },
+        "next": [
+            "确定位置",
+            "滚轮向下"
+        ]
+    },
+    "确定位置": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "点击卡罗琳",
+                "roi_offset": [
+                    103,
+                    -7,
+                    -12,
+                    14
+                ],
+                "expected": [
+                    "^F$"
+                ]
+            }
+        },
+        "action": {
+            "type": "ClickKey",
+            "param": {
+                "key": 70
+            }
+        }
+    },
+    "滚轮向下": {
+        "action": {
+            "type": "Scroll",
+            "param": {
+                "dy": 100
+            }
+        }
+    },
+    "赠送已满": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    924,
+                    683,
+                    40,
+                    16
+                ],
+                "count": 10,
+                "connected": true,
+                "upper": [
+                    190,
+                    240,
+                    255
+                ],
+                "lower": [
+                    180,
+                    220,
+                    240
+                ]
+            }
+        }
+    },
+    "识别碎片1数量": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": "识别碎片1",
+                "roi_offset": [
+                    -25,
+                    65,
+                    -35,
+                    -45
+                ],
+                "expected": "^(100|[1-9]\\d?)$"
+            }
+        }
+    },
+    "识别碎片2数量": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": "识别碎片2",
+                "roi_offset": [
+                    -33,
+                    62,
+                    -14,
+                    -62
+                ],
+                "expected": "^(100|[1-9]\\d?)$"
+            }
+        }
+    },
+    "识别碎片3数量": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": "识别碎片3",
+                "roi_offset": [
+                    -8,
+                    66,
+                    -70,
+                    -49
+                ],
+                "expected": "^(100|[1-9]\\d?)$"
+            }
+        }
+    },
+    "识别碎片4数量": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": "识别碎片4",
+                "roi_offset": [
+                    -12,
+                    66,
+                    -60,
+                    -44
+                ],
+                "expected": "^(100|[1-9]\\d?)$"
+            }
+        }
+    },
+    "识别碎片5数量": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": "识别碎片5",
+                "roi_offset": [
+                    -21,
+                    76,
+                    -46,
+                    -70
+                ],
+                "expected": "^(100|[1-9]\\d?)$"
+            }
+        }
+    },
+    "识别碎片6数量": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": "识别碎片6",
+                "roi_offset": [
+                    -23,
+                    77,
+                    -37,
+                    -71
+                ],
+                "expected": "^(100|[1-9]\\d?)$"
+            }
+        }
+    },
+    "识别碎片7数量": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": "识别碎片7",
+                "roi_offset": [
+                    -4,
+                    72,
+                    -74,
+                    -54
+                ],
+                "expected": "^(100|[1-9]\\d?)$"
+            }
+        }
+    },
+    "识别碎片8数量": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": "识别碎片8",
+                "roi_offset": [
+                    -10,
+                    78,
+                    -64,
+                    -57
+                ],
+                "expected": "^(100|[1-9]\\d?)$"
+            }
+        }
+    },
+    "识别碎片9数量": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": "识别碎片9",
+                "roi_offset": [
+                    -30,
+                    54,
+                    -24,
+                    -22
+                ],
+                "expected": "^(100|[1-9]\\d?)$"
+            }
+        }
+    },
+    "关闭游戏": {
+        "action": {
+            "type": "DoNothing"
+        },
+        "next": [
+            "确定",
+            "[JumpBack]按下ESC"
+        ]
+    },
+    "按下ESC": {
+        "action": {
+            "type": "ClickKey",
+            "param": {
+                "key": 27
+            }
+        }
+    }
+}
