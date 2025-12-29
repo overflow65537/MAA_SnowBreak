@@ -58,5 +58,10 @@
         "type": "recognition",
         "class": "CheckResolution",
         "file_path": "{custom_path}/recognition/CheckResolution.py"
+    },
+    "Notice": {
+        "type": "action",
+        "class": "Notice",
+        "file_path": "{custom_path}/action/Notice.py"
     }
 }

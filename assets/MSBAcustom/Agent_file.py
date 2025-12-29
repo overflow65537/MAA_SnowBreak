@@ -38,16 +38,26 @@ from action.PuzzleRecycle import PuzzleRecycle
 from Recognition.LogicalOperators import LOp
 from Recognition.GetingMax import GetingMax
 from Recognition.CheckResolution import CheckResolution
+from action.Notice import Notice
 
 
 @AgentServer.custom_action("PuzzleRecycle")
 class Agent_PuzzleRecycle(PuzzleRecycle):
     pass
+
+
 @AgentServer.custom_recognition("CheckResolution")
 class Agent_CheckResolution(CheckResolution):
     pass
+
+
 @AgentServer.custom_recognition("GetingMax")
 class Agent_GetingMax(GetingMax):
+    pass
+
+
+@AgentServer.custom_action("Notice")
+class Agent_Notice(Notice):
     pass
 
 

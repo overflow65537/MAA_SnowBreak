@@ -35,7 +35,20 @@
         {
             "name": "启动",
             "default_check": true,
-            "entry": "启动"
+            "entry": "启动",
+            "pipeline_override": {
+                "二次检测主界面": {
+                    "action": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_action": "Notice",
+                            "custom_action_param": {
+                                "action": "set_Currency"
+                            }
+                        }
+                    }
+                }
+            }
         },
         {
             "name": "赠送感知",
