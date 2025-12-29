@@ -13,10 +13,10 @@
             "type": "OCR",
             "param": {
                 "roi": [
-                    1013,
-                    480,
-                    55,
-                    41
+                    1012,
+                    439,
+                    119,
+                    78
                 ],
                 "expected": "基地"
             }
@@ -76,12 +76,11 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "only_rec": true,
                 "roi": [
-                    1034,
-                    22,
-                    52,
-                    27
+                    995,
+                    0,
+                    152,
+                    66
                 ],
                 "expected": "退出"
             }
@@ -119,12 +118,11 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "only_rec": true,
                 "roi": [
-                    983,
-                    678,
-                    39,
-                    23
+                    957,
+                    645,
+                    139,
+                    75
                 ],
                 "expected": "剩余"
             }

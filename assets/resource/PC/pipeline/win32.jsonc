@@ -169,5 +169,138 @@
                 "connected": true
             }
         }
+    },
+    "点击地图": {
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 2000
+        },
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    0,
+                    0,
+                    95,
+                    102
+                ],
+                "expected": [
+                    "ESC",
+                    "Esc"
+                ]
+            }
+        },
+        "action": {
+            "type": "ClickKey",
+            "param": {
+                "key": 27
+            }
+        }
+    },
+    "前进_基地拼图": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    0,
+                    0,
+                    95,
+                    102
+                ],
+                "expected": [
+                    "ESC",
+                    "Esc"
+                ]
+            }
+        },
+        "action": {
+            "type": "LongPressKey",
+            "param": {
+                "key": 87,
+                "duration": 1000
+            }
+        }
+    },
+    "左_基地拼图": {
+        "enabled": true
+    },
+    "点击卡罗琳": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    618,
+                    340,
+                    289,
+                    224
+                ],
+                "expected": [
+                    "卡罗琳"
+                ]
+            }
+        },
+        "action": {
+            "type": "DoNothing"
+        },
+        "next": [
+            "确定位置",
+            "滚轮向下"
+        ]
+    },
+    "确定位置": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "点击卡罗琳",
+                "roi_offset": [
+                    110,
+                    -10,
+                    0,
+                    20
+                ],
+                "expected": [
+                    "^F$"
+                ]
+            }
+        },
+        "action": {
+            "type": "ClickKey",
+            "param": {
+                "key": 70
+            }
+        }
+    },
+    "滚轮向下": {
+        "action": {
+            "type": "Scroll",
+            "param": {
+                "dy": 100
+            }
+        }
+    },
+    "赠送已满": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    924,
+                    683,
+                    40,
+                    16
+                ],
+                "count": 10,
+                "connected": true,
+                "upper": [
+                    190,
+                    240,
+                    255
+                ],
+                "lower": [
+                    180,
+                    220,
+                    240
+                ]
+            }
+        }
     }
 }

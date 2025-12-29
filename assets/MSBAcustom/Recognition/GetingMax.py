@@ -37,14 +37,24 @@ class GetingMax(CustomRecognition):
         image = argv.image
 
         roi_list = [
-            [34, 187, 30, 20],
-            [196, 187, 30, 20],
-            [34, 308, 30, 20],
-            [196, 308, 30, 20],
-            [34, 429, 30, 20],
-            [196, 429, 30, 20],
-            [34, 550, 30, 20],
-            [196, 550, 30, 20],
+            # 移动端
+            [34, 187, 30, 20],  # 1
+            [196, 187, 30, 20],  # 2
+            [34, 308, 30, 20],  # 3
+            [196, 308, 30, 20],  # 4
+            [34, 429, 30, 20],  # 5
+            [196, 429, 30, 20],  # 6
+            [34, 550, 30, 20],  # 7
+            [196, 550, 30, 20],  # 8
+            # PC端
+            [28, 147, 25, 21],  # 1
+            [164, 148, 25, 20],  # 2
+            [30, 245, 25, 20],  # 3
+            [166, 245, 22, 22],  # 4
+            [28, 339, 33, 25],  # 5
+            [164, 342, 24, 19],  # 6
+            [34, 439, 21, 22],  # 7
+            [161, 440, 28, 20],  # 8
         ]
         max_val = 0
         max_reco = None
@@ -63,5 +73,5 @@ class GetingMax(CustomRecognition):
         if max_reco is None:
             return None
         return CustomRecognition.AnalyzeResult(
-            box=max_reco.box, detail={"max":f"最大值为{max_reco.text}"}   # type: ignore
+            box=max_reco.box, detail={"max": f"最大值为{max_reco.text}"}  # type: ignore
         )

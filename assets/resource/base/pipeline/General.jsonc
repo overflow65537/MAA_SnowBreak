@@ -1,5 +1,9 @@
 {
     "关闭奖励通知": {
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
