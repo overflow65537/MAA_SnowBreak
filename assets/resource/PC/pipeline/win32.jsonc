@@ -446,5 +446,22 @@
                 "expected": "^(100|[1-9]\\d?)$"
             }
         }
+    },
+    "关闭游戏": {
+        "action": {
+            "type": "DoNothing"
+        },
+        "next": [
+            "确定",
+            "[JumpBack]按下ESC"
+        ]
+    },
+    "按下ESC": {
+        "action": {
+            "type": "ClickKey",
+            "param": {
+                "key": 27
+            }
+        }
     }
 }
