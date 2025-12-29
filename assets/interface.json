@@ -18,7 +18,7 @@
         },
         {
             "name": "Win32控制器",
-            "description": "<p>仅支持PC版</p>",
+            "description": "<p>仅支持PC版</p><p>需要管理员权限</p><p>只适配了日常</p>",
             "type": "Win32",
             "win32": {
                 "class_regex": ".*",
