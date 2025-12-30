@@ -7,13 +7,35 @@
             "[JumpBack]查看调理申请",
             "[JumpBack]选择人物_疗愈",
             "[JumpBack]打开健康管理本",
-            "[JumpBack]确定",
-            "[JumpBack]点击疗愈传送",
-            "[JumpBack]点击疗愈楼层",
-            "[JumpBack]点击地图",
-            "[JumpBack]打开基地",
+            "[JumpBack]点击疗愈中心",
+            "[JumpBack]点击基地趣游",
+            "[JumpBack]点击常驻活动",
+            "[JumpBack]点击活动",
             "[JumpBack]滑动_疗愈",
             "[JumpBack]反向滑动_疗愈"
+        ]
+    },
+    "点击疗愈中心": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    0,
+                    0,
+                    330,
+                    696
+                ],
+                "expected": [
+                    "疗愈中心"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "[JumpBack]进入基地趣游",
+            "空任务"
         ]
     },
     "反向滑动_疗愈": {
@@ -201,44 +223,6 @@
                 "expected": [
                     "健康管理本",
                     "神经调理"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        }
-    },
-    "点击疗愈楼层": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    11,
-                    160,
-                    146,
-                    185
-                ],
-                "template": [
-                    "疗愈/疗愈楼层.png"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        }
-    },
-    "点击疗愈传送": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    798,
-                    211,
-                    233,
-                    226
-                ],
-                "template": [
-                    "疗愈/疗愈传送.png"
                 ]
             }
         },
