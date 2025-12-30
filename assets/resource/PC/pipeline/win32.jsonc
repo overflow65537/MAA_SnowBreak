@@ -471,5 +471,29 @@
                 "key": 70
             }
         }
+    },
+    "1号位置": {
+        "action": {
+            "type": "ClickKey",
+            "param": {
+                "key": 81
+            }
+        }
+    },
+    "2号位置": {
+        "action": {
+            "type": "ClickKey",
+            "param": {
+                "key": 87
+            }
+        }
+    },
+    "3号位置": {
+        "action": {
+            "type": "ClickKey",
+            "param": {
+                "key": 69
+            }
+        }
     }
 }
