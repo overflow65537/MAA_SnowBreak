@@ -1,13 +1,7 @@
 {
     "酒馆": {
-        "timeout": 9000000,
         "next": [
-            "再来一局",
-            "[JumpBack]调速",
-            "[JumpBack]出牌阶段",
-            "[JumpBack]喝!",
-            "[JumpBack]对方回合_酒馆",
-            "[JumpBack]开始对局",
+            "开始对局",
             "[JumpBack]选择对局",
             "[JumpBack]点击猜心对局",
             "[JumpBack]点击暖调闲聚",
@@ -17,6 +11,7 @@
         ]
     },
     "开始对局": {
+        "timeout": 9000000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -28,12 +23,23 @@
                 ],
                 "expected": [
                     "开始对局"
+                ],
+                "replace": [
+                    "升",
+                    "开"
                 ]
             }
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "next": [
+            "再来一局",
+            "[JumpBack]调速",
+            "[JumpBack]出牌阶段",
+            "[JumpBack]喝!",
+            "[JumpBack]对方回合_酒馆"
+        ]
     },
     "选择对局": {
         "recognition": {

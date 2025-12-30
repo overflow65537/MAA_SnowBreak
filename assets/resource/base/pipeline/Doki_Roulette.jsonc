@@ -17,12 +17,9 @@
         ]
     },
     "心动水弹": {
-        "on_error": [
-            "心动水弹_err"
-        ],
-        "timeout": 60000,
         "next": [
-            "[JumpBack]心动水弹",
+            "开始心动水弹",
+            "[JumpBack]点击心动水弹",
             "[JumpBack]点击温泉中心",
             "[JumpBack]点击基地趣游",
             "[JumpBack]点击常驻活动",
@@ -69,18 +66,6 @@
         "next": [
             "[JumpBack]进入基地趣游",
             "空任务"
-        ]
-    },
-    "水弹主进程": {
-        "next": [
-            "[JumpBack]再来!",
-            "[JumpBack]切换倍数",
-            "[JumpBack]开始心动水弹",
-            "[JumpBack]我的回合",
-            "[JumpBack]对方回合",
-            "[JumpBack]收下道具",
-            "[JumpBack]意外点击_手套",
-            "[JumpBack]开枪!"
         ]
     },
     "意外点击_手套": {
@@ -196,7 +181,16 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "next": [
+            "[JumpBack]再来!",
+            "[JumpBack]切换倍数",
+            "[JumpBack]我的回合",
+            "[JumpBack]对方回合",
+            "[JumpBack]收下道具",
+            "[JumpBack]意外点击_手套",
+            "[JumpBack]开枪!"
+        ]
     },
     "对方回合": {
         "on_error": [
