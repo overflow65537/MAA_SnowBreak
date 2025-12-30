@@ -22,6 +22,57 @@
         ],
         "timeout": 60000,
         "next": [
+            "[JumpBack]心动水弹",
+            "[JumpBack]点击温泉中心",
+            "[JumpBack]点击基地趣游",
+            "[JumpBack]点击常驻活动",
+            "[JumpBack]点击活动"
+        ]
+    },
+    "点击心动水弹": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    631,
+                    320,
+                    277,
+                    293
+                ],
+                "expected": [
+                    "心动水弹"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "点击温泉中心": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    0,
+                    0,
+                    330,
+                    696
+                ],
+                "expected": [
+                    "温泉中心"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "[JumpBack]进入基地趣游",
+            "空任务"
+        ]
+    },
+    "水弹主进程": {
+        "next": [
             "[JumpBack]再来!",
             "[JumpBack]切换倍数",
             "[JumpBack]开始心动水弹",

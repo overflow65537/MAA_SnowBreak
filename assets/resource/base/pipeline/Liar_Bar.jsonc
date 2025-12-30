@@ -10,7 +10,6 @@
             "[JumpBack]开始对局",
             "[JumpBack]选择对局",
             "[JumpBack]点击猜心对局",
-            "[JumpBack]进入基地趣游",
             "[JumpBack]点击暖调闲聚",
             "[JumpBack]点击基地趣游",
             "[JumpBack]点击常驻活动",
@@ -196,7 +195,11 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "next": [
+            "[JumpBack]进入基地趣游",
+            "空任务"
+        ]
     },
     "进入基地趣游": {
         "recognition": {
