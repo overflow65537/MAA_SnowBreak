@@ -3,11 +3,52 @@
         "post_delay": 1000,
         "next": [
             "判断新星开拓",
-            "[JumpBack]意外点击_地下清理",
-            "[JumpBack]打开新星开拓",
-            "[JumpBack]特别派遣",
-            "[JumpBack]打开战斗"
+            "[JumpBack]点击新星开拓",
+            "[JumpBack]点击常驻活动",
+            "[JumpBack]点击活动"
         ]
+    },
+    "点击新星开拓": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    0,
+                    0,
+                    330,
+                    696
+                ],
+                "expected": [
+                    "新星开拓"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "[JumpBack]前往",
+            "空任务"
+        ]
+    },
+    "前往": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    721,
+                    463,
+                    520,
+                    239
+                ],
+                "expected": [
+                    "前往"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "判断新星开拓": {
         "recognition": {
@@ -26,21 +67,6 @@
         "next": [
             "进入开拓目标"
         ]
-    },
-    "打开新星开拓": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    801,515,477,101
-                ],
-                "expected": "新星开拓"
-            }
-        },
-        "post_delay": 2000,
-        "action": {
-            "type": "Click"
-        }
     },
     "进入开拓目标": {
         "recognition": {
