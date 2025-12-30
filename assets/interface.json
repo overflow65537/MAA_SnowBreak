@@ -64,7 +64,20 @@
         {
             "name": "启动",
             "default_check": true,
-            "entry": "启动"
+            "entry": "启动",
+            "pipeline_override": {
+                "二次检测主界面": {
+                    "action": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_action": "Notice",
+                            "custom_action_param": {
+                                "action": "set_Currency"
+                            }
+                        }
+                    }
+                }
+            }
         },
         {
             "name": "赠送感知",
@@ -304,7 +317,7 @@
         {
             "name": "关闭游戏",
             "default_check": true,
-            "entry": "关闭游戏"
+            "entry": "结束"
         },
         {
             "name": "疗愈",

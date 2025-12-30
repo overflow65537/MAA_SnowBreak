@@ -1,4 +1,18 @@
 {
+    "结束": {
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "Notice",
+                "custom_action_param": {
+                    "action": "show_Currency"
+                }
+            }
+        },
+        "next": [
+            "关闭游戏"
+        ]
+    },
     "关闭游戏": {
         "action": {
             "type": "StopApp",
