@@ -495,5 +495,72 @@
                 "key": 69
             }
         }
+    },
+    "切换倍数": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1142,
+                    35,
+                    41,
+                    34
+                ],
+                "expected": [
+                    "x1",
+                    "x2"
+                ],
+                "only_rec": false
+            }
+        }
+    },
+    "检查下一发是否是水弹": {
+        "recognition": {
+            "param": {
+                "roi": [
+                    1046,
+                    661,
+                    21,
+                    35
+                ]
+            }
+        }
+    },
+    "检查下一发是否是空弹": {
+        "recognition": {
+            "param": {
+                "roi": [
+                    1108,
+                    665,
+                    21,
+                    28
+                ]
+            }
+        }
+    },
+    "开枪!": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    603,
+                    319,
+                    76,
+                    81
+                ],
+                "lower": [
+                    255,
+                    255,
+                    255
+                ],
+                "upper": [
+                    255,
+                    255,
+                    255
+                ],
+                "count": 10,
+                "connected": true
+            }
+        }
     }
 }

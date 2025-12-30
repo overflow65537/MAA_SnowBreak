@@ -124,7 +124,7 @@ class ShotTarget(CustomAction):
                     and empty.best_result
                 ):
                     if int(water.best_result.text) == 0:
-                        context.run_task("向自己开枪_custom"),
+                        context.run_task("向自己开枪_custom")
                         return CustomAction.RunResult(success=True)
                     elif int(empty.best_result.text) == 0:
                         context.run_task("向对方开枪_custom_100")
@@ -175,7 +175,12 @@ class ShotTarget(CustomAction):
             image = context.tasker.controller.post_screencap().wait().get()
         lock = context.run_recognition("检查手铐", image)
         lock_status = context.run_recognition("检查手铐状态", image)
-        if lock and lock.hit and lock.best_result and not (lock_status and lock_status.hit):
+        if (
+            lock
+            and lock.hit
+            and lock.best_result
+            and not (lock_status and lock_status.hit)
+        ):
             x, y = (
                 lock.best_result.box[0] + lock.best_result.box[2] // 2,
                 lock.best_result.box[1] + lock.best_result.box[3] // 2,

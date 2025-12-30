@@ -22,7 +22,7 @@
         ],
         "timeout": 60000,
         "next": [
-            "再来!",
+            "[JumpBack]再来!",
             "[JumpBack]切换倍数",
             "[JumpBack]开始心动水弹",
             "[JumpBack]我的回合",
@@ -153,16 +153,26 @@
         ],
         "post_delay": 1000,
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "ColorMatch",
             "param": {
                 "roi": [
-                    874,
-                    42,
-                    185,
-                    67
+                    820,
+                    16,
+                    304,
+                    92
                 ],
-                "template": "心动水弹/对方回合.png",
-                "green_mask": true
+                "upper": [
+                    255,
+                    135,
+                    65
+                ],
+                "lower": [
+                    250,
+                    125,
+                    55
+                ],
+                "connected": true,
+                "count": 20
             }
         }
     },
@@ -172,7 +182,7 @@
         ],
         "post_delay": 1000,
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "ColorMatch",
             "param": {
                 "roi": [
                     236,
@@ -180,14 +190,24 @@
                     246,
                     97
                 ],
-                "template": "心动水弹/我的回合.png",
-                "green_mask": true
+                "upper": [
+                    255,
+                    135,
+                    65
+                ],
+                "lower": [
+                    250,
+                    125,
+                    55
+                ],
+                "connected": true,
+                "count": 20
             }
         },
         "next": [
             "检查下一发是否是水弹",
             "检查下一发是否是空弹",
-            "展开道具",
+            "[JumpBack]展开道具",
             "检查墨镜",
             "检查怪盗之手",
             "向对方开枪_custom",
@@ -202,10 +222,10 @@
             "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    97,
-                    448,
-                    464,
-                    93
+                    49,
+                    421,
+                    503,
+                    163
                 ],
                 "template": "心动水弹/怪盗之手.png"
             }
@@ -456,10 +476,10 @@
             "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    97,
-                    448,
-                    464,
-                    93
+                    49,
+                    421,
+                    503,
+                    163
                 ],
                 "template": "心动水弹/墨镜.png"
             }
@@ -481,10 +501,10 @@
             "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    97,
-                    448,
-                    464,
-                    93
+                    49,
+                    421,
+                    503,
+                    163
                 ],
                 "template": "心动水弹/逆转魔术.png"
             }
@@ -498,10 +518,10 @@
             "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    97,
-                    448,
-                    464,
-                    93
+                    49,
+                    421,
+                    503,
+                    163
                 ],
                 "template": "心动水弹/退弹布偶.png"
             }
@@ -515,10 +535,10 @@
             "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    97,
-                    448,
-                    464,
-                    93
+                    49,
+                    421,
+                    503,
+                    163
                 ],
                 "template": "心动水弹/退弹布偶_偷.png"
             }
@@ -532,10 +552,10 @@
             "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    97,
-                    448,
-                    464,
-                    93
+                    49,
+                    421,
+                    503,
+                    163
                 ],
                 "template": "心动水弹/重置之锤.png"
             }
@@ -549,10 +569,10 @@
             "type": "OCR",
             "param": {
                 "roi": [
-                    521,
-                    621,
-                    348,
-                    56
+                    468,
+                    557,
+                    475,
+                    163
                 ],
                 "expected": "看破！下一发子弹是空弹"
             }
@@ -566,15 +586,26 @@
             "心动水弹_err"
         ],
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "ColorMatch",
             "param": {
                 "roi": [
-                    457,
-                    104,
-                    142,
-                    60
+                    453,
+                    72,
+                    173,
+                    91
                 ],
-                "template": "心动水弹/生命值.png"
+                "upper": [
+                    105,
+                    105,
+                    115
+                ],
+                "lower": [
+                    90,
+                    90,
+                    95
+                ],
+                "connected": true,
+                "count": 150
             }
         }
     },
@@ -586,10 +617,10 @@
             "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    87,
-                    450,
-                    465,
-                    82
+                    49,
+                    421,
+                    503,
+                    163
                 ],
                 "template": "心动水弹/活力宝石.png"
             }
@@ -603,10 +634,10 @@
             "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    87,
-                    450,
-                    465,
-                    82
+                    49,
+                    421,
+                    503,
+                    163
                 ],
                 "template": "心动水弹/手铐.png"
             }
@@ -620,10 +651,10 @@
             "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    87,
-                    450,
-                    465,
-                    82
+                    49,
+                    421,
+                    503,
+                    163
                 ],
                 "template": "心动水弹/枪管.png",
                 "threshold": 0.6
@@ -638,10 +669,10 @@
             "type": "OCR",
             "param": {
                 "roi": [
-                    521,
-                    621,
-                    348,
-                    56
+                    468,
+                    557,
+                    475,
+                    163
                 ],
                 "expected": "看破！下一发子弹是水弹"
             }
@@ -656,16 +687,26 @@
             "心动水弹_err"
         ],
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "ColorMatch",
             "param": {
                 "roi": [
-                    1002,
-                    511,
-                    270,
-                    162
+                    966,
+                    491,
+                    314,
+                    229
                 ],
-                "template": "心动水弹/向对方开枪.png",
-                "green_mask": true
+                "upper": [
+                    255,
+                    160,
+                    200
+                ],
+                "lower": [
+                    250,
+                    150,
+                    190
+                ],
+                "count": 100,
+                "connected": true
             }
         },
         "action": {
@@ -684,16 +725,26 @@
             "心动水弹_err"
         ],
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "ColorMatch",
             "param": {
                 "roi": [
-                    1002,
-                    511,
-                    270,
-                    162
+                    966,
+                    491,
+                    314,
+                    229
                 ],
-                "template": "心动水弹/向对方开枪.png",
-                "green_mask": true
+                "upper": [
+                    255,
+                    160,
+                    200
+                ],
+                "lower": [
+                    250,
+                    150,
+                    190
+                ],
+                "count": 100,
+                "connected": true
             }
         },
         "action": {
@@ -709,16 +760,26 @@
             "心动水弹_err"
         ],
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "ColorMatch",
             "param": {
                 "roi": [
-                    901,
-                    443,
-                    256,
-                    163
+                    966,
+                    491,
+                    314,
+                    229
                 ],
-                "template": "心动水弹/向自己开枪.png",
-                "green_mask": true
+                "upper": [
+                    120,
+                    180,
+                    240
+                ],
+                "lower": [
+                    110,
+                    170,
+                    230
+                ],
+                "count": 100,
+                "connected": true
             }
         },
         "action": {
@@ -736,10 +797,10 @@
             "type": "OCR",
             "param": {
                 "roi": [
-                    394,
-                    391,
-                    108,
-                    51
+                    306,
+                    373,
+                    249,
+                    146
                 ],
                 "expected": "使用"
             }
@@ -774,10 +835,10 @@
             "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    173,
-                    624,
-                    79,
-                    63
+                    138,
+                    614,
+                    148,
+                    101
                 ],
                 "template": "心动水弹/展开道具.png",
                 "threshold": 0.95
@@ -785,10 +846,7 @@
         },
         "action": {
             "type": "Click"
-        },
-        "next": [
-            "我的回合"
-        ]
+        }
     },
     "检查下一发是否是水弹": {
         "_doc": "检查空弹区域,如果为0代表下一发必是水弹",
@@ -804,6 +862,7 @@
                     25,
                     34
                 ],
+                "only_rec": true,
                 "expected": "^0$"
             }
         },
@@ -825,6 +884,7 @@
                     25,
                     33
                 ],
+                "only_rec": true,
                 "expected": "^0$"
             }
         },
@@ -845,19 +905,28 @@
         "on_error": [
             "心动水弹_err"
         ],
-        "pre_delay": 2000,
-        "post_delay": 10000,
+        "post_delay": 8000,
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "ColorMatch",
             "param": {
                 "roi": [
-                    901,
-                    443,
-                    256,
-                    163
+                    966,
+                    491,
+                    314,
+                    229
                 ],
-                "template": "心动水弹/向自己开枪.png",
-                "green_mask": true
+                "upper": [
+                    120,
+                    180,
+                    240
+                ],
+                "lower": [
+                    110,
+                    170,
+                    230
+                ],
+                "count": 100,
+                "connected": true
             }
         },
         "action": {
@@ -868,19 +937,28 @@
         "on_error": [
             "心动水弹_err"
         ],
-        "pre_delay": 1000,
+        "post_delay": 1000,
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "ColorMatch",
             "param": {
                 "roi": [
-                    1002,
-                    511,
-                    270,
-                    162
+                    966,
+                    491,
+                    314,
+                    229
                 ],
-                "template": "心动水弹/向对方开枪.png",
-                "green_mask": true,
-                "threshold": 0.8
+                "upper": [
+                    255,
+                    160,
+                    200
+                ],
+                "lower": [
+                    250,
+                    150,
+                    190
+                ],
+                "count": 100,
+                "connected": true
             }
         },
         "action": {
@@ -895,7 +973,10 @@
         "on_error": [
             "心动水弹_err"
         ],
-        "post_delay": 8000,
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -913,7 +994,7 @@
         },
         "next": [
             "开枪!",
-            "心动水弹"
+            "空任务"
         ]
     }
 }
