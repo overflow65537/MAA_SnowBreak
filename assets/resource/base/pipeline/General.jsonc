@@ -204,6 +204,7 @@
         "recognition": {
             "type": "OCR",
             "param": {
+                "only_rec": true,
                 "roi": [
                     441,
                     12,
