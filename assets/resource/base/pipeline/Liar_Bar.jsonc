@@ -6,8 +6,216 @@
             "[JumpBack]调速",
             "[JumpBack]出牌阶段",
             "[JumpBack]喝!",
-            "[JumpBack]对方回合_酒馆"
+            "[JumpBack]对方回合_酒馆",
+            "[JumpBack]开始对局",
+            "[JumpBack]选择对局",
+            "[JumpBack]点击猜心对局",
+            "[JumpBack]进入基地趣游",
+            "[JumpBack]点击暖调闲聚",
+            "[JumpBack]点击基地趣游",
+            "[JumpBack]点击常驻活动",
+            "[JumpBack]点击活动"
         ]
+    },
+    "开始对局": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    961,
+                    540,
+                    319,
+                    180
+                ],
+                "expected": [
+                    "开始对局"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "选择对局": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    638,
+                    335,
+                    298,
+                    194
+                ],
+                "expected": [
+                    "标准对局"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "[JumpBack]选择1号",
+            "[JumpBack]选择2号",
+            "[JumpBack]选择3号",
+            "空任务"
+        ]
+    },
+    "选择1号": {
+        "max_hit": 1,
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    96,
+                    143,
+                    1,
+                    1
+                ]
+            }
+        }
+    },
+    "选择2号": {
+        "max_hit": 1,
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    100,
+                    238,
+                    1,
+                    1
+                ]
+            }
+        }
+    },
+    "选择3号": {
+        "max_hit": 1,
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    95,
+                    348,
+                    1,
+                    1
+                ]
+            }
+        }
+    },
+    "点击猜心对局": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    631,
+                    320,
+                    277,
+                    293
+                ],
+                "expected": [
+                    "猜心对局"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "点击活动": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    17,
+                    327,
+                    288,
+                    164
+                ],
+                "expected": [
+                    "活动"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "点击常驻活动": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    0,
+                    606,
+                    216,
+                    114
+                ],
+                "expected": [
+                    "常驻"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "点击基地趣游": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    0,
+                    0,
+                    330,
+                    696
+                ],
+                "expected": [
+                    "基地趣游"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "点击暖调闲聚": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    0,
+                    0,
+                    330,
+                    696
+                ],
+                "expected": [
+                    "暖调闲聚"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "进入基地趣游": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    802,
+                    261,
+                    478,
+                    338
+                ],
+                "expected": [
+                    "前往游玩"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "调速": {
         "post_delay": 1000,

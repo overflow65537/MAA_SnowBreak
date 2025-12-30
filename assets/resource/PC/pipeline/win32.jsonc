@@ -562,5 +562,13 @@
                 "connected": true
             }
         }
+    },
+    "点击猜心对局": {
+        "action": {
+            "type": "ClickKey",
+            "param": {
+                "key": 70
+            }
+        }
     }
 }
