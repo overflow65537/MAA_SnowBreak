@@ -8,7 +8,6 @@
     "mirrorchyan_rid": "MAA_SnowBreak",
     "welcome": "./DISCLAIMER.md",
     "description": "基于全新架构的 尘白禁区 小助手。图像技术 + 模拟控制，解放双手！ 由 MaaFramework 强力驱动！",
-    "custom": "./MSBAcustom/custom.json",
     "icon": "./logo.png",
     "controller": [
         {

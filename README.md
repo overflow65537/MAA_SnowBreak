@@ -165,10 +165,15 @@
   ~~本项目是一个基于WPF框架开发的用户界面，旨在提供类似于MaaPiCli的功能~~
 - [MFW-CFA](https://github.com/overflow65537/MFW-PyQt6)
   一个基于PySide6的MAAFramework图形化操作界面
+
+### 思路灵感
+
 - [SnowbreakAutoAssistant](https://github.com/LaoZhuJackson/SnowbreakAutoAssistant)
   PC自动玩尘白，自动化代理，尘白禁区助手，自动钓鱼，信源解析，水弹，异星守护，迷宫
+  **MAA_SnowBreak 参考了该项目中钓鱼程序实现思路，但未使用其任何源代码。**
 - [cbjq](https://github.com/CmdBlockZQG/cbjq)
   尘白禁区 信源研析小工具
+  **MAA_SnowBreak 参考了该项目中信源研析程序实现思路，但未使用其任何源代码。**
 
 ### 开发者
 
