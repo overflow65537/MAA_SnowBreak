@@ -633,10 +633,7 @@
     },
     "重启游戏": {
         "action": {
-            "type": "ClickKey",
-            "param": {
-                "key": 27
-            }
+            "type": "DoNothing"
         },
         "next": [
             "二次检测主界面",
