@@ -615,5 +615,33 @@
                 ]
             }
         }
+    },
+    "结束": {
+        "next": [
+            "确定",
+            "[JumpBack]Esc键"
+        ]
+    },
+    "Esc键": {
+        "post_delay": 1000,
+        "action": {
+            "type": "ClickKey",
+            "param": {
+                "key": 27
+            }
+        }
+    },
+    "重启游戏": {
+        "action": {
+            "type": "ClickKey",
+            "param": {
+                "key": 27
+            }
+        },
+        "next": [
+            "二次检测主界面",
+            "[JumpBack]确定",
+            "[JumpBack]Esc键"
+        ]
     }
 }
