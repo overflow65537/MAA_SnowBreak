@@ -1,12 +1,13 @@
 {
     "商店": {
         "next": [
-            "判断物品",
             "在商店内",
+            "[JumpBack]打开商店二级菜单",
+            "[JumpBack]打开商店一级菜单",
             "[JumpBack]打开商店"
         ]
     },
-    "切换商店一级级菜单": {
+    "打开商店一级菜单": {
         "max_hit": 1,
         "enabled": false,
         "post_wait_freezes": {
@@ -20,17 +21,18 @@
                     0,
                     320,
                     720
+                ],
+                "expected": [
+                    "循环中心"
                 ]
             }
         },
         "action": {
             "type": "Click"
-        },
-        "next": [
-            "切换商店二级菜单"
-        ]
+        }
     },
-    "切换商店二级菜单": {
+    "打开商店二级菜单": {
+        "enabled": false,
         "max_hit": 1,
         "recognition": {
             "type": "OCR",
@@ -40,74 +42,43 @@
                     0,
                     320,
                     720
+                ],
+                "expected": [
+                    "优质配给"
                 ]
             }
         },
         "action": {
             "type": "Click"
-        },
-        "next": [
-            "在常规物资商店"
-        ]
+        }
     },
     "在商店内": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    0,
-                    40,
-                    200,
-                    140
-                ],
-                "expected": "常规物资"
-            }
-        },
-        "next": [
-            "切换商店一级级菜单",
-            "在常规物资商店"
-        ]
-    },
-    "在常规物资商店": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    0,
-                    40,
-                    200,
-                    140
-                ],
-                "expected": "常规物资"
-            }
-        },
-        "next": [
-            "判断物品",
-            "翻到底了",
-            "[JumpBack]向下滑动_商店"
-        ]
-    },
-    "翻到底了": {
-        "inverse": true,
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    250,
-                    165,
-                    997,
-                    512
-                ],
-                "expected": [
-                    "提取物"
-                ]
-            }
-        },
-        "next": [
+        "timeout": 5000,
+        "on_error": [
             "返回主菜单"
+        ],
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    0,
+                    0,
+                    305,
+                    338
+                ],
+                "template": "商店/常规物资.png"
+            }
+        },
+        "next": [
+            "售罄",
+            "资金不足",
+            "[JumpBack]判断物品",
+            "[JumpBack]向下滑动_商店",
+            "[JumpBack]关闭奖励通知"
         ]
     },
     "向下滑动_商店": {
+        "max_hit": 1,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -138,6 +109,22 @@
             }
         }
     },
+    "判断物品": {
+        "post_wait_freezes": 500,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": []
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "售罄_reco",
+            "购买物品"
+        ]
+    },
     "售罄": {
         "recognition": {
             "type": "OCR",
@@ -160,6 +147,93 @@
         "next": [
             "返回主菜单"
         ]
+    },
+    "售罄_reco": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    557,
+                    333,
+                    176,
+                    51
+                ],
+                "expected": [
+                    "售罄"
+                ],
+                "replace": [
+                    "馨",
+                    "罄"
+                ]
+            }
+        }
+    },
+    "购买物品": {
+        "post_wait_freezes": 500,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1010,
+                    357,
+                    270,
+                    301
+                ],
+                "expected": [
+                    "^最大$"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "点击购买",
+            "资金不足_reco",
+            "[JumpBack]关闭奖励通知"
+        ]
+    },
+    "资金不足_reco": {
+        "post_delay": 0,
+        "pre_delay": 0,
+        "rate_limit": 0,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    557,
+                    333,
+                    176,
+                    51
+                ],
+                "expected": [
+                    "不足"
+                ]
+            }
+        }
+    },
+    "点击购买": {
+        "post_wait_freezes": {
+            "time": 1000,
+            "timeout": 3000
+        },
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1036,
+                    562,
+                    244,
+                    158
+                ],
+                "expected": [
+                    "购买"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
     },
     "资金不足": {
         "recognition": {
@@ -192,55 +266,6 @@
             "[JumpBack]点击"
         ]
     },
-    "点击": {
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    10,
-                    10,
-                    0,
-                    0
-                ]
-            }
-        }
-    },
-    "判断物品": {
-        "post_wait_freezes": 500,
-        "recognition": {
-            "type": "OCR"
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "买满",
-            "售罄",
-            "购买物品"
-        ]
-    },
-    "买满": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    1130,
-                    506,
-                    150,
-                    125
-                ],
-                "expected": [
-                    "最大"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "购买物品"
-        ]
-    },
     "打开商店": {
         "post_delay": 1000,
         "recognition": {
@@ -261,403 +286,17 @@
             "type": "Click"
         }
     },
-    "购买物品": {
-        "post_wait_freezes": 500,
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    953,
-                    565,
-                    327,
-                    155
-                ],
-                "expected": [
-                    "购买"
-                ]
-            }
-        },
+    "点击": {
         "action": {
-            "type": "Click"
-        },
-        "next": [
-            "资金不足",
-            "返回主菜单",
-            "[JumpBack]关闭奖励通知"
-        ]
-    },
-    "买满2": {
-        "recognition": {
-            "type": "OCR",
+            "type": "Click",
             "param": {
-                "roi": [
-                    1130,
-                    506,
-                    150,
-                    125
-                ],
-                "expected": [
-                    "最大"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "购买物品2"
-        ]
-    },
-    "买满3": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    1130,
-                    506,
-                    150,
-                    125
-                ],
-                "expected": [
-                    "最大"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "购买物品3"
-        ]
-    },
-    "检查主界面2": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    950,
-                    260,
-                    180,
-                    130
-                ],
-                "expected": "战斗"
-            }
-        },
-        "next": [
-            "商店2"
-        ]
-    },
-    "返回主菜单2": {
-        "post_wait_freezes": {
-            "time": 1000,
-            "timeout": 5000
-        },
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    970,
-                    0,
-                    180,
-                    80
-                ],
-                "template": [
-                    "通用任务/主菜单.png"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "检查主界面2",
-            "返回主菜单2"
-        ]
-    },
-    "检查主界面3": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    950,
-                    260,
-                    180,
-                    130
-                ],
-                "expected": "战斗"
-            }
-        },
-        "next": [
-            "商店3"
-        ]
-    },
-    "返回主菜单3": {
-        "post_wait_freezes": {
-            "time": 1000,
-            "timeout": 5000
-        },
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    970,
-                    0,
-                    180,
-                    80
-                ],
-                "template": [
-                    "通用任务/主菜单.png"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "检查主界面3",
-            "返回主菜单3"
-        ]
-    },
-    "商店2": {
-        "next": [
-            "判断物品2",
-            "在商店内2",
-            "[JumpBack]打开商店"
-        ]
-    },
-    "在商店内2": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    0,
-                    40,
-                    200,
-                    140
-                ],
-                "expected": "常规物资"
-            }
-        },
-        "next": [
-            "翻到底了",
-            "向下滑动_商店2"
-        ]
-    },
-    "向下滑动_商店2": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    0,
-                    40,
-                    200,
-                    140
-                ],
-                "expected": "常规物资"
-            }
-        },
-        "action": {
-            "type": "Swipe",
-            "param": {
-                "begin": [
-                    620,
-                    550,
-                    0,
-                    0
-                ],
-                "end": [
-                    620,
-                    280,
+                "target": [
+                    10,
+                    10,
                     0,
                     0
                 ]
             }
-        },
-        "next": [
-            "商店2"
-        ]
-    },
-    "判断物品2": {
-        "post_wait_freezes": 500,
-        "recognition": {
-            "type": "OCR"
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "买满",
-            "售罄2",
-            "购买物品2"
-        ]
-    },
-    "售罄2": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    557,
-                    333,
-                    176,
-                    51
-                ],
-                "expected": [
-                    "售罄"
-                ],
-                "replace": [
-                    "馨",
-                    "罄"
-                ]
-            }
-        },
-        "next": [
-            "返回主菜单3"
-        ]
-    },
-    "购买物品2": {
-        "post_wait_freezes": 500,
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    953,
-                    565,
-                    327,
-                    155
-                ],
-                "expected": [
-                    "购买"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "资金不足",
-            "返回主菜单3",
-            "[JumpBack]关闭奖励通知"
-        ]
-    },
-    "商店3": {
-        "next": [
-            "判断物品3",
-            "在商店内3",
-            "[JumpBack]打开商店"
-        ]
-    },
-    "在商店内3": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    0,
-                    40,
-                    200,
-                    140
-                ],
-                "expected": "常规物资"
-            }
-        },
-        "next": [
-            "翻到底了",
-            "向下滑动_商店3"
-        ]
-    },
-    "向下滑动_商店3": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    0,
-                    40,
-                    200,
-                    140
-                ],
-                "expected": "常规物资"
-            }
-        },
-        "action": {
-            "type": "Swipe",
-            "param": {
-                "begin": [
-                    620,
-                    550,
-                    0,
-                    0
-                ],
-                "end": [
-                    620,
-                    280,
-                    0,
-                    0
-                ]
-            }
-        },
-        "next": [
-            "商店3"
-        ]
-    },
-    "判断物品3": {
-        "post_wait_freezes": 500,
-        "recognition": {
-            "type": "OCR"
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "买满",
-            "售罄3",
-            "购买物品3"
-        ]
-    },
-    "售罄3": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    557,
-                    333,
-                    176,
-                    51
-                ],
-                "expected": [
-                    "售罄"
-                ],
-                "replace": [
-                    "馨",
-                    "罄"
-                ]
-            }
-        },
-        "next": [
-            "返回主菜单"
-        ]
-    },
-    "购买物品3": {
-        "post_wait_freezes": 500,
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    953,
-                    565,
-                    327,
-                    155
-                ],
-                "expected": [
-                    "购买"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "资金不足",
-            "返回主菜单",
-            "[JumpBack]关闭奖励通知"
-        ]
+        }
     }
 }

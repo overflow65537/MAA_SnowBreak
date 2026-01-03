@@ -2000,6 +2000,7 @@
                     "name": "常规物资.[最便宜的]",
                     "pipeline_override": {
                         "判断物品": {
+                            "max_hit": 1,
                             "recognition": {
                                 "param": {
                                     "expected": [
@@ -2010,8 +2011,10 @@
                                 }
                             }
                         },
-                        "买满": {
-                            "enabled": false
+                        "购买物品": {
+                            "action": {
+                                "type": "DoNothing"
+                            }
                         }
                     }
                 },
@@ -2021,11 +2024,13 @@
                         "判断物品": {
                             "recognition": {
                                 "param": {
-                                    "expected": "碳原子板"
+                                    "expected": [
+                                        "碳原子板"
+                                    ]
                                 }
                             }
                         },
-                        "切换商店一级级菜单": {
+                        "打开商店一级菜单": {
                             "enabled": true,
                             "recognition": {
                                 "param": {
@@ -2033,18 +2038,24 @@
                                 }
                             }
                         },
-                        "切换商店二级菜单": {
+                        "打开商店二级菜单": {
+                            "enabled": true,
                             "recognition": {
                                 "param": {
                                     "expected": "地下清理"
                                 }
                             }
                         },
-                        "翻到底了": {
-                            "inverse": false,
+                        "在商店内": {
                             "recognition": {
                                 "param": {
-                                    "expected": "特级职级认证"
+                                    "roi": [
+                                        617,
+                                        0,
+                                        350,
+                                        105
+                                    ],
+                                    "template": "商店/活动兑换_地下清理.png"
                                 }
                             }
                         }
@@ -2060,7 +2071,7 @@
                                 }
                             }
                         },
-                        "切换商店一级级菜单": {
+                        "打开商店一级菜单": {
                             "enabled": true,
                             "recognition": {
                                 "param": {
@@ -2068,18 +2079,24 @@
                                 }
                             }
                         },
-                        "切换商店二级菜单": {
+                        "打开商店二级菜单": {
+                            "enabled": true,
                             "recognition": {
                                 "param": {
                                     "expected": "地下清理"
                                 }
                             }
                         },
-                        "翻到底了": {
-                            "inverse": false,
+                        "在商店内": {
                             "recognition": {
                                 "param": {
-                                    "expected": "特级职级认证"
+                                    "roi": [
+                                        617,
+                                        0,
+                                        350,
+                                        105
+                                    ],
+                                    "template": "商店/活动兑换_地下清理.png"
                                 }
                             }
                         }
@@ -2095,7 +2112,7 @@
                                 }
                             }
                         },
-                        "切换商店一级级菜单": {
+                        "打开商店一级菜单": {
                             "enabled": true,
                             "recognition": {
                                 "param": {
@@ -2103,18 +2120,24 @@
                                 }
                             }
                         },
-                        "切换商店二级菜单": {
+                        "打开商店二级菜单": {
+                            "enabled": true,
                             "recognition": {
                                 "param": {
                                     "expected": "精神拟境"
                                 }
                             }
                         },
-                        "翻到底了": {
-                            "inverse": false,
+                        "在商店内": {
                             "recognition": {
                                 "param": {
-                                    "expected": "光纤轴突"
+                                    "roi": [
+                                        617,
+                                        0,
+                                        350,
+                                        105
+                                    ],
+                                    "template": "商店/活动兑换_精神拟境.png"
                                 }
                             }
                         }
@@ -2130,7 +2153,7 @@
                                 }
                             }
                         },
-                        "切换商店一级级菜单": {
+                        "打开商店一级菜单": {
                             "enabled": true,
                             "recognition": {
                                 "param": {
@@ -2138,18 +2161,24 @@
                                 }
                             }
                         },
-                        "切换商店二级菜单": {
+                        "打开商店二级菜单": {
+                            "enabled": true,
                             "recognition": {
                                 "param": {
                                     "expected": "优质配给"
                                 }
                             }
                         },
-                        "翻到底了": {
-                            "inverse": false,
+                        "在商店内": {
                             "recognition": {
                                 "param": {
-                                    "expected": "通用银"
+                                    "roi": [
+                                        617,
+                                        0,
+                                        350,
+                                        105
+                                    ],
+                                    "template": "商店/循环中心_优质配给.png"
                                 }
                             }
                         }
@@ -2165,7 +2194,7 @@
                                 }
                             }
                         },
-                        "切换商店一级级菜单": {
+                        "打开商店一级菜单": {
                             "enabled": true,
                             "recognition": {
                                 "param": {
@@ -2173,18 +2202,24 @@
                                 }
                             }
                         },
-                        "切换商店二级菜单": {
+                        "打开商店二级菜单": {
+                            "enabled": true,
                             "recognition": {
                                 "param": {
                                     "expected": "优质配给"
                                 }
                             }
                         },
-                        "翻到底了": {
-                            "inverse": false,
+                        "在商店内": {
                             "recognition": {
                                 "param": {
-                                    "expected": "通用银"
+                                    "roi": [
+                                        617,
+                                        0,
+                                        350,
+                                        105
+                                    ],
+                                    "template": "商店/循环中心_优质配给.png"
                                 }
                             }
                         }
@@ -2202,7 +2237,7 @@
                                 }
                             }
                         },
-                        "切换商店一级级菜单": {
+                        "打开商店一级菜单": {
                             "enabled": true,
                             "recognition": {
                                 "param": {
@@ -2210,28 +2245,26 @@
                                 }
                             }
                         },
-                        "切换商店二级菜单": {
+                        "打开商店二级菜单": {
+                            "enabled": true,
                             "recognition": {
                                 "param": {
                                     "expected": "优质配给"
                                 }
                             }
                         },
-                        "翻到底了": {
-                            "inverse": false,
+                        "在商店内": {
                             "recognition": {
                                 "param": {
-                                    "expected": "通用银"
+                                    "roi": [
+                                        617,
+                                        0,
+                                        350,
+                                        105
+                                    ],
+                                    "template": "商店/循环中心_优质配给.png"
                                 }
                             }
-                        },
-                        "购买物品": {
-                            "next": [
-                                "资金不足",
-                                "判断物品",
-                                "返回主菜单",
-                                "[JumpBack]关闭奖励通知"
-                            ]
                         }
                     }
                 },
@@ -2247,7 +2280,7 @@
                                 }
                             }
                         },
-                        "切换商店一级级菜单": {
+                        "打开商店一级菜单": {
                             "enabled": true,
                             "recognition": {
                                 "param": {
@@ -2255,28 +2288,26 @@
                                 }
                             }
                         },
-                        "切换商店二级菜单": {
+                        "打开商店二级菜单": {
+                            "enabled": true,
                             "recognition": {
                                 "param": {
                                     "expected": "优质配给"
                                 }
                             }
                         },
-                        "翻到底了": {
-                            "inverse": false,
+                        "在商店内": {
                             "recognition": {
                                 "param": {
-                                    "expected": "通用银"
+                                    "roi": [
+                                        617,
+                                        0,
+                                        350,
+                                        105
+                                    ],
+                                    "template": "商店/循环中心_优质配给.png"
                                 }
                             }
-                        },
-                        "购买物品": {
-                            "next": [
-                                "资金不足",
-                                "判断物品",
-                                "返回主菜单",
-                                "[JumpBack]关闭奖励通知"
-                            ]
                         }
                     }
                 },
@@ -2292,7 +2323,7 @@
                                 }
                             }
                         },
-                        "切换商店一级级菜单": {
+                        "打开商店一级菜单": {
                             "enabled": true,
                             "recognition": {
                                 "param": {
@@ -2300,28 +2331,26 @@
                                 }
                             }
                         },
-                        "切换商店二级菜单": {
+                        "打开商店二级菜单": {
+                            "enabled": true,
                             "recognition": {
                                 "param": {
                                     "expected": "优质配给"
                                 }
                             }
                         },
-                        "翻到底了": {
-                            "inverse": false,
+                        "在商店内": {
                             "recognition": {
                                 "param": {
-                                    "expected": "通用银"
+                                    "roi": [
+                                        617,
+                                        0,
+                                        350,
+                                        105
+                                    ],
+                                    "template": "商店/循环中心_优质配给.png"
                                 }
                             }
-                        },
-                        "购买物品": {
-                            "next": [
-                                "资金不足",
-                                "判断物品",
-                                "返回主菜单",
-                                "[JumpBack]关闭奖励通知"
-                            ]
                         }
                     }
                 },
@@ -2337,7 +2366,7 @@
                                 }
                             }
                         },
-                        "切换商店一级级菜单": {
+                        "打开商店一级菜单": {
                             "enabled": true,
                             "recognition": {
                                 "param": {
@@ -2345,28 +2374,26 @@
                                 }
                             }
                         },
-                        "切换商店二级菜单": {
+                        "打开商店二级菜单": {
+                            "enabled": true,
                             "recognition": {
                                 "param": {
                                     "expected": "优质配给"
                                 }
                             }
                         },
-                        "翻到底了": {
-                            "inverse": false,
+                        "在商店内": {
                             "recognition": {
                                 "param": {
-                                    "expected": "通用银"
+                                    "roi": [
+                                        617,
+                                        0,
+                                        350,
+                                        105
+                                    ],
+                                    "template": "商店/循环中心_优质配给.png"
                                 }
                             }
-                        },
-                        "购买物品": {
-                            "next": [
-                                "资金不足",
-                                "判断物品",
-                                "返回主菜单",
-                                "[JumpBack]关闭奖励通知"
-                            ]
                         }
                     }
                 },
@@ -2377,29 +2404,12 @@
                             "recognition": {
                                 "param": {
                                     "expected": [
-                                        "新手战斗记录"
+                                        "新手战斗记录",
+                                        "普通战斗记录",
+                                        "优秀战斗记录"
                                     ]
                                 }
                             }
-                        },
-                        "判断物品2": {
-                            "recognition": {
-                                "param": {
-                                    "expected": [
-                                        "普通战斗记录"
-                                    ]
-                                }
-                            }
-                        },
-                        "售罄": {
-                            "next": [
-                                "返回主菜单2"
-                            ]
-                        },
-                        "售罄2": {
-                            "next": [
-                                "返回主菜单"
-                            ]
                         }
                     }
                 },
@@ -2410,36 +2420,12 @@
                             "recognition": {
                                 "param": {
                                     "expected": [
-                                        "初级职级认证"
-                                    ]
-                                }
-                            }
-                        },
-                        "判断物品2": {
-                            "recognition": {
-                                "param": {
-                                    "expected": [
+                                        "初级职级认证",
+                                        "中级职级认证",
                                         "高级职级认证"
                                     ]
                                 }
                             }
-                        },
-                        "购买物品": {
-                            "next": [
-                                "资金不足",
-                                "返回主菜单2",
-                                "[JumpBack]关闭奖励通知"
-                            ]
-                        },
-                        "售罄": {
-                            "next": [
-                                "返回主菜单2"
-                            ]
-                        },
-                        "售罄2": {
-                            "next": [
-                                "返回主菜单"
-                            ]
                         }
                     }
                 },
@@ -2450,47 +2436,21 @@
                             "recognition": {
                                 "param": {
                                     "expected": [
-                                        "通用强化套件"
-                                    ]
-                                }
-                            }
-                        },
-                        "判断物品2": {
-                            "recognition": {
-                                "param": {
-                                    "expected": [
-                                        "优选强化套件"
-                                    ]
-                                }
-                            }
-                        },
-                        "判断物品3": {
-                            "recognition": {
-                                "param": {
-                                    "expected": [
+                                        "通用强化套件",
+                                        "优选强化套件",
                                         "精致强化套件"
                                     ]
                                 }
                             }
-                        },
-                        "购买物品": {
-                            "next": [
-                                "资金不足",
-                                "返回主菜单2",
-                                "[JumpBack]关闭奖励通知"
-                            ]
-                        },
-                        "售罄": {
-                            "next": [
-                                "返回主菜单2"
-                            ]
                         }
                     }
                 },
                 {
                     "name": "常规物资.辅助武器",
+                    "description": "军舰鸟,彩虹打火机,深海呼唤,草莓蛋糕,楼道怪猫,青金石",
                     "pipeline_override": {
                         "判断物品": {
+                            "max_hit": 1,
                             "recognition": {
                                 "param": {
                                     "expected": [
@@ -2586,7 +2546,7 @@
                                 }
                             }
                         },
-                        "切换商店一级级菜单": {
+                        "打开商店一级菜单": {
                             "enabled": true,
                             "recognition": {
                                 "param": {
@@ -2594,7 +2554,8 @@
                                 }
                             }
                         },
-                        "切换商店二级菜单": {
+                        "打开商店二级菜单": {
+                            "enabled": true,
                             "recognition": {
                                 "param": {
                                     "expected": "后勤人事",
@@ -2602,18 +2563,16 @@
                                 }
                             }
                         },
-                        "购买物品": {
+                        "在商店内": {
                             "recognition": {
                                 "param": {
-                                    "expected": "聘调"
-                                }
-                            }
-                        },
-                        "翻到底了": {
-                            "inverse": false,
-                            "recognition": {
-                                "param": {
-                                    "expected": "伊甸"
+                                    "roi": [
+                                        617,
+                                        0,
+                                        350,
+                                        105
+                                    ],
+                                    "template": "商店/循环中心_后勤人事.png"
                                 }
                             }
                         }
