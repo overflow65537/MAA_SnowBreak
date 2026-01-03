@@ -9,6 +9,13 @@
     "welcome": "./DISCLAIMER.md",
     "description": "基于全新架构的 尘白禁区 小助手。图像技术 + 模拟控制，解放双手！ 由 MaaFramework 强力驱动！",
     "icon": "./logo.png",
+    "agent": {
+        "child_exec": "python",
+        "child_args": [
+            "{PROJECT_DIR}/MSBAcustom/main.py"
+        ],
+        "embedded": true
+    },
     "controller": [
         {
             "name": "Adb控制器",
