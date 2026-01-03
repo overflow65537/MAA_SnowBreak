@@ -114,7 +114,8 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "expected": []
+                "expected": [],
+                "order_by": "Vertical"
             }
         },
         "action": {
