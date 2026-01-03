@@ -199,17 +199,12 @@
     },
     "前进_基地拼图": {
         "recognition": {
-            "type": "OCR",
             "param": {
                 "roi": [
                     0,
                     0,
                     95,
                     102
-                ],
-                "expected": [
-                    "ESC",
-                    "Esc"
                 ]
             }
         },
