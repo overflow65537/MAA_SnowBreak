@@ -58,7 +58,7 @@
             "返回主菜单"
         ],
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "ColorMatch",
             "param": {
                 "roi": [
                     0,
@@ -66,7 +66,18 @@
                     305,
                     338
                 ],
-                "template": "商店/常规物资.png"
+                "upper": [
+                    99,
+                    104,
+                    165
+                ],
+                "lower": [
+                    86,
+                    93,
+                    147
+                ],
+                "connected": true,
+                "count": 150
             }
         },
         "next": [
@@ -237,6 +248,7 @@
         }
     },
     "资金不足": {
+        "pre_delay": 1000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -255,16 +267,15 @@
             "type": "Click",
             "param": {
                 "target": [
-                    100,
-                    100,
+                    10,
+                    10,
                     0,
                     0
                 ]
             }
         },
         "next": [
-            "返回主菜单",
-            "[JumpBack]点击"
+            "返回主菜单"
         ]
     },
     "打开商店": {
@@ -285,19 +296,6 @@
         },
         "action": {
             "type": "Click"
-        }
-    },
-    "点击": {
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    10,
-                    10,
-                    0,
-                    0
-                ]
-            }
         }
     }
 }

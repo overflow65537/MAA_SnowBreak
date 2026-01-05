@@ -2050,12 +2050,23 @@
                             "recognition": {
                                 "param": {
                                     "roi": [
-                                        617,
+                                        557,
                                         0,
-                                        350,
-                                        105
+                                        723,
+                                        161
                                     ],
-                                    "template": "商店/活动兑换_地下清理.png"
+                                    "lower": [
+                                        145,
+                                        184,
+                                        205
+                                    ],
+                                    "upper": [
+                                        181,
+                                        231,
+                                        255
+                                    ],
+                                    "count": 150,
+                                    "connected": true
                                 }
                             }
                         }
@@ -2091,12 +2102,23 @@
                             "recognition": {
                                 "param": {
                                     "roi": [
-                                        617,
+                                        557,
                                         0,
-                                        350,
-                                        105
+                                        723,
+                                        161
                                     ],
-                                    "template": "商店/活动兑换_地下清理.png"
+                                    "lower": [
+                                        145,
+                                        184,
+                                        205
+                                    ],
+                                    "upper": [
+                                        181,
+                                        231,
+                                        255
+                                    ],
+                                    "count": 150,
+                                    "connected": true
                                 }
                             }
                         }
@@ -2132,12 +2154,23 @@
                             "recognition": {
                                 "param": {
                                     "roi": [
-                                        617,
+                                        557,
                                         0,
-                                        350,
-                                        105
+                                        723,
+                                        161
                                     ],
-                                    "template": "商店/活动兑换_精神拟境.png"
+                                    "upper": [
+                                        255,
+                                        244,
+                                        132
+                                    ],
+                                    "lower": [
+                                        194,
+                                        185,
+                                        107
+                                    ],
+                                    "connected": true,
+                                    "count": 150
                                 }
                             }
                         }
@@ -2171,14 +2204,26 @@
                         },
                         "在商店内": {
                             "recognition": {
+                                "type": "ColorMatch",
                                 "param": {
                                     "roi": [
-                                        617,
+                                        557,
                                         0,
-                                        350,
-                                        105
+                                        723,
+                                        161
                                     ],
-                                    "template": "商店/循环中心_优质配给.png"
+                                    "upper": [
+                                        255,
+                                        190,
+                                        255
+                                    ],
+                                    "lower": [
+                                        185,
+                                        135,
+                                        185
+                                    ],
+                                    "connected": true,
+                                    "count": 150
                                 }
                             }
                         }
@@ -2212,14 +2257,26 @@
                         },
                         "在商店内": {
                             "recognition": {
+                                "type": "ColorMatch",
                                 "param": {
                                     "roi": [
-                                        617,
+                                        557,
                                         0,
-                                        350,
-                                        105
+                                        723,
+                                        161
                                     ],
-                                    "template": "商店/循环中心_优质配给.png"
+                                    "upper": [
+                                        255,
+                                        190,
+                                        255
+                                    ],
+                                    "lower": [
+                                        185,
+                                        135,
+                                        185
+                                    ],
+                                    "connected": true,
+                                    "count": 150
                                 }
                             }
                         }
@@ -2255,14 +2312,26 @@
                         },
                         "在商店内": {
                             "recognition": {
+                                "type": "ColorMatch",
                                 "param": {
                                     "roi": [
-                                        617,
+                                        557,
                                         0,
-                                        350,
-                                        105
+                                        723,
+                                        161
                                     ],
-                                    "template": "商店/循环中心_优质配给.png"
+                                    "upper": [
+                                        255,
+                                        190,
+                                        255
+                                    ],
+                                    "lower": [
+                                        185,
+                                        135,
+                                        185
+                                    ],
+                                    "connected": true,
+                                    "count": 150
                                 }
                             }
                         }
@@ -2298,14 +2367,26 @@
                         },
                         "在商店内": {
                             "recognition": {
+                                "type": "ColorMatch",
                                 "param": {
                                     "roi": [
-                                        617,
+                                        557,
                                         0,
-                                        350,
-                                        105
+                                        723,
+                                        161
                                     ],
-                                    "template": "商店/循环中心_优质配给.png"
+                                    "upper": [
+                                        255,
+                                        190,
+                                        255
+                                    ],
+                                    "lower": [
+                                        185,
+                                        135,
+                                        185
+                                    ],
+                                    "connected": true,
+                                    "count": 150
                                 }
                             }
                         }
@@ -2341,14 +2422,26 @@
                         },
                         "在商店内": {
                             "recognition": {
+                                "type": "ColorMatch",
                                 "param": {
                                     "roi": [
-                                        617,
+                                        557,
                                         0,
-                                        350,
-                                        105
+                                        723,
+                                        161
                                     ],
-                                    "template": "商店/循环中心_优质配给.png"
+                                    "upper": [
+                                        255,
+                                        190,
+                                        255
+                                    ],
+                                    "lower": [
+                                        185,
+                                        135,
+                                        185
+                                    ],
+                                    "connected": true,
+                                    "count": 150
                                 }
                             }
                         }
@@ -2384,14 +2477,26 @@
                         },
                         "在商店内": {
                             "recognition": {
+                                "type": "ColorMatch",
                                 "param": {
                                     "roi": [
-                                        617,
+                                        557,
                                         0,
-                                        350,
-                                        105
+                                        723,
+                                        161
                                     ],
-                                    "template": "商店/循环中心_优质配给.png"
+                                    "upper": [
+                                        255,
+                                        190,
+                                        255
+                                    ],
+                                    "lower": [
+                                        185,
+                                        135,
+                                        185
+                                    ],
+                                    "connected": true,
+                                    "count": 150
                                 }
                             }
                         }
@@ -2567,12 +2672,15 @@
                             "recognition": {
                                 "param": {
                                     "roi": [
-                                        617,
+                                        557,
                                         0,
-                                        350,
-                                        105
+                                        723,
+                                        161
                                     ],
-                                    "template": "商店/循环中心_后勤人事.png"
+                                    "template": [
+                                        "商店/循环中心_后勤人事.png",
+                                        "商店/循环中心_后勤人事_pc125.png"
+                                    ]
                                 }
                             }
                         }
