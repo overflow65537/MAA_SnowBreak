@@ -3,7 +3,7 @@
         "next": [
             "检查信源研析",
             "[JumpBack]点击卡罗琳",
-            "[JumpBack]左_基地拼图", //这个是PC的占位任务
+            "[JumpBack]左_基地拼图",
             "[JumpBack]前进_基地拼图",
             "[JumpBack]打开基地"
         ]
@@ -249,6 +249,7 @@
         }
     },
     "前进_基地拼图": {
+        "max_hit": 10,
         "recognition": {
             "type": "TemplateMatch",
             "param": {

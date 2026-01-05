@@ -217,7 +217,28 @@
         }
     },
     "左_基地拼图": {
-        "enabled": true
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    0,
+                    0,
+                    95,
+                    102
+                ],
+                "expected": [
+                    "ESC",
+                    "Esc"
+                ]
+            }
+        },
+        "action": {
+            "type": "LongPressKey",
+            "param": {
+                "key": 65,
+                "duration": 200
+            }
+        }
     },
     "点击卡罗琳": {
         "recognition": {
