@@ -129,9 +129,7 @@
             "param": {
                 "custom_action": "RedeemCode",
                 "custom_action_param": {
-                    "code": [
-                        "SnowBreak"
-                    ]
+                    "code": []//兑换码输入
                 }
             }
         }
