@@ -1,0 +1,158 @@
+{
+    "兑换码": {
+        "next": [
+            "[JumpBack]检查是否需要运行" //这里真实的next路径需要去检查是否需要运行的custom中查看
+        ]
+    },
+    "检查是否需要运行": {
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "CheckRedeemCode"
+            }
+        }
+    },
+    "打开设置": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    950,
+                    260,
+                    180,
+                    130
+                ],
+                "expected": "战斗"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1255,
+                    13,
+                    1,
+                    1
+                ]
+            }
+        }
+    },
+    "打开其他设置": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    12,
+                    9,
+                    258,
+                    711
+                ],
+                "expected": [
+                    "其他设置"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "设置_滑动": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    0,
+                    0,
+                    260,
+                    160
+                ],
+                "expected": [
+                    "设置终端"
+                ]
+            }
+        },
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    130,
+                    600
+                ],
+                "end": [
+                    130,
+                    200
+                ],
+                "duration": 500
+            }
+        }
+    },
+    "前往兑换": {
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 2000
+        },
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    976,
+                    22,
+                    304,
+                    698
+                ],
+                "expected": [
+                    "前往兑换"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "可以输入兑换码": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    492,
+                    264,
+                    341,
+                    140
+                ],
+                "expected": [
+                    "请输入兑换码"
+                ]
+            }
+        },
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "RedeemCode",
+                "custom_action_param": {
+                    "code": [
+                        "SnowBreak"
+                    ]
+                }
+            }
+        }
+    },
+    "点击兑换码": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    492,
+                    264,
+                    341,
+                    140
+                ],
+                "expected": [
+                    "请输入兑换码"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    }
+}

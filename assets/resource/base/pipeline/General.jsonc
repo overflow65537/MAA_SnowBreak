@@ -31,6 +31,15 @@
         }
     },
     "返回主菜单": {
+        "next": [
+            "检查主界面",
+            "[JumpBack]返回主菜单_action",
+            "[JumpBack]关闭公告",
+            "[JumpBack]关闭奖励通知",
+            "[JumpBack]取消"
+        ]
+    },
+    "返回主菜单_action": {
         "post_wait_freezes": {
             "time": 1000,
             "timeout": 5000
@@ -51,12 +60,7 @@
         },
         "action": {
             "type": "Click"
-        },
-        "next": [
-            "检查主界面",
-            "返回主菜单",
-            "[JumpBack]关闭奖励通知"
-        ]
+        }
     },
     "道具过期提示": {
         "recognition": {

@@ -39,6 +39,18 @@ from Recognition.LogicalOperators import LOp
 from Recognition.GetingMax import GetingMax
 from Recognition.CheckResolution import CheckResolution
 from action.Notice import Notice
+from action.RedmeeCode import RedeemCode
+from action.RedmeeCode import CheckRedeemCode
+
+
+@AgentServer.custom_action("RedeemCode")
+class Agent_RedeemCode(RedeemCode):
+    pass
+
+
+@AgentServer.custom_action("CheckRedeemCode")
+class Agent_CheckRedeemCode(CheckRedeemCode):
+    pass
 
 
 @AgentServer.custom_action("PuzzleRecycle")
