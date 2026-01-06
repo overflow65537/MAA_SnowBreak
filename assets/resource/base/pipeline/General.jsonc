@@ -120,7 +120,10 @@
         "next": [
             "检查分辨率",
             "检查主界面",
-            "返回主菜单"
+            "[JumpBack]返回主菜单_action",
+            "[JumpBack]关闭公告",
+            "[JumpBack]关闭奖励通知",
+            "[JumpBack]取消"
         ],
         "on_error": [
             "重启游戏"
