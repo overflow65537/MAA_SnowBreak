@@ -381,12 +381,15 @@
         {
             "name": "猜心对局",
             "entry": "酒馆",
-            "description": "<p>注意: 循环任务,无退出条件</p><p>需要进入对局内后在开始任务</p><p>启动任务会自动循环对局</p>",
+            "description": "<p>注意: 循环任务,无退出条件</p><p>只能打标准模式</p>",
             "spt": true
         },
         {
             "name": "心动水弹",
             "entry": "心动水弹",
+            "option": [
+                "选择模式"
+            ],
             "pipeline_override": {
                 "确认选项": {
                     "next": [
@@ -394,7 +397,7 @@
                     ]
                 }
             },
-            "description": "<p>注意: 循环任务,无退出条件</p><p>需要进入心动水弹主界面后在开始任务</p><p>默认进入练习模式,手动进入连战后启动任务会自动循环连战</p>",
+            "description": "<p>注意: 循环任务,无退出条件</p>",
             "spt": true
         },
         {
@@ -440,6 +443,35 @@
         }
     ],
     "option": {
+        "选择模式": {
+            "cases": [
+                {
+                    "name": "连战",
+                    "pipeline_override": {
+                        "开始心动水弹": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        661,
+                                        82,
+                                        619,
+                                        638
+                                    ],
+                                    "expected": [
+                                        "连战"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "练习",
+                    "pipeline_override": {}
+                }
+            ]
+        },
         "输入角色名": {
             "label": "请输角色名",
             "type": "input",
@@ -509,6 +541,7 @@
             }
         },
         "是否进行信源回收": {
+            "type": "switch",
             "cases": [
                 {
                     "name": "是",

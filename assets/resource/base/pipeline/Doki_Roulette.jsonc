@@ -18,12 +18,39 @@
     },
     "心动水弹": {
         "next": [
-            "开始心动水弹",
+            "心动水弹内部",
+            "[JumpBack]开始心动水弹",
+            "[JumpBack]收下道具",
             "[JumpBack]点击心动水弹",
             "[JumpBack]点击温泉中心",
             "[JumpBack]点击基地趣游",
             "[JumpBack]点击常驻活动",
             "[JumpBack]点击活动"
+        ]
+    },
+    "心动水弹内部": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    0,
+                    525,
+                    297,
+                    195
+                ],
+                "expected": [
+                    "查看道具"
+                ]
+            }
+        },
+        "next": [
+            "[JumpBack]再来!",
+            "[JumpBack]切换倍数",
+            "[JumpBack]我的回合",
+            "[JumpBack]对方回合",
+            "[JumpBack]收下道具",
+            "[JumpBack]意外点击_手套",
+            "[JumpBack]开枪!"
         ]
     },
     "点击心动水弹": {
@@ -168,29 +195,20 @@
             "心动水弹_err"
         ],
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "OCR",
             "param": {
                 "roi": [
-                    581,
-                    439,
-                    236,
-                    209
+                    576,
+                    449,
+                    273,
+                    217
                 ],
-                "template": "心动水弹/GO.png"
+                "expected": "GO"
             }
         },
         "action": {
             "type": "Click"
-        },
-        "next": [
-            "[JumpBack]再来!",
-            "[JumpBack]切换倍数",
-            "[JumpBack]我的回合",
-            "[JumpBack]对方回合",
-            "[JumpBack]收下道具",
-            "[JumpBack]意外点击_手套",
-            "[JumpBack]开枪!"
-        ]
+        }
     },
     "对方回合": {
         "on_error": [
