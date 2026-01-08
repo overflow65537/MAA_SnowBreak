@@ -34,7 +34,7 @@
             "type": "Click"
         },
         "next": [
-            "再来一局",
+            "[JumpBack]再来一局",
             "[JumpBack]调速",
             "[JumpBack]出牌阶段",
             "[JumpBack]喝!",
@@ -363,10 +363,7 @@
         },
         "action": {
             "type": "Click"
-        },
-        "next": [
-            "酒馆"
-        ]
+        }
     },
     "点击中心牌": {
         "action": {
