@@ -1,13 +1,37 @@
 {
     "酒馆": {
         "next": [
-            "开始对局",
+            "对局内",
+            "[JumpBack]开始对局",
             "[JumpBack]选择对局",
             "[JumpBack]点击猜心对局",
             "[JumpBack]点击暖调闲聚",
             "[JumpBack]点击基地趣游",
             "[JumpBack]点击常驻活动",
             "[JumpBack]点击活动"
+        ]
+    },
+    "对局内": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    41,
+                    463,
+                    306,
+                    205
+                ],
+                "expected": [
+                    "指定牌"
+                ]
+            }
+        },
+        "next": [
+            "[JumpBack]再来一局",
+            "[JumpBack]调速",
+            "[JumpBack]出牌阶段",
+            "[JumpBack]喝!",
+            "[JumpBack]对方回合_酒馆"
         ]
     },
     "开始对局": {
@@ -32,14 +56,7 @@
         },
         "action": {
             "type": "Click"
-        },
-        "next": [
-            "[JumpBack]再来一局",
-            "[JumpBack]调速",
-            "[JumpBack]出牌阶段",
-            "[JumpBack]喝!",
-            "[JumpBack]对方回合_酒馆"
-        ]
+        }
     },
     "选择对局": {
         "recognition": {
