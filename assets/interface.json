@@ -24,10 +24,10 @@
         },
         {
             "name": "Win32控制器",
-            "description": "<p>仅支持PC版</p><p>需要管理员权限</p><p>请正确填写程序路径以自动启动程序</p>",
+            "description": "<p>仅支持PC版</p><p>需要管理员权限</p><p>请正确填写程序路径以自动启动程序</p><p>参数填写：-FeatureLevelES31</p>",
             "type": "Win32",
             "win32": {
-                "class_regex": ".*",
+                "class_regex": "UnrealWindow",
                 "window_regex": "^(尘白禁区|塵白禁域|Snowbreak[^\\w]*Containment Zone)$",
                 "screencap": "PrintWindow",
                 "mouse": "SendMessageWithCursorPos",
