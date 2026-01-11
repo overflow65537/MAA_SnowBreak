@@ -164,9 +164,6 @@
                 "connected": true,
                 "count": 1000
             }
-        },
-        "action": {
-            "type": "Click"
         }
     },
     "未解锁战斗": {
@@ -440,7 +437,10 @@
         }
     },
     "进入作战": {
-        "pre_wait_freezes": 200,
+        "post_wait_freezes": {
+            "time": 500,
+            "timeout": 2000
+        },
         "recognition": {
             "type": "OCR",
             "param": {
