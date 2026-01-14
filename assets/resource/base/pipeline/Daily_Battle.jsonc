@@ -164,6 +164,9 @@
                 "connected": true,
                 "count": 1000
             }
+        },
+        "action": {
+            "type": "Click"
         }
     },
     "未解锁战斗": {
