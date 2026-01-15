@@ -634,7 +634,7 @@
     "结束": {
         "next": [
             "检查主界面",
-            "[]JumpBack返回主菜单_基地",
+            "[JumpBack]返回主菜单_基地",
             "[JumpBack]Esc键"
         ]
     },
