@@ -169,10 +169,12 @@
         ]
     },
     "服务器错误提示": {
-        "post_delay": 99999999,
         "focus": {
             "Node.Recognition.Succeeded": "[color:Tomato]服务器错误,请选择所在服务器[/color]"
-        }
+        },
+        "next": [
+            "启动"
+        ]
     },
     "空任务": {},
     "黑屏计数": {
