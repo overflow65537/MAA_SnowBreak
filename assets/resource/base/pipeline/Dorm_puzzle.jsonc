@@ -746,5 +746,62 @@
             "[JumpBack]点击地图",
             "[JumpBack]一会儿再见"
         ]
+    },
+    "平滑移动": {
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "duration": 200,
+                "end_hold": 200
+            }
+        }
+    },
+    "向上滑动": {
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    200,
+                    600
+                ],
+                "end": [
+                    200,
+                    100
+                ],
+                "duration": 500
+            }
+        }
+    },
+    "向下滑动": {
+        "action": {
+            "type": "Swipe",
+            "param": {
+                "begin": [
+                    200,
+                    150
+                ],
+                "end": [
+                    200,
+                    600
+                ],
+                "duration": 500
+            }
+        }
+    },
+    "点击重置": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1117,
+                    492,
+                    163,
+                    177
+                ],
+                "expected": [
+                    "重置"
+                ]
+            }
+        }
     }
 }

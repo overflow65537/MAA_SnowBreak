@@ -303,7 +303,12 @@ class PuzzleSolver:
 
 from maa.context import Context
 from maa.custom_action import CustomAction
-from maa.define import RecognitionDetail, OCRResult
+from maa.define import (
+    RecognitionDetail,
+    OCRResult,
+    TemplateMatchResult,
+    ColorMatchResult,
+)
 import time
 from tool.logger import Logger
 
@@ -363,15 +368,16 @@ class PuzzleClculate(CustomAction):
         self.logger.debug("开始识别碎片数量")
         PUZZLE_COUNT = self.get_puzzle_count(context, PUZZLE_COUNT)
         self.logger.debug("二次识别获取更多碎片")
-        context.tasker.controller.post_swipe(200, 600, 200, 100, 500).wait()
+        context.run_action("向上滑动")
         time.sleep(1)
         PUZZLE_COUNT = self.get_puzzle_count(context, PUZZLE_COUNT)  # type: ignore
-        context.tasker.controller.post_swipe(200, 150, 200, 600, 500).wait()
+        context.run_action("向下滑动")
         self.logger.info("最终碎片数量: %s", PUZZLE_COUNT)
         self.custom_notify(
             context,
             f"最终碎片数量: {PUZZLE_COUNT}",
         )
+        print("最终碎片数量: %s", PUZZLE_COUNT)
 
         # 初始化求解器
         self.logger.debug("初始化拼图求解器")
@@ -403,6 +409,10 @@ class PuzzleClculate(CustomAction):
                 "选择方案：\n%s",
                 "\n".join(str(row) for row in selected_solution["board"]),
             )
+            print(
+                "选择方案：\n%s",
+                "\n".join(str(row) for row in selected_solution["board"]),
+            )
             self.custom_notify(
                 context,
                 f"选择方案：\n{ "\n".join(str(row) for row in selected_solution["board"])}",
@@ -412,7 +422,7 @@ class PuzzleClculate(CustomAction):
             for block in selected_solution["blocks"]:
                 if context.tasker.stopping:
                     self.logger.info("任务被中止，退出拼图操作")
-                    return CustomAction.RunResult(success=False)
+                    return CustomAction.RunResult(success=True)
                 self.logger.info(
                     "处理碎片 %d 方向 %d", block["type"] + 1, block["direction"]
                 )
@@ -420,39 +430,20 @@ class PuzzleClculate(CustomAction):
                 piece = context.run_recognition(f"识别碎片{block['type']+1}", image)
                 if (piece is None or not piece.hit) and block["type"] + 1 >= 8:
                     self.logger.info(f"未搜索到{block['type']+1}, 尝试向上滑动")
-                    context.tasker.controller.post_swipe(200, 600, 200, 100, 500).wait()
-                    time.sleep(1)  # 滑动后等待动画结束
-                    image = context.tasker.controller.post_screencap().wait().get()
-                    piece = context.run_recognition(f"识别碎片{block['type']+1}", image)
-                    if piece is None or not piece.hit:
-                        self.logger.info(f"无法识别碎片{block['type']+1}")
-                        self.custom_notify(
-                            context,
-                            f"无法识别碎片{block['type']+1}",
-                        )
-                        context.tasker.controller.post_click(
-                            1201, 484
-                        ).wait()  # 点击重置
-                        context.run_task("重新进入拼图")
-                        return CustomAction.RunResult(success=True)
+                    context.run_action("向上滑动")
+
                 elif (piece is None or not piece.hit) and block["type"] + 1 < 8:
                     self.logger.info(f"未搜索到{block['type']+1}, 尝试向下滑动")
-                    context.tasker.controller.post_swipe(200, 150, 200, 600, 500).wait()
-                    time.sleep(1)  # 滑动后等待动画结束
-                    image = context.tasker.controller.post_screencap().wait().get()
-                    piece = context.run_recognition(f"识别碎片{block['type']+1}", image)
-                    if piece is None or not piece.hit:
-                        self.logger.info(f"无法识别碎片{block['type']+1}")
-                        self.custom_notify(
-                            context,
-                            f"无法识别碎片{block['type']+1}",
-                        )
-                        context.tasker.controller.post_click(
-                            1201, 484
-                        ).wait()  # 点击重置
-                        context.run_task("重新进入拼图")
+                    context.run_action("向下滑动")
 
-                        return CustomAction.RunResult(success=True)
+                time.sleep(1)  # 滑动后等待动画结束
+                image = context.tasker.controller.post_screencap().wait().get()
+                piece = context.run_recognition(f"识别碎片{block['type']+1}", image)
+
+                if context.tasker.stopping:
+                    self.logger.info("任务被中止，退出拼图操作")
+                    return CustomAction.RunResult(success=True)
+
                 # 旋转
                 if piece is None or not piece.hit:
                     self.logger.info(f"无法识别碎片{block['type']+1}")
@@ -460,62 +451,37 @@ class PuzzleClculate(CustomAction):
                         context,
                         f"无法识别碎片{block['type']+1}",
                     )
-                    context.tasker.controller.post_click(1201, 484).wait()  # 点击重置
+                    context.run_task("点击重置")  # 点击重置
                     context.run_task("重新进入拼图")
                     return CustomAction.RunResult(success=True)
-                elif not piece.best_result:
+                elif not piece.best_result or not isinstance(
+                    piece.best_result, (TemplateMatchResult)
+                ):
                     self.logger.info(f"无法识别碎片{block['type']+1}的最佳结果")
+                    print(type(piece.best_result))
                     return CustomAction.RunResult(success=True)
-                if block["direction"] == 1:
-                    self.logger.info("旋转90度")
-                    if last_block != block["type"]:
-                        context.tasker.controller.post_click(
-                            piece.best_result.box[0] + 10, piece.best_result.box[1] + 10
-                        ).wait()
-                        time.sleep(0.5)
-                    context.tasker.controller.post_click(
-                        piece.best_result.box[0] + 10, piece.best_result.box[1] + 10
-                    ).wait()
 
-                elif block["direction"] == 2:
-                    self.logger.info("旋转180度")
+                if block["direction"] in [1, 2, 3]:
+                    self.logger.info(f"旋转{block['direction']*90}度")
                     if last_block != block["type"]:
-                        context.tasker.controller.post_click(
-                            piece.best_result.box[0] + 10, piece.best_result.box[1] + 10
-                        ).wait()
-                        time.sleep(0.5)
-                    context.tasker.controller.post_click(
-                        piece.best_result.box[0] + 10, piece.best_result.box[1] + 10
-                    ).wait()
-                    time.sleep(0.5)
-                    context.tasker.controller.post_click(
-                        piece.best_result.box[0] + 10, piece.best_result.box[1] + 10
-                    ).wait()
-                elif block["direction"] == 3:
-                    self.logger.info("旋转270度")
-                    if last_block != block["type"]:
-                        context.tasker.controller.post_click(
-                            piece.best_result.box[0] + 10, piece.best_result.box[1] + 10
-                        ).wait()
-                        time.sleep(0.5)
-                    context.tasker.controller.post_click(
-                        piece.best_result.box[0] + 10, piece.best_result.box[1] + 10
-                    )
-                    time.sleep(0.5)
-                    context.tasker.controller.post_click(
-                        piece.best_result.box[0] + 10, piece.best_result.box[1] + 10
-                    ).wait()
-                    time.sleep(0.5)
-                    context.tasker.controller.post_click(
-                        piece.best_result.box[0] + 10, piece.best_result.box[1] + 10
-                    )
+                        # 未选中时先点一次选中，不计入旋转次数
+                        context.run_action("点击", piece.best_result.box)
+                    for _ in range(block["direction"]):
+                        context.run_action("点击", piece.best_result.box)
                 time.sleep(1)
+
+                if context.tasker.stopping:
+                    self.logger.info("任务被中止，退出拼图操作")
+                    return CustomAction.RunResult(success=True)
 
                 # 计算中心点坐标
                 end_x, end_y = self.convert_grid_to_coords(
                     block["begin_position"], block["end_position"]
                 )
-                begin_x, begin_y = piece.best_result.box[0], piece.best_result.box[1]
+                begin_x, begin_y = (
+                    piece.best_result.box[0] + piece.best_result.box[2] // 2,
+                    piece.best_result.box[1] + piece.best_result.box[3] // 2,
+                )
 
                 # 7号碎片特殊处理
                 if block["type"] + 1 == 7 and block["direction"] == 1:
@@ -524,30 +490,28 @@ class PuzzleClculate(CustomAction):
                     end_y = end_y - 100
                 self.logger.info(f"碎片{block['type']+1}中心点坐标: ({end_x}, {end_y})")
 
-                # 使用平滑移动：从碎片位置 -> 基准点 -> 目标位置
-                context.tasker.controller.post_touch_down(begin_x, begin_y).wait()
-                time.sleep(0.02)
+                smooth_param = {
+                    "平滑移动": {
+                        "action": {
+                            "param": {
+                                "begin": [begin_x, begin_y],
+                                "end": [[700, 375], [end_x, end_y]],
+                            }
+                        }
+                    }
+                }
 
-                # 平滑移动到基准点
-                self.smooth_move(context, begin_x, begin_y, 650, begin_y, duration=0.5)
-                time.sleep(0.1)
-
-                # 从基准点平滑移动到目标位置
-                self.smooth_move(context, 650, begin_y, end_x, end_y, duration=0.5)
-
-                # 抬起
-                context.tasker.controller.post_touch_up().wait()
-
+                context.run_action("平滑移动", pipeline_override=smooth_param)
+                if context.tasker.stopping:
+                    self.logger.info("任务被中止，退出拼图操作")
+                    return CustomAction.RunResult(success=True)
                 last_block = block["type"]
                 time.sleep(1)
                 PUZZLE_COUNT[block["type"]] -= 1
                 # 恢复碎片初始方向
                 if block["direction"] != 0 and PUZZLE_COUNT[block["type"]] > 0:
                     for _ in range(4 - block["direction"]):
-                        context.tasker.controller.post_click(
-                            piece.best_result.box[0] + piece.best_result.box[2] // 2,
-                            piece.best_result.box[1] + piece.best_result.box[3] // 2,
-                        ).wait()
+                        context.run_action("点击", piece.best_result.box)
                         time.sleep(0.5)
 
         else:
@@ -560,35 +524,6 @@ class PuzzleClculate(CustomAction):
             return CustomAction.RunResult(success=True)
 
         return CustomAction.RunResult(success=True)
-
-    def smooth_move(
-        self, context: Context, current_x, current_y, target_x, target_y, duration=0.3
-    ):
-        """
-        平滑移动方法（通用）
-
-        Args:
-            context: MAA上下文
-            current_x, current_y: 当前位置坐标
-            target_x, target_y: 目标坐标
-            duration: 滑动总时长（秒）
-
-        说明：
-            此方法仅执行移动操作，不包含按下和抬起
-            调用前需先执行 post_touch_down
-            调用后需手动执行 post_touch_up
-        """
-        steps = max(int(duration / 0.01), 5)  # 至少5步
-        delay = duration / steps
-
-        for i in range(1, steps + 1):
-            ratio = i / steps
-            intermediate_x = int(current_x + (target_x - current_x) * ratio)
-            intermediate_y = int(current_y + (target_y - current_y) * ratio)
-            context.tasker.controller.post_touch_move(
-                intermediate_x, intermediate_y
-            ).wait()
-            time.sleep(delay)
 
     def custom_notify(self, context: Context, msg: str):
         """自定义通知"""
@@ -604,6 +539,8 @@ class PuzzleClculate(CustomAction):
         matrix = [[0] * COLS for _ in range(ROWS)]
 
         for item in recognition_data.filtered_results:
+            if not isinstance(item, ColorMatchResult):
+                raise ValueError("识别到非颜色匹配结果")
             x, y, w, h = item.box
 
             # 行列索引查找逻辑
