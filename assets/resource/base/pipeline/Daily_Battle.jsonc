@@ -457,7 +457,15 @@
             }
         },
         "action": {
-            "type": "Click"
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    0,
+                    -150,
+                    0,
+                    0
+                ]
+            }
         }
     },
     "速战": {
