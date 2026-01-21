@@ -129,7 +129,11 @@
             "param": {
                 "custom_action": "RedeemCode",
                 "custom_action_param": {
-                    "code": []//兑换码输入
+                    "code": [
+                        "请为安卡注入经验",
+                        "茉莉安的夜晚请求",
+                        "爱意推动心的起伏"
+                    ] //兑换码输入
                 }
             }
         }
