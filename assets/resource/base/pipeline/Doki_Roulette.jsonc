@@ -17,6 +17,7 @@
         ]
     },
     "心动水弹": {
+        "timeout": 45000,
         "next": [
             "心动水弹内部",
             "[JumpBack]开始心动水弹",
@@ -30,16 +31,50 @@
     },
     "心动水弹内部": {
         "recognition": {
-            "type": "OCR",
+            "type": "Or",
             "param": {
-                "roi": [
-                    0,
-                    525,
-                    297,
-                    195
-                ],
-                "expected": [
-                    "查看道具"
+                "any_of": [
+                    {
+                        "recognition": {
+                            "type": "OCR",
+                            "param": {
+                                "roi": [
+                                    0,
+                                    525,
+                                    297,
+                                    195
+                                ],
+                                "expected": [
+                                    "查看道具"
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "recognition": {
+                            "type": "ColorMatch",
+                            "param": {
+                                "roi": [
+                                    966,
+                                    491,
+                                    314,
+                                    229
+                                ],
+                                "upper": [
+                                    255,
+                                    160,
+                                    200
+                                ],
+                                "lower": [
+                                    250,
+                                    150,
+                                    190
+                                ],
+                                "count": 100,
+                                "connected": true
+                            }
+                        }
+                    }
                 ]
             }
         },
