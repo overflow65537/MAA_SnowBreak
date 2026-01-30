@@ -1276,6 +1276,48 @@
                     ]
                 },
                 {
+                    "name": "时之重奏安卡希雅",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "时之重奏"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "霄鹰茉莉安",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "霄鹰"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
                     "name": "灵鉴卜卜",
                     "pipeline_override": {
                         "选择人物": {
