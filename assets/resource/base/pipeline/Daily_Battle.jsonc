@@ -301,12 +301,6 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [
-                    668,
-                    333,
-                    127,
-                    61
-                ],
                 "expected": "深渊"
             }
         },
@@ -739,6 +733,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
+                "roi": [
+                    668,
+                    333,
+                    127,
+                    61
+                ],
                 "expected": [
                     "深渊"
                 ]
