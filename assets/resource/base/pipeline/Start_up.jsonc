@@ -135,7 +135,7 @@
         }
     },
     "进入游戏": {
-        "post_delay": 1000,
+        "repeat": 2,
         "recognition": {
             "type": "OCR",
             "param": {
