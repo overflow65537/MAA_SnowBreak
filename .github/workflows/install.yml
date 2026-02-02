@@ -86,19 +86,6 @@ jobs:
       is_release: ${{ steps.set_tag.outputs.is_release }}
       is_prerelease: ${{ steps.set_tag.outputs.is_prerelease }}
 
-  background:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download background image
-        shell: bash
-        run: |
-          curl -L -o background.png "https://media-cdn-zspms.kurogame.com/pnswebsite/website2.0/images/1764000000000/skoi7dbbzdwogxvnin-176404371364016.png"
-
-      - uses: actions/upload-artifact@v4
-        with:
-          name: background
-          path: background.png
-
   build:
     needs: meta
     strategy:
@@ -148,11 +135,6 @@ jobs:
         shell: bash
         run: |
           rm maapicli/MFW-PyQt6-${{ matrix.file-suffix }}-${{ matrix.arch }}*
-
-      - uses: actions/download-artifact@v4
-        with:
-          name: background
-          path: maapicli/
         
       - uses: actions/upload-artifact@v4
         with:
