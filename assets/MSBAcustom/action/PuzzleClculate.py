@@ -327,7 +327,9 @@ class PuzzleClculate(CustomAction):
     def run(
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
-
+        self.logger.info(
+            "======================================================================="
+        )
         PUZZLE_COUNT = [0] * 11
         self.logger.info("开始执行拼图计算任务")
         image = context.tasker.controller.post_screencap().wait().get()
@@ -353,6 +355,7 @@ class PuzzleClculate(CustomAction):
         board = context.run_recognition("识别可放置区域", image)
         if board is None or not board.hit:
             self.logger.warning("未识别到拼图板")
+            self.custom_notify(context, "未识别到拼图板，结束当前任务")
             return CustomAction.RunResult(success=True)
 
         puzzle_layout = self.parse_puzzle_layout(board)
@@ -453,12 +456,20 @@ class PuzzleClculate(CustomAction):
                     )
                     context.run_task("点击重置")  # 点击重置
                     context.run_task("重新进入拼图")
+                    self.logger.info("重新进入拼图，结束当前任务")
                     return CustomAction.RunResult(success=True)
                 elif not piece.best_result or not isinstance(
                     piece.best_result, (TemplateMatchResult)
                 ):
                     self.logger.info(f"无法识别碎片{block['type']+1}的最佳结果")
                     print(type(piece.best_result))
+                    self.logger.info(
+                        f"无法识别碎片的最佳结果，结束当前任务{piece.best_result}"
+                    )
+                    self.custom_notify(
+                        context,
+                        f"无法识别碎片{block['type']+1}的最佳结果",
+                    )
                     return CustomAction.RunResult(success=True)
 
                 if block["direction"] in [1, 2, 3]:
@@ -513,6 +524,10 @@ class PuzzleClculate(CustomAction):
                     for _ in range(4 - block["direction"]):
                         context.run_action("点击", piece.best_result.box)
                         time.sleep(0.5)
+            self.logger.info("拼图方案执行完成")
+            self.logger.info(
+                "======================================================================="
+            )
 
         else:
             self.logger.info("未找到拼图方案，可能是碎片数量不足或布局不合理")
@@ -521,8 +536,7 @@ class PuzzleClculate(CustomAction):
             context.run_task("一会儿再见")
             context.run_task("返回主菜单_基地_custom")
             context.run_task("停止任务")
-            return CustomAction.RunResult(success=True)
-
+            self.logger.info("任务结束")
         return CustomAction.RunResult(success=True)
 
     def custom_notify(self, context: Context, msg: str):
