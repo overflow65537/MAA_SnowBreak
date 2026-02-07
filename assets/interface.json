@@ -102,12 +102,7 @@
                         }
                     }
                 }
-            },
-            "resource": [
-                "官服",
-                "桌面端",
-                "B服"
-            ]
+            }
         },
         {
             "name": "兑换码",
@@ -364,7 +359,7 @@
                 "选择疗愈难度"
             ],
             "pipeline_override": {
-                "检查主界面2": {
+                "二次检测主界面": {
                     "post_delay": 1000,
                     "next": [
                         "疗愈"
@@ -392,13 +387,6 @@
             "option": [
                 "选择模式"
             ],
-            "pipeline_override": {
-                "确认选项": {
-                    "next": [
-                        "心动水弹"
-                    ]
-                }
-            },
             "description": "<p>注意: 循环任务,无退出条件</p>",
             "spt": true
         },
@@ -421,7 +409,7 @@
                 "选择难度"
             ],
             "pipeline_override": {
-                "检查主界面2": {
+                "二次检测主界面": {
                     "post_delay": 1000,
                     "next": [
                         "增益试炼"
@@ -435,7 +423,7 @@
             "description": "<p>所需设置: 默认按钮位置, 不播放大招动画, 不使用行前整备，使用试用晴放于出战位, 有豹豹最佳</p><p>此为循环任务, 无退出条件, 确保在主菜单启动即可</p><p>由于怪物ai与站位问题, 可能出现卡关, 请手动结束并重置笔谈回到主界面, 再开始自动笔谈。</p>",
             "spt": true,
             "pipeline_override": {
-                "检查主界面2": {
+                "二次检测主界面": {
                     "post_delay": 1000,
                     "next": [
                         "蜃梦笔谈"
@@ -546,7 +534,7 @@
             "type": "switch",
             "cases": [
                 {
-                    "name": "是",
+                    "name": "Yes",
                     "pipeline_override": {
                         "没有待领取的碎片": {
                             "next": [
@@ -557,7 +545,7 @@
                     }
                 },
                 {
-                    "name": "否",
+                    "name": "No",
                     "pipeline_override": {}
                 }
             ]
@@ -862,9 +850,6 @@
                         "选择活动作战2": {
                             "enabled": false
                         },
-                        "打开活动战斗": {
-                            "enabled": false
-                        },
                         "进入作战": {
                             "recognition": {
                                 "param": {
@@ -892,9 +877,6 @@
                         "选择活动作战2": {
                             "enabled": false
                         },
-                        "打开活动战斗": {
-                            "enabled": false
-                        },
                         "进入作战": {
                             "recognition": {
                                 "param": {
@@ -914,9 +896,6 @@
                             "enabled": false
                         },
                         "选择活动作战2": {
-                            "enabled": false
-                        },
-                        "打开活动战斗": {
                             "enabled": false
                         },
                         "进入作战": {
@@ -940,9 +919,6 @@
                         "选择活动作战2": {
                             "enabled": false
                         },
-                        "打开活动战斗": {
-                            "enabled": false
-                        },
                         "进入作战": {
                             "recognition": {
                                 "param": {
@@ -962,9 +938,6 @@
                             "enabled": false
                         },
                         "选择活动作战2": {
-                            "enabled": false
-                        },
-                        "打开活动战斗": {
                             "enabled": false
                         },
                         "进入作战": {
@@ -988,9 +961,6 @@
                         "选择活动作战2": {
                             "enabled": false
                         },
-                        "打开活动战斗": {
-                            "enabled": false
-                        },
                         "进入作战": {
                             "recognition": {
                                 "param": {
@@ -1010,9 +980,6 @@
                             "enabled": false
                         },
                         "选择活动作战2": {
-                            "enabled": false
-                        },
-                        "打开活动战斗": {
                             "enabled": false
                         },
                         "进入作战": {
@@ -1040,9 +1007,6 @@
                             "enabled": false
                         },
                         "选择活动作战2": {
-                            "enabled": false
-                        },
-                        "打开活动战斗": {
                             "enabled": false
                         },
                         "进入作战": {
