@@ -3,7 +3,7 @@
         "next": [
             "检查分辨率",
             "检查主界面",
-            "[JumpBack]返回主菜单",
+            "[JumpBack]返回主菜单_action",
             "[JumpBack]关闭公告",
             "[JumpBack]关闭签到",
             "[JumpBack]点击空白处关闭",
