@@ -29,7 +29,7 @@
             "permission_required": true,
             "win32": {
                 "class_regex": "UnrealWindow",
-                "window_regex": "^(尘白禁区|塵白禁域|Snowbreak[^\\w]*Containment Zone)$",
+                "window_regex": "^(尘白禁区|塵白禁域|Snowbreak[^\\w]*Containment Zone)|Game  $",
                 "screencap": "PrintWindow",
                 "mouse": "SendMessageWithCursorPos",
                 "keyboard": "Seize"
