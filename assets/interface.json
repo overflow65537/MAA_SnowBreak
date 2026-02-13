@@ -52,6 +52,9 @@
             ],
             "controller": [
                 "Adb控制器"
+            ],
+            "option": [
+                "跳过分辨率警告"
             ]
         },
         {
@@ -62,6 +65,9 @@
             ],
             "controller": [
                 "PlayCover控制器"
+            ],
+            "option": [
+                "跳过分辨率警告"
             ]
         },
         {
@@ -72,6 +78,9 @@
             ],
             "controller": [
                 "Win32控制器"
+            ],
+            "option": [
+                "跳过分辨率警告"
             ]
         },
         {
@@ -82,6 +91,9 @@
             ],
             "controller": [
                 "Adb控制器"
+            ],
+            "option": [
+                "跳过分辨率警告"
             ]
         }
     ],
@@ -433,6 +445,30 @@
         }
     ],
     "option": {
+        "跳过分辨率警告": {
+            "label": "是否跳过分辨率警报",
+            "description": "打开后将跳过分辨率不符的警告提示",
+            "type": "switch",
+            "default": "No",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "pipeline_override": {
+                        "检查分辨率": {
+                            "enabled": false
+                        }
+                    }
+                },
+                {
+                    "name": "No",
+                    "pipeline_override": {
+                        "检查分辨率": {
+                            "enabled": true
+                        }
+                    }
+                }
+            ]
+        },
         "选择模式": {
             "cases": [
                 {
