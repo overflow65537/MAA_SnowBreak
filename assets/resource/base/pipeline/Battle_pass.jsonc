@@ -39,7 +39,6 @@
         ]
     },
     "没点击到每日任务": {
-        "inverse": true,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -49,17 +48,14 @@
                     195,
                     64
                 ],
+                "method": 6,
                 "lower": [
-                    250,
-                    240,
-                    240
+                    0
                 ],
                 "upper": [
-                    255,
-                    255,
-                    255
+                    200
                 ],
-                "count": 10,
+                "count": 5000,
                 "connected": true
             }
         },
@@ -98,7 +94,6 @@
         ]
     },
     "没点击到每周任务": {
-        "inverse": true,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -108,17 +103,14 @@
                     198,
                     66
                 ],
+                "method": 6,
                 "lower": [
-                    250,
-                    240,
-                    240
+                    0
                 ],
                 "upper": [
-                    255,
-                    255,
-                    255
+                    200
                 ],
-                "count": 10,
+                "count": 5000,
                 "connected": true
             }
         },
@@ -157,7 +149,6 @@
         ]
     },
     "没点击到限定任务": {
-        "inverse": true,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -167,17 +158,14 @@
                     190,
                     54
                 ],
+                "method": 6,
                 "lower": [
-                    250,
-                    240,
-                    240
+                    0
                 ],
                 "upper": [
-                    255,
-                    255,
-                    255
+                    200
                 ],
-                "count": 10,
+                "count": 5000,
                 "connected": true
             }
         },
@@ -216,27 +204,23 @@
         ]
     },
     "没点击到凭证奖励": {
-        "inverse": true,
         "recognition": {
             "type": "ColorMatch",
             "param": {
                 "roi": [
-                    438,
-                    642,
-                    199,
-                    68
+                    446,
+                    653,
+                    180,
+                    49
                 ],
+                "method": 6,
                 "lower": [
-                    250,
-                    240,
-                    240
+                    0
                 ],
                 "upper": [
-                    255,
-                    255,
-                    255
+                    200
                 ],
-                "count": 10,
+                "count": 5000,
                 "connected": true
             }
         },
