@@ -86,14 +86,10 @@ class Notice(CustomAction):
 
                 now_time = datetime.datetime.now()
                 next_time = now_time + datetime.timedelta(seconds=next_energy)
-                self.custom_notify(context, "初始数据金:")
-                self.custom_notify(context, start_currency_norm)
-                self.custom_notify(context, "当前数据金:")
-                self.custom_notify(context, end_currency_norm)
-                self.custom_notify(context, "收益:")
-                self.custom_notify(context, str(profit))
-                self.custom_notify(context, "下次体力恢复时间:")
-                self.custom_notify(context, next_time.strftime("%Y-%m-%d %H:%M:%S"))
+                self.custom_notify(context, f"初始数据金: {start_currency_norm}")
+                self.custom_notify(context, f"当前数据金: {end_currency_norm}")
+                self.custom_notify(context, f"收益: {profit}")
+                self.custom_notify(context, f"下次体力恢复时间:{next_time.strftime("%Y-%m-%d %H:%M:%S")}")
 
         return CustomAction.RunResult(success=True)
 
