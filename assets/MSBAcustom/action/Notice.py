@@ -9,9 +9,19 @@ from maa.custom_action import CustomAction
 from maa.define import OCRResult
 import json
 import datetime
+import unicodedata
 
 
 class Notice(CustomAction):
+    def normalize_number(self, text: str) -> str:
+        """Normalize OCR number text into plain ASCII digits."""
+        if not isinstance(text, str):
+            return "0"
+        normalized = unicodedata.normalize("NFKC", text).strip()
+        for ch in [",", " ", "\u00A0", "_", "'"]:
+            normalized = normalized.replace(ch, "")
+        return normalized
+
     def run(
         self, context: Context, argv: CustomAction.RunArg
     ) -> CustomAction.RunResult:
@@ -63,16 +73,23 @@ class Notice(CustomAction):
             start_Currency = resource.focus.get("start_Currency")
 
             # 收益
-            if start_Currency.isdigit() and end_Currency.isdigit() and energy.isdigit():
-                profit = int(end_Currency) - int(start_Currency)
-                next_energy = 240 - int(energy) * 6 * 60
+            start_currency_norm = self.normalize_number(start_Currency)
+            end_currency_norm = self.normalize_number(end_Currency)
+            energy_norm = self.normalize_number(energy)
+            if (
+                start_currency_norm.isdigit()
+                and end_currency_norm.isdigit()
+                and energy_norm.isdigit()
+            ):
+                profit = int(end_currency_norm) - int(start_currency_norm)
+                next_energy = 240 - int(energy_norm) * 6 * 60
 
                 now_time = datetime.datetime.now()
                 next_time = now_time + datetime.timedelta(seconds=next_energy)
                 self.custom_notify(context, "初始数据金:")
-                self.custom_notify(context, start_Currency)
+                self.custom_notify(context, start_currency_norm)
                 self.custom_notify(context, "当前数据金:")
-                self.custom_notify(context, end_Currency)
+                self.custom_notify(context, end_currency_norm)
                 self.custom_notify(context, "收益:")
                 self.custom_notify(context, str(profit))
                 self.custom_notify(context, "下次体力恢复时间:")
