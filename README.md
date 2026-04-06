@@ -16,12 +16,13 @@
 
 下载地址：[风味版](https://github.com/steven42121/MAA_SnowBreak/releases)
 
-Windows
+* Windows
 
-- 对于X86-64用户，请下载 `MSBA-X.X.X_Win_X86-64_flavor.exe并运行该自解压程序`
-- 管理员身份运行 `mxu.exe` 即可
+对于X86-64用户，请下载 `MSBA-X.X.X_Win_X86-64_flavor.exe并运行该自解压程序`
 
-Linux
+管理员身份运行 `mxu.exe` 即可
+
+* Linux
 
 ~~用 wine~~
 
