@@ -6,7 +6,11 @@
 
 <div align="center">
 
-# MAA_SnowBreak
+# 风味版MAA_SnowBreak
+
+### 这个MASB是风味版，UI采用[MXU](https://github.com/MistEO/MXU)，下载原版请前往[主仓库](https://github.com/overflow65537/MAA_SnowBreak)
+
+会跟进主仓库的更新
 
 基于全新架构的 尘白禁区 小助手。图像技术 + 模拟控制，解放双手！
 由 [MaaFramework](https://github.com/MaaXYZ/MaaFramework) 强力驱动！
@@ -59,7 +63,7 @@
 
 ## 使用说明
 
-下载地址：[https://github.com/overflow65537/MAA_SnowBreak/releases](https://github.com/overflow65537/MAA_SnowBreak/releases)
+下载地址：[1](https://github.com/steven42121/MAA_SnowBreak/releases)
 
 ### Windows
 
@@ -72,43 +76,45 @@
 - 若您的 Mac 采用 Intel 处理器，请下载 `MSBA-macos-x86_64-vXXX.tar.gz`
 - 若您的 Mac 采用 M1、M2 等 ARM 处理器，请下载 `MSBA-macos-aarch64-vXXX.tar.gz`
 - 使用方法如下：
+
   1. 打开终端，解压下载的压缩包，您有以下三种解压方式可供选择：
 
-      **选项 1：解压到系统目录（需管理员权限）**
-      此方式将把程序解压到系统目录，需要输入管理员密码获取权限。
+     **选项 1：解压到系统目录（需管理员权限）**
+     此方式将把程序解压到系统目录，需要输入管理员密码获取权限。
 
-      ```zsh
-      sudo mkdir -p /usr/local/bin/MSBA
-      sudo tar -xzf <下载的MSBA压缩包路径> -C /usr/local/bin/MSBA
-      ```
+     ```zsh
+     sudo mkdir -p /usr/local/bin/MSBA
+     sudo tar -xzf <下载的MSBA压缩包路径> -C /usr/local/bin/MSBA
+     ```
 
-      **选项 2：解压到用户目录（推荐）**
-      该方式无需管理员权限，操作简便且便于管理个人文件。
+     **选项 2：解压到用户目录（推荐）**
+     该方式无需管理员权限，操作简便且便于管理个人文件。
 
-      ```zsh
-      mkdir -p ~/MSBA
-      tar -xzf <下载的MSBA压缩包路径> -C ~/MSBA
-      ```
+     ```zsh
+     mkdir -p ~/MSBA
+     tar -xzf <下载的MSBA压缩包路径> -C ~/MSBA
+     ```
 
-      **选项 3：直接解压到下载目录（不推荐）**
-      这种方式操作快捷，但可能会导致 `Downloads` 文件夹文件杂乱。您只需双击下载的 MSBA 压缩包，即可在同级目录自动解压。
-
+     **选项 3：直接解压到下载目录（不推荐）**
+     这种方式操作快捷，但可能会导致 `Downloads` 文件夹文件杂乱。您只需双击下载的 MSBA 压缩包，即可在同级目录自动解压。
   2. 进入解压目录并运行程序：
-      - 根据上一步选择的解压方式操作：
-          - 若选择选项 1 ，在终端中执行以下命令打开程序目录：
 
-          ```zsh
-          open /usr/local/bin/MSBA
-          ```
+     - 根据上一步选择的解压方式操作：
 
-          - 若选择选项 2，在终端中执行以下命令打开程序目录：
+       - 若选择选项 1 ，在终端中执行以下命令打开程序目录：
 
-          ```zsh
-          open ~/MSBA
-          ```
+       ```zsh
+       open /usr/local/bin/MSBA
+       ```
 
-          - 若选择选项 3，直接双击解压后的文件夹进入。
-      - 找到 `MFW` 程序并双击运行。
+       - 若选择选项 2，在终端中执行以下命令打开程序目录：
+
+       ```zsh
+       open ~/MSBA
+       ```
+
+       - 若选择选项 3，直接双击解压后的文件夹进入。
+     - 找到 `MFW` 程序并双击运行。
 
   ⚠️Gatekeeper 安全提示处理：
   在 macOS 10.15 (Catalina) 及更高版本中，Gatekeeper 可能会阻止运行未签名的应用程序。若遇到“无法打开，因为无法验证开发者”,或者“已损坏”等错误，请使用以下命令移除隔离属性：
@@ -118,6 +124,8 @@
   # 若选择选项 2，解压到用户目录，使用以下命令：xattr -rd com.apple.quarantine ~/MSBA/*
   # 若选择选项 3，直接解压到下载目录，使用以下命令：xattr -rd com.apple.quarantine <下载目录>/MSBA/*
 
+
+  ```
 
 ### Linux
 
@@ -137,7 +145,6 @@
    ```bash
    git clone --recursive https://github.com/overflow65537/MAA_SnowBreak.git
    ```
-
 1. 安装
 
    ```python
