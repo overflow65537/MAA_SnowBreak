@@ -2,9 +2,9 @@
     "json.schemas": [
         {
             "fileMatch": [
-                "/assets/resource/**/*.json",
+                "/deps/MAA_SnowBreak/assets/resource/**/*.json",
                 "/install/resource/**/*.json",
-                 "/assets/resource/**/*.jsonc",
+                 "/deps/MAA_SnowBreak/assets/resource/**/*.jsonc",
                 "/install/resource/**/*.jsonc",
                 
             ],
@@ -19,5 +19,8 @@
     },
     "[python]": {
         "editor.defaultFormatter": "ms-python.black-formatter"
-    }
+    },
+    "python-envs.defaultEnvManager": "ms-python.python:conda",
+    "python-envs.defaultPackageManager": "ms-python.python:conda",
+    "python-envs.pythonProjects": []
 }

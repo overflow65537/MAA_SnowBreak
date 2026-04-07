@@ -441,7 +441,9 @@ enc_temp_folder/*
 
 # Build
 deps/*
+!deps/MAA_SnowBreak
 !deps/tools/
+!deps/MAA_SnowBreak/
 deps/tools/*
 !deps/tools/*.schema.json
 build
@@ -449,14 +451,9 @@ install
 
 # Tools
 tools/ImageCropper/**/*.png
-assets/config/maa_pi_config.json
 maapicli.spec
 config/maa_option.json
-assets/agent/config/maa_option.json
 .vscode/settings.json
-install.py
 agent.spec
 dist
-assets/custom/config/maa_option.json
 ./maapicli
-assets/config/maa_option.json
