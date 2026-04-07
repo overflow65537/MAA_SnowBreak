@@ -139,6 +139,9 @@ jobs:
       matrix:
         os: [win, macos, linux]
         arch: [aarch64, x86_64]
+        exclude:
+          - os: linux
+            arch: aarch64
       fail-fast: false
 
     steps:
@@ -162,34 +165,6 @@ jobs:
           ARCHIVE_FILE_PATH="${{ fromJson(steps.download_mxu.outputs.downloaded_files)[0] }}"
           rm -f "${ARCHIVE_FILE_PATH}"
           echo "Archive cleanup command executed for MXU."
-
-      - name: Apply custom icon to MXU.exe on Windows
-        if: matrix.os == 'win'
-        shell: bash
-        run: |
-          ICON_PATH="./deps/MAA_SnowBreak/logo.png"
-          if [ ! -f "$ICON_PATH" ]; then
-            echo "❌ ERROR: Icon file not found at $ICON_PATH"
-            exit 1
-          fi
-
-          echo "✅ Applying icon from $ICON_PATH to MXU/MXU.exe..."
-
-          # Download rcedit.exe (Windows tool)
-          curl -L https://github.com/electron/rcedit/releases/download/v2.0.0/rcedit-x64.exe -o rcedit.exe
-
-          # Install wine if not present
-          if ! command -v wine &> /dev/null; then
-            echo "📦 Installing wine..."
-            sudo apt-get update
-            sudo apt-get install -y wine
-          fi
-
-          # Make it executable and run via wine
-          chmod +x rcedit.exe
-          wine ./rcedit.exe "MXU/MXU.exe" --set-icon "$ICON_PATH"
-
-          echo "✅ Icon successfully applied."
 
       - name: Install
         shell: bash
