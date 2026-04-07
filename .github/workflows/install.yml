@@ -106,10 +106,6 @@ jobs:
           - os: linux
             arch: x86_64
             runs-on: ubuntu-latest
-          # Linux aarch64
-          - os: linux
-            arch: aarch64
-            runs-on: ubuntu-24.04-arm
       fail-fast: false
     runs-on: ${{ matrix.runs-on }}
 
@@ -141,7 +137,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        os: [win, macos, linux, android]
+        os: [win, macos, linux]
         arch: [aarch64, x86_64]
       fail-fast: false
 
@@ -151,7 +147,6 @@ jobs:
           submodules: recursive
 
       - name: Download MXU
-        if: matrix.os != 'android'
         id: download_mxu
         uses: robinraju/release-downloader@v1
         with:
@@ -162,7 +157,6 @@ jobs:
           extract: true
 
       - name: Clean up MXU archive
-        if: matrix.os != 'android'
         shell: bash
         run: |
           ARCHIVE_FILE_PATH="${{ fromJson(steps.download_mxu.outputs.downloaded_files)[0] }}"
@@ -173,7 +167,7 @@ jobs:
         if: matrix.os == 'win'
         shell: bash
         run: |
-          ICON_PATH="./deps/MAA_SnowBreak/assets/resource/base/image/logo.ico"
+          ICON_PATH="./deps/MAA_SnowBreak/logo.png"
           if [ ! -f "$ICON_PATH" ]; then
             echo "❌ ERROR: Icon file not found at $ICON_PATH"
             exit 1
@@ -218,7 +212,7 @@ jobs:
           fi
 
       - uses: actions/download-artifact@v4
-        if: matrix.os != 'android'
+
         with:
           name: python-embed-${{ matrix.os }}-${{ matrix.arch }}
           path: ./install/python
