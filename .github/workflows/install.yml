@@ -42,14 +42,29 @@ jobs:
           tag=""
 
           if [[ "${{ github.event_name }}" == "repository_dispatch" ]]; then
-            # repository_dispatch 由上游仓库触发，优先使用 payload 中传来的 tag。
+            dispatch_source="${{ github.event.client_payload.source_repo }}"
+            if [[ "$dispatch_source" != "${{ env.SOURCE_REPO }}" ]]; then
+              echo "Unexpected repository_dispatch source: $dispatch_source" >&2
+              exit 1
+            fi
+
+            # repository_dispatch 由上游仓库触发，使用 payload 中传来的 tag。
             tag="${{ github.event.client_payload.tag }}"
             if [[ -z "$tag" ]]; then
               tag="${{ github.event.client_payload.tag_name }}"
             fi
-            if [[ $tag != v* ]]; then
-              tag=$(curl -sX GET "https://api.github.com/repos/${{ env.SOURCE_REPO }}/releases/latest" --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' | awk '/tag_name/{print $4}' FS='["]')
+
+            if [[ ! "$tag" =~ ^v[0-9]+\.[0-9]+\.[0-9]+([-.][A-Za-z0-9.-]+)?$ ]]; then
+              echo "Invalid release tag from repository_dispatch: $tag" >&2
+              exit 1
             fi
+
+            release_status=$(curl -s -o /dev/null -w "%{http_code}" "https://api.github.com/repos/${{ env.SOURCE_REPO }}/releases/tags/$tag")
+            if [[ "$release_status" != "200" ]]; then
+              echo "Release tag $tag was not found in ${{ env.SOURCE_REPO }}" >&2
+              exit 1
+            fi
+
             is_release="true"
           elif [[ "${{ github.ref }}" == refs/tags/v* ]]; then
             tag="${{ github.ref_name }}"
