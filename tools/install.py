@@ -31,7 +31,7 @@ def install_resource():
         interface = jsonc.load(f)
 
     interface["version"] = version
-    interface["title"] = f"MAA_snowbreak {version}"
+    interface["github"] = "https://github.com/overflow65537/MAA_SnowBreak"
 
     with open(install_path / "interface.json", "w", encoding="utf-8") as f:
         jsonc.dump(interface, f, ensure_ascii=False, indent=4)
