@@ -454,7 +454,6 @@ tools/ImageCropper/**/*.png
 maapicli.spec
 config/maa_option.json
 .vscode/settings.json
-install.py
 agent.spec
 dist
 ./maapicli
