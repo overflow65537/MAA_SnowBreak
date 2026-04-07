@@ -159,6 +159,17 @@ jobs:
           out-file-path: "MXU"
           extract: true
 
+      - name: Download MaaframeWork
+        id: download_maaframework
+        uses: robinraju/release-downloader@v1
+        with:
+          repository: MaaXYZ/MaaFrameWork
+          fileName: "MaaFrameWork-${{ (matrix.os == 'win' && 'win') || (matrix.os == 'macos' && 'macos') || (matrix.os == 'linux' && 'linux') }}-${{ (matrix.arch == 'x86_64' && 'x86_64') || (matrix.arch == 'aarch64' && 'aarch64') }}*"
+          latest: true
+          out-file-path: "MXU/maafw"
+          extract: true
+
+
       - name: Clean up MXU archive
         shell: bash
         run: |
