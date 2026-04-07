@@ -8,14 +8,16 @@ on:
       - "**"
     paths:
       - ".github/workflows/install.yml"
-      - "assets/**"
+      - ".gitmodules"
+      - "deps/MAA_SnowBreak"
       - "**.py"
   pull_request:
     branches:
       - "**"
     paths:
       - ".github/workflows/install.yml"
-      - "assets/**"
+      - ".gitmodules"
+      - "deps/MAA_SnowBreak"
       - "**.py"
   workflow_dispatch:
 
@@ -108,7 +110,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: true
+          submodules: recursive
 
       - name: Set up Python
         uses: actions/setup-python@v4

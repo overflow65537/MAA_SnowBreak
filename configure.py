@@ -2,13 +2,14 @@ from pathlib import Path
 
 import shutil
 
-assets_dir = Path(__file__).parent / "assets"
+repo_root = Path(__file__).parent
+assets_dir = repo_root / "deps" / "MAA_SnowBreak" / "assets"
 
 
 def configure_ocr_model():
     if not (assets_dir / "MaaCommonAssets" / "OCR").exists():
-        print("Please clone this repository completely, don’t miss \"--recursive\", and don’t download the zip package!")
-        print("请完整克隆本仓库，不要漏掉 \"--recursive\"，也不要下载 zip 包！")
+        print("Please clone this repository completely, including submodules, and don’t download the zip package!")
+        print("请完整克隆本仓库并初始化全部子模块，不要下载 zip 包！")
         exit(1)
 
     shutil.copytree(
