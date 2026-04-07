@@ -32,6 +32,7 @@ def install_resource():
 
     interface["version"] = version
     interface["github"] = "https://github.com/steven42121/MAA_SnowBreak"
+    interface.pop("mirrorchyan_rid", None) 
 
     with open(install_path / "interface.json", "w", encoding="utf-8") as f:
         jsonc.dump(interface, f, ensure_ascii=False, indent=4)
