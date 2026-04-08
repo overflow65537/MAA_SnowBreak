@@ -59,7 +59,8 @@
 
 ## 使用说明
 
-下载地址：[https://github.com/overflow65537/MAA_SnowBreak/releases](https://github.com/overflow65537/MAA_SnowBreak/releases)
+下载地址：[https://github.com/overflow65537/MAA_SnowBreak/releases](https://github.com/overflow65537/MAA_SnowBreak/releases)  
+另一种UI的版本  [MXU版本](https://github.com/steven42121/MAA_SnowBreak)
 
 ### Windows
 
