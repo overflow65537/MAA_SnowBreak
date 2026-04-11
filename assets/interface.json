@@ -104,7 +104,7 @@
         {
             "name": "开服检测",
             "default_check": true,
-            "entry": "开服检测",
+            "entry": "启动",
             "option": [
                 "通知渠道设置"
             ],
@@ -113,12 +113,6 @@
                     "enabled": false
                 }
             }
-        },
-        {
-            "name": "启动",
-            "default_check": true,
-            "entry": "启动",
-            "description": "<p>启动游戏并进入主界面</p>"
         },
         {
             "name": "兑换码",
