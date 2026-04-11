@@ -111,18 +111,16 @@
                 "启用邮件通知"
             ],
             "pipeline_override": {
-                "二次检测主界面": {
-                    "action": {
-                        "type": "Custom",
-                        "param": {
-                            "custom_action": "Notice",
-                            "custom_action_param": {
-                                "action": "set_Currency"
-                            }
-                        }
-                    }
+                "检查分辨率": {
+                    "enabled": false
                 }
             }
+        },
+        {
+            "name": "启动",
+            "default_check": true,
+            "entry": "启动",
+            "description": "<p>启动游戏并进入主界面</p>"
         },
         {
             "name": "兑换码",
@@ -539,6 +537,9 @@
         "通知渠道设置": {
             "label": "通知渠道设置",
             "description": "<p>用于 snowbreakmustalive 通知节点：邮件 + MAA弹窗/消息 + 闹钟 + PowerShell弹窗。</p><p>收件邮箱可填多个，用逗号分隔。</p>",
+        "通知渠道设置": {
+            "label": "通知渠道设置",
+            "description": "<p>用于开服检测通知节点：MAA 消息通道 + 主控机 PowerShell 弹窗/闹钟/邮件（Command）。</p><p>收件邮箱可填多个，用英文逗号分隔。</p>",
             "type": "input",
             "inputs": [
                 {
