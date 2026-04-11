@@ -1,0 +1,72 @@
+{
+    "CheckRedeemCode": {
+        "type": "action",
+        "class": "Agent_CheckRedeemCode",
+        "file_path": "{custom_path}/Agent_file.py"
+    },
+    "CheckResolution": {
+        "type": "recognition",
+        "class": "Agent_CheckResolution",
+        "file_path": "{custom_path}/Agent_file.py"
+    },
+    "Count": {
+        "type": "action",
+        "class": "Agent_Count",
+        "file_path": "{custom_path}/Agent_file.py"
+    },
+    "Fishing": {
+        "type": "action",
+        "class": "Agent_Fishing",
+        "file_path": "{custom_path}/Agent_file.py"
+    },
+    "GetingMax": {
+        "type": "recognition",
+        "class": "Agent_GetingMax",
+        "file_path": "{custom_path}/Agent_file.py"
+    },
+    "LOp": {
+        "type": "recognition",
+        "class": "Agent_LOp",
+        "file_path": "{custom_path}/Agent_file.py"
+    },
+    "Notice": {
+        "type": "action",
+        "class": "Agent_Notice",
+        "file_path": "{custom_path}/Agent_file.py"
+    },
+    "PuzzleClculate": {
+        "type": "action",
+        "class": "Agent_PuzzleClculate",
+        "file_path": "{custom_path}/Agent_file.py"
+    },
+    "PuzzleRecycle": {
+        "type": "action",
+        "class": "Agent_PuzzleRecycle",
+        "file_path": "{custom_path}/Agent_file.py"
+    },
+    "RedeemCode": {
+        "type": "action",
+        "class": "Agent_RedeemCode",
+        "file_path": "{custom_path}/Agent_file.py"
+    },
+    "ScreenShot": {
+        "type": "action",
+        "class": "Agent_ScreenShot",
+        "file_path": "{custom_path}/Agent_file.py"
+    },
+    "ShotSelf": {
+        "type": "action",
+        "class": "Agent_ShotSelf",
+        "file_path": "{custom_path}/Agent_file.py"
+    },
+    "ShotTarget": {
+        "type": "action",
+        "class": "Agent_ShotTarget",
+        "file_path": "{custom_path}/Agent_file.py"
+    },
+    "StoryRogue": {
+        "type": "action",
+        "class": "Agent_StoryRogue",
+        "file_path": "{custom_path}/Agent_file.py"
+    }
+}
