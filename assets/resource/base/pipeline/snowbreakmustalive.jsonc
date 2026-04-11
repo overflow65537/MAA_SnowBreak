@@ -1,0 +1,196 @@
+{
+    "$__mpe_config_新建Pipeline3": {
+        "$__mpe_code": {
+            "prefix": "",
+            "savedViewport": {
+                "x": 740,
+                "y": 94,
+                "zoom": 0.66
+            },
+            "filename": "新建Pipeline3",
+            "version": "v1.4.1",
+        },
+    },
+    "通知失败": {
+        "pre_delay": 0,
+        "action": "DoNothing",
+        "focus": {
+            "Node.Action.Succeeded": {
+                "content": "检测到启动异常或通知流程失败，请尽快检查游戏状态。",
+                "display": [
+                    "log",
+                    "toast",
+                    "notification",
+                    "modal"
+                ]
+            }
+        },
+        "post_delay": 0,
+        "$__mpe_code": {
+            "position": {
+                "x": 995,
+                "y": 263
+            }
+        },
+    },
+    "其他通知": {
+        "action": "DoNothing",
+        "focus": {
+            "Node.Action.Succeeded": {
+                "content": "开服检测通知",
+                "display": [
+                    "log",
+                    "toast",
+                    "notification",
+                    "dialog"
+                ]
+            }
+        },
+        "on_error": [
+            "通知失败"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 657,
+                "y": 455
+            }
+        },
+    },
+    "未开始": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    180,
+                    610,
+                    200,
+                    120
+                ],
+                "expected": [
+                    "开始游戏"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    180,
+                    610,
+                    200,
+                    120
+                ]
+            }
+        },
+        "next": [
+            "万一呢",
+            "检查主界面_任务_副本",
+            "[JumpBack]尝试服务器"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 12,
+                "y": 184
+            }
+        },
+    },
+    "尝试服务器": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "确定"
+                ]
+            },
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "post_wait_freezes": 20000,
+        "$__mpe_code": {
+            "position": {
+                "x": 332,
+                "y": 12
+            }
+        },
+    },
+    "万一呢": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    900,
+                    200,
+                    300,
+                    220
+                ],
+                "expected": [
+                    "战斗",
+                    "公告"
+                ]
+            }
+        },
+        "post_delay": 20000,
+        "next": [
+            "通知",
+            "其他通知"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 332,
+                "y": 263
+            }
+        },
+    },
+    "检查主界面_任务_副本": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    950,
+                    260,
+                    180,
+                    130
+                ],
+                "expected": "^战斗$",
+                "replace": [],
+            },
+        },
+        "post_delay": 1000,
+        "next": [
+            "通知",
+            "其他通知"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 332,
+                "y": 539
+            }
+        },
+    },
+    "通知": {
+        "action": "DoNothing",
+        "focus": {
+            "Node.Action.Succeeded": {
+                "content": "开服检测通知",
+                "display": [
+                    "log",
+                    "toast",
+                    "notification",
+                    "dialog"
+                ]
+            }
+        },
+        "on_error": [
+            "通知失败"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 652,
+                "y": 307
+            }
+        },
+    },
+}
+

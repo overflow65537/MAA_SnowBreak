@@ -97,22 +97,20 @@
             ]
         }
     ],
+    "global_option": [
+        "通知渠道设置"
+    ],
     "task": [
         {
-            "name": "启动",
+            "name": "开服检测",
             "default_check": true,
             "entry": "启动",
+            "option": [
+                "通知渠道设置"
+            ],
             "pipeline_override": {
-                "二次检测主界面": {
-                    "action": {
-                        "type": "Custom",
-                        "param": {
-                            "custom_action": "Notice",
-                            "custom_action_param": {
-                                "action": "set_Currency"
-                            }
-                        }
-                    }
+                "检查分辨率": {
+                    "enabled": false
                 }
             }
         },
@@ -445,6 +443,142 @@
         }
     ],
     "option": {
+        "通知渠道设置": {
+            "label": "通知渠道设置",
+            "description": "<p>用于开服检测通知节点：MAA 消息通道 + 主控机 PowerShell 弹窗/闹钟/邮件（Command）。</p><p>收件邮箱可填多个，用英文逗号分隔。</p>",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "SMTP服务器",
+                    "default": "smtp.qq.com",
+                    "pipeline_type": "string"
+                },
+                {
+                    "name": "SMTP端口",
+                    "default": "465",
+                    "pipeline_type": "int"
+                },
+                {
+                    "name": "发件邮箱",
+                    "default": "",
+                    "pipeline_type": "string"
+                },
+                {
+                    "name": "SMTP授权码",
+                    "default": "",
+                    "pipeline_type": "string"
+                },
+                {
+                    "name": "收件邮箱",
+                    "description": "<p>多个邮箱请用英文逗号分隔。</p>",
+                    "default": "",
+                    "pipeline_type": "string"
+                },
+                {
+                    "name": "邮件主题",
+                    "default": "MAA_SnowBreak 告警",
+                    "pipeline_type": "string"
+                },
+                {
+                    "name": "弹窗标题",
+                    "default": "MAA_SnowBreak 告警",
+                    "pipeline_type": "string"
+                },
+                {
+                    "name": "通知内容",
+                    "default": "检测到启动异常或通知流程失败，请尽快检查游戏状态。",
+                    "pipeline_type": "string"
+                },
+                {
+                    "name": "启用邮件通知",
+                    "default": "false",
+                    "pipeline_type": "bool"
+                }
+            ],
+            "pipeline_override": {
+                "通知": {
+                    "focus": {
+                        "Node.Action.Succeeded": {
+                            "content": "{通知内容}",
+                            "display": [
+                                "log",
+                                "toast",
+                                "notification",
+                                "dialog"
+                            ]
+                        }
+                    },
+                    "action": {
+                        "type": "Command",
+                        "param": {
+                            "exec": "powershell",
+                            "args": [
+                                "-NoProfile",
+                                "-ExecutionPolicy",
+                                "Bypass",
+                                "-Command",
+                                "$ErrorActionPreference='SilentlyContinue'; $msg='{通知内容}'; $title='{弹窗标题}'; try { [console]::Beep(1200,300); Start-Sleep -Milliseconds 120; [console]::Beep(1200,300) } catch {}; Add-Type -AssemblyName PresentationFramework; [System.Windows.MessageBox]::Show($msg,$title)|Out-Null; if ('{启用邮件通知}' -eq 'true' -and '{SMTP服务器}' -ne '' -and '{发件邮箱}' -ne '' -and '{SMTP授权码}' -ne '' -and '{收件邮箱}' -ne '') { $to='{收件邮箱}'.Replace(';',',').Split(',') | ForEach-Object { $_.Trim() } | Where-Object { $_ }; Send-MailMessage -SmtpServer '{SMTP服务器}' -Port {SMTP端口} -UseSsl -Credential (New-Object System.Management.Automation.PSCredential('{发件邮箱}', (ConvertTo-SecureString '{SMTP授权码}' -AsPlainText -Force))) -From '{发件邮箱}' -To $to -Subject '{邮件主题}' -Body $msg -Encoding UTF8 }"
+                            ],
+                            "detach": true
+                        }
+                    }
+                },
+                "其他通知": {
+                    "focus": {
+                        "Node.Action.Succeeded": {
+                            "content": "{通知内容}",
+                            "display": [
+                                "log",
+                                "toast",
+                                "notification",
+                                "dialog"
+                            ]
+                        }
+                    },
+                    "action": {
+                        "type": "Command",
+                        "param": {
+                            "exec": "powershell",
+                            "args": [
+                                "-NoProfile",
+                                "-ExecutionPolicy",
+                                "Bypass",
+                                "-Command",
+                                "$ErrorActionPreference='SilentlyContinue'; $msg='{通知内容}'; $title='{弹窗标题}'; try { [console]::Beep(1200,300); Start-Sleep -Milliseconds 120; [console]::Beep(1200,300) } catch {}; Add-Type -AssemblyName PresentationFramework; [System.Windows.MessageBox]::Show($msg,$title)|Out-Null; if ('{启用邮件通知}' -eq 'true' -and '{SMTP服务器}' -ne '' -and '{发件邮箱}' -ne '' -and '{SMTP授权码}' -ne '' -and '{收件邮箱}' -ne '') { $to='{收件邮箱}'.Replace(';',',').Split(',') | ForEach-Object { $_.Trim() } | Where-Object { $_ }; Send-MailMessage -SmtpServer '{SMTP服务器}' -Port {SMTP端口} -UseSsl -Credential (New-Object System.Management.Automation.PSCredential('{发件邮箱}', (ConvertTo-SecureString '{SMTP授权码}' -AsPlainText -Force))) -From '{发件邮箱}' -To $to -Subject '{邮件主题}' -Body $msg -Encoding UTF8 }"
+                            ],
+                            "detach": true
+                        }
+                    }
+                },
+                "通知失败": {
+                    "focus": {
+                        "Node.Action.Succeeded": {
+                            "content": "{通知内容}",
+                            "display": [
+                                "log",
+                                "toast",
+                                "notification",
+                                "modal"
+                            ]
+                        }
+                    },
+                    "action": {
+                        "type": "Command",
+                        "param": {
+                            "exec": "powershell",
+                            "args": [
+                                "-NoProfile",
+                                "-ExecutionPolicy",
+                                "Bypass",
+                                "-Command",
+                                "$ErrorActionPreference='SilentlyContinue'; $msg='{通知内容}'; $title='{弹窗标题}'; try { [console]::Beep(1200,300); Start-Sleep -Milliseconds 120; [console]::Beep(1200,300) } catch {}; Add-Type -AssemblyName PresentationFramework; [System.Windows.MessageBox]::Show($msg,$title)|Out-Null; if ('{启用邮件通知}' -eq 'true' -and '{SMTP服务器}' -ne '' -and '{发件邮箱}' -ne '' -and '{SMTP授权码}' -ne '' -and '{收件邮箱}' -ne '') { $to='{收件邮箱}'.Replace(';',',').Split(',') | ForEach-Object { $_.Trim() } | Where-Object { $_ }; Send-MailMessage -SmtpServer '{SMTP服务器}' -Port {SMTP端口} -UseSsl -Credential (New-Object System.Management.Automation.PSCredential('{发件邮箱}', (ConvertTo-SecureString '{SMTP授权码}' -AsPlainText -Force))) -From '{发件邮箱}' -To $to -Subject '{邮件主题}' -Body $msg -Encoding UTF8 }"
+                            ],
+                            "detach": true
+                        }
+                    }
+                }
+            }
+        },
         "跳过分辨率警告": {
             "label": "是否跳过分辨率警报",
             "description": "打开后将跳过分辨率不符的警告提示",
@@ -2774,3 +2908,4 @@
     },
     "version": "v3.0.18"
 }
+
