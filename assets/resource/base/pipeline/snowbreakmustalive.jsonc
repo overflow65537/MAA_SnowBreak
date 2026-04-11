@@ -1,0 +1,284 @@
+{
+    "$__mpe_config_新建Pipeline3": {
+        "$__mpe_code": {
+            "prefix": "",
+            "savedViewport": {
+                "x": 740,
+                "y": 94,
+                "zoom": 0.66
+            },
+            "filename": "新建Pipeline3",
+            "version": "v1.4.1",
+        },
+    },
+    "通知失败": {
+        "pre_delay": 0,
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "Notice",
+                "custom_action_param": {
+                    "action": "multi_notify",
+                    "title": "SnowbreakMustAlive",
+                    "message": "检测到启动异常或通知流程失败，请尽快检查游戏状态。",
+                    "focus_event": "Node.Action.Failed",
+                    "focus_display": [
+                        "log",
+                        "toast",
+                        "notification",
+                        "modal"
+                    ],
+                    "alarm": {
+                        "enabled": true,
+                        "times": 4,
+                        "frequency": 1200,
+                        "duration_ms": 350,
+                        "interval_ms": 500,
+                    },
+                    "popup": {
+                        "enabled": true,
+                        "title": "MAA_SnowBreak 告警",
+                        "timeout_sec": 20,
+                        "icon": 48,
+                    },
+                    "email": {
+                        "enabled": false,
+                        "smtp_host": "smtp.example.com",
+                        "smtp_port": 465,
+                        "use_ssl": true,
+                        "use_starttls": false,
+                        "username": "your_mail@example.com",
+                        "password": "your_app_password",
+                        "from": "your_mail@example.com",
+                        "to": [
+                            "receiver@example.com"
+                        ],
+                        "subject": "MAA_SnowBreak 告警",
+                    },
+                },
+            },
+        },
+        "post_delay": 0,
+        "$__mpe_code": {
+            "position": {
+                "x": 995,
+                "y": 263
+            }
+        },
+    },
+    "其他通知": {
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "Notice",
+                "custom_action_param": {
+                    "action": "multi_notify",
+                    "title": "SnowbreakMustAlive",
+                    "message": "{通知内容}",
+                    "focus_event": "Node.Action.Succeeded",
+                    "focus_display": [
+                        "log",
+                        "toast",
+                        "notification",
+                        "dialog"
+                    ],
+                    "alarm": {
+                        "enabled": true,
+                        "times": 4,
+                        "frequency": 1200,
+                        "duration_ms": 350,
+                        "interval_ms": 500
+                    },
+                    "popup": {
+                        "enabled": true,
+                        "title": "{弹窗标题}",
+                        "timeout_sec": 20,
+                        "icon": 48
+                    },
+                    "email": {
+                        "enabled": true,
+                        "smtp_host": "{SMTP服务器}",
+                        "smtp_port": "{SMTP端口}",
+                        "use_ssl": true,
+                        "use_starttls": false,
+                        "username": "{发件邮箱}",
+                        "password": "{SMTP授权码}",
+                        "from": "{发件邮箱}",
+                        "to": "{收件邮箱}",
+                        "subject": "{邮件主题}"
+                    }
+                }
+            },
+        },
+        "on_error": [
+            "通知失败"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 657,
+                "y": 455
+            }
+        },
+    },
+    "未开始": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "开始游戏"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    180,
+                    610,
+                    200,
+                    120
+                ]
+            }
+        },
+        "next": [
+            "万一呢",
+            "检查主界面_任务_副本",
+            "[JumpBack]尝试服务器"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 12,
+                "y": 184
+            }
+        },
+    },
+    "尝试服务器": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    180,
+                    610,
+                    200,
+                    120
+                ],
+                "expected": [
+                    "确定"
+                ]
+            },
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "post_wait_freezes": 20000,
+        "$__mpe_code": {
+            "position": {
+                "x": 332,
+                "y": 12
+            }
+        },
+    },
+    "万一呢": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "战斗",
+                    "公告"
+                ]
+            }
+        },
+        "post_delay": 20000,
+        "next": [
+            "通知",
+            "其他通知"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 332,
+                "y": 263
+            }
+        },
+    },
+    "检查主界面_任务_副本": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    950,
+                    260,
+                    180,
+                    130
+                ],
+                "expected": "^战斗$",
+                "replace": [],
+            },
+        },
+        "post_delay": 1000,
+        "next": [
+            "通知",
+            "其他通知"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 332,
+                "y": 539
+            }
+        },
+    },
+    "通知": {
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "Notice",
+                "custom_action_param": {
+                    "action": "multi_notify",
+                    "title": "SnowbreakMustAlive",
+                    "message": "{通知内容}",
+                    "focus_event": "Node.Action.Succeeded",
+                    "focus_display": [
+                        "log",
+                        "toast",
+                        "notification",
+                        "dialog"
+                    ],
+                    "alarm": {
+                        "enabled": true,
+                        "times": 4,
+                        "frequency": 1200,
+                        "duration_ms": 350,
+                        "interval_ms": 500
+                    },
+                    "popup": {
+                        "enabled": true,
+                        "title": "{弹窗标题}",
+                        "timeout_sec": 20,
+                        "icon": 48
+                    },
+                    "email": {
+                        "enabled": true,
+                        "smtp_host": "{SMTP服务器}",
+                        "smtp_port": "{SMTP端口}",
+                        "use_ssl": true,
+                        "use_starttls": false,
+                        "username": "{发件邮箱}",
+                        "password": "{SMTP授权码}",
+                        "from": "{发件邮箱}",
+                        "to": "{收件邮箱}",
+                        "subject": "{邮件主题}"
+                    }
+                }
+            }
+        },
+        "on_error": [
+            "通知失败"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 652,
+                "y": 307
+            }
+        },
+    },
+}

@@ -97,6 +97,10 @@
             ]
         }
     ],
+    "global_option": [
+        "通知渠道设置",
+        "启用邮件通知"
+    ],
     "task": [
         {
             "name": "启动",
@@ -445,6 +449,274 @@
         }
     ],
     "option": {
+        "启用邮件通知": {
+            "label": "启用邮件通知",
+            "type": "switch",
+            "default_case": "No",
+            "cases": [
+                {
+                    "name": "Yes",
+                    "pipeline_override": {
+                        "通知": {
+                            "action": {
+                                "param": {
+                                    "custom_action_param": {
+                                        "email": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "其他通知": {
+                            "action": {
+                                "param": {
+                                    "custom_action_param": {
+                                        "email": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "通知失败": {
+                            "action": {
+                                "param": {
+                                    "custom_action_param": {
+                                        "email": {
+                                            "enabled": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "No",
+                    "pipeline_override": {
+                        "通知": {
+                            "action": {
+                                "param": {
+                                    "custom_action_param": {
+                                        "email": {
+                                            "enabled": false
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "其他通知": {
+                            "action": {
+                                "param": {
+                                    "custom_action_param": {
+                                        "email": {
+                                            "enabled": false
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "通知失败": {
+                            "action": {
+                                "param": {
+                                    "custom_action_param": {
+                                        "email": {
+                                            "enabled": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "通知渠道设置": {
+            "label": "通知渠道设置",
+            "description": "<p>用于 snowbreakmustalive 通知节点：邮件 + MAA弹窗/消息 + 闹钟 + PowerShell弹窗。</p><p>收件邮箱可填多个，用逗号分隔。</p>",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "SMTP服务器",
+                    "default": "smtp.qq.com",
+                    "pipeline_type": "string"
+                },
+                {
+                    "name": "SMTP端口",
+                    "default": "465",
+                    "pipeline_type": "int"
+                },
+                {
+                    "name": "发件邮箱",
+                    "default": "",
+                    "pipeline_type": "string"
+                },
+                {
+                    "name": "SMTP授权码",
+                    "default": "",
+                    "pipeline_type": "string"
+                },
+                {
+                    "name": "收件邮箱",
+                    "description": "<p>多个邮箱请用英文逗号分隔。</p>",
+                    "default": "",
+                    "pipeline_type": "string"
+                },
+                {
+                    "name": "邮件主题",
+                    "default": "MAA_SnowBreak 告警",
+                    "pipeline_type": "string"
+                },
+                {
+                    "name": "弹窗标题",
+                    "default": "MAA_SnowBreak 告警",
+                    "pipeline_type": "string"
+                },
+                {
+                    "name": "通知内容",
+                    "default": "检测到启动异常或通知流程失败，请尽快检查游戏状态。",
+                    "pipeline_type": "string"
+                }
+            ],
+            "pipeline_override": {
+                "通知": {
+                    "action": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_action": "Notice",
+                            "custom_action_param": {
+                                "action": "multi_notify",
+                                "title": "SnowbreakMustAlive",
+                                "message": "{通知内容}",
+                                "focus_event": "Node.Action.Succeeded",
+                                "focus_display": [
+                                    "log",
+                                    "toast",
+                                    "notification",
+                                    "dialog"
+                                ],
+                                "alarm": {
+                                    "enabled": true,
+                                    "times": 4,
+                                    "frequency": 1200,
+                                    "duration_ms": 350,
+                                    "interval_ms": 500
+                                },
+                                "popup": {
+                                    "enabled": true,
+                                    "title": "{弹窗标题}",
+                                    "timeout_sec": 20,
+                                    "icon": 48
+                                },
+                                "email": {
+                                    "enabled": true,
+                                    "smtp_host": "{SMTP服务器}",
+                                    "smtp_port": "{SMTP端口}",
+                                    "use_ssl": true,
+                                    "use_starttls": false,
+                                    "username": "{发件邮箱}",
+                                    "password": "{SMTP授权码}",
+                                    "from": "{发件邮箱}",
+                                    "to": "{收件邮箱}",
+                                    "subject": "{邮件主题}"
+                                }
+                            }
+                        }
+                    }
+                },
+                "其他通知": {
+                    "action": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_action": "Notice",
+                            "custom_action_param": {
+                                "action": "multi_notify",
+                                "title": "SnowbreakMustAlive",
+                                "message": "{通知内容}",
+                                "focus_event": "Node.Action.Succeeded",
+                                "focus_display": [
+                                    "log",
+                                    "toast",
+                                    "notification",
+                                    "dialog"
+                                ],
+                                "alarm": {
+                                    "enabled": true,
+                                    "times": 4,
+                                    "frequency": 1200,
+                                    "duration_ms": 350,
+                                    "interval_ms": 500
+                                },
+                                "popup": {
+                                    "enabled": true,
+                                    "title": "{弹窗标题}",
+                                    "timeout_sec": 20,
+                                    "icon": 48
+                                },
+                                "email": {
+                                    "enabled": true,
+                                    "smtp_host": "{SMTP服务器}",
+                                    "smtp_port": "{SMTP端口}",
+                                    "use_ssl": true,
+                                    "use_starttls": false,
+                                    "username": "{发件邮箱}",
+                                    "password": "{SMTP授权码}",
+                                    "from": "{发件邮箱}",
+                                    "to": "{收件邮箱}",
+                                    "subject": "{邮件主题}"
+                                }
+                            }
+                        }
+                    }
+                },
+                "通知失败": {
+                    "action": {
+                        "type": "Custom",
+                        "param": {
+                            "custom_action": "Notice",
+                            "custom_action_param": {
+                                "action": "multi_notify",
+                                "title": "SnowbreakMustAlive",
+                                "message": "{通知内容}",
+                                "focus_event": "Node.Action.Failed",
+                                "focus_display": [
+                                    "log",
+                                    "toast",
+                                    "notification",
+                                    "modal"
+                                ],
+                                "alarm": {
+                                    "enabled": true,
+                                    "times": 4,
+                                    "frequency": 1200,
+                                    "duration_ms": 350,
+                                    "interval_ms": 500
+                                },
+                                "popup": {
+                                    "enabled": true,
+                                    "title": "{弹窗标题}",
+                                    "timeout_sec": 20,
+                                    "icon": 48
+                                },
+                                "email": {
+                                    "enabled": true,
+                                    "smtp_host": "{SMTP服务器}",
+                                    "smtp_port": "{SMTP端口}",
+                                    "use_ssl": true,
+                                    "use_starttls": false,
+                                    "username": "{发件邮箱}",
+                                    "password": "{SMTP授权码}",
+                                    "from": "{发件邮箱}",
+                                    "to": "{收件邮箱}",
+                                    "subject": "{邮件主题}"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "跳过分辨率警告": {
             "label": "是否跳过分辨率警报",
             "description": "打开后将跳过分辨率不符的警告提示",
