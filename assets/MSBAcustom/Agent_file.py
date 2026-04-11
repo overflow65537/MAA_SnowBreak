@@ -38,7 +38,6 @@ from action.PuzzleRecycle import PuzzleRecycle
 from Recognition.LogicalOperators import LOp
 from Recognition.GetingMax import GetingMax
 from Recognition.CheckResolution import CheckResolution
-from action.Notice import Notice
 from action.RedmeeCode import RedeemCode
 from action.RedmeeCode import CheckRedeemCode
 
@@ -65,11 +64,6 @@ class Agent_CheckResolution(CheckResolution):
 
 @AgentServer.custom_recognition("GetingMax")
 class Agent_GetingMax(GetingMax):
-    pass
-
-
-@AgentServer.custom_action("Notice")
-class Agent_Notice(Notice):
     pass
 
 
