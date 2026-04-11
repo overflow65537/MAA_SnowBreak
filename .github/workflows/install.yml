@@ -1,5 +1,9 @@
 name: install
 
+# 依赖版本号：留空使用最新版，或指定如 "v4.6.0" / "v0.6.0"
+env:
+  SOURCE_REPO: "overflow65537/MAA_SnowBreak" # 上游发版源仓库
+
 on:
   push:
     tags:
@@ -8,23 +12,228 @@ on:
       - "**"
     paths:
       - ".github/workflows/install.yml"
-      - "assets/**"
+      - "deps/MAA_SnowBreak/assets/**"
+      - "tools/**"
       - "**.py"
   pull_request:
     branches:
       - "**"
     paths:
       - ".github/workflows/install.yml"
-      - "assets/**"
+      - "deps/MAA_SnowBreak/assets/**"
+      - "tools/**"
       - "**.py"
   workflow_dispatch:
+  repository_dispatch:
+    types:
+      - sync-release
 
 jobs:
+  meta:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - id: set_tag
+        run: |
+          is_release="false"
+          tag=""
+
+          if [[ "${{ github.event_name }}" == "repository_dispatch" ]]; then
+            dispatch_source="${{ github.event.client_payload.source_repo }}"
+            if [[ "$dispatch_source" != "${{ env.SOURCE_REPO }}" ]]; then
+              echo "Unexpected repository_dispatch source: $dispatch_source" >&2
+              exit 1
+            fi
+
+            # repository_dispatch 由上游仓库触发，使用 payload 中传来的 tag。
+            tag="${{ github.event.client_payload.tag }}"
+            if [[ -z "$tag" ]]; then
+              tag="${{ github.event.client_payload.tag_name }}"
+            fi
+
+            if [[ ! "$tag" =~ ^v[0-9]+\.[0-9]+\.[0-9]+([-.][A-Za-z0-9.-]+)?$ ]]; then
+              echo "Invalid release tag from repository_dispatch: $tag" >&2
+              exit 1
+            fi
+
+            release_status=$(curl -s -o /dev/null -w "%{http_code}" "https://api.github.com/repos/${{ env.SOURCE_REPO }}/releases/tags/$tag")
+            if [[ "$release_status" != "200" ]]; then
+              echo "Release tag $tag was not found in ${{ env.SOURCE_REPO }}" >&2
+              exit 1
+            fi
+
+            is_release="true"
+          elif [[ "${{ github.ref }}" == refs/tags/v* ]]; then
+            tag="${{ github.ref_name }}"
+            is_release="true"
+          else
+            tag=$(curl -sX GET "https://api.github.com/repos/${{ github.repository }}/releases/latest" --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' | awk '/tag_name/{print $4}' FS='["]')
+            if [[ $tag != v* ]]; then
+              tag="v0.0.0"
+            fi
+            tag=$(date "+$tag-%y%m%d-$(git rev-parse --short HEAD)")
+
+            prefix=${tag%-*-*}
+            suffix=${tag#$prefix-}
+            tag="$prefix-ci.$suffix"
+          fi
+
+          # Determine if this is a prerelease (contains -alpha, -beta, -rc, -ci, etc.)
+          is_prerelease="false"
+          if [[ "$tag" == *"-alpha"* ]] || [[ "$tag" == *"-beta"* ]] || [[ "$tag" == *"-rc"* ]] || [[ "$tag" == *"-ci"* ]] || [[ "$tag" == *"-"* ]]; then
+            is_prerelease="true"
+          fi
+
+          echo tag=$tag | tee -a $GITHUB_OUTPUT
+          echo is_release=$is_release | tee -a $GITHUB_OUTPUT
+          echo is_prerelease=$is_prerelease | tee -a $GITHUB_OUTPUT
+
+    outputs:
+      tag: ${{ steps.set_tag.outputs.tag }}
+      is_release: ${{ steps.set_tag.outputs.is_release }}
+      is_prerelease: ${{ steps.set_tag.outputs.is_prerelease }}
+
+  download-python-embed:
+    needs: meta
+    strategy:
+      matrix:
+        include:
+          # Windows x86_64
+          - os: win
+            arch: x86_64
+            runs-on: windows-latest
+          # Windows aarch64
+          - os: win
+            arch: aarch64
+            runs-on: windows-11-arm
+          # macOS x86_64 (Intel)
+          - os: macos
+            arch: x86_64
+            runs-on: macos-15-intel
+          # macOS aarch64 (Apple Silicon)
+          - os: macos
+            arch: aarch64
+            runs-on: macos-latest
+          # Linux x86_64
+          - os: linux
+            arch: x86_64
+            runs-on: ubuntu-latest
+      fail-fast: false
+    runs-on: ${{ matrix.runs-on }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+          architecture: ${{ matrix.arch == 'x86_64' && 'x64' || 'arm64' }}
+
+      - name: Download Python embed
+        shell: bash
+        run: |
+          python ./tools/install_python.py ./python
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: python-embed-${{ matrix.os }}-${{ matrix.arch }}
+          path: ./python
+
+  install:
+    needs:
+      - meta
+      - download-python-embed
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [win, macos, linux]
+        arch: [aarch64, x86_64]
+        exclude:
+          - os: linux
+            arch: aarch64
+      fail-fast: false
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Download MXU
+        id: download_mxu
+        uses: robinraju/release-downloader@v1
+        with:
+          repository: MistEO/MXU
+          fileName: "MXU-${{ (matrix.os == 'win' && 'win') || (matrix.os == 'macos' && 'macos') || (matrix.os == 'linux' && 'linux') }}-${{ (matrix.arch == 'x86_64' && 'x86_64') || (matrix.arch == 'aarch64' && 'aarch64') }}*"
+          latest: true
+          out-file-path: "MXU"
+          extract: true
+
+      - name: Download MaaFrameWork
+        id: download_maaframework
+        uses: robinraju/release-downloader@v1
+        with:
+          repository: MaaXYZ/MaaFrameWork
+          fileName: "MAA-${{ (matrix.os == 'win' && 'win') || (matrix.os == 'macos' && 'macos') || (matrix.os == 'linux' && 'linux') }}-${{ (matrix.arch == 'x86_64' && 'x86_64') || (matrix.arch == 'aarch64' && 'aarch64') }}*"
+          latest: true
+          out-file-path: "maafw"
+          extract: true
+
+      - name: Move MaaFrameWork files
+        shell: bash
+        run: |
+          rm -rf ./MXU/maafw
+          mv maafw/bin ./MXU/maafw
+
+      - name: Clean up MXU archive
+        shell: bash
+        run: |
+          ARCHIVE_FILE_PATH="${{ fromJson(steps.download_mxu.outputs.downloaded_files)[0] }}"
+          rm -f "${ARCHIVE_FILE_PATH}"
+          echo "Archive cleanup command executed for MXU."
+
+      - name: Install
+        shell: bash
+        env:
+          TARGET_OS: ${{ matrix.os }}
+        run: |
+          python -m pip install json-with-comments
+          python ./tools/install.py ${{ needs.meta.outputs.tag }}
+
+          if [[ "${{ matrix.os }}" != "android" ]]; then
+            if [ -d "MXU" ]; then
+              echo "Copying MXU files to install directory..."
+              mkdir -p install
+              rsync -av --ignore-existing MXU/ install/
+            else
+              echo "MXU directory not found, skipping copy."
+            fi
+          else
+            echo "Skipping copy MXU for Android."
+          fi
+
+      - uses: actions/download-artifact@v4
+
+        with:
+          name: python-embed-${{ matrix.os }}-${{ matrix.arch }}
+          path: ./install/python
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MSBA_MXU-${{ matrix.os }}-${{ matrix.arch }}
+          path: "install"
+
   changelog:
     name: Generate changelog
     runs-on: ubuntu-latest
     outputs:
       release_body: ${{ steps.git-cliff.outputs.content }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -35,116 +244,21 @@ jobs:
         uses: orhun/git-cliff-action@v4
         id: git-cliff
         with:
-          config: cliff.toml
+          config: .github/cliff.toml
           args: -vv --latest --strip header
         env:
           OUTPUT: CHANGES.md
           GITHUB_REPO: ${{ github.repository }}
 
-  meta:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - id: set_tag
-        run: |
-          # 检查标签格式
-          if [[ ${{ github.ref }} =~ ^refs/tags/v[0-9]+\.[0-9]+\.[0-9]+(-[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*)?$ ]]; then
-            is_release=true
-            tag=${GITHUB_REF#refs/tags/}
-            echo "Release tag format is valid: $tag"
-          else
-            is_release=false
-            # 获取最新的发布标签
-            tag=$(curl -sX GET "https://api.github.com/repos/${{ github.repository }}/releases/latest" --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' | awk '/tag_name/{print $4}' FS='["]')
-            if [[ ! $tag =~ ^v[0-9]+\.[0-9]+\.[0-9]+(-[a-zA-Z0-9]+)?$ ]]; then
-              echo "No valid release tag found, using v0.0.0"
-              tag="v0.0.0"
-            fi
-            tag=$(date "+$tag-%y%m%d-$(git rev-parse --short HEAD)")
-          fi
-
-          if ! $($is_release) ; then
-            prefix=${tag%-*-*}
-            suffix=${tag#$prefix-}
-            tag="$prefix-ci.$suffix"
-          fi
-
-          # 检查是否为预发布版本
-          is_prerelease=false
-          if [[ $tag =~ .*alpha.* || $tag =~ .*beta.* || $tag =~ .*rc.* || $tag =~ .*dev.* || $tag =~ .*-ci.* ]]; then
-            is_prerelease=true
-            echo "This is a pre-release version"
-          fi
-
-          echo tag=$tag | tee -a $GITHUB_OUTPUT
-          echo is_release=$is_release | tee -a $GITHUB_OUTPUT
-          echo is_prerelease=$is_prerelease | tee -a $GITHUB_OUTPUT
-    outputs:
-      tag: ${{ steps.set_tag.outputs.tag }}
-      is_release: ${{ steps.set_tag.outputs.is_release }}
-      is_prerelease: ${{ steps.set_tag.outputs.is_prerelease }}
-
-  build:
-    needs: meta
-    strategy:
-      matrix:
-        os: [windows, ubuntu, macos]
-        arch: [aarch64, x86_64]
-        include:
-          - os: windows
-            runs-on: windows-latest
-            file-suffix: win
-          - os: ubuntu
-            runs-on: ubuntu-latest
-            file-suffix: linux
-          - os: macos 
-            runs-on: macos-latest
-            file-suffix: macos
-      fail-fast: false
-
-    runs-on: ${{ matrix.runs-on }}
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          submodules: true
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.12'
-
-      - name: Install
-        shell: bash
-        run: |
-          pip install pyinstaller
-          pip install -r requirements.txt
-          python ./install.py ${{ needs.meta.outputs.tag }}
-
-      - name: Download MFW
-        uses: robinraju/release-downloader@v1
-        with:
-          repository: overflow65537/MFW-PyQt6
-          fileName: "MFW-PyQt6-${{ matrix.file-suffix }}-${{ matrix.arch }}*"
-          latest: true
-          out-file-path: "maapicli"
-          extract: true
-
-      - name: rm MFW pack
-        shell: bash
-        run: |
-          rm maapicli/MFW-PyQt6-${{ matrix.file-suffix }}-${{ matrix.arch }}*
-        
-      - uses: actions/upload-artifact@v4
-        with:
-          name: MSBA-${{ matrix.file-suffix }}-${{ matrix.arch }}
-          path: "maapicli"
-
   release:
     if: ${{ needs.meta.outputs.is_release == 'true' }}
-    needs: [meta, build, changelog]
+    needs:
+      - meta
+      - install
+      - changelog
+      - download-python-embed
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/download-artifact@v4
         with:
@@ -153,21 +267,17 @@ jobs:
       - run: |
           cd assets
           for f in *; do
+            if [[ "$f" == *"python-embed"* ]]; then
+              echo "Skipping $f (python-embed)."
+              continue
+            fi
             (cd $f && zip -r ../$f-${{ needs.meta.outputs.tag }}.zip .)
           done
 
-      - uses: softprops/action-gh-release@v2.2.2
+      - uses: softprops/action-gh-release@v2
         with:
           files: assets/*
           tag_name: ${{ needs.meta.outputs.tag }}
           body: ${{ needs.changelog.outputs.release_body }}
           draft: false
-          prerelease: ${{ needs.meta.outputs.is_prerelease }}
-          
-
-      - name: Trigger MirrorChyanUploading
-        run: |
-          gh workflow run --repo $GITHUB_REPOSITORY mirrorchyan
-          gh workflow run --repo $GITHUB_REPOSITORY mirrorchyan_release_note
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          prerelease: ${{ needs.meta.outputs.is_prerelease == 'true' }}
