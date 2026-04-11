@@ -103,9 +103,13 @@
     ],
     "task": [
         {
-            "name": "启动",
+            "name": "开服检测",
             "default_check": true,
             "entry": "启动",
+            "option": [
+                "通知渠道设置",
+                "启用邮件通知"
+            ],
             "pipeline_override": {
                 "二次检测主界面": {
                     "action": {
