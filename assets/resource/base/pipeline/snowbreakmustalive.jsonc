@@ -1,19 +1,82 @@
 {
-    "$__mpe_config_新建Pipeline3": {
+    "$__mpe_config_新建Pipeline4": {
         "$__mpe_code": {
             "prefix": "",
             "savedViewport": {
-                "x": 740,
-                "y": 94,
-                "zoom": 0.66
+                "x": 104,
+                "y": -62,
+                "zoom": 0.87
             },
-            "filename": "新建Pipeline3",
-            "version": "v1.4.1",
+            "filename": "新建Pipeline4",
+            "version": "v1.4.1"
+        }
+    },
+    "尝试服务器_副本1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    180,
+                    610,
+                    200,
+                    120
+                ],
+                "expected": [
+                    "确定"
+                ]
+            }
         },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "post_wait_freezes": 20000,
+        "$__mpe_code": {
+            "position": {
+                "x": 648,
+                "y": 12
+            }
+        }
+    },
+    "其他通知_副本2": {
+        "action": {
+            "type": "Command",
+            "param": {
+                "exec": "cmd /c msg %username% “开服啦”"
+            }
+        },
+        "focus": {
+            "Node.Action.Succeeded": {
+                "content": "开服检测通知",
+                "display": [
+                    "log",
+                    "toast",
+                    "notification",
+                    "dialog"
+                ]
+            }
+        },
+        "$__mpe_code": {
+            "position": {
+                "x": 980,
+                "y": 534
+            }
+        }
+    },
+    "开服检测": {
+        "next": [
+            "未开始"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 12,
+                "y": 366
+            }
+        }
     },
     "通知失败": {
         "pre_delay": 0,
-        "action": "DoNothing",
+        "post_delay": 0,
         "focus": {
             "Node.Action.Succeeded": {
                 "content": "检测到启动异常或通知流程失败，请尽快检查游戏状态。",
@@ -25,16 +88,14 @@
                 ]
             }
         },
-        "post_delay": 0,
         "$__mpe_code": {
             "position": {
-                "x": 995,
-                "y": 263
+                "x": 1292,
+                "y": 328
             }
-        },
+        }
     },
     "其他通知": {
-        "action": "DoNothing",
         "focus": {
             "Node.Action.Succeeded": {
                 "content": "开服检测通知",
@@ -51,10 +112,10 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 657,
-                "y": 455
+                "x": 981,
+                "y": 356
             }
-        },
+        }
     },
     "未开始": {
         "recognition": {
@@ -85,35 +146,14 @@
         "next": [
             "万一呢",
             "检查主界面_任务_副本",
-            "[JumpBack]尝试服务器"
+            "[JumpBack]尝试服务器_副本1"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 12,
-                "y": 184
-            }
-        },
-    },
-    "尝试服务器": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "expected": [
-                    "确定"
-                ]
-            },
-        },
-        "action": {
-            "type": "Click",
-            "param": {}
-        },
-        "post_wait_freezes": 20000,
-        "$__mpe_code": {
-            "position": {
                 "x": 332,
-                "y": 12
+                "y": 319
             }
-        },
+        }
     },
     "万一呢": {
         "recognition": {
@@ -134,14 +174,15 @@
         "post_delay": 20000,
         "next": [
             "通知",
-            "其他通知"
+            "其他通知",
+            "[JumpBack]其他通知_副本2"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 332,
-                "y": 263
+                "x": 652,
+                "y": 630
             }
-        },
+        }
     },
     "检查主界面_任务_副本": {
         "recognition": {
@@ -154,23 +195,23 @@
                     130
                 ],
                 "expected": "^战斗$",
-                "replace": [],
-            },
+                "replace": []
+            }
         },
         "post_delay": 1000,
         "next": [
             "通知",
-            "其他通知"
+            "其他通知",
+            "[JumpBack]其他通知_副本2"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 332,
-                "y": 539
+                "x": 652,
+                "y": 290
             }
-        },
+        }
     },
     "通知": {
-        "action": "DoNothing",
         "focus": {
             "Node.Action.Succeeded": {
                 "content": "开服检测通知",
@@ -187,10 +228,9 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 652,
-                "y": 307
+                "x": 979,
+                "y": 176
             }
-        },
-    },
+        }
+    }
 }
-
