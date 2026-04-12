@@ -3,15 +3,15 @@
         "$__mpe_code": {
             "prefix": "",
             "savedViewport": {
-                "x": 104,
-                "y": -62,
-                "zoom": 0.87
+                "x": 326,
+                "y": 79,
+                "zoom": 0.29
             },
             "filename": "新建Pipeline4",
             "version": "v1.4.1"
         }
     },
-    "尝试服务器_副本1": {
+    "尝试服务器_副本4": {
         "recognition": {
             "type": "OCR",
             "param": {
@@ -31,35 +31,13 @@
             "param": {}
         },
         "post_wait_freezes": 20000,
+        "on_error": [
+            "尝试服务器_副本1"
+        ],
         "$__mpe_code": {
             "position": {
-                "x": 648,
-                "y": 12
-            }
-        }
-    },
-    "其他通知_副本2": {
-        "action": {
-            "type": "Command",
-            "param": {
-                "exec": "cmd /c msg %username% “开服啦”"
-            }
-        },
-        "focus": {
-            "Node.Action.Succeeded": {
-                "content": "开服检测通知",
-                "display": [
-                    "log",
-                    "toast",
-                    "notification",
-                    "dialog"
-                ]
-            }
-        },
-        "$__mpe_code": {
-            "position": {
-                "x": 980,
-                "y": 534
+                "x": 972,
+                "y": 776
             }
         }
     },
@@ -70,7 +48,7 @@
         "$__mpe_code": {
             "position": {
                 "x": 12,
-                "y": 366
+                "y": 817
             }
         }
     },
@@ -91,7 +69,7 @@
         "$__mpe_code": {
             "position": {
                 "x": 1292,
-                "y": 328
+                "y": 186
             }
         }
     },
@@ -112,8 +90,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 981,
-                "y": 356
+                "x": 972,
+                "y": 256
             }
         }
     },
@@ -146,12 +124,13 @@
         "next": [
             "万一呢",
             "检查主界面_任务_副本",
-            "[JumpBack]尝试服务器_副本1"
+            "[JumpBack]尝试服务器_副本1",
+            "[JumpBack]尝试服务器"
         ],
         "$__mpe_code": {
             "position": {
                 "x": 332,
-                "y": 319
+                "y": 770
             }
         }
     },
@@ -180,7 +159,7 @@
         "$__mpe_code": {
             "position": {
                 "x": 652,
-                "y": 630
+                "y": 460
             }
         }
     },
@@ -207,7 +186,7 @@
         "$__mpe_code": {
             "position": {
                 "x": 652,
-                "y": 290
+                "y": 120
             }
         }
     },
@@ -228,8 +207,74 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 979,
-                "y": 176
+                "x": 972,
+                "y": 12
+            }
+        }
+    },
+    "尝试服务器_副本1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "确定"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "post_wait_freezes": 2000,
+        "$__mpe_code": {
+            "position": {
+                "x": 1292,
+                "y": 825
+            }
+        }
+    },
+    "其他通知_副本2": {
+        "action": {
+            "type": "Command",
+            "param": {
+                "exec": "cmd /c msg %username% “开服啦”"
+            }
+        },
+        "focus": {
+            "Node.Action.Succeeded": {
+                "content": "开服检测通知",
+                "display": [
+                    "log",
+                    "toast",
+                    "notification",
+                    "dialog"
+                ]
+            }
+        },
+        "$__mpe_code": {
+            "position": {
+                "x": 972,
+                "y": 500
+            }
+        }
+    },
+    "尝试服务器": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": [
+                    "服务器未开放"
+                ]
+            }
+        },
+        "post_wait_freezes": 2000,
+        "next": [
+            "尝试服务器_副本4"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 652,
+                "y": 793
             }
         }
     }
