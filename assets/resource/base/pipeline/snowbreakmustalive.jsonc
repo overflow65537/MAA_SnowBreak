@@ -3,80 +3,45 @@
         "$__mpe_code": {
             "prefix": "",
             "savedViewport": {
-                "x": 419,
-                "y": 123,
-                "zoom": 0.2
+                "x": 586,
+                "y": 2,
+                "zoom": 0.23
             },
             "filename": "新建Pipeline4",
             "version": "v1.4.1"
         }
     },
-    "尝试服务器_副本4": {
+    "进入游戏_副本6": {
         "recognition": {
             "type": "OCR",
             "param": {
                 "roi": [
-                    180,
-                    610,
-                    200,
-                    120
+                    539,
+                    569,
+                    204,
+                    137
                 ],
-                "expected": [
-                    "确定"
-                ]
+                "expected": "开始游戏"
             }
         },
         "action": {
             "type": "Click",
             "param": {}
         },
-        "post_wait_freezes": 20000,
-        "on_error": [
-            "尝试服务器_副本1"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 972,
-                "y": 776
-            }
-        }
-    },
-    "预启动": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    180,
-                    610,
-                    200,
-                    120
-                ],
-                "expected": [
-                    "开始游戏"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    180,
-                    610,
-                    200,
-                    120
-                ]
-            }
-        },
-        "post_delay": 0,
+        "repeat": 2,
         "next": [
-            "[JumpBack]尝试服务器",
+            "检查主界面_任务_副本",
             "万一呢",
-            "检查主界面_任务_副本"
+            "[JumpBack]尝试服务器",
+            "[JumpBack]尝试服务器_副本1"
+        ],
+        "on_error": [
+            "开服检测"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 5,
-                "y": 80
+                "x": 16,
+                "y": 1385
             }
         }
     },
@@ -85,13 +50,13 @@
             "检查主界面_任务_副本",
             "万一呢",
             "[JumpBack]尝试服务器",
-            "[JumpBack]预启动",
-            "[JumpBack]尝试服务器_副本1"
+            "[JumpBack]尝试服务器_副本1",
+            "[JumpBack]进入游戏_副本6"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 67,
-                "y": 900
+                "x": -395,
+                "y": 998
             }
         }
     },
@@ -111,8 +76,8 @@
         },
         "$__mpe_code": {
             "position": {
-                "x": 1292,
-                "y": 186
+                "x": 1260,
+                "y": 307
             }
         }
     },
@@ -133,8 +98,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 972,
-                "y": 256
+                "x": 940,
+                "y": 394
             }
         }
     },
@@ -162,8 +127,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 652,
-                "y": 460
+                "x": 425,
+                "y": 435
             }
         }
     },
@@ -189,8 +154,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 652,
-                "y": 120
+                "x": 424,
+                "y": 716
             }
         }
     },
@@ -211,8 +176,8 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 972,
-                "y": 12
+                "x": 940,
+                "y": 167
             }
         }
     },
@@ -230,10 +195,13 @@
             "param": {}
         },
         "post_wait_freezes": 2000,
+        "on_error": [
+            "开服检测"
+        ],
         "$__mpe_code": {
             "position": {
-                "x": 1445,
-                "y": -198
+                "x": 1110,
+                "y": 1247
             }
         }
     },
@@ -257,8 +225,8 @@
         },
         "$__mpe_code": {
             "position": {
-                "x": 972,
-                "y": 500
+                "x": 932,
+                "y": 648
             }
         }
     },
@@ -277,8 +245,38 @@
         ],
         "$__mpe_code": {
             "position": {
-                "x": 652,
-                "y": 793
+                "x": 402,
+                "y": 1200
+            }
+        }
+    },
+    "尝试服务器_副本4": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    180,
+                    610,
+                    200,
+                    120
+                ],
+                "expected": [
+                    "确定"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "post_wait_freezes": 20000,
+        "on_error": [
+            "尝试服务器_副本1"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 694,
+                "y": 1008
             }
         }
     }
