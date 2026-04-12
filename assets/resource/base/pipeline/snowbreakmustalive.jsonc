@@ -3,47 +3,50 @@
         "$__mpe_code": {
             "prefix": "",
             "savedViewport": {
-                "x": 460,
-                "y": -48,
-                "zoom": 0.23
+                "x": 345,
+                "y": 16,
+                "zoom": 0.46
             },
             "filename": "新建Pipeline4",
             "version": "v1.4.1"
         }
     },
-    "进入游戏_副本6": {
+    "意外点击_公告_副本8": {
         "recognition": {
-            "type": "OCR",
+            "type": "TemplateMatch",
             "param": {
                 "roi": [
-                    539,
-                    569,
-                    204,
-                    137
+                    970,
+                    0,
+                    180,
+                    80
                 ],
-                "expected": "开始游戏"
+                "template": [
+                    "通用任务/主菜单.png"
+                ]
             }
         },
         "action": {
             "type": "Click",
             "param": {}
         },
-        "repeat": 2,
+        "post_wait_freezes": {
+            "time": 1000,
+            "timeout": 5000
+        },
         "next": [
-            "检查主界面_任务_副本",
-            "万一呢",
-            "[JumpBack]尝试服务器_副本1"
+            "[JumpBack]其他通知_副本2"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 2,
-                "y": 1311
+                "x": 437,
+                "y": -210
             }
         }
     },
     "开服检测": {
         "next": [
-            "进入游戏_副本6"
+            "[JumpBack]进入游戏_副本6"
         ],
         "$__mpe_code": {
             "position": {
@@ -106,8 +109,7 @@
                     220
                 ],
                 "expected": [
-                    "战斗",
-                    "公告"
+                    "战斗"
                 ]
             }
         },
@@ -139,6 +141,7 @@
             }
         },
         "post_delay": 1000,
+        "focus": "对的对的！",
         "next": [
             "通知",
             "其他通知",
@@ -186,11 +189,16 @@
             "type": "Click",
             "param": {}
         },
-        "post_wait_freezes": 2000,
+        "post_delay": 200,
+        "rate_limit": 1000,
+        "focus": "服务器未启动",
+        "next": [
+            "开服检测"
+        ],
         "$__mpe_code": {
             "position": {
-                "x": 516,
-                "y": 1313
+                "x": 394,
+                "y": 1333
             }
         }
     },
@@ -216,6 +224,64 @@
             "position": {
                 "x": 932,
                 "y": 648
+            }
+        }
+    },
+    "进入游戏_副本6": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    539,
+                    569,
+                    204,
+                    137
+                ],
+                "expected": "开始游戏"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {}
+        },
+        "timeout": -1,
+        "rate_limit": 1000,
+        "focus": "进入游戏",
+        "next": [
+            "检查主界面_任务_副本",
+            "万一呢",
+            "[JumpBack]尝试服务器_副本1",
+            "二次检测主界面_副本7",
+            "意外点击_公告_副本8"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 17,
+                "y": 1271
+            }
+        }
+    },
+    "二次检测主界面_副本7": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    950,
+                    260,
+                    180,
+                    130
+                ],
+                "expected": "^战斗$",
+                "replace": []
+            }
+        },
+        "next": [
+            "[JumpBack]其他通知_副本2"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 403,
+                "y": 116
             }
         }
     }
