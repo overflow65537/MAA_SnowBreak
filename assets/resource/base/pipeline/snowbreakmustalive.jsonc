@@ -3,8 +3,8 @@
         "$__mpe_code": {
             "prefix": "",
             "savedViewport": {
-                "x": 586,
-                "y": 2,
+                "x": 460,
+                "y": -48,
                 "zoom": 0.23
             },
             "filename": "新建Pipeline4",
@@ -32,31 +32,23 @@
         "next": [
             "检查主界面_任务_副本",
             "万一呢",
-            "[JumpBack]尝试服务器",
             "[JumpBack]尝试服务器_副本1"
-        ],
-        "on_error": [
-            "开服检测"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 16,
-                "y": 1385
+                "x": 2,
+                "y": 1311
             }
         }
     },
     "开服检测": {
         "next": [
-            "检查主界面_任务_副本",
-            "万一呢",
-            "[JumpBack]尝试服务器",
-            "[JumpBack]尝试服务器_副本1",
-            "[JumpBack]进入游戏_副本6"
+            "进入游戏_副本6"
         ],
         "$__mpe_code": {
             "position": {
-                "x": -395,
-                "y": 998
+                "x": -338,
+                "y": 1342
             }
         }
     },
@@ -195,13 +187,10 @@
             "param": {}
         },
         "post_wait_freezes": 2000,
-        "on_error": [
-            "开服检测"
-        ],
         "$__mpe_code": {
             "position": {
-                "x": 1110,
-                "y": 1247
+                "x": 516,
+                "y": 1313
             }
         }
     },
@@ -227,56 +216,6 @@
             "position": {
                 "x": 932,
                 "y": 648
-            }
-        }
-    },
-    "尝试服务器": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "expected": [
-                    "服务器未开放"
-                ]
-            }
-        },
-        "post_wait_freezes": 2000,
-        "next": [
-            "尝试服务器_副本4"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 402,
-                "y": 1200
-            }
-        }
-    },
-    "尝试服务器_副本4": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    180,
-                    610,
-                    200,
-                    120
-                ],
-                "expected": [
-                    "确定"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {}
-        },
-        "post_wait_freezes": 20000,
-        "on_error": [
-            "尝试服务器_副本1"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 694,
-                "y": 1008
             }
         }
     }
