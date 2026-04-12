@@ -2,7 +2,7 @@
     "开服检测": {
         "next": [
             "开服了?",
-            "确定",
+            "[JumpBack]确定",
             "[JumpBack]返回主菜单_action",
             "[JumpBack]关闭公告",
             "[JumpBack]关闭签到",
