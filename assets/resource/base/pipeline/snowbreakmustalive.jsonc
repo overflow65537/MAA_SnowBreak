@@ -1,132 +1,31 @@
 {
-    "$__mpe_config_新建Pipeline4": {
-        "$__mpe_code": {
-            "prefix": "",
-            "savedViewport": {
-                "x": 345,
-                "y": 16,
-                "zoom": 0.46
-            },
-            "filename": "新建Pipeline4",
-            "version": "v1.4.1"
-        }
-    },
-    "意外点击_公告_副本8": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    970,
-                    0,
-                    180,
-                    80
-                ],
-                "template": [
-                    "通用任务/主菜单.png"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {}
-        },
-        "post_wait_freezes": {
-            "time": 1000,
-            "timeout": 5000
-        },
-        "next": [
-            "[JumpBack]其他通知_副本2"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 437,
-                "y": -210
-            }
-        }
-    },
     "开服检测": {
         "next": [
-            "[JumpBack]进入游戏_副本6"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": -338,
-                "y": 1342
-            }
-        }
+            "开服了?",
+            "确定",
+            "[JumpBack]返回主菜单_action",
+            "[JumpBack]关闭公告",
+            "[JumpBack]关闭签到",
+            "[JumpBack]点击空白处关闭",
+            "[JumpBack]进入游戏",
+            "[JumpBack]关闭奖励通知",
+            "[JumpBack]账号等级提升",
+            "[JumpBack]意外点击_公告",
+            "[JumpBack]下载资源包",
+            "[JumpBack]启动应用"
+        ]
     },
-    "通知失败": {
-        "pre_delay": 0,
-        "post_delay": 0,
+    "开服了?": {
         "focus": {
             "Node.Action.Succeeded": {
-                "content": "检测到启动异常或通知流程失败，请尽快检查游戏状态。",
+                "content": "好像开服了?",
                 "display": [
                     "log",
-                    "toast",
-                    "notification",
-                    "modal"
+                    "toast"
                 ]
             }
         },
-        "$__mpe_code": {
-            "position": {
-                "x": 1260,
-                "y": 307
-            }
-        }
-    },
-    "其他通知": {
-        "focus": {
-            "Node.Action.Succeeded": {
-                "content": "开服检测通知",
-                "display": [
-                    "log",
-                    "toast",
-                    "notification",
-                    "dialog"
-                ]
-            }
-        },
-        "on_error": [
-            "通知失败"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 940,
-                "y": 394
-            }
-        }
-    },
-    "万一呢": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    900,
-                    200,
-                    300,
-                    220
-                ],
-                "expected": [
-                    "战斗"
-                ]
-            }
-        },
-        "post_delay": 20000,
-        "next": [
-            "通知",
-            "其他通知",
-            "[JumpBack]其他通知_副本2"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 425,
-                "y": 435
-            }
-        }
-    },
-    "检查主界面_任务_副本": {
+        "post_delay": 3000,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -136,152 +35,59 @@
                     180,
                     130
                 ],
-                "expected": "^战斗$",
-                "replace": []
+                "replace": [
+                    "找",
+                    "战"
+                ],
+                "expected": "^战斗$"
             }
         },
-        "post_delay": 1000,
-        "focus": "对的对的！",
         "next": [
-            "通知",
-            "其他通知",
-            "[JumpBack]其他通知_副本2"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 424,
-                "y": 716
-            }
-        }
+            "开服了!",
+            "启动"
+        ]
     },
-    "通知": {
-        "focus": {
-            "Node.Action.Succeeded": {
-                "content": "开服检测通知",
-                "display": [
-                    "log",
-                    "toast",
-                    "notification",
-                    "dialog"
-                ]
-            }
-        },
-        "on_error": [
-            "通知失败"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 940,
-                "y": 167
-            }
-        }
-    },
-    "尝试服务器_副本1": {
+    "开服了!": {
         "recognition": {
             "type": "OCR",
             "param": {
-                "expected": [
-                    "确定"
+                "roi": [
+                    950,
+                    260,
+                    180,
+                    130
+                ],
+                "replace": [
+                    "找",
+                    "战"
+                ],
+                "expected": "^战斗$"
+            }
+        },
+        "next": [
+            "[JumpBack]开服通知"
+        ]
+    },
+    "开服通知": {
+        "focus": {
+            "Node.Action.Succeeded": {
+                "content": "开服了!!",
+                "display": [
+                    "log",
+                    "toast"
                 ]
             }
         },
-        "action": {
-            "type": "Click",
-            "param": {}
-        },
-        "post_delay": 200,
-        "rate_limit": 1000,
-        "focus": "服务器未启动",
-        "next": [
-            "开服检测"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 394,
-                "y": 1333
-            }
-        }
-    },
-    "其他通知_副本2": {
         "action": {
             "type": "Command",
             "param": {
-                "exec": "cmd /c msg %username% “开服啦”"
-            }
-        },
-        "focus": {
-            "Node.Action.Succeeded": {
-                "content": "开服检测通知",
-                "display": [
-                    "log",
-                    "toast",
-                    "notification",
-                    "dialog"
+                "exec": "cmd",
+                "args": [
+                    "/c",
+                    "msg",
+                    "%username%",
+                    "开服啦"
                 ]
-            }
-        },
-        "$__mpe_code": {
-            "position": {
-                "x": 932,
-                "y": 648
-            }
-        }
-    },
-    "进入游戏_副本6": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    539,
-                    569,
-                    204,
-                    137
-                ],
-                "expected": "开始游戏"
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {}
-        },
-        "timeout": -1,
-        "rate_limit": 1000,
-        "focus": "进入游戏",
-        "next": [
-            "检查主界面_任务_副本",
-            "万一呢",
-            "[JumpBack]尝试服务器_副本1",
-            "二次检测主界面_副本7",
-            "意外点击_公告_副本8"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 17,
-                "y": 1271
-            }
-        }
-    },
-    "二次检测主界面_副本7": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    950,
-                    260,
-                    180,
-                    130
-                ],
-                "expected": "^战斗$",
-                "replace": []
-            }
-        },
-        "next": [
-            "[JumpBack]其他通知_副本2"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 403,
-                "y": 116
             }
         }
     }
