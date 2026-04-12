@@ -3,9 +3,9 @@
         "$__mpe_code": {
             "prefix": "",
             "savedViewport": {
-                "x": 326,
-                "y": 79,
-                "zoom": 0.29
+                "x": 419,
+                "y": 123,
+                "zoom": 0.2
             },
             "filename": "新建Pipeline4",
             "version": "v1.4.1"
@@ -41,14 +41,57 @@
             }
         }
     },
-    "开服检测": {
+    "预启动": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    180,
+                    610,
+                    200,
+                    120
+                ],
+                "expected": [
+                    "开始游戏"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    180,
+                    610,
+                    200,
+                    120
+                ]
+            }
+        },
+        "post_delay": 0,
         "next": [
-            "未开始"
+            "[JumpBack]尝试服务器",
+            "万一呢",
+            "检查主界面_任务_副本"
         ],
         "$__mpe_code": {
             "position": {
-                "x": 12,
-                "y": 817
+                "x": 5,
+                "y": 80
+            }
+        }
+    },
+    "开服检测": {
+        "next": [
+            "检查主界面_任务_副本",
+            "万一呢",
+            "[JumpBack]尝试服务器",
+            "[JumpBack]预启动",
+            "[JumpBack]尝试服务器_副本1"
+        ],
+        "$__mpe_code": {
+            "position": {
+                "x": 67,
+                "y": 900
             }
         }
     },
@@ -92,45 +135,6 @@
             "position": {
                 "x": 972,
                 "y": 256
-            }
-        }
-    },
-    "未开始": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    180,
-                    610,
-                    200,
-                    120
-                ],
-                "expected": [
-                    "开始游戏"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    180,
-                    610,
-                    200,
-                    120
-                ]
-            }
-        },
-        "next": [
-            "万一呢",
-            "检查主界面_任务_副本",
-            "[JumpBack]尝试服务器_副本1",
-            "[JumpBack]尝试服务器"
-        ],
-        "$__mpe_code": {
-            "position": {
-                "x": 332,
-                "y": 770
             }
         }
     },
@@ -228,8 +232,8 @@
         "post_wait_freezes": 2000,
         "$__mpe_code": {
             "position": {
-                "x": 1292,
-                "y": 825
+                "x": 1445,
+                "y": -198
             }
         }
     },
