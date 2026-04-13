@@ -143,13 +143,7 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                "roi": [
-                    277,
-                    351,
-                    865,
-                    285
-                ],
-                "expected": "确定"
+                "expected": "^确定$"
             }
         },
         "action": {
