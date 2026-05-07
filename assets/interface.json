@@ -210,6 +210,10 @@
       "description": "关闭游戏后使用；默认全部关闭",
       "task": [
         {
+          "name": "开服检测",
+          "enabled": false
+        },
+        {
           "name": "疗愈",
           "enabled": false
         },

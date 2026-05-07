@@ -1,0 +1,13 @@
+{
+    "task": [
+        {
+            "name": "开服检测",
+            "default_check": true,
+            "entry": "开服检测",
+            "description": "<p>开门了吗?</p>",
+            "group": [
+                "tools"
+            ]
+        }
+    ]
+}
