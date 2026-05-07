@@ -1,0 +1,14 @@
+{
+    "task": [
+        {
+            "name": "启动",
+            "default_check": true,
+            "entry": "启动",
+            "description": "<p>启动游戏并进入主界面</p>",
+            "group": [
+                "daily"
+            ]
+        }
+    ],
+    "option": {}
+}

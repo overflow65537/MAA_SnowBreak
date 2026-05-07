@@ -1,0 +1,25 @@
+{
+    "task": [
+        {
+            "name": "领取体力",
+            "default_check": true,
+            "entry": "体力",
+            "description": "<p>领取体力</p><p>速通周期:每天5点后刷新一次</p>",
+            "speedrun": {
+                "mode": "daily",
+                "trigger": {
+                    "daily": {
+                        "hour_start": 5
+                    }
+                },
+                "run": {
+                    "count": 1
+                }
+            },
+            "group": [
+                "daily"
+            ]
+        }
+    ],
+    "option": {}
+}

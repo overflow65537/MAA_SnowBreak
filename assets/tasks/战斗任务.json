@@ -1,0 +1,468 @@
+{
+    "task": [
+        {
+            "name": "战斗任务",
+            "default_check": true,
+            "entry": "战斗",
+            "option": [
+                "作战关卡",
+                "刷取次数",
+                "使用临期体力"
+            ],
+            "group": [
+                "daily"
+            ]
+        }
+    ],
+    "option": {
+        "作战关卡": {
+            "cases": [
+                {
+                    "name": "活动战斗",
+                    "pipeline_override": {
+                        "打开战斗": {
+                            "enabled": false
+                        },
+                        "选择作战1": {
+                            "enabled": false
+                        },
+                        "作战_滑动": {
+                            "enabled": false
+                        },
+                        "进入作战": {
+                            "enabled": false
+                        },
+                        "进入深渊作战_滑动": {
+                            "enabled": false
+                        },
+                        "进入深渊作战": {
+                            "enabled": false
+                        }
+                    }
+                },
+                {
+                    "name": "活动战斗-复刻",
+                    "pipeline_override": {
+                        "选择复刻活动_精确": {
+                            "enabled": true
+                        },
+                        "复刻活动_精确": {
+                            "enabled": true
+                        },
+                        "复刻活动": {
+                            "enabled": true
+                        },
+                        "打开战斗": {
+                            "enabled": false
+                        },
+                        "选择作战1": {
+                            "enabled": false
+                        },
+                        "作战_滑动": {
+                            "enabled": false
+                        },
+                        "进入作战": {
+                            "enabled": false
+                        },
+                        "进入深渊作战_滑动": {
+                            "enabled": false
+                        },
+                        "进入深渊作战": {
+                            "enabled": false
+                        }
+                    }
+                },
+                {
+                    "name": "活动武器",
+                    "pipeline_override": {
+                        "选择活动作战1_精确": {
+                            "enabled": false
+                        },
+                        "选择活动作战1": {
+                            "enabled": false
+                        },
+                        "选择活动作战2": {
+                            "enabled": false
+                        },
+                        "进入作战": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "聚兵之器"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "活动后勤",
+                    "pipeline_override": {
+                        "申请进度上限": {
+                            "enabled": true
+                        },
+                        "接收后勤": {
+                            "enabled": true
+                        },
+                        "选择活动作战1_精确": {
+                            "enabled": false
+                        },
+                        "选择活动作战1": {
+                            "enabled": false
+                        },
+                        "选择活动作战2": {
+                            "enabled": false
+                        },
+                        "进入作战": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "炼心之战"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "通用银",
+                    "pipeline_override": {
+                        "选择活动作战1": {
+                            "enabled": false
+                        },
+                        "选择活动作战1_精确": {
+                            "enabled": false
+                        },
+                        "选择活动作战2": {
+                            "enabled": false
+                        },
+                        "进入作战": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "富饶之壶"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "角色经验",
+                    "pipeline_override": {
+                        "选择活动作战1_精确": {
+                            "enabled": false
+                        },
+                        "选择活动作战1": {
+                            "enabled": false
+                        },
+                        "选择活动作战2": {
+                            "enabled": false
+                        },
+                        "进入作战": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "百足之市"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "武器经验",
+                    "pipeline_override": {
+                        "选择活动作战1_精确": {
+                            "enabled": false
+                        },
+                        "选择活动作战1": {
+                            "enabled": false
+                        },
+                        "选择活动作战2": {
+                            "enabled": false
+                        },
+                        "进入作战": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "止战之人"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "武器材料",
+                    "pipeline_override": {
+                        "选择活动作战1_精确": {
+                            "enabled": false
+                        },
+                        "选择活动作战1": {
+                            "enabled": false
+                        },
+                        "选择活动作战2": {
+                            "enabled": false
+                        },
+                        "进入作战": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "重铸之炎"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "神经素材",
+                    "pipeline_override": {
+                        "选择活动作战1_精确": {
+                            "enabled": false
+                        },
+                        "选择活动作战1": {
+                            "enabled": false
+                        },
+                        "选择活动作战2": {
+                            "enabled": false
+                        },
+                        "进入作战": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "永冬之境"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "后勤",
+                    "pipeline_override": {
+                        "申请进度上限": {
+                            "enabled": true
+                        },
+                        "选择活动作战1_精确": {
+                            "enabled": false
+                        },
+                        "接收后勤": {
+                            "enabled": true
+                        },
+                        "选择活动作战1": {
+                            "enabled": false
+                        },
+                        "选择活动作战2": {
+                            "enabled": false
+                        },
+                        "进入作战": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "浴火之战"
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "刷取次数": {
+            "cases": [
+                {
+                    "name": "1",
+                    "pipeline_override": {
+                        "战斗次数": {
+                            "recognition": {
+                                "param": {
+                                    "replace": [
+                                        [
+                                            "i",
+                                            "1"
+                                        ],
+                                        [
+                                            "I",
+                                            "1"
+                                        ],
+                                        [
+                                            "l",
+                                            "1"
+                                        ],
+                                        [
+                                            "L",
+                                            "1"
+                                        ]
+                                    ],
+                                    "expected": [
+                                        "1"
+                                    ]
+                                }
+                            }
+                        },
+                        "速战MAX": {
+                            "enabled": false
+                        },
+                        "完成战斗": {
+                            "next": [
+                                "完成战斗",
+                                "返回主菜单",
+                                "[JumpBack]账号等级提升"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "2",
+                    "pipeline_override": {
+                        "战斗次数": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "2"
+                                }
+                            }
+                        },
+                        "速战MAX": {
+                            "enabled": false
+                        },
+                        "完成战斗": {
+                            "next": [
+                                "完成战斗",
+                                "返回主菜单",
+                                "[JumpBack]账号等级提升"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "3",
+                    "pipeline_override": {
+                        "战斗次数": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "3"
+                                }
+                            }
+                        },
+                        "速战MAX": {
+                            "enabled": false
+                        },
+                        "完成战斗": {
+                            "next": [
+                                "完成战斗",
+                                "返回主菜单",
+                                "[JumpBack]账号等级提升"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "4",
+                    "pipeline_override": {
+                        "战斗次数": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "4"
+                                }
+                            }
+                        },
+                        "速战MAX": {
+                            "enabled": false
+                        },
+                        "完成战斗": {
+                            "next": [
+                                "完成战斗",
+                                "返回主菜单",
+                                "[JumpBack]账号等级提升"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "5",
+                    "pipeline_override": {
+                        "战斗次数": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "5"
+                                }
+                            }
+                        },
+                        "速战MAX": {
+                            "enabled": false
+                        },
+                        "完成战斗": {
+                            "next": [
+                                "完成战斗",
+                                "返回主菜单",
+                                "[JumpBack]账号等级提升"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "6",
+                    "pipeline_override": {
+                        "战斗次数": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "6"
+                                }
+                            }
+                        },
+                        "速战MAX": {
+                            "enabled": false
+                        },
+                        "完成战斗": {
+                            "next": [
+                                "完成战斗",
+                                "返回主菜单",
+                                "[JumpBack]账号等级提升"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "刷完全部体力",
+                    "pipeline_override": {
+                        "战斗次数": {
+                            "enabled": false
+                        },
+                        "增加战斗次数": {
+                            "enabled": false
+                        },
+                        "完成战斗": {
+                            "next": [
+                                "战斗"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "使用临期体力": {
+            "cases": [
+                {
+                    "name": "是",
+                    "pipeline_override": {
+                        "确认/取消使用体力": {
+                            "next": [
+                                "体力不足",
+                                "确认/取消使用体力",
+                                "战斗"
+                            ],
+                            "recognition": {
+                                "param": {
+                                    "expected": "确定"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "否",
+                    "pipeline_override": {
+                        "确认/取消使用体力": {
+                            "next": [
+                                "确认/取消使用体力",
+                                "关闭速战界面",
+                                "返回主菜单"
+                            ],
+                            "recognition": {
+                                "param": {
+                                    "expected": "取消"
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

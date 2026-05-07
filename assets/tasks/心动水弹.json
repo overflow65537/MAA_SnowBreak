@@ -1,0 +1,46 @@
+{
+    "task": [
+        {
+            "name": "心动水弹",
+            "entry": "心动水弹",
+            "option": [
+                "选择模式"
+            ],
+            "description": "<p>注意: 循环任务,无退出条件</p>",
+            "group": [
+                "tools"
+            ]
+        }
+    ],
+    "option": {
+        "选择模式": {
+            "cases": [
+                {
+                    "name": "连战",
+                    "pipeline_override": {
+                        "开始心动水弹": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        661,
+                                        82,
+                                        619,
+                                        638
+                                    ],
+                                    "expected": [
+                                        "连战"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "练习",
+                    "pipeline_override": {}
+                }
+            ]
+        }
+    }
+}

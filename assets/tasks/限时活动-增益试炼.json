@@ -1,0 +1,64 @@
+{
+    "task": [
+        {
+            "name": "限时活动-增益试炼",
+            "entry": "增益试炼",
+            "option": [
+                "选择难度"
+            ],
+            "pipeline_override": {
+                "二次检测主界面": {
+                    "post_delay": 1000,
+                    "next": [
+                        "增益试炼"
+                    ]
+                }
+            },
+            "group": [
+                "tools"
+            ]
+        }
+    ],
+    "option": {
+        "选择难度": {
+            "cases": [
+                {
+                    "name": "渊底",
+                    "pipeline_override": {
+                        "进入试炼": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "渊底"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "幽馆",
+                    "pipeline_override": {
+                        "进入试炼": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "幽馆"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "异城",
+                    "pipeline_override": {
+                        "进入试炼": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "异城"
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}

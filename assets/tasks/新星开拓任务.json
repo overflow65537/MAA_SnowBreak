@@ -1,0 +1,25 @@
+{
+    "task": [
+        {
+            "name": "新星开拓任务",
+            "default_check": true,
+            "entry": "新星开拓任务",
+            "description": "<p>新星开拓任务</p><p>速通周期:每天5点后刷新一次</p>",
+            "speedrun": {
+                "mode": "daily",
+                "trigger": {
+                    "daily": {
+                        "hour_start": 5
+                    }
+                },
+                "run": {
+                    "count": 1
+                }
+            },
+            "group": [
+                "daily"
+            ]
+        }
+    ],
+    "option": {}
+}

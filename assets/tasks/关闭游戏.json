@@ -1,0 +1,13 @@
+{
+    "task": [
+        {
+            "name": "关闭游戏",
+            "default_check": true,
+            "entry": "结束",
+            "group": [
+                "daily"
+            ]
+        }
+    ],
+    "option": {}
+}

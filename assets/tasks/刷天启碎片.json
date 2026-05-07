@@ -1,0 +1,921 @@
+{
+    "task": [
+        {
+            "name": "刷天启碎片",
+            "default_check": true,
+            "entry": "刷碎片",
+            "description": "<p>刷天启碎片</p><p>速通周期:每天5点后刷新一次</p>",
+            "pipeline_override": {
+                "速战MAX": {
+                    "next": [
+                        "开始战斗"
+                    ]
+                },
+                "完成战斗": {
+                    "next": [
+                        "返回第一页",
+                        "完成战斗"
+                    ]
+                }
+            },
+            "option": [
+                "选择人物"
+            ],
+            "speedrun": {
+                "mode": "daily",
+                "trigger": {
+                    "daily": {
+                        "hour_start": 5
+                    }
+                },
+                "run": {
+                    "count": 1
+                }
+            },
+            "group": [
+                "daily"
+            ]
+        }
+    ],
+    "option": {
+        "选择人物": {
+            "cases": [
+                {
+                    "name": "输入角色名",
+                    "pipeline_override": {},
+                    "option": [
+                        "输入角色名"
+                    ]
+                },
+                {
+                    "name": "时之重奏安卡希雅",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "时之重奏"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "霄鹰茉莉安",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "霄鹰"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "灵鉴卜卜",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "灵鉴"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "星彩米娅",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "星彩"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "澄意芬妮",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "澄意"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "悠游瑟瑞斯",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "悠游"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "克罗瑞娜·吉诺拉",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "绯月"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "狂诗凯茜娅",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "狂诗"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "绮幻苔丝",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "绮幻"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "天鹅座薇蒂雅",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "天鹅座"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "冥河代理人奈莉德",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "冥河代理人"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "澜风恩雅",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "澜风"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "夜天光肴",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "夜天光"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "琼弦晨星",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "琼弦"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "小天师卜卜",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "小天师"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "驰掣芙提雅",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "驰掣"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "幽潮茉莉安",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "幽潮"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "朝翼凯茜娅",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "朝翼"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "龙舌兰薇蒂雅",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "龙舌兰"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "辉耀芬妮",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "辉耀"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "无限之视里芙",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "无限",
+                                        "之视",
+                                        "限之"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "瞬刻瑟瑞斯",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "瞬刻"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "羽蜕恩雅",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "羽蜕"
+                                    ],
+                                    "replace": [
+                                        [
+                                            "锐",
+                                            "蜕"
+                                        ],
+                                        [
+                                            "帜",
+                                            "蜕"
+                                        ]
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "悖谬琴诺",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "悖谬"
+                                    ],
+                                    "replace": [
+                                        [
+                                            "谬",
+                                            "悖谬"
+                                        ],
+                                        [
+                                            "送",
+                                            "谬"
+                                        ],
+                                        [
+                                            "传",
+                                            "悖"
+                                        ],
+                                        [
+                                            "专",
+                                            "悖"
+                                        ],
+                                        [
+                                            "读",
+                                            "悖"
+                                        ]
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "豹豹伊切尔",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "豹豹"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "蓝闪凯茜娅",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "蓝闪"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "魔术师苔丝",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "魔术师"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "溯影猫汐尔",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "溯影"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "藏锋晴",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "藏锋"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "云篆晨星",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "云篆"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "辉夜安卡希雅",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "辉夜"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "咎冠芬妮",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "咎冠"
+                                    ],
+                                    "replace": [
+                                        [
+                                            "答",
+                                            "咎"
+                                        ]
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "缄默芙提雅",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "缄默"
+                                    ],
+                                    "replace": [
+                                        "默",
+                                        "缄默"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "狂猎里芙",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "狂猎"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "雨燕茉莉安",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "雨燕"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "name": "冬至肴",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "冬至"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "输入角色名": {
+            "label": "请输角色名",
+            "type": "input",
+            "inputs": [
+                {
+                    "name": "角色名",
+                    "description": "<p>请输入角色名，例如：霆光。</p>",
+                    "default": "灵鉴",
+                    "pipeline_type": "string"
+                }
+            ],
+            "pipeline_override": {
+                "选择人物": {
+                    "recognition": {
+                        "type": "OCR",
+                        "param": {
+                            "roi": [
+                                30,
+                                87,
+                                975,
+                                525
+                            ],
+                            "expected": [
+                                "{角色名}"
+                            ],
+                            "replace": [
+                                [
+                                    "答",
+                                    "咎"
+                                ],
+                                [
+                                    "默",
+                                    "缄默"
+                                ],
+                                [
+                                    "锐",
+                                    "蜕"
+                                ],
+                                [
+                                    "帜",
+                                    "蜕"
+                                ],
+                                [
+                                    "谬",
+                                    "悖谬"
+                                ],
+                                [
+                                    "送",
+                                    "谬"
+                                ],
+                                [
+                                    "传",
+                                    "悖"
+                                ],
+                                [
+                                    "专",
+                                    "悖"
+                                ],
+                                [
+                                    "读",
+                                    "悖"
+                                ]
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "task": [
+        {
+            "name": "领取奖励",
+            "default_check": true,
+            "entry": "任务",
+            "group": [
+                "daily"
+            ]
+        }
+    ],
+    "option": {}
+}
