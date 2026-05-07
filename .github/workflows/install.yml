@@ -87,24 +87,32 @@ jobs:
       is_prerelease: ${{ steps.set_tag.outputs.is_prerelease }}
 
   build:
-    needs: meta
+    needs: [meta]
+    runs-on: ${{ matrix.os }}
+    name: Build ${{ matrix.platform }}-${{ matrix.arch }}
     strategy:
-      matrix:
-        os: [windows, ubuntu, macos]
-        arch: [aarch64, x86_64]
-        include:
-          - os: windows
-            runs-on: windows-latest
-            file-suffix: win
-          - os: ubuntu
-            runs-on: ubuntu-latest
-            file-suffix: linux
-          - os: macos 
-            runs-on: macos-latest
-            file-suffix: macos
       fail-fast: false
+      matrix:
+        include:
+          - os: windows-latest
+            platform: win
+            arch: aarch64
+          - os: windows-latest
+            platform: win
+            arch: x86_64
+          - os: ubuntu-latest
+            platform: linux
+            arch: aarch64
+          - os: ubuntu-latest
+            platform: linux
+            arch: x86_64
+          - os: macos-latest
+            platform: macos
+            arch: aarch64
+          - os: macos-latest
+            platform: macos
+            arch: x86_64
 
-    runs-on: ${{ matrix.runs-on }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -118,28 +126,24 @@ jobs:
       - name: Install
         shell: bash
         run: |
-          pip install pyinstaller
-          pip install -r requirements.txt
+          python -m pip install pyinstaller
+          python -m pip install -r requirements.txt
+          python -m pip install json-with-comments
           python ./install.py ${{ needs.meta.outputs.tag }}
 
       - name: Download MFW
         uses: robinraju/release-downloader@v1
         with:
           repository: overflow65537/MFW-PyQt6
-          fileName: "MFW-PyQt6-${{ matrix.file-suffix }}-${{ matrix.arch }}*"
-          latest: true
-          out-file-path: "maapicli"
+          fileName: "MFW-PyQt6-${{ matrix.platform }}-${{ matrix.arch }}*"
+          out-file-path: "install"
           extract: true
+          latest: true
 
-      - name: rm MFW pack
-        shell: bash
-        run: |
-          rm maapicli/MFW-PyQt6-${{ matrix.file-suffix }}-${{ matrix.arch }}*
-        
       - uses: actions/upload-artifact@v4
         with:
-          name: MSBA-${{ matrix.file-suffix }}-${{ matrix.arch }}
-          path: "maapicli"
+          name: MSBA-${{ matrix.platform }}-${{ matrix.arch }}
+          path: "install"
 
   release:
     if: ${{ needs.meta.outputs.is_release == 'true' }}
@@ -153,7 +157,14 @@ jobs:
       - run: |
           cd assets
           for f in *; do
-            (cd $f && zip -r ../$f-${{ needs.meta.outputs.tag }}.zip .)
+            if [[ $f == *"macos"* ]]; then
+              find $f -type f -name "maapicli" -exec chmod +x {} \; 2>/dev/null || true
+              find $f -type f -name "MFW" -exec chmod +x {} \; 2>/dev/null || true
+              find $f -type f -name "MFWUpdater" -exec chmod +x {} \; 2>/dev/null || true
+              tar -cpzf $f-${{ needs.meta.outputs.tag }}.tar.gz -C $f .
+            else
+              (cd $f && zip -r ../$f-${{ needs.meta.outputs.tag }}.zip .)
+            fi
           done
 
       - uses: softprops/action-gh-release@v2.2.2
@@ -163,7 +174,6 @@ jobs:
           body: ${{ needs.changelog.outputs.release_body }}
           draft: false
           prerelease: ${{ needs.meta.outputs.is_prerelease }}
-          
 
       - name: Trigger MirrorChyanUploading
         run: |

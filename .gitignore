@@ -458,5 +458,4 @@ install.py
 agent.spec
 dist
 assets/custom/config/maa_option.json
-./maapicli
 assets/config/maa_option.json

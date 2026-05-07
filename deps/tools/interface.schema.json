@@ -859,6 +859,11 @@
                     "type": "string",
                     "title": "连接标识符",
                     "description": "被用来创建一个通信套接字。填写则会被使用，否则自动创建"
+                },
+                "embedded": {
+                    "type": "boolean",
+                    "title": "内嵌运行",
+                    "description": "是否以内嵌方式启动 Agent"
                 }
             },
             "required": [
@@ -1087,6 +1092,11 @@
                 ],
                 "additionalProperties": false
             }
+        },
+        "MFW_min_req_version": {
+            "type": "string",
+            "title": "最低 MaaFramework 版本",
+            "description": "项目运行所需的最低 MaaFramework 版本号"
         }
     },
     "required": [

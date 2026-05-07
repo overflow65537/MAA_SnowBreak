@@ -1,0 +1,61 @@
+name: check
+
+on:
+  push:
+    branches:
+      - "main"
+    paths:
+      - ".github/workflows/check.yml"
+      - "assets/**"
+      - "tools/**"
+      - "deps/tools/**"
+  pull_request:
+    branches:
+      - "**"
+    paths:
+      - ".github/workflows/check.yml"
+      - "assets/**"
+      - "tools/**"
+      - "deps/tools/**"
+  workflow_dispatch:
+
+jobs:
+  resource:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Use Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Run maa-checker
+        run: |
+          # Always use latests @nekosu/maa-checker
+          npx @nekosu/maa-checker@latest ./assets/interface.json --github=. --load-config=.vscode/maa_checker.json
+
+      # pip install maafw
+      - name: Install maafw
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install --upgrade maafw --pre
+
+      - name: Merge interface JSON Schema
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fsSL -o deps/tools/interface.schema.upstream.json https://raw.githubusercontent.com/MaaXYZ/MaaFramework/main/tools/interface.schema.json
+          python tools/merge_interface_schema.py --base deps/tools/interface.schema.upstream.json --custom deps/tools/interface.schema.custom.json --output deps/tools/interface.schema.json
+          rm -f deps/tools/interface.schema.upstream.json
+
+      - name: Check Resource
+        run: |
+          python ./tools/check_resource.py ./assets/resource/base ./assets/resource/PC ./assets/resource/playcover ./assets/resource/bilibili
+
+      - name: Validate JSON Schema
+        run: |
+          python -m pip install jsonschema==4.26.0 referencing==0.37.0
+          python tools/validate_schema.py --resource-dirs assets/resource/base assets/resource/PC assets/resource/playcover assets/resource/bilibili --exclude-dirs assets/resource/gamedata assets/resource/base/image --task-dirs assets/tasks
