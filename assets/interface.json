@@ -1,7 +1,7 @@
 {
   "interface_version": 2,
   "github": "https://github.com/overflow65537/MAA_SnowBreak",
-  "name": "MSBA",
+  "name": "尘白禁区小助手",
   "license": "./LICENSE",
   "MFW_min_req_version": "99.99.99",
   "contact": "./CONTACT.md",
