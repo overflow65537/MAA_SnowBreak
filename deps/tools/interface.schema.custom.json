@@ -1,0 +1,20 @@
+{
+    "definitions": {
+        "agentConfig": {
+            "properties": {
+                "embedded": {
+                    "type": "boolean",
+                    "title": "内嵌运行",
+                    "description": "是否以内嵌方式启动 Agent"
+                }
+            }
+        }
+    },
+    "properties": {
+        "MFW_min_req_version": {
+            "type": "string",
+            "title": "最低 MaaFramework 版本",
+            "description": "项目运行所需的最低 MaaFramework 版本号"
+        }
+    }
+}

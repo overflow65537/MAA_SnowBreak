@@ -444,6 +444,8 @@ deps/*
 !deps/tools/
 deps/tools/*
 !deps/tools/*.schema.json
+# interface.schema.custom.json 以 .custom.json 结尾，不匹配 *.schema.json，须单独取消忽略
+!deps/tools/interface.schema.custom.json
 build
 install
 

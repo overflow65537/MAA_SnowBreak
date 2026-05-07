@@ -32,41 +32,49 @@ jobs:
       - name: Check Out Repository
         uses: actions/checkout@v3
 
+      - name: Set Up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
       - name: Download JSON schema files from MaaFramework
         run: |
+          set -euo pipefail
           echo "Current Date and Time (UTC): $(date -u '+%Y-%m-%d %H:%M:%S')"
-          # 确保目标目录存在
           mkdir -p deps/tools
-          # 下载三个JSON schema文件
-          curl -s -o deps/tools/interface.schema.json https://raw.githubusercontent.com/MaaXYZ/MaaFramework/main/tools/interface.schema.json || echo "Failed to download interface.schema.json"
-          curl -s -o deps/tools/interface_config.schema.json https://raw.githubusercontent.com/MaaXYZ/MaaFramework/main/tools/interface_config.schema.json || echo "Failed to download interface_config.schema.json"
-          curl -s -o deps/tools/pipeline.schema.json https://raw.githubusercontent.com/MaaXYZ/MaaFramework/main/tools/pipeline.schema.json || echo "Failed to download pipeline.schema.json"
-          # 检查文件是否成功下载
+          # interface 先下载到临时文件，再与自定义扩展合并（与 MAA_Punish / check 工作流一致）
+          curl -fsSL -o deps/tools/interface.schema.upstream.json https://raw.githubusercontent.com/MaaXYZ/MaaFramework/main/tools/interface.schema.json
+          curl -fsSL -o deps/tools/interface_config.schema.json https://raw.githubusercontent.com/MaaXYZ/MaaFramework/main/tools/interface_config.schema.json
+          curl -fsSL -o deps/tools/pipeline.schema.json https://raw.githubusercontent.com/MaaXYZ/MaaFramework/main/tools/pipeline.schema.json
+          python tools/merge_interface_schema.py --base deps/tools/interface.schema.upstream.json --custom deps/tools/interface.schema.custom.json --output deps/tools/interface.schema.json
+          rm -f deps/tools/interface.schema.upstream.json
           echo "Checking downloaded files:"
           ls -la deps/tools/*.schema.json
 
       - name: Check for changes with git status
         id: check_status
         run: |
-          # 强制添加 deps/tools/ 下的文件（绕过 .gitignore）
-          git add -f deps/tools/*.schema.json
-          # 检查是否有任何更改（修改、新增）
-          if [[ -n "$(git status --porcelain deps/tools/*.schema.json)" ]]; then
+          schema_files=(
+            deps/tools/interface.schema.json
+            deps/tools/interface_config.schema.json
+            deps/tools/pipeline.schema.json
+          )
+          git add -f "${schema_files[@]}"
+          if [[ -n "$(git status --porcelain -- "${schema_files[@]}")" ]]; then
             echo "Changes detected in JSON schema files"
-            git status --porcelain deps/tools/*.schema.json
+            git status --porcelain -- "${schema_files[@]}"
             echo "changes_detected=true" >> $GITHUB_OUTPUT
-            # 检查哪些文件发生了变化
-            if [[ -n "$(git status --porcelain deps/tools/interface.schema.json)" ]]; then
+            if [[ -n "$(git status --porcelain -- deps/tools/interface.schema.json)" ]]; then
               echo "interface_changed=true" >> $GITHUB_OUTPUT
             else
               echo "interface_changed=false" >> $GITHUB_OUTPUT
             fi
-            if [[ -n "$(git status --porcelain deps/tools/interface_config.schema.json)" ]]; then
+            if [[ -n "$(git status --porcelain -- deps/tools/interface_config.schema.json)" ]]; then
               echo "interface_config_changed=true" >> $GITHUB_OUTPUT
             else
               echo "interface_config_changed=false" >> $GITHUB_OUTPUT
             fi
-            if [[ -n "$(git status --porcelain deps/tools/pipeline.schema.json)" ]]; then
+            if [[ -n "$(git status --porcelain -- deps/tools/pipeline.schema.json)" ]]; then
               echo "pipeline_changed=true" >> $GITHUB_OUTPUT
             else
               echo "pipeline_changed=false" >> $GITHUB_OUTPUT
