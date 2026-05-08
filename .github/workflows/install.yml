@@ -140,34 +140,6 @@ jobs:
           extract: true
           latest: true
 
-      - name: Convert PNG to ICO (Windows)
-        if: matrix.platform == 'win'
-        shell: bash
-        run: |
-          set -euo pipefail
-          choco install imagemagick -y
-          # 为每个尺寸单独生成图像，确保 ICO 中包含独立的各尺寸图层
-          for size in 256 128 64 48 32 24 16; do
-            magick install/logo.png -resize ${size}x${size} icon-${size}.png
-          done
-          magick icon-256.png icon-128.png icon-64.png icon-48.png icon-32.png icon-24.png icon-16.png msba.ico
-
-      - name: Modify MFW.exe icon (Windows)
-        if: matrix.platform == 'win'
-        shell: bash
-        run: |
-          set -euo pipefail
-          curl -L https://github.com/electron/rcedit/releases/download/v2.0.0/rcedit-x64.exe -o rcedit.exe
-          if [[ -f "install/MFW.exe" ]]; then
-            ./rcedit.exe "install/MFW.exe" --set-icon "msba.ico"
-          elif [[ -f "install/MFWUpdater.exe" ]]; then
-            ./rcedit.exe "install/MFWUpdater.exe" --set-icon "msba.ico"
-          else
-            echo "No target exe found under install/ (expected MFW.exe)."
-            ls -la install || true
-            exit 1
-          fi
-
       - uses: actions/upload-artifact@v4
         with:
           name: MSBA-${{ matrix.platform }}-${{ matrix.arch }}
