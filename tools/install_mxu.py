@@ -6,10 +6,11 @@ import sys
 
 import jsonc
 
+repo_root = Path(__file__).parent.parent.resolve()
+sys.path.insert(0, str(repo_root))
+
 from configure import configure_ocr_model
 
-
-repo_root = Path(__file__).parent.parent.resolve()
 install_path = repo_root / "install"
 version = len(sys.argv) > 1 and sys.argv[1] or "v0.0.1"
 
