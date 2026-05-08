@@ -694,7 +694,7 @@
                             "enabled": true,
                             "recognition": {
                                 "param": {
-                                    "expected": "后勤人事",
+                                    "expected": "^后勤人事",
                                     "index": 1
                                 }
                             }
