@@ -183,11 +183,11 @@
           "enabled": true
         },
         {
-          "name": "收取信源碎片",
+          "name": "赠送碎片",
           "enabled": true
         },
         {
-          "name": "赠送碎片",
+          "name": "收取信源碎片",
           "enabled": true
         },
         {
