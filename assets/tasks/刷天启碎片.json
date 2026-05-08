@@ -48,6 +48,27 @@
                     ]
                 },
                 {
+                    "name": "瑞狐胧嫣",
+                    "pipeline_override": {
+                        "选择人物": {
+                            "recognition": {
+                                "type": "OCR",
+                                "param": {
+                                    "roi": [
+                                        30,
+                                        87,
+                                        975,
+                                        525
+                                    ],
+                                    "expected": [
+                                        "胧嫣"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                {
                     "name": "时之重奏安卡希雅",
                     "pipeline_override": {
                         "选择人物": {
