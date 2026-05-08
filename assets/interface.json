@@ -118,10 +118,6 @@
       "label": "日常",
       "task": [
         {
-          "name": "开服检测",
-          "enabled": true
-        },
-        {
           "name": "启动",
           "enabled": true
         },
