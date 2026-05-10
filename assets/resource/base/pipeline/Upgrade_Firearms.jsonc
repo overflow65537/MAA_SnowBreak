@@ -1,39 +1,211 @@
 {
     "升级枪械": {
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0,
         "next": [
-            "武器等级已满",
-            "等级提升",
-            "选择材料",
-            "[JumpBack]点击+",
-            "[JumpBack]升级",
-            "排序3",
-            "[JumpBack]排序2",
-            "[JumpBack]排序",
-            "[JumpBack]打开背包",
-            "[JumpBack]道具过期提示",
-            "[JumpBack]关闭奖励通知"
+            "[JumpBack]关闭奖励通知",
+            "打开背包"
         ]
     },
-    "武器等级已满": {
+    "打开背包": {
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0,
         "recognition": {
             "type": "OCR",
             "param": {
                 "roi": [
-                    986,
-                    203,
-                    128,
-                    36
+                    1021,
+                    625,
+                    144,
+                    119
+                ],
+                "expected": "背包"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "[JumpBack]道具过期提示",
+            "排序"
+        ]
+    },
+    "排序": {
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0,
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    0,
+                    616,
+                    175,
+                    147
+                ],
+                "template": [
+                    "升级/排序.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "排序2"
+        ]
+    },
+    "排序2": {
+        "pre_delay": 50,
+        "post_delay": 0,
+        "rate_limit": 0,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    275,
+                    153,
+                    230,
+                    130
                 ],
                 "expected": [
-                    "武器等级已满"
+                    "等级"
                 ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "排序3"
+        ]
+    },
+    "排序3": {
+        "pre_delay": 50,
+        "post_delay": 0,
+        "rate_limit": 0,
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    419,
+                    203,
+                    36,
+                    30
+                ],
+                "template": "升级/排序倒序.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "确定排序"
+        ]
+    },
+    "确定排序": {
+        "pre_delay": 200,
+        "post_delay": 0,
+        "rate_limit": 0,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    881,
+                    544,
+                    62,
+                    42
+                ],
+                "expected": "确定"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "选择枪械",
+            "武器等级已满"
+        ]
+    },
+    "选择枪械": {
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0,
+        "post_wait_freezes": 200,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    230,
+                    178,
+                    84,
+                    26
+                ],
+                "expected": [
+                    "等级\\s*(?!20\\b|40\\b|50\\b|60\\b|70\\b|80\\b)\\d+"
+                ],
+                "only_rec": true
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "枪械培养"
+        ]
+    },
+    "武器等级已满": {
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    230,
+                    178,
+                    84,
+                    26
+                ],
+                "expected": [
+                    "等级 *(?:20|40|50|60|70|80)\\b"
+                ],
+                "only_rec": true
             }
         },
         "next": [
             "返回主菜单"
         ]
     },
+    "枪械培养": {
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    620,
+                    500,
+                    122,
+                    72
+                ],
+                "expected": "枪械培养"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "升级"
+        ]
+    },
     "升级": {
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -48,9 +220,15 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "next": [
+            "点击+"
+        ]
     },
     "点击+": {
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -67,9 +245,15 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "next": [
+            "选择材料"
+        ]
     },
     "选择材料": {
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0,
         "recognition": {
             "type": "TemplateMatch",
             "param": {
@@ -91,11 +275,13 @@
             "type": "Click"
         },
         "next": [
-            "检查升级",
-            "选择材料"
+            "检查升级"
         ]
     },
     "检查升级": {
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -125,7 +311,9 @@
         ]
     },
     "点击升级": {
-        "post_delay": 2000,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -142,11 +330,13 @@
             "type": "Click"
         },
         "next": [
-            "点击升级",
-            "升级枪械"
+            "等级提升"
         ]
     },
     "等级提升": {
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0,
         "post_wait_freezes": 0,
         "recognition": {
             "type": "OCR",
@@ -172,144 +362,5 @@
         "next": [
             "返回主菜单"
         ]
-    },
-    "排序": {
-        "post_wait_freezes": {
-            "time": 1000,
-            "timeout": 5000
-        },
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    0,
-                    616,
-                    175,
-                    147
-                ],
-                "template": [
-                    "升级/排序.png"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        }
-    },
-    "排序2": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    275,
-                    153,
-                    230,
-                    130
-                ],
-                "expected": [
-                    "等级"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        }
-    },
-    "排序3": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    419,
-                    203,
-                    36,
-                    30
-                ],
-                "template": "升级/排序倒序.png"
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "排序3",
-            "确定排序"
-        ]
-    },
-    "确定排序": {
-        "post_delay": 1000,
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    881,
-                    544,
-                    62,
-                    42
-                ],
-                "expected": "确定"
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "确定排序",
-            "选择枪械"
-        ]
-    },
-    "选择枪械": {
-        "post_wait_freezes": 200,
-        "action": {
-            "type": "Click",
-            "param": {
-                "target": [
-                    340,
-                    143
-                ]
-            }
-        },
-        "next": [
-            "枪械培养",
-            "选择枪械"
-        ]
-    },
-    "枪械培养": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    620,
-                    500,
-                    122,
-                    72
-                ],
-                "expected": "枪械培养"
-            }
-        },
-        "action": {
-            "type": "Click"
-        },
-        "next": [
-            "枪械培养",
-            "升级枪械"
-        ]
-    },
-    "打开背包": {
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    1021,
-                    625,
-                    144,
-                    119
-                ],
-                "expected": "背包"
-            }
-        },
-        "action": {
-            "type": "Click"
-        }
     }
 }
