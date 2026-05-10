@@ -1,22 +1,41 @@
 {
     "凭证": {
-        "post_delay": 2000,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0,
         "next": [
-            "[JumpBack]限定任务",
-            "[JumpBack]每周任务",
-            "[JumpBack]每日任务",
-            "[JumpBack]凭证奖励",
-            "[JumpBack]打开凭证",
-            "[JumpBack]关闭奖励通知",
+            "开始凭证任务",
             "返回主菜单"
         ]
     },
-    "每日任务": {
-        "max_hit": 1,
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
+    "开始凭证任务": {
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    149,
+                    326,
+                    200,
+                    120
+                ],
+                "expected": "凭证"
+            }
         },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "每日任务"
+        ]
+    },
+    "每日任务": {
+        "pre_delay": 0,
+        "post_delay": 1000,
+        "rate_limit": 0,
+        "max_hit": 1,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -33,12 +52,15 @@
             "type": "Click"
         },
         "next": [
-            "[JumpBack]没点击到每日任务",
-            "一键领取",
-            "空任务"
+            //"没点击到每日任务",
+            "一键领取_每日",
+            "每周任务"
         ]
     },
     "没点击到每日任务": {
+        "pre_delay": 0,
+       "post_delay": 1000,
+        "rate_limit": 0,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -64,14 +86,40 @@
             "param": {
                 "target": "每日任务"
             }
-        }
+        },
+        "next": [
+            "一键领取_每日",
+            "每周任务"
+        ]
+    },
+    "一键领取_每日": {
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    0,
+                    585,
+                    233,
+                    135
+                ],
+                "expected": "键领取"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "每周任务"
+        ]
     },
     "每周任务": {
+        "pre_delay": 0,
+        "post_delay": 1000,
+        "rate_limit": 0,
         "max_hit": 1,
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -88,12 +136,15 @@
             "type": "Click"
         },
         "next": [
-            "[JumpBack]没点击到每周任务",
-            "一键领取",
-            "空任务"
+            "没点击到每周任务",
+            "一键领取_每周",
+            "限定任务"
         ]
     },
     "没点击到每周任务": {
+        "pre_delay": 0,
+       "post_delay": 1000,
+        "rate_limit": 0,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -119,14 +170,40 @@
             "param": {
                 "target": "每周任务"
             }
-        }
+        },
+        "next": [
+            "一键领取_每周",
+            "限定任务"
+        ]
+    },
+    "一键领取_每周": {
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    0,
+                    585,
+                    233,
+                    135
+                ],
+                "expected": "键领取"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "限定任务"
+        ]
     },
     "限定任务": {
+        "pre_delay": 0,
+        "post_delay": 1000,
+        "rate_limit": 0,
         "max_hit": 1,
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -143,12 +220,15 @@
             "type": "Click"
         },
         "next": [
-            "[JumpBack]没点击到限定任务",
-            "一键领取",
-            "空任务"
+            "没点击到限定任务",
+            "一键领取_限定",
+            "凭证奖励"
         ]
     },
     "没点击到限定任务": {
+        "pre_delay": 0,
+        "post_delay": 1000,
+        "rate_limit": 0,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -174,14 +254,40 @@
             "param": {
                 "target": "限定任务"
             }
-        }
+        },
+        "next": [
+            "一键领取_限定",
+            "凭证奖励"
+        ]
+    },
+    "一键领取_限定": {
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    0,
+                    585,
+                    233,
+                    135
+                ],
+                "expected": "键领取"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "凭证奖励"
+        ]
     },
     "凭证奖励": {
+        "pre_delay": 0,
+        "post_delay": 1000,
+        "rate_limit": 0,
         "max_hit": 1,
-        "post_wait_freezes": {
-            "time": 500,
-            "timeout": 2000
-        },
         "recognition": {
             "type": "OCR",
             "param": {
@@ -198,12 +304,15 @@
             "type": "Click"
         },
         "next": [
-            "[JumpBack]没点击到凭证奖励",
-            "一键领取",
-            "空任务"
+            "没点击到凭证奖励",
+            "一键领取_凭证",
+            "返回主菜单"
         ]
     },
     "没点击到凭证奖励": {
+        "pre_delay": 0,
+        "post_delay": 1000,
+        "rate_limit": 0,
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -229,28 +338,39 @@
             "param": {
                 "target": "凭证奖励"
             }
-        }
+        },
+        "next": [
+            "一键领取_凭证",
+            "返回主菜单"
+        ]
     },
-    "打开凭证": {
-        "post_delay": 2000,
+    "一键领取_凭证": {
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0,
         "recognition": {
             "type": "OCR",
             "param": {
                 "roi": [
-                    149,
-                    326,
-                    200,
-                    120
+                    0,
+                    585,
+                    233,
+                    135
                 ],
-                "expected": "凭证"
+                "expected": "键领取"
             }
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "next": [
+            "返回主菜单"
+        ]
     },
     "一键领取": {
-        "post_delay": 1000,
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0,
         "recognition": {
             "type": "OCR",
             "param": {
