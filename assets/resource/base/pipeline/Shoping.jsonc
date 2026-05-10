@@ -53,10 +53,6 @@
         }
     },
     "在商店内": {
-        "timeout": 5000,
-        "on_error": [
-            "返回主菜单"
-        ],
         "recognition": {
             "type": "ColorMatch",
             "param": {
@@ -85,7 +81,25 @@
             "资金不足",
             "[JumpBack]判断物品",
             "[JumpBack]向下滑动_商店",
-            "[JumpBack]关闭奖励通知"
+            "[JumpBack]关闭奖励通知",
+            "无可购买物品_商店"
+        ]
+    },
+    "无可购买物品_商店": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    0,
+                    40,
+                    200,
+                    140
+                ],
+                "expected": "常规物资"
+            }
+        },
+        "next": [
+            "返回主菜单"
         ]
     },
     "向下滑动_商店": {
