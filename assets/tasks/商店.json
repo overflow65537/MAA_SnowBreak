@@ -6,7 +6,7 @@
             "entry": "商店",
             "description": "<p>购买物品</p><p>速通周期:每天5点后刷新一次</p>",
             "option": [
-                "购买物品"
+                "点击最大值"
             ],
             "speedrun": {
                 "mode": "daily",
@@ -25,12 +25,12 @@
         }
     ],
     "option": {
-        "购买物品": {
+        "点击最大值": {
             "cases": [
                 {
                     "name": "常规物资.[最便宜的]",
                     "pipeline_override": {
-                        "判断物品": {
+                        "物品名称": {
                             "max_hit": 1,
                             "recognition": {
                                 "param": {
@@ -42,7 +42,18 @@
                                 }
                             }
                         },
-                        "购买物品": {
+                        "二次判断": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "通用强化套件",
+                                        "初级职级认证",
+                                        "新手战斗记录"
+                                    ]
+                                }
+                            }
+                        },
+                        "点击最大值": {
                             "action": {
                                 "type": "DoNothing"
                             }
@@ -52,7 +63,16 @@
                 {
                     "name": "活动兑换.地下清理.碳原子板",
                     "pipeline_override": {
-                        "判断物品": {
+                        "物品名称": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "碳原子板"
+                                    ]
+                                }
+                            }
+                        },
+                        "二次判断": {
                             "recognition": {
                                 "param": {
                                     "expected": [
@@ -106,7 +126,14 @@
                 {
                     "name": "活动兑换.地下清理.重修申请",
                     "pipeline_override": {
-                        "判断物品": {
+                        "物品名称": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "重修申请"
+                                }
+                            }
+                        },
+                        "二次判断": {
                             "recognition": {
                                 "param": {
                                     "expected": "重修申请"
@@ -158,7 +185,14 @@
                 {
                     "name": "活动兑换.精神拟境.量子胞体",
                     "pipeline_override": {
-                        "判断物品": {
+                        "物品名称": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "量子胞体"
+                                }
+                            }
+                        },
+                        "二次判断": {
                             "recognition": {
                                 "param": {
                                     "expected": "量子胞体"
@@ -210,7 +244,14 @@
                 {
                     "name": "循环中心.优质配给.量子胞体",
                     "pipeline_override": {
-                        "判断物品": {
+                        "物品名称": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "量子胞体"
+                                }
+                            }
+                        },
+                        "二次判断": {
                             "recognition": {
                                 "param": {
                                     "expected": "量子胞体"
@@ -263,7 +304,14 @@
                 {
                     "name": "循环中心.优质配给.重修申请",
                     "pipeline_override": {
-                        "判断物品": {
+                        "物品名称": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "重修申请"
+                                }
+                            }
+                        },
+                        "二次判断": {
                             "recognition": {
                                 "param": {
                                     "expected": "重修申请"
@@ -316,7 +364,16 @@
                 {
                     "name": "循环中心.优质配给.天启者共鸣誓约",
                     "pipeline_override": {
-                        "判断物品": {
+                        "物品名称": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "天启者共鸣誓约"
+                                    ]
+                                }
+                            }
+                        },
+                        "二次判断": {
                             "recognition": {
                                 "param": {
                                     "expected": [
@@ -371,7 +428,16 @@
                 {
                     "name": "循环中心.优质配给.武器定制合约",
                     "pipeline_override": {
-                        "判断物品": {
+                        "物品名称": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "武器定制合约"
+                                    ]
+                                }
+                            }
+                        },
+                        "二次判断": {
                             "recognition": {
                                 "param": {
                                     "expected": [
@@ -426,7 +492,16 @@
                 {
                     "name": "循环中心.优质配给.天启者共鸣凭证",
                     "pipeline_override": {
-                        "判断物品": {
+                        "物品名称": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "天启者共鸣凭证"
+                                    ]
+                                }
+                            }
+                        },
+                        "二次判断": {
                             "recognition": {
                                 "param": {
                                     "expected": [
@@ -481,7 +556,16 @@
                 {
                     "name": "循环中心.优质配给.武器申请书",
                     "pipeline_override": {
-                        "判断物品": {
+                        "物品名称": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "武器申请书"
+                                    ]
+                                }
+                            }
+                        },
+                        "二次判断": {
                             "recognition": {
                                 "param": {
                                     "expected": [
@@ -536,7 +620,18 @@
                 {
                     "name": "常规物资.[全部角色升级材料]",
                     "pipeline_override": {
-                        "判断物品": {
+                        "物品名称": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "新手战斗记录",
+                                        "普通战斗记录",
+                                        "优秀战斗记录"
+                                    ]
+                                }
+                            }
+                        },
+                        "二次判断": {
                             "recognition": {
                                 "param": {
                                     "expected": [
@@ -552,7 +647,18 @@
                 {
                     "name": "常规物资.[全部后勤升级材料]",
                     "pipeline_override": {
-                        "判断物品": {
+                        "物品名称": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "初级职级认证",
+                                        "中级职级认证",
+                                        "高级职级认证"
+                                    ]
+                                }
+                            }
+                        },
+                        "二次判断": {
                             "recognition": {
                                 "param": {
                                     "expected": [
@@ -568,7 +674,18 @@
                 {
                     "name": "常规物资.[全部武器升级材料]",
                     "pipeline_override": {
-                        "判断物品": {
+                        "物品名称": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "通用强化套件",
+                                        "优选强化套件",
+                                        "精致强化套件"
+                                    ]
+                                }
+                            }
+                        },
+                        "二次判断": {
                             "recognition": {
                                 "param": {
                                     "expected": [
@@ -585,8 +702,22 @@
                     "name": "常规物资.辅助武器",
                     "description": "军舰鸟,彩虹打火机,深海呼唤,草莓蛋糕,楼道怪猫,青金石",
                     "pipeline_override": {
-                        "判断物品": {
+                        "物品名称": {
                             "max_hit": 1,
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "军舰鸟",
+                                        "彩虹打火机",
+                                        "深海呼唤",
+                                        "草莓蛋糕",
+                                        "楼道怪猫",
+                                        "青金石"
+                                    ]
+                                }
+                            }
+                        },
+                        "二次判断": {
                             "recognition": {
                                 "param": {
                                     "expected": [
@@ -605,7 +736,16 @@
                 {
                     "name": "常规物资.芳烃塑料",
                     "pipeline_override": {
-                        "判断物品": {
+                        "物品名称": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "芳烃塑料"
+                                    ]
+                                }
+                            }
+                        },
+                        "二次判断": {
                             "recognition": {
                                 "param": {
                                     "expected": [
@@ -619,7 +759,16 @@
                 {
                     "name": "常规物资.合成颗粒",
                     "pipeline_override": {
-                        "判断物品": {
+                        "物品名称": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "合成颗粒"
+                                    ]
+                                }
+                            }
+                        },
+                        "二次判断": {
                             "recognition": {
                                 "param": {
                                     "expected": [
@@ -633,7 +782,16 @@
                 {
                     "name": "常规物资.人物碎片",
                     "pipeline_override": {
-                        "判断物品": {
+                        "物品名称": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "提取物"
+                                    ]
+                                }
+                            }
+                        },
+                        "二次判断": {
                             "recognition": {
                                 "param": {
                                     "expected": [
@@ -647,7 +805,16 @@
                 {
                     "name": "常规物资.单极纤维",
                     "pipeline_override": {
-                        "判断物品": {
+                        "物品名称": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "单极纤维"
+                                    ]
+                                }
+                            }
+                        },
+                        "二次判断": {
                             "recognition": {
                                 "param": {
                                     "expected": [
@@ -661,7 +828,16 @@
                 {
                     "name": "常规物资.光纤轴突",
                     "pipeline_override": {
-                        "判断物品": {
+                        "物品名称": {
+                            "recognition": {
+                                "param": {
+                                    "expected": [
+                                        "光纤轴突"
+                                    ]
+                                }
+                            }
+                        },
+                        "二次判断": {
                             "recognition": {
                                 "param": {
                                     "expected": [
@@ -675,7 +851,14 @@
                 {
                     "name": "循环中心.后勤人事.重修额度",
                     "pipeline_override": {
-                        "判断物品": {
+                        "物品名称": {
+                            "recognition": {
+                                "param": {
+                                    "expected": "重修额度"
+                                }
+                            }
+                        },
+                        "二次判断": {
                             "recognition": {
                                 "param": {
                                     "expected": "重修额度"
