@@ -76,12 +76,11 @@ jobs:
           git push origin "HEAD:${TARGET_BRANCH}"
 
           if git ls-remote --exit-code --tags origin "refs/tags/$TAG" >/dev/null 2>&1; then
-            echo "Tag $TAG already exists in flavor repo, replacing it with the synced flavor commit."
-            git push origin ":refs/tags/$TAG"
+            echo "Tag $TAG already exists in flavor repo."
+          else
+            git tag "$TAG"
+            git push origin "refs/tags/$TAG"
           fi
-
-          git tag -f "$TAG"
-          git push origin "refs/tags/$TAG"
 
       - name: Build flavor release
         if: steps.current.outputs.release_exists != 'true'
