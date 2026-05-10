@@ -1,15 +1,67 @@
 {
     "体力": {
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0,
         "next": [
-            "供应站内部",
-            "[JumpBack]打开供应站补给箱",
-            "[JumpBack]打开供应站"
+            "开始领取体力",
+            "返回主菜单"
+        ]
+    },
+    "开始领取体力": {
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0,
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    71,
+                    325,
+                    167,
+                    131
+                ],
+                "expected": [
+                    "供应站"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "打开供应站补给箱"
+        ]
+    },
+    "打开供应站补给箱": {
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0,
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    0,
+                    105,
+                    77,
+                    431
+                ],
+                "template": [
+                    "体力/供应站补给箱.png"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "供应站内部"
         ]
     },
     "供应站内部": {
-        "post_wait_freezes": {
-            "time": 2000
-        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -28,14 +80,17 @@
         ]
     },
     "未找到体力": {
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0,
         "next": [
             "返回主菜单"
         ]
     },
     "领取体力": {
-        "post_wait_freezes": {
-            "time": 500
-        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -52,56 +107,13 @@
             "type": "Click"
         },
         "next": [
-            "购买体力",
-            "售罄",
-            "领取体力"
+            "购买体力"
         ]
     },
-    "打开供应站": {
-        "post_wait_freezes": {
-            "time": 1000
-        },
-        "recognition": {
-            "type": "OCR",
-            "param": {
-                "roi": [
-                    71,
-                    325,
-                    167,
-                    131
-                ],
-                "expected": [
-                    "供应站"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        }
-    },
-    "打开供应站补给箱": {
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    0,
-                    105,
-                    77,
-                    431
-                ],
-                "template": [
-                    "体力/供应站补给箱.png"
-                ]
-            }
-        },
-        "action": {
-            "type": "Click"
-        }
-    },
     "购买体力": {
-        "post_wait_freezes": {
-            "time": 1000
-        },
+        "pre_delay": 0,
+        "post_delay": 0,
+        "rate_limit": 0,
         "recognition": {
             "type": "OCR",
             "param": {
@@ -118,9 +130,7 @@
             "type": "Click"
         },
         "next": [
-            "购买体力",
-            "返回主菜单",
-            "[JumpBack]关闭奖励通知"
+            "返回主菜单"
         ]
     }
 }
