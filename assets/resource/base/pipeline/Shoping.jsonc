@@ -228,6 +228,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
+                "roi": [
+                    246,
+                    161,
+                    991,
+                    510
+                ],
                 "expected": [],
                 "order_by": "Vertical"
             }
