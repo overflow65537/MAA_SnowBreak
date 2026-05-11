@@ -187,14 +187,16 @@
                 "expected": "可赠送"
             }
         },
-        "on_error": [
-            "碎片不足"
-        ],
         "next": [
             "赠送已满",
             "[JumpBack]关闭奖励通知",
-            "[JumpBack]选择碎片进行赠送"
+            "[JumpBack]选择碎片进行赠送",
+            "计时器", //计时器会等待10次,然后进入碎片不足流程
+            "碎片不足"
         ]
+    },
+    "计时器": {
+        "max_hit": 10
     },
     "碎片已满": {
         "recognition": {
@@ -244,8 +246,8 @@
             }
         },
         "next": [
-            "没有待领取的碎片",
-            "[JumpBack]领取碎片"
+            "[JumpBack]领取碎片",
+            "没有待领取的碎片"
         ]
     },
     "选择碎片进行赠送": {
@@ -283,7 +285,8 @@
                     135,
                     322
                 ],
-                "expected": "赠送"
+                "expected": "赠送",
+                "order_by": "Random"
             }
         },
         "action": {
@@ -351,19 +354,6 @@
         ]
     },
     "没有待领取的碎片": {
-        "inverse": true,
-        "recognition": {
-            "type": "TemplateMatch",
-            "param": {
-                "roi": [
-                    495,
-                    618,
-                    567,
-                    74
-                ],
-                "template": "拼图/赠送碎片.png"
-            }
-        },
         "next": [
             "返回主菜单_基地",
             "[JumpBack]继续_基地",
@@ -391,19 +381,38 @@
     "领取碎片": {
         "post_delay": 1000,
         "recognition": {
-            "type": "TemplateMatch",
+            "type": "ColorMatch",
             "param": {
                 "roi": [
-                    495,
-                    618,
-                    567,
+                    401,
+                    646,
+                    689,
                     74
                 ],
-                "template": "拼图/赠送碎片.png"
+                "method": 40,
+                "lower": [
+                    115,
+                    98,
+                    31
+                ],
+                "upper": [
+                    117,
+                    230,
+                    65
+                ],
+                "count": 10
             }
         },
         "action": {
-            "type": "Click"
+            "type": "Click",
+            "param": {
+                "target_offset": [
+                    0,
+                    -40,
+                    0,
+                    0
+                ]
+            }
         }
     },
     "信源交换": {
