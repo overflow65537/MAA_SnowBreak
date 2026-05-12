@@ -276,7 +276,6 @@
                         },
                         "在商店内": {
                             "recognition": {
-                                "type": "ColorMatch",
                                 "param": {
                                     "roi": [
                                         557,
@@ -336,7 +335,6 @@
                         },
                         "在商店内": {
                             "recognition": {
-                                "type": "ColorMatch",
                                 "param": {
                                     "roi": [
                                         557,
@@ -400,7 +398,6 @@
                         },
                         "在商店内": {
                             "recognition": {
-                                "type": "ColorMatch",
                                 "param": {
                                     "roi": [
                                         557,
@@ -464,7 +461,6 @@
                         },
                         "在商店内": {
                             "recognition": {
-                                "type": "ColorMatch",
                                 "param": {
                                     "roi": [
                                         557,
@@ -528,7 +524,6 @@
                         },
                         "在商店内": {
                             "recognition": {
-                                "type": "ColorMatch",
                                 "param": {
                                     "roi": [
                                         557,
@@ -592,7 +587,6 @@
                         },
                         "在商店内": {
                             "recognition": {
-                                "type": "ColorMatch",
                                 "param": {
                                     "roi": [
                                         557,
@@ -877,8 +871,7 @@
                             "enabled": true,
                             "recognition": {
                                 "param": {
-                                    "expected": "^后勤人事",
-                                    "index": 1
+                                    "expected": "^后勤人事$"
                                 }
                             }
                         },
@@ -891,10 +884,18 @@
                                         723,
                                         161
                                     ],
-                                    "template": [
-                                        "商店/循环中心_后勤人事.png",
-                                        "商店/循环中心_后勤人事_pc125.png"
-                                    ]
+                                    "upper": [
+                                        255,
+                                        190,
+                                        255
+                                    ],
+                                    "lower": [
+                                        185,
+                                        135,
+                                        185
+                                    ],
+                                    "connected": true,
+                                    "count": 150
                                 }
                             }
                         }
