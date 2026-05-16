@@ -78,11 +78,11 @@
       "type": "PlayCover",
       "description": "<p style=\"color: red; font-weight: bold;\">Macos 专用,支持PlayCover</p><p>playcover无法自己启动游戏</p>",
       "playcover": {
-        "uuid": "maa.playcover",
-        "attach_resource_path": [
-          "./resource/playcover"
-        ]
-      }
+        "uuid": "maa.playcover"
+      },
+      "attach_resource_path": [
+        "./resource/playcover"
+      ]
     }
   ],
   "resource": [
