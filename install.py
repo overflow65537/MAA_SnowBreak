@@ -21,6 +21,8 @@ def install_resource():
     )
     shutil.rmtree(install_path / "MaaCommonAssets")
 
+    (install_path / "logo.png").unlink(missing_ok=True)
+
     shutil.copy2(
         working_dir / "logo.png",
         install_path / "logo.png",
