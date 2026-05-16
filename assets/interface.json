@@ -23,24 +23,65 @@
       "type": "Adb"
     },
     {
-      "name": "Win32控制器",
-      "description": "<p>仅支持PC版</p><p>需要管理员权限</p><p>请正确填写程序路径(game.exe)以自动启动程序</p><p>参数填写：-FeatureLevelES31</p>",
+      "name": "Win32-Window",
+      "label": "Win32控制器-通用",
+      "description": "<p>通用Win32控制器，兼容性更好，偶尔会占用鼠标</p><p>需要管理员权限</p><p>请正确填写程序路径(game.exe)以自动启动程序</p><p>参数填写：-FeatureLevelES31</p>",
       "type": "Win32",
-      "permission_required": true,
       "win32": {
-        "class_regex": "UnrealWindow",
+        "class_regex": "UnityWndClass",
+        "window_regex": "^(尘白禁区|塵白禁域|Snowbreak[^\\w]*Containment Zone)|Game  $",
+        "screencap": "Background",
+        "mouse": "SendMessageWithCursorPos",
+        "keyboard": "PostMessage"
+      },
+      "permission_required": true,
+      "attach_resource_path": [
+        "./resource/PC"
+      ]
+    },
+    {
+      "name": "Win32-Window-Background",
+      "label": "Win32控制器-后台",
+      "description": "<p>Win32控制器-后台，完全不占用鼠标，需要游戏处于窗口模式生效</p><p>需要管理员权限</p><p>请正确填写程序路径(game.exe)以自动启动程序</p><p>参数填写：-FeatureLevelES31</p>",
+      "type": "Win32",
+      "win32": {
+        "class_regex": "UnityWndClass",
         "window_regex": "^(尘白禁区|塵白禁域|Snowbreak[^\\w]*Containment Zone)|Game  $",
         "screencap": "PrintWindow",
-        "mouse": "SendMessageWithCursorPos",
+        "mouse": "SendMessageWithWindowPos",
+        "keyboard": "PostMessage"
+      },
+      "permission_required": true,
+      "attach_resource_path": [
+        "./resource/PC"
+      ]
+    },
+    {
+      "name": "Win32-Window-Front",
+      "label": "Win32控制器-前台",
+      "description": "<p>Win32控制器-前台，占用鼠标，最强的兼容性</p><p>需要管理员权限</p><p>请正确填写程序路径(game.exe)以自动启动程序</p><p>参数填写：-FeatureLevelES31</p>",
+      "type": "Win32",
+      "win32": {
+        "class_regex": "UnityWndClass",
+        "window_regex": "^(尘白禁区|塵白禁域|Snowbreak[^\\w]*Containment Zone)|Game  $",
+        "screencap": "ScreenDC",
+        "mouse": "Seize",
         "keyboard": "Seize"
-      }
+      },
+      "permission_required": true,
+      "attach_resource_path": [
+        "./resource/PC"
+      ]
     },
     {
       "name": "PlayCover控制器",
       "type": "PlayCover",
       "description": "<p style=\"color: red; font-weight: bold;\">Macos 专用,支持PlayCover</p><p>playcover无法自己启动游戏</p>",
       "playcover": {
-        "uuid": "maa.playcover"
+        "uuid": "maa.playcover",
+        "attach_resource_path": [
+          "./resource/playcover"
+        ]
       }
     }
   ],
@@ -49,38 +90,6 @@
       "name": "官服",
       "path": [
         "./resource/base"
-      ],
-      "controller": [
-        "Adb控制器"
-      ],
-      "option": [
-        "跳过分辨率警告"
-      ]
-    },
-    {
-      "name": "PlayCover端",
-      "path": [
-        "./resource/base",
-        "./resource/playcover"
-      ],
-      "controller": [
-        "PlayCover控制器"
-      ],
-      "option": [
-        "跳过分辨率警告"
-      ]
-    },
-    {
-      "name": "桌面端",
-      "path": [
-        "./resource/base",
-        "./resource/PC"
-      ],
-      "controller": [
-        "Win32控制器"
-      ],
-      "option": [
-        "跳过分辨率警告"
       ]
     },
     {
@@ -91,9 +100,6 @@
       ],
       "controller": [
         "Adb控制器"
-      ],
-      "option": [
-        "跳过分辨率警告"
       ]
     }
   ],
