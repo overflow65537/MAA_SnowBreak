@@ -32,7 +32,7 @@
         "window_regex": "^(尘白禁区|塵白禁域|Snowbreak[^\\w]*Containment Zone)|Game  $",
         "screencap": "Background",
         "mouse": "SendMessageWithCursorPos",
-        "keyboard": "PostMessage"
+        "keyboard": "SendMessageWithCursorPos"
       },
       "permission_required": true,
       "attach_resource_path": [
@@ -49,7 +49,7 @@
         "window_regex": "^(尘白禁区|塵白禁域|Snowbreak[^\\w]*Containment Zone)|Game  $",
         "screencap": "PrintWindow",
         "mouse": "SendMessageWithWindowPos",
-        "keyboard": "PostMessage"
+        "keyboard": "SendMessageWithWindowPos"
       },
       "permission_required": true,
       "attach_resource_path": [
@@ -64,7 +64,7 @@
       "win32": {
         "class_regex": "UnrealWindow",
         "window_regex": "^(尘白禁区|塵白禁域|Snowbreak[^\\w]*Containment Zone)|Game  $",
-        "screencap": "ScreenDC",
+        "screencap": "PrintWindow",
         "mouse": "Seize",
         "keyboard": "Seize"
       },
