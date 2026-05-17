@@ -4,7 +4,7 @@
             "name": "信源研析",
             "default_check": true,
             "entry": "基地拼图",
-            "description": "<p>注意: 需要保证出生地为大厅</p><p>信源研析:每周二5点后刷新2次,任务间隔24小时</p>",
+            "description": "<p>注意: 需要保证出生地为大厅</p><p>信源研析:每周二5点后刷新2次,任务间隔24小时</p><p>如果遇到任务运行异常,请更换前台控制模式</p>",
             "speedrun": {
                 "mode": "weekly",
                 "trigger": {

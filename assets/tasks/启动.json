@@ -4,7 +4,7 @@
             "name": "启动",
             "default_check": true,
             "entry": "启动",
-            "description": "<p>启动游戏并进入主界面</p>",
+            "description": "<p>启动游戏并进入主界面</p><p>如果遇到鼠标闪烁但未进行点击,请更换前台控制模式</p>",
             "group": [
                 "daily"
             ]
