@@ -839,5 +839,10 @@
                 ]
             }
         }
+    },
+    "提示分辨率错误": {
+        "focus": {
+            "Node.Recognition.Succeeded": "[color:Tomato]分辨率错误,请设置为1280*720[/color]"
+        }
     }
 }
