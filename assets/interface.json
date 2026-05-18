@@ -40,6 +40,23 @@
       ]
     },
     {
+      "name": "Win32-Launcher",
+      "label": "桌面端登录器",
+      "description": "<p>某些情况下无法通过参数直接启动游戏,需要使用桌面端登录器</p><p>需要管理员权限</p><p>请正确填写程序路径(SeasunGame.exe)以自动启动程序</p>",
+      "type": "Win32",
+      "win32": {
+        "class_regex": "UnrealWindow",
+        "window_regex": "^西山居登录器-尘白禁区$",
+        "screencap": "PrintWindow",
+        "mouse": "Seize",
+        "keyboard": "Seize"
+      },
+      "permission_required": true,
+      "attach_resource_path": [
+        "./resource/Launcher"
+      ]
+    },
+    {
       "name": "Win32-Window-Background",
       "label": "Win32控制器-后台",
       "description": "<p>Win32控制器-后台，完全不占用鼠标，需要游戏处于窗口模式生效</p><p>需要管理员权限</p><p>请正确填写程序路径(game.exe)以自动启动程序</p><p>参数填写：-FeatureLevelES31</p>",
@@ -101,6 +118,16 @@
       "controller": [
         "Adb控制器"
       ]
+    },
+    {
+      "name": "登录器",
+      "path": [
+        "./resource/base",
+        "./resource/Launcher"
+      ],
+      "controller": [
+        "Win32-Launcher"
+      ]
     }
   ],
   "global_option": [
@@ -112,6 +139,12 @@
       "name": "daily",
       "label": "日常",
       "description": "关闭游戏前的日常流程（开服检测、启动、日常清体、商店、碎片等）",
+      "default_expand": true
+    },
+    {
+      "name": "Launcher",
+      "label": "登录器",
+      "description": "用于启动游戏的登录器",
       "default_expand": true
     },
     {
@@ -205,6 +238,17 @@
         },
         {
           "name": "关闭游戏",
+          "enabled": true
+        }
+      ]
+    },
+    {
+      "name": "preset_launcher",
+      "label": "登录器",
+      "description": "用于启动游戏的登录器",
+      "task": [
+        {
+          "name": "登录器",
           "enabled": true
         }
       ]

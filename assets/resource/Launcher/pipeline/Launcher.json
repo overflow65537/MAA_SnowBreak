@@ -1,0 +1,21 @@
+{
+    "开始游戏": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    949,
+                    610,
+                    331,
+                    110
+                ],
+                "expected": [
+                    "开始游戏"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    }
+}

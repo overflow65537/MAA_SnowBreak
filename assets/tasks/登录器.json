@@ -1,0 +1,12 @@
+{
+    "task": [
+        {
+            "name": "登录器",
+            "entry": "进入游戏",
+            "group": [
+                "Launcher"
+            ]
+        }
+    ],
+    "option": {}
+}
