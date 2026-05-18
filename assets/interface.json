@@ -299,6 +299,7 @@
   ],
   "import": [
     "./tasks/开服检测.json",
+    "./tasks/登录器.json",
     "./tasks/启动.json",
     "./tasks/兑换码.json",
     "./tasks/赠送感知.json",
