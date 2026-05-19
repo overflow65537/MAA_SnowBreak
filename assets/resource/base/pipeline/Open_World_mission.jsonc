@@ -2,8 +2,7 @@
     "新星开拓任务": {
         "post_delay": 1000,
         "next": [
-            "判断新星开拓",
-            "[JumpBack]点击新星开拓",
+            "点击新星开拓",
             "[JumpBack]点击常驻活动",
             "[JumpBack]点击活动"
         ]
@@ -25,10 +24,7 @@
         },
         "action": {
             "type": "Click"
-        },
-        "next": [
-            "前往"
-        ]
+        }
     },
     "前往": {
         "recognition": {
@@ -47,7 +43,10 @@
         },
         "action": {
             "type": "Click"
-        }
+        },
+        "next": [
+            "判断新星开拓"
+        ]
     },
     "判断新星开拓": {
         "recognition": {
