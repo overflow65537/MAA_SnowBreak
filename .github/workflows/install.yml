@@ -27,12 +27,12 @@ jobs:
       release_body: ${{ steps.git-cliff.outputs.content }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
       - name: Generate a changelog
-        uses: orhun/git-cliff-action@v4
+        uses: orhun/git-cliff-action@v4.8.0
         id: git-cliff
         with:
           config: cliff.toml
@@ -44,7 +44,7 @@ jobs:
   meta:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - id: set_tag
@@ -114,12 +114,12 @@ jobs:
             arch: x86_64
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           submodules: true
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v6
         with:
           python-version: '3.12'
 
