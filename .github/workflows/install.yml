@@ -140,6 +140,51 @@ jobs:
           extract: true
           latest: true
 
+      - name: Convert PNG to ICO
+        if: matrix.platform == 'win' && matrix.arch == 'x86_64'
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ ! -f "./logo.png" ]; then
+            echo "❌ ERROR: ./logo.png missing"
+            exit 1
+          fi
+          python -m pip install pillow -q
+          python - <<'PY'
+          from PIL import Image
+
+          im = Image.open("logo.png").convert("RGBA")
+          sizes = [(256, 256), (128, 128), (64, 64), (48, 48), (32, 32), (16, 16)]
+          im.save("logo.ico", format="ICO", sizes=sizes)
+          PY
+          ls -la logo.ico
+
+      - name: Modify Windows exe icons
+        if: matrix.platform == 'win' && matrix.arch == 'x86_64'
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ ! -f "./logo.ico" ]; then
+            echo "❌ ERROR: ./logo.ico missing (Convert PNG to ICO step failed?)"
+            exit 1
+          fi
+          if [ ! -d "install" ]; then
+            echo "❌ ERROR: install/ missing after Install step"
+            exit 1
+          fi
+          curl -fsSL https://github.com/electron/rcedit/releases/download/v2.0.0/rcedit-x64.exe -o rcedit.exe
+          ICO_W="$(cygpath -w "$(pwd)/logo.ico")"
+          n=0
+          while IFS= read -r -d '' exe; do
+            _abs="$(cd "$(dirname "$exe")" && pwd)/$(basename "$exe")"
+            ./rcedit.exe "$(cygpath -w "$_abs")" --set-icon "$ICO_W"
+            echo "MFW.exe icon updated: $exe"
+            n=$((n + 1))
+          done < <(find install -type f \( -iname 'MFW.exe' \) -print0 2>/dev/null)
+          if [ "$n" -eq 0 ]; then
+            echo "⚠️ No MFW.exe under install/; icon step had nothing to patch."
+          fi
+
       - uses: actions/upload-artifact@v4
         with:
           name: MSBA-${{ matrix.platform }}-${{ matrix.arch }}
