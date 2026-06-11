@@ -307,7 +307,7 @@
                 "connected": true,
                 "method": 40,
                 "upper": [
-                    95,
+                    99,
                     70,
                     255
                 ],
@@ -385,10 +385,10 @@
             "type": "ColorMatch",
             "param": {
                 "roi": [
-                    401,
-                    646,
-                    689,
-                    74
+                    469,
+                    608,
+                    619,
+                    45
                 ],
                 "method": 40,
                 "lower": [
