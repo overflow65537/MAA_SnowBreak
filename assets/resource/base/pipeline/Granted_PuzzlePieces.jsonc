@@ -393,7 +393,7 @@
                 "method": 40,
                 "lower": [
                     90,
-                    51,
+                    31,
                     250
                 ],
                 "upper": [
@@ -401,20 +401,13 @@
                     81,
                     255
                 ],
-                "count": 10,
+                "count": 100,
                 "connected": true
             }
         },
         "action": {
             "type": "Click",
-            "param": {
-                "target_offset": [
-                    0,
-                    -40,
-                    0,
-                    0
-                ]
-            }
+            "param": {}
         }
     },
     "信源交换": {
