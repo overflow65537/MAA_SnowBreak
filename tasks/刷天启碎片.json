@@ -43,12 +43,6 @@
                             "recognition": {
                                 "type": "OCR",
                                 "param": {
-                                    "roi": [
-                                        30,
-                                        87,
-                                        975,
-                                        525
-                                    ],
                                     "expected": [
                                         "瑞狐"
                                     ]
@@ -64,14 +58,9 @@
                             "recognition": {
                                 "type": "OCR",
                                 "param": {
-                                    "roi": [
-                                        30,
-                                        87,
-                                        975,
-                                        525
-                                    ],
                                     "expected": [
-                                        "时之重奏"
+                                        "时之重奏",
+                                        "时之重"
                                     ]
                                 }
                             }
@@ -85,12 +74,6 @@
                             "recognition": {
                                 "type": "OCR",
                                 "param": {
-                                    "roi": [
-                                        30,
-                                        87,
-                                        975,
-                                        525
-                                    ],
                                     "expected": [
                                         "霄鹰"
                                     ]
@@ -106,12 +89,6 @@
                             "recognition": {
                                 "type": "OCR",
                                 "param": {
-                                    "roi": [
-                                        30,
-                                        87,
-                                        975,
-                                        525
-                                    ],
                                     "expected": [
                                         "灵鉴"
                                     ]
@@ -127,12 +104,6 @@
                             "recognition": {
                                 "type": "OCR",
                                 "param": {
-                                    "roi": [
-                                        30,
-                                        87,
-                                        975,
-                                        525
-                                    ],
                                     "expected": [
                                         "星彩"
                                     ]
@@ -148,12 +119,6 @@
                             "recognition": {
                                 "type": "OCR",
                                 "param": {
-                                    "roi": [
-                                        30,
-                                        87,
-                                        975,
-                                        525
-                                    ],
                                     "expected": [
                                         "澄意"
                                     ]
@@ -169,12 +134,6 @@
                             "recognition": {
                                 "type": "OCR",
                                 "param": {
-                                    "roi": [
-                                        30,
-                                        87,
-                                        975,
-                                        525
-                                    ],
                                     "expected": [
                                         "悠游"
                                     ]
@@ -190,12 +149,6 @@
                             "recognition": {
                                 "type": "OCR",
                                 "param": {
-                                    "roi": [
-                                        30,
-                                        87,
-                                        975,
-                                        525
-                                    ],
                                     "expected": [
                                         "绯月"
                                     ]
@@ -211,12 +164,6 @@
                             "recognition": {
                                 "type": "OCR",
                                 "param": {
-                                    "roi": [
-                                        30,
-                                        87,
-                                        975,
-                                        525
-                                    ],
                                     "expected": [
                                         "狂诗"
                                     ]
@@ -232,12 +179,6 @@
                             "recognition": {
                                 "type": "OCR",
                                 "param": {
-                                    "roi": [
-                                        30,
-                                        87,
-                                        975,
-                                        525
-                                    ],
                                     "expected": [
                                         "绮幻"
                                     ]
@@ -253,12 +194,6 @@
                             "recognition": {
                                 "type": "OCR",
                                 "param": {
-                                    "roi": [
-                                        30,
-                                        87,
-                                        975,
-                                        525
-                                    ],
                                     "expected": [
                                         "天鹅座"
                                     ]
@@ -274,12 +209,6 @@
                             "recognition": {
                                 "type": "OCR",
                                 "param": {
-                                    "roi": [
-                                        30,
-                                        87,
-                                        975,
-                                        525
-                                    ],
                                     "expected": [
                                         "冥河代理人"
                                     ]
@@ -295,12 +224,6 @@
                             "recognition": {
                                 "type": "OCR",
                                 "param": {
-                                    "roi": [
-                                        30,
-                                        87,
-                                        975,
-                                        525
-                                    ],
                                     "expected": [
                                         "澜风"
                                     ]
@@ -316,12 +239,6 @@
                             "recognition": {
                                 "type": "OCR",
                                 "param": {
-                                    "roi": [
-                                        30,
-                                        87,
-                                        975,
-                                        525
-                                    ],
                                     "expected": [
                                         "夜天光"
                                     ]
@@ -337,12 +254,6 @@
                             "recognition": {
                                 "type": "OCR",
                                 "param": {
-                                    "roi": [
-                                        30,
-                                        87,
-                                        975,
-                                        525
-                                    ],
                                     "expected": [
                                         "琼弦"
                                     ]
@@ -358,12 +269,6 @@
                             "recognition": {
                                 "type": "OCR",
                                 "param": {
-                                    "roi": [
-                                        30,
-                                        87,
-                                        975,
-                                        525
-                                    ],
                                     "expected": [
                                         "小天师"
                                     ]
@@ -379,14 +284,9 @@
                             "recognition": {
                                 "type": "OCR",
                                 "param": {
-                                    "roi": [
-                                        30,
-                                        87,
-                                        975,
-                                        525
-                                    ],
                                     "expected": [
-                                        "驰掣"
+                                        "驰掣",
+                                        "驰"
                                     ]
                                 }
                             }
@@ -400,12 +300,6 @@
                             "recognition": {
                                 "type": "OCR",
                                 "param": {
-                                    "roi": [
-                                        30,
-                                        87,
-                                        975,
-                                        525
-                                    ],
                                     "expected": [
                                         "幽潮"
                                     ]
@@ -421,12 +315,6 @@
                             "recognition": {
                                 "type": "OCR",
                                 "param": {
-                                    "roi": [
-                                        30,
-                                        87,
-                                        975,
-                                        525
-                                    ],
                                     "expected": [
                                         "朝翼"
                                     ]
@@ -442,12 +330,6 @@
                             "recognition": {
                                 "type": "OCR",
                                 "param": {
-                                    "roi": [
-                                        30,
-                                        87,
-                                        975,
-                                        525
-                                    ],
                                     "expected": [
                                         "龙舌兰"
                                     ]
@@ -463,12 +345,6 @@
                             "recognition": {
                                 "type": "OCR",
                                 "param": {
-                                    "roi": [
-                                        30,
-                                        87,
-                                        975,
-                                        525
-                                    ],
                                     "expected": [
                                         "辉耀"
                                     ]
@@ -484,12 +360,6 @@
                             "recognition": {
                                 "type": "OCR",
                                 "param": {
-                                    "roi": [
-                                        30,
-                                        87,
-                                        975,
-                                        525
-                                    ],
                                     "expected": [
                                         "无限",
                                         "之视",
@@ -507,12 +377,6 @@
                             "recognition": {
                                 "type": "OCR",
                                 "param": {
-                                    "roi": [
-                                        30,
-                                        87,
-                                        975,
-                                        525
-                                    ],
                                     "expected": [
                                         "瞬刻"
                                     ]
@@ -528,12 +392,6 @@
                             "recognition": {
                                 "type": "OCR",
                                 "param": {
-                                    "roi": [
-                                        30,
-                                        87,
-                                        975,
-                                        525
-                                    ],
                                     "expected": [
                                         "羽蜕"
                                     ],
@@ -559,12 +417,6 @@
                             "recognition": {
                                 "type": "OCR",
                                 "param": {
-                                    "roi": [
-                                        30,
-                                        87,
-                                        975,
-                                        525
-                                    ],
                                     "expected": [
                                         "悖谬"
                                     ],
@@ -602,12 +454,6 @@
                             "recognition": {
                                 "type": "OCR",
                                 "param": {
-                                    "roi": [
-                                        30,
-                                        87,
-                                        975,
-                                        525
-                                    ],
                                     "expected": [
                                         "豹豹"
                                     ]
@@ -623,12 +469,6 @@
                             "recognition": {
                                 "type": "OCR",
                                 "param": {
-                                    "roi": [
-                                        30,
-                                        87,
-                                        975,
-                                        525
-                                    ],
                                     "expected": [
                                         "蓝闪"
                                     ]
@@ -644,12 +484,6 @@
                             "recognition": {
                                 "type": "OCR",
                                 "param": {
-                                    "roi": [
-                                        30,
-                                        87,
-                                        975,
-                                        525
-                                    ],
                                     "expected": [
                                         "魔术师"
                                     ]
@@ -665,12 +499,6 @@
                             "recognition": {
                                 "type": "OCR",
                                 "param": {
-                                    "roi": [
-                                        30,
-                                        87,
-                                        975,
-                                        525
-                                    ],
                                     "expected": [
                                         "溯影"
                                     ]
@@ -686,12 +514,6 @@
                             "recognition": {
                                 "type": "OCR",
                                 "param": {
-                                    "roi": [
-                                        30,
-                                        87,
-                                        975,
-                                        525
-                                    ],
                                     "expected": [
                                         "藏锋"
                                     ]
@@ -707,12 +529,6 @@
                             "recognition": {
                                 "type": "OCR",
                                 "param": {
-                                    "roi": [
-                                        30,
-                                        87,
-                                        975,
-                                        525
-                                    ],
                                     "expected": [
                                         "云篆"
                                     ]
@@ -728,12 +544,6 @@
                             "recognition": {
                                 "type": "OCR",
                                 "param": {
-                                    "roi": [
-                                        30,
-                                        87,
-                                        975,
-                                        525
-                                    ],
                                     "expected": [
                                         "辉夜"
                                     ]
@@ -749,12 +559,6 @@
                             "recognition": {
                                 "type": "OCR",
                                 "param": {
-                                    "roi": [
-                                        30,
-                                        87,
-                                        975,
-                                        525
-                                    ],
                                     "expected": [
                                         "咎冠"
                                     ],
@@ -776,12 +580,6 @@
                             "recognition": {
                                 "type": "OCR",
                                 "param": {
-                                    "roi": [
-                                        30,
-                                        87,
-                                        975,
-                                        525
-                                    ],
                                     "expected": [
                                         "缄默"
                                     ],
@@ -801,12 +599,6 @@
                             "recognition": {
                                 "type": "OCR",
                                 "param": {
-                                    "roi": [
-                                        30,
-                                        87,
-                                        975,
-                                        525
-                                    ],
                                     "expected": [
                                         "狂猎"
                                     ]
@@ -822,12 +614,6 @@
                             "recognition": {
                                 "type": "OCR",
                                 "param": {
-                                    "roi": [
-                                        30,
-                                        87,
-                                        975,
-                                        525
-                                    ],
                                     "expected": [
                                         "雨燕"
                                     ]
@@ -843,12 +629,6 @@
                             "recognition": {
                                 "type": "OCR",
                                 "param": {
-                                    "roi": [
-                                        30,
-                                        87,
-                                        975,
-                                        525
-                                    ],
                                     "expected": [
                                         "冬至"
                                     ]
@@ -876,12 +656,6 @@
                     "recognition": {
                         "type": "OCR",
                         "param": {
-                            "roi": [
-                                30,
-                                87,
-                                975,
-                                525
-                            ],
                             "expected": [
                                 "{角色名}"
                             ],
