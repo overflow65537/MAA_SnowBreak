@@ -12,9 +12,8 @@
   "agent": {
     "child_exec": "python",
     "child_args": [
-      "{PROJECT_DIR}/MSBAcustom/main.py"
-    ],
-    "embedded": true
+      "{PROJECT_DIR}/agent/main.py"
+    ]
   },
   "controller": [
     {

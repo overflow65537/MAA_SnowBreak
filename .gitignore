@@ -440,24 +440,14 @@ enc_temp_folder/*
 .nuke/temp/*
 
 # Build
-deps/*
-!deps/tools/
-deps/tools/*
-!deps/tools/*.schema.json
-# interface.schema.custom.json 以 .custom.json 结尾，不匹配 *.schema.json，须单独取消忽略
-!deps/tools/interface.schema.custom.json
 build
 install
 
 # Tools
 tools/ImageCropper/**/*.png
-assets/config/maa_pi_config.json
 maapicli.spec
 config/maa_option.json
-assets/agent/config/maa_option.json
+agent/config/maa_option.json
 .vscode/settings.json
-install.py
 agent.spec
 dist
-assets/custom/config/maa_option.json
-assets/config/maa_option.json

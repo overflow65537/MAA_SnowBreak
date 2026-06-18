@@ -2,7 +2,7 @@
 
 基于 MaaFramework Pipeline Protocol，供快速查阅字段名、类型、默认值。完整说明见 [PipelineProtocol.md](https://github.com/MaaXYZ/MaaFramework/blob/main/docs/en_us/3.1-PipelineProtocol.md)。
 
-本仓库 JSON Schema：`deps/tools/pipeline.schema.json`。
+本仓库 JSON Schema：`tools/schema/pipeline.schema.json`。
 
 ## 通用字段
 

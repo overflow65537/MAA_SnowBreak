@@ -133,16 +133,22 @@
 
 **如果你要编译源码才看这节，否则直接 [下载](https://github.com/overflow65537/MAA_SnowBreak/releases) 即可**
 
-0. 完整克隆本项目及子项目
+0. 完整克隆本项目及子项目（含 OCR 模型子模块）
 
    ```bash
    git clone --recursive https://github.com/overflow65537/MAA_SnowBreak.git
    ```
 
+   若已克隆但未拉取子模块，可执行：
+
+   ```bash
+   git submodule update --init --recursive
+   ```
+
 1. 安装
 
-   ```python
-   python ./install.py
+   ```bash
+   python ./tools/ci/install.py
    ```
 
 生成的二进制及相关资源文件在 `install` 目录下

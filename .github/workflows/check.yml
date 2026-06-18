@@ -6,17 +6,21 @@ on:
       - "main"
     paths:
       - ".github/workflows/check.yml"
-      - "assets/**"
-      - "tools/**"
-      - "deps/tools/**"
+      - "interface.json"
+      - "resource/**"
+      - "tasks/**"
+      - "tools/ci/**"
+      - "tools/schema/**"
   pull_request:
     branches:
       - "**"
     paths:
       - ".github/workflows/check.yml"
-      - "assets/**"
-      - "tools/**"
-      - "deps/tools/**"
+      - "interface.json"
+      - "resource/**"
+      - "tasks/**"
+      - "tools/ci/**"
+      - "tools/schema/**"
   workflow_dispatch:
 
 jobs:
@@ -26,16 +30,17 @@ jobs:
       - uses: actions/checkout@v6
         with:
           fetch-depth: 0
+          submodules: true
 
       - name: Use Node
         uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 24
 
       - name: Run maa-checker
         run: |
           # Always use latests @nekosu/maa-checker
-          npx @nekosu/maa-checker@latest ./assets/interface.json --github=. --load-config=.vscode/maa_checker.json
+          npx @nekosu/maa-checker@latest ./interface.json --github=.
 
       # pip install maafw
       - name: Install maafw
@@ -47,15 +52,15 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          curl -fsSL -o deps/tools/interface.schema.upstream.json https://raw.githubusercontent.com/MaaXYZ/MaaFramework/main/tools/interface.schema.json
-          python tools/merge_interface_schema.py --base deps/tools/interface.schema.upstream.json --custom deps/tools/interface.schema.custom.json --output deps/tools/interface.schema.json
-          rm -f deps/tools/interface.schema.upstream.json
+          curl -fsSL -o tools/schema/interface.schema.upstream.json https://raw.githubusercontent.com/MaaXYZ/MaaFramework/main/tools/interface.schema.json
+          python tools/merge_interface_schema.py --base tools/schema/interface.schema.upstream.json --custom tools/schema/interface.schema.custom.json --output tools/schema/interface.schema.json
+          rm -f tools/schema/interface.schema.upstream.json
 
       - name: Check Resource
         run: |
-          python ./tools/check_resource.py ./assets/resource/base ./assets/resource/PC ./assets/resource/playcover ./assets/resource/bilibili
+          python ./tools/ci/check_resource.py ./resource/base ./resource/PC ./resource/playcover ./resource/bilibili ./resource/Launcher
 
       - name: Validate JSON Schema
         run: |
           python -m pip install jsonschema==4.26.0 referencing==0.37.0
-          python tools/validate_schema.py --resource-dirs assets/resource/base assets/resource/PC assets/resource/playcover assets/resource/bilibili --exclude-dirs assets/resource/gamedata assets/resource/base/image --task-dirs assets/tasks
+          python tools/ci/validate_schema.py

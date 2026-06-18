@@ -41,40 +41,46 @@ jobs:
         run: |
           set -euo pipefail
           echo "Current Date and Time (UTC): $(date -u '+%Y-%m-%d %H:%M:%S')"
-          mkdir -p deps/tools
-          # interface 先下载到临时文件，再与自定义扩展合并（与 MAA_Punish / check 工作流一致）
-          curl -fsSL -o deps/tools/interface.schema.upstream.json https://raw.githubusercontent.com/MaaXYZ/MaaFramework/main/tools/interface.schema.json
-          curl -fsSL -o deps/tools/interface_config.schema.json https://raw.githubusercontent.com/MaaXYZ/MaaFramework/main/tools/interface_config.schema.json
-          curl -fsSL -o deps/tools/pipeline.schema.json https://raw.githubusercontent.com/MaaXYZ/MaaFramework/main/tools/pipeline.schema.json
-          python tools/merge_interface_schema.py --base deps/tools/interface.schema.upstream.json --custom deps/tools/interface.schema.custom.json --output deps/tools/interface.schema.json
-          rm -f deps/tools/interface.schema.upstream.json
+          mkdir -p tools/schema
+          curl -fsSL -o tools/schema/interface.schema.upstream.json https://raw.githubusercontent.com/MaaXYZ/MaaFramework/main/tools/interface.schema.json
+          curl -fsSL -o tools/schema/interface_config.schema.json https://raw.githubusercontent.com/MaaXYZ/MaaFramework/main/tools/interface_config.schema.json
+          curl -fsSL -o tools/schema/interface_import.schema.json https://raw.githubusercontent.com/MaaXYZ/MaaFramework/main/tools/interface_import.schema.json
+          curl -fsSL -o tools/schema/pipeline.schema.json https://raw.githubusercontent.com/MaaXYZ/MaaFramework/main/tools/pipeline.schema.json
+          python tools/merge_interface_schema.py --base tools/schema/interface.schema.upstream.json --custom tools/schema/interface.schema.custom.json --output tools/schema/interface.schema.json
+          rm -f tools/schema/interface.schema.upstream.json
           echo "Checking downloaded files:"
-          ls -la deps/tools/*.schema.json
+          ls -la tools/schema/*.schema.json
 
       - name: Check for changes with git status
         id: check_status
         run: |
           schema_files=(
-            deps/tools/interface.schema.json
-            deps/tools/interface_config.schema.json
-            deps/tools/pipeline.schema.json
+            tools/schema/interface.schema.json
+            tools/schema/interface_config.schema.json
+            tools/schema/interface_import.schema.json
+            tools/schema/pipeline.schema.json
           )
           git add -f "${schema_files[@]}"
           if [[ -n "$(git status --porcelain -- "${schema_files[@]}")" ]]; then
             echo "Changes detected in JSON schema files"
             git status --porcelain -- "${schema_files[@]}"
             echo "changes_detected=true" >> $GITHUB_OUTPUT
-            if [[ -n "$(git status --porcelain -- deps/tools/interface.schema.json)" ]]; then
+            if [[ -n "$(git status --porcelain -- tools/schema/interface.schema.json)" ]]; then
               echo "interface_changed=true" >> $GITHUB_OUTPUT
             else
               echo "interface_changed=false" >> $GITHUB_OUTPUT
             fi
-            if [[ -n "$(git status --porcelain -- deps/tools/interface_config.schema.json)" ]]; then
+            if [[ -n "$(git status --porcelain -- tools/schema/interface_config.schema.json)" ]]; then
               echo "interface_config_changed=true" >> $GITHUB_OUTPUT
             else
               echo "interface_config_changed=false" >> $GITHUB_OUTPUT
             fi
-            if [[ -n "$(git status --porcelain -- deps/tools/pipeline.schema.json)" ]]; then
+            if [[ -n "$(git status --porcelain -- tools/schema/interface_import.schema.json)" ]]; then
+              echo "interface_import_changed=true" >> $GITHUB_OUTPUT
+            else
+              echo "interface_import_changed=false" >> $GITHUB_OUTPUT
+            fi
+            if [[ -n "$(git status --porcelain -- tools/schema/pipeline.schema.json)" ]]; then
               echo "pipeline_changed=true" >> $GITHUB_OUTPUT
             else
               echo "pipeline_changed=false" >> $GITHUB_OUTPUT
@@ -84,6 +90,7 @@ jobs:
             echo "changes_detected=false" >> $GITHUB_OUTPUT
             echo "interface_changed=false" >> $GITHUB_OUTPUT
             echo "interface_config_changed=false" >> $GITHUB_OUTPUT
+            echo "interface_import_changed=false" >> $GITHUB_OUTPUT
             echo "pipeline_changed=false" >> $GITHUB_OUTPUT
           fi
 
@@ -92,9 +99,7 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          # 注意：这里不再需要 git add，因为已在 check_status 中完成
           timestamp=$(date -u "+%Y-%m-%d %H:%M:%S")
-          # 创建定制的提交消息
           changed_files=""
           if [[ "${{ steps.check_status.outputs.interface_changed }}" == "true" ]]; then
             changed_files+="interface "
@@ -102,10 +107,12 @@ jobs:
           if [[ "${{ steps.check_status.outputs.interface_config_changed }}" == "true" ]]; then
             changed_files+="interface_config "
           fi
+          if [[ "${{ steps.check_status.outputs.interface_import_changed }}" == "true" ]]; then
+            changed_files+="interface_import "
+          fi
           if [[ "${{ steps.check_status.outputs.pipeline_changed }}" == "true" ]]; then
             changed_files+="pipeline "
           fi
-          # 去除末尾空格
           changed_files=$(echo "$changed_files" | xargs)
           git commit -m "chore: update $changed_files schema files from MaaFramework - $timestamp UTC"
           git push

@@ -8,15 +8,23 @@ on:
       - "**"
     paths:
       - ".github/workflows/install.yml"
-      - "assets/**"
-      - "**.py"
+      - "tools/ci/install.py"
+      - "agent/**"
+      - "resource/**"
+      - "tasks/**"
+      - "interface.json"
+      - "requirements.txt"
   pull_request:
     branches:
       - "**"
     paths:
       - ".github/workflows/install.yml"
-      - "assets/**"
-      - "**.py"
+      - "tools/ci/install.py"
+      - "agent/**"
+      - "resource/**"
+      - "tasks/**"
+      - "interface.json"
+      - "requirements.txt"
   workflow_dispatch:
 
 jobs:
@@ -32,7 +40,7 @@ jobs:
           fetch-depth: 0
 
       - name: Generate a changelog
-        uses: orhun/git-cliff-action@v4.8.0
+        uses: orhun/git-cliff-action@v4
         id: git-cliff
         with:
           config: cliff.toml
@@ -121,7 +129,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
-          python-version: '3.12'
+          python-version: "3.12"
 
       - name: Install
         shell: bash
@@ -129,10 +137,10 @@ jobs:
           python -m pip install pyinstaller
           python -m pip install -r requirements.txt
           python -m pip install json-with-comments
-          python ./install.py ${{ needs.meta.outputs.tag }}
+          python ./tools/ci/install.py ${{ needs.meta.outputs.tag }}
 
       - name: Download MFW
-        uses: robinraju/release-downloader@v1
+        uses: robinraju/release-downloader@v1.13
         with:
           repository: overflow65537/MFW-PyQt6
           fileName: "MFW-PyQt6-${{ matrix.platform }}-${{ matrix.arch }}*"
@@ -185,7 +193,7 @@ jobs:
             echo "⚠️ No MFW.exe under install/; icon step had nothing to patch."
           fi
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: MSBA-${{ matrix.platform }}-${{ matrix.arch }}
           path: "install"
@@ -195,7 +203,7 @@ jobs:
     needs: [meta, build, changelog]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v7
         with:
           path: assets
 
@@ -212,7 +220,7 @@ jobs:
             fi
           done
 
-      - uses: softprops/action-gh-release@v2.2.2
+      - uses: softprops/action-gh-release@v3
         with:
           files: assets/*
           tag_name: ${{ needs.meta.outputs.tag }}

@@ -1,6 +1,6 @@
 ---
 name: pipeline-guide
-description: MAA_SnowBreak Pipeline JSON 编写指南。基于 MaaFramework Pipeline 协议，提供节点命名、识别算法、动作类型、流程控制等编码规范；自定义识别/动作以 Python（assets/MSBAcustom）为准。在编写、修改或审查 Pipeline JSON、设计节点流程、使用 TemplateMatch/OCR/Custom 识别或 Click/Swipe 动作时使用。
+description: MAA_SnowBreak Pipeline JSON 编写指南。基于 MaaFramework Pipeline 协议，提供节点命名、识别算法、动作类型、流程控制等编码规范；自定义识别/动作以 Python（agent/）为准。在编写、修改或审查 Pipeline JSON、设计节点流程、使用 TemplateMatch/OCR/Custom 识别或 Click/Swipe 动作时使用。
 ---
 
 # MAA_SnowBreak Pipeline 编写指南
@@ -116,10 +116,10 @@ description: MAA_SnowBreak Pipeline JSON 编写指南。基于 MaaFramework Pipe
 
 本仓库自定义识别走 **Python**，不使用其他语言实现的识别服务。
 
-1. **`custom.json`（配置文件方案）**：`maapicli` 等入口会按 `assets/MSBAcustom/custom.json` 动态加载模块；条目包含 `type: "recognition"`、`class`、`file_path`。
-2. **`Agent_file.py`（Agent 启动）**：通过 `assets/MSBAcustom/main.py` 启动 Agent 时，需在 **`Agent_file.py`** 中用 `@AgentServer.custom_recognition("名称")` 包装实现类，名称应与 Pipeline、`custom.json` **一致**。
+1. **`custom.json`（配置文件方案）**：`maapicli` 等入口会按 `agent/custom.json` 动态加载模块；条目包含 `type: "recognition"`、`class`、`file_path`。
+2. **`Agent_file.py`（Agent 启动）**：通过 `agent/main.py` 启动 Agent 时，需在 **`Agent_file.py`** 中用 `@AgentServer.custom_recognition("名称")` 包装实现类，名称应与 Pipeline、`custom.json` **一致**。
 
-实现类需继承 `maa.custom_recognition.CustomRecognition`（见 `assets/MSBAcustom/Recognition/` 下示例）。
+实现类需继承 `maa.custom_recognition.CustomRecognition`（见 `agent/Recognition/` 下示例）。
 
 无额外参数时可直接写注册名：
 
@@ -214,8 +214,8 @@ description: MAA_SnowBreak Pipeline JSON 编写指南。基于 MaaFramework Pipe
 
 ## 可复用逻辑与本仓库资源
 
-- 编写前先浏览 **`assets/resource/base/pipeline/`** 下已有任务 JSONC，复用通用片段（如启动、关闭应用、通用 OCR 按钮名等），避免重复造轮子。
-- 已注册的自定义能力以 **`assets/MSBAcustom/custom.json`** 与 **`assets/MSBAcustom/Agent_file.py`** 为准（二者名称需对齐），Pipeline 中仅使用这些注册名。
+- 编写前先浏览 **`resource/base/pipeline/`** 下已有任务 JSONC，复用通用片段（如启动、关闭应用、通用 OCR 按钮名等），避免重复造轮子。
+- 已注册的自定义能力以 **`agent/custom.json`** 与 **`agent/Agent_file.py`** 为准（二者名称需对齐），Pipeline 中仅使用这些注册名。
 
 ## 典型模式
 
@@ -267,7 +267,7 @@ description: MAA_SnowBreak Pipeline JSON 编写指南。基于 MaaFramework Pipe
 
 ## 审查清单
 
-- [ ] 字段名拼写正确、类型合法（可对照 `deps/tools/pipeline.schema.json`）
+- [ ] 字段名拼写正确、类型合法（可对照 `tools/schema/pipeline.schema.json`）
 - [ ] 无不必要的 `pre_delay` / `post_delay` / `timeout`
 - [ ] `next` 列表覆盖所有可能画面，含弹窗/加载/异常
 - [ ] 每次点击后有识别验证，不假设操作后状态
@@ -280,6 +280,6 @@ description: MAA_SnowBreak Pipeline JSON 编写指南。基于 MaaFramework Pipe
 ## 参考
 
 - Pipeline 协议：[PipelineProtocol](https://github.com/MaaXYZ/MaaFramework/blob/main/docs/en_us/3.1-PipelineProtocol.md)
-- 本仓库 schema：`deps/tools/pipeline.schema.json`、`deps/tools/custom.recognition.schema.json`、`deps/tools/custom.action.schema.json`
-- 自定义扩展目录：`assets/MSBAcustom/`
+- 本仓库 schema：`tools/schema/pipeline.schema.json`、`tools/schema/custom.recognition.schema.json`、`tools/schema/custom.action.schema.json`
+- 自定义扩展目录：`agent/`
 - 项目说明：`README.md`
