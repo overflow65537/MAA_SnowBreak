@@ -4,21 +4,10 @@
             "name": "商店",
             "default_check": true,
             "entry": "商店",
-            "description": "<p>购买物品</p><p>速通周期:每天5点后刷新一次</p>",
+            "description": "<p>购买物品</p>",
             "option": [
                 "购买物品"
             ],
-            "speedrun": {
-                "mode": "daily",
-                "trigger": {
-                    "daily": {
-                        "hour_start": 5
-                    }
-                },
-                "run": {
-                    "count": 1
-                }
-            },
             "group": [
                 "daily"
             ]
@@ -901,7 +890,8 @@
                         }
                     }
                 }
-            ]
+            ],
+            "type": "select"
         }
     }
 }

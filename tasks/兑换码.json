@@ -4,7 +4,7 @@
             "name": "兑换码",
             "default_check": true,
             "entry": "兑换码",
-            "description": "<p>自动使用兑换码。</p><p>不建议使用速通模式</p>",
+            "description": "<p>自动使用兑换码。</p>",
             "group": [
                 "daily"
             ]

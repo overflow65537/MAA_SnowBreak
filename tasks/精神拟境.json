@@ -4,22 +4,7 @@
             "name": "精神拟境",
             "default_check": true,
             "entry": "精神拟境",
-            "description": "<p>精神拟境</p><p>速通周期:每周二5点后刷新2次,任务间隔24小时</p>",
-            "speedrun": {
-                "mode": "weekly",
-                "trigger": {
-                    "weekly": {
-                        "weekday": [
-                            2
-                        ],
-                        "hour_start": 5
-                    },
-                    "run": {
-                        "count": 2,
-                        "min_interval_hours": 24
-                    }
-                }
-            },
+            "description": "<p>精神拟境</p>",
             "group": [
                 "daily"
             ]

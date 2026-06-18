@@ -4,7 +4,7 @@
             "name": "刷天启碎片",
             "default_check": true,
             "entry": "刷碎片",
-            "description": "<p>刷天启碎片</p><p>速通周期:每天5点后刷新一次</p>",
+            "description": "<p>刷天启碎片</p>",
             "pipeline_override": {
                 "速战MAX": {
                     "next": [
@@ -21,17 +21,6 @@
             "option": [
                 "选择人物"
             ],
-            "speedrun": {
-                "mode": "daily",
-                "trigger": {
-                    "daily": {
-                        "hour_start": 5
-                    }
-                },
-                "run": {
-                    "count": 1
-                }
-            },
             "group": [
                 "daily"
             ]
@@ -868,7 +857,8 @@
                         }
                     }
                 }
-            ]
+            ],
+            "type": "select"
         },
         "输入角色名": {
             "label": "请输角色名",

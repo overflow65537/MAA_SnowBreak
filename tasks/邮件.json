@@ -4,18 +4,7 @@
             "name": "邮件",
             "default_check": true,
             "entry": "邮件",
-            "description": "<p>领取邮件</p><p>速通周期:每天5点后刷新一次</p>",
-            "speedrun": {
-                "mode": "daily",
-                "trigger": {
-                    "daily": {
-                        "hour_start": 5
-                    }
-                },
-                "run": {
-                    "count": 1
-                }
-            },
+            "description": "<p>领取邮件</p>",
             "group": [
                 "daily"
             ]

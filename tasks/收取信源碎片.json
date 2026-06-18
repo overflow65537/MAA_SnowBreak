@@ -4,18 +4,7 @@
             "name": "收取信源碎片",
             "default_check": true,
             "entry": "收取碎片",
-            "description": "<p>收取信源碎片</p><p>速通周期:每天5点后刷新一次</p>",
-            "speedrun": {
-                "mode": "daily",
-                "trigger": {
-                    "daily": {
-                        "hour_start": 5
-                    }
-                },
-                "run": {
-                    "count": 1
-                }
-            },
+            "description": "<p>收取信源碎片</p>",
             "group": [
                 "daily"
             ]

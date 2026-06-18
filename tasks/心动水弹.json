@@ -40,7 +40,8 @@
                     "name": "练习",
                     "pipeline_override": {}
                 }
-            ]
+            ],
+            "type": "select"
         }
     }
 }
