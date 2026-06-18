@@ -6,6 +6,7 @@
             "[JumpBack]账号等级提升",
             "[JumpBack]关闭奖励通知",
             "[JumpBack]打开任务",
+            "[JumpBack]打开任务_精确",
             "返回主菜单_任务"
         ]
     },
@@ -184,6 +185,24 @@
                     130
                 ],
                 "expected": "^任务$"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "打开任务_精确": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    898,
+                    192,
+                    41,
+                    27
+                ],
+                "expected": "^任务$",
+                "only_rec": true
             }
         },
         "action": {
