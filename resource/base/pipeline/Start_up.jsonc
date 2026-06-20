@@ -12,8 +12,34 @@
             "[JumpBack]账号等级提升",
             "[JumpBack]意外点击_公告",
             "[JumpBack]下载资源包",
+            "[JumpBack]关闭活动日历",
             "[JumpBack]启动应用"
         ]
+    },
+    "关闭活动日历": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    96,
+                    82,
+                    1139,
+                    193
+                ],
+                "expected": [
+                    "//d+月"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    10,
+                    10
+                ]
+            }
+        }
     },
     "点击空白处关闭": {
         "recognition": {
@@ -140,12 +166,12 @@
         "recognition": {
             "type": "OCR",
             "param": {
-                  "roi": [
-                      539,
-                      569,
-                      204,
-                      137
-                  ],
+                "roi": [
+                    539,
+                    569,
+                    204,
+                    137
+                ],
                 "expected": "开始游戏"
             }
         },
