@@ -649,7 +649,6 @@
         ]
     },
     "活动关闭": {
-        "max_hit": 1,
         "focus": {
             "Node.Recognition.Succeeded": "活动已关闭"
         },
