@@ -627,6 +627,7 @@
         ]
     },
     "进入活动": {
+        "max_hit": 10,
         "post_wait_freezes": {
             "time": 1000,
             "timeout": 5000
