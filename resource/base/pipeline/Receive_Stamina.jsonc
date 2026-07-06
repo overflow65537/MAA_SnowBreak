@@ -117,7 +117,37 @@
             "type": "Click"
         },
         "next": [
-            "购买体力"
+            "购买体力",
+            "体力售罄"
+        ]
+    },
+    "体力售罄": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    0,
+                    0,
+                    0,
+                    0
+                ],
+                "method": 40,
+                "lower": [
+                    176,
+                    129,
+                    147
+                ],
+                "upper": [
+                    178,
+                    201,
+                    200
+                ],
+                "count": 1500,
+                "connected": true
+            }
+        },
+        "next":[
+            "返回主菜单"
         ]
     },
     "购买体力": {
