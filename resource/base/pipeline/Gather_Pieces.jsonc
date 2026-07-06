@@ -4,8 +4,25 @@
             "一键收取碎片",
             "[JumpBack]点击剩余碎片",
             "[JumpBack]点击地图",
-            "[JumpBack]打开基地"
+            "[JumpBack]打开基地",
+            "[JumpBack]基地加载"
         ]
+    },
+    "基地加载": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1059,
+                    626,
+                    205,
+                    94
+                ],
+                "expected": [
+                    "\\%"
+                ]
+            }
+        }
     },
     "打开基地": {
         "post_delay": 2000,
@@ -92,7 +109,8 @@
             "检查主界面",
             "返回主菜单_基地",
             "[JumpBack]返回主菜单_action",
-            "[JumpBack]点击地图"
+            "[JumpBack]点击地图",
+            "[JumpBack]基地加载"
         ]
     },
     "点击地图": {
