@@ -1,5 +1,10 @@
 {
     "升级枪械": {
+        "max_hit": 3,
+        "on_error": [
+            "升级枪械",
+            "空任务"
+        ],
         "pre_delay": 0,
         "pre_wait_freezes": 100,
         "post_delay": 0,
@@ -10,6 +15,11 @@
         ]
     },
     "开始升级枪械": {
+        "max_hit": 3,
+        "on_error": [
+            "开始升级枪械",
+            "空任务"
+        ],
         "pre_delay": 0,
         "pre_wait_freezes": 100,
         "post_delay": 0,
@@ -35,6 +45,11 @@
         ]
     },
     "排序": {
+        "max_hit": 3,
+        "on_error": [
+            "排序",
+            "空任务"
+        ],
         "pre_delay": 0,
         "pre_wait_freezes": 100,
         "post_delay": 0,
@@ -62,6 +77,11 @@
         ]
     },
     "排序2": {
+        "max_hit": 3,
+        "on_error": [
+            "排序2",
+            "空任务"
+        ],
         "post_wait_freezes": 100,
         "pre_delay": 50,
         "post_delay": 0,
@@ -88,6 +108,11 @@
         ]
     },
     "排序3": {
+        "max_hit": 3,
+        "on_error": [
+            "排序3",
+            "空任务"
+        ],
         "pre_delay": 50,
         "pre_wait_freezes": 100,
         "post_delay": 0,
@@ -112,6 +137,11 @@
         ]
     },
     "确定排序": {
+        "max_hit": 3,
+        "on_error": [
+            "确定排序",
+            "空任务"
+        ],
         "pre_delay": 200,
         "post_delay": 0,
         "rate_limit": 0,
@@ -136,6 +166,11 @@
         ]
     },
     "选择枪械": {
+        "max_hit": 3,
+        "on_error": [
+            "选择枪械",
+            "空任务"
+        ],
         "pre_delay": 0,
         "pre_wait_freezes": 100,
         "post_delay": 0,
@@ -164,6 +199,11 @@
         ]
     },
     "武器等级已满": {
+        "max_hit": 3,
+        "on_error": [
+            "武器等级已满",
+            "空任务"
+        ],
         "pre_delay": 0,
         "pre_wait_freezes": 100,
         "post_delay": 0,
@@ -188,6 +228,11 @@
         ]
     },
     "枪械培养": {
+        "max_hit": 3,
+        "on_error": [
+            "枪械培养",
+            "空任务"
+        ],
         "pre_delay": 0,
         "pre_wait_freezes": 100,
         "post_delay": 0,
@@ -212,6 +257,11 @@
         ]
     },
     "升级": {
+        "max_hit": 3,
+        "on_error": [
+            "升级",
+            "空任务"
+        ],
         "pre_delay": 0,
         "pre_wait_freezes": 100,
         "post_delay": 0,
@@ -236,6 +286,11 @@
         ]
     },
     "点击+": {
+        "max_hit": 3,
+        "on_error": [
+            "点击+",
+            "空任务"
+        ],
         "pre_delay": 0,
         "pre_wait_freezes": 100,
         "post_delay": 0,
@@ -262,6 +317,11 @@
         ]
     },
     "选择材料": {
+        "max_hit": 3,
+        "on_error": [
+            "选择材料",
+            "空任务"
+        ],
         "pre_delay": 0,
         "pre_wait_freezes": 100,
         "post_delay": 0,
@@ -292,6 +352,11 @@
         ]
     },
     "检查升级": {
+        "max_hit": 3,
+        "on_error": [
+            "检查升级",
+            "空任务"
+        ],
         "pre_delay": 0,
         "pre_wait_freezes": 100,
         "post_delay": 0,
@@ -325,6 +390,11 @@
         ]
     },
     "点击升级": {
+        "max_hit": 3,
+        "on_error": [
+            "点击升级",
+            "空任务"
+        ],
         "pre_delay": 0,
         "pre_wait_freezes": 100,
         "post_delay": 0,
@@ -349,6 +419,11 @@
         ]
     },
     "等级提升": {
+        "max_hit": 3,
+        "on_error": [
+            "等级提升",
+            "空任务"
+        ],
         "pre_delay": 0,
         "pre_wait_freezes": 100,
         "post_delay": 0,
