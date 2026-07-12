@@ -184,7 +184,7 @@
 
 ### 开发者
 
-感谢以下开发者对 MAA_SnowBreak 作出的贡献：
+感谢以下开发者对 MAA_SnowBreak 作出的贡献（[AUTHORS.md](AUTHORS.md)）：
 
 <a href="https://github.com/overflow65537/MAA_SnowBreak/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=overflow65537/MAA_SnowBreak&max=1000" alt="Contributors to MAA_SnowBreak"/>
