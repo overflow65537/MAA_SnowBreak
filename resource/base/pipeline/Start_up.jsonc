@@ -13,6 +13,7 @@
             "[JumpBack]意外点击_公告",
             "[JumpBack]下载资源包",
             "[JumpBack]关闭活动日历",
+            "[JumpBack]关闭活动日历2",
             "[JumpBack]启动应用"
         ]
     },
@@ -38,6 +39,84 @@
                     10,
                     10
                 ]
+            }
+        }
+    },
+    "关闭活动日历2": {
+        "recognition": {
+            "type": "And",
+            "param": {
+                "all_of": [
+                    "识别时间背景颜色",
+                    "识别时间文字颜色",
+                    "识别时间"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    10,
+                    10
+                ]
+            }
+        }
+    },
+    "识别时间": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": "识别时间文字颜色",
+                "only_rec": true,
+                "expected": [
+                    "今日\\s*\\d{1,2}/\\d{1,2}\\s*周[一二三四五六日]"
+                ]
+            }
+        }
+    },
+    "识别时间文字颜色": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": "识别时间背景颜色",
+                "lower": [
+                    120,
+                    10,
+                    255
+                ],
+                "upper": [
+                    120,
+                    53,
+                    255
+                ],
+                "count": 10
+            }
+        }
+    },
+    "识别时间背景颜色": {
+        "recognition": {
+            "type": "ColorMatch",
+            "param": {
+                "roi": [
+                    0,
+                    0,
+                    645,
+                    325
+                ],
+                "method": 40,
+                "lower": [
+                    120,
+                    144,
+                    255
+                ],
+                "upper": [
+                    120,
+                    144,
+                    255
+                ],
+                "count": 1000,
+                "connected": true
             }
         }
     },
